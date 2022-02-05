@@ -1,0 +1,14 @@
+/*
+EXPORT CSV FILES
+*/
+
+
+
+SELECT car_id ,name ,price 
+FROM CAR 
+WHERE price BETWEEN 2000 and 10000
+INTO OUTFILE '/home/csvfiles/CAR.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
