@@ -5,9 +5,10 @@ NULL VALUES :
 2)	Null value is not equal to zero or space or other null values.
 
 */
+use mydb;
 
 SELECT 
 * 
 FROM 
-CAR c
+car c
 WHERE c.name IS NULL  

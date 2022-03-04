@@ -1,13 +1,13 @@
-USE mydatabase
+USE mydb
 
 
 #SELECT ALL THE COLUMNS
 SELECT * FROM stack;
-SELECT * FROM CAR c 
-SELECT stack.* FROM stack JOIN CAR  ON stack.id = CAR.car_id 
+SELECT * FROM car c;
+SELECT stack.* FROM stack JOIN car  ON stack.stack_id  = car.car_id 
 
 #SELECT BY COLUMN NAMES
-SELECT id FROM stack
+SELECT stack_id FROM stack
 
 #SELECT BY COLUMN NAMES AS ALIAS
 SELECT name AS val FROM stack;

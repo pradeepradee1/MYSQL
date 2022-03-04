@@ -1,7 +1,7 @@
-,temperature,windspeed,event
-0,32,6,Rain
-1,35,7,Sunny
-2,28,2,Snow
-3,24,7,Snow
-4,32,4,Rain
-5,31,2,Sunny
+temperature,windspeed,event
+32,6,Rain
+35,7,Sunny
+28,2,Snow
+24,7,Snow
+32,4,Rain
+31,2,Sunny

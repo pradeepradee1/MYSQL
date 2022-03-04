@@ -1,98 +1,84 @@
 #DataTypes
 
-1)  #INTEGER
+1)  #Numeric
 
-	1)	TINYINT()				-	# represents small integers
-									# signed range of -128 to 127
-									# unsigned range of 0 to 255
+	1)	TINYINT()				-	4 digits  
+									1 bytes  
+									Signed 	 	(-128 to 127)
+									Unsigned  	(0 to 255)
 	
-	2)	SMALLINT()				-	# represents integers
-									# signed range of -32768 to 32768
-									# unsigned range of 0 to 65535
+	2)	SMALLINT()				-	5 digits
+									2 bytes
+									signed 		(-32768 to 32768)
+									unsigned 	(0 to 65535) 
 	
-	3)	MEDIUMINT()				-	# represents integers
-									# signed range of -8388608 to 8388607
-									# unsigned range of 0 to 16777215
+	3)	MEDIUMINT()				-	9 digits 
+									3 bytes
+									signed 		( -8388608 to 8388607 )
+									unsigned 	( 0 to 16777215 ) 
 	
-	4)	INT() AS ALSO INTEGER 	-	# represents an integer of normal size
-									# signed (the default setting), the range spans -2147483648 to 2147483647
-									# unsigned, the range spans 0 to 4294967295
+	4)	INT() 				 	-   11 digits 	
+									4 bytes 
+									signed 		(-2147483648 to 2147483647)
+									unsigned 	(0 to 4294967295)
 	
-	5)	BIGINT()				-	# represents integers
-									# signed range of 9223372036854775808 to 9223372036854775807
-									# unsigned range of 0 to 18446744073709551615
+	5)	BIGINT()				-	20 digits
+									8 bytes
+									signed 		(9223372036854775808 to 9223372036854775807)
+									unsigned 	(0 to 18446744073709551615)
 
-	6)	BOOLEAN()				-	# Value 0 with False 
-									# Value 1 with True
 	
-	7)	FLOAT()					-	
+	6)	FLOAT(m,d)				-	default to 10,2
+									24 places for a float
 	
-	8)	DOUBLE()				-	
+	7)	DOUBLE(m,d)				-	default to 16,4
+									53 places for a double
 	
-	9)	DECIMAL()				-	
-	
-	10)	BIT()					-	#represents bit fields
 									
 
-2)	#STRING
-	1)	BINARY()				-	#represents binary byte strings
+2)	# STRINGS
+
+	1)	VARCHAR()				-	#Maximum Size Of 255 Character
 	
-	2)	VARBINARY()				-	#represents binary byte strings of variable length
+	2)	TINYTEXT()				-	#Maximum Size Of 255 Character
 	
-	3)	CHAR()					-	#represents a right-padded, fixed-length string containing spaces	
-									#M represents column length of characters in a range of 0 to 255
+	3)	TEXT()					-	#Maximum Size Of 65,535 Character
 									
-	4)	VARCHAR()				-	#represents a variable-length string
-									#M range (maximum column length) of 0 to 65535
+	4)	MEDIUMTEXT()			-	#Maximum Size Of 16,777,215 Character
 	
-	5)	TINYTEXT()				-	#represents a text column with a maximum length of 255
-									#In storage, each uses a one-byte length	
+	5)	LONGTEXT()				-	#Maximum Size Of 4GB or 4,294,967,295 Character
 	
-	6)	TEXT()					-	#represents a text column with a maximum length of 65,535
-									#In storage, each uses a two-byte length
+	6)	BINARY()				-	#Maximum Size Of 255 Character
 	
-	7)	MEDIUMTEXT()			-	#represents a text column with a maximum length of 16,777,215
-									#In storage, each uses a three-byte length
-	
-	8)	LONGTEXT()				-	#data type represents a text column with a maximum length of 4,294,967,295 OR 4 GB
-									#In storage, each uses a four-byte length
-	
-	9)	ENUM()					-	#represents a string object having only a single value from a list
-	
-	10) SET()					-	#represents a string object having zero or more values from a list
+	7)	VARBINARY()				-	#Maximum Size Of 255 Character
 	
 
-	
-3)	#LOB(LARGE OBJECT)			-	#It is used to store higher volumes of data and max size is 4 GB.
-	
-	1)	TINYBLOB()				-	#epresents a blob column with a maximum length of 255
-									#each uses a one-byte length
 
-	2)	BLOB()					-	#represents a blob column with a maximum length of 65,535
-									#each uses a two-byte length
+
+3)	#LOB(LARGE OBJECT)			-	#It is used to store files , picures and large voloume of data
 	
-	3)	MEDIUMBLOB()			-	#epresents a blob column with a maximum length of 16,777,215
-									#each uses a three-byte length
-	
-	4)	LONGBLOB()				-	#epresents a blob column with a maximum length of 4,294,967,295
-									#each uses a four-byte length 
+	1)	TINYBLOB()				-	#Maximum Size Of 255 bytes 
+									
+	2)	BLOB()					-	#Maximum Size Of 65,535 bytes
+									
+	3)	MEDIUMBLOB()			-	#Maximum Size Of 16,777,215 bytes
+									
+	4)	LONGBLOB()				-	#Maximum Size Of 4gb or 4,294,967,295 Character
+									
 
 
 4) 	#DATATIME
 
-	1)	DATE()					-	#represents 9999-12-31
-	2)	TIME()					-	#represents 838:59:59.999999
-	3)	DATETIME()				-	#represents 1000-01-01 00:00:00.000000
-	4)	TIMESTAMP()				-	#represents a timestamp of the YYYY-MM-DD HH:MM:DD
-	5)	YEAR()					-	#represents a year in 4-digit format of 1901
-
-
-
-
+	1)	DATE()					-	#represents yyyy-mm-dd
+	
+	2)	TIME()					-	#represents HH:MM:SS
+	
+	3)	DATETIME()				-	#represents yyyy-mm-dd hh:mm:ss
+	
+	4)	TIMESTAMP()				-	#represents YYYY-MM-DD HH:MM:DD
+	
+	5)	YEAR()					-	#represents 4-digit (1901)
 	
 	
 	
-	
-
-
 

@@ -3,11 +3,12 @@ EXPORT CSV FILES
 */
 
 
+use mydb;
 
 SELECT car_id ,name ,price 
-FROM CAR 
+FROM car 
 WHERE price BETWEEN 2000 and 10000
-INTO OUTFILE '/home/csvfiles/CAR.csv'
+INTO OUTFILE '/tmp/CAR.csv'
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n';

@@ -5,15 +5,15 @@ SPECIAL OPERATORS
 	IS NULL
 	LIKE
 */
-USE mydatabase
+USE mydb
 # 1)
-SELECT * FROM CAR c WHERE c.price BETWEEN 5000 AND 7000
+SELECT * FROM car c WHERE c.price BETWEEN 0 AND 301
 
 # 2)
-SELECT * FROM CAR c WHERE c.price IN (5000,7000)
+SELECT * FROM car c WHERE c.price IN (300,1)
 
 # 3)
-SELECT * FROM CAR2 c WHERE c.`group` IS NULL  
+SELECT * FROM car c WHERE c.name  IS NULL  
 
 
 # 4)
@@ -22,9 +22,14 @@ SELECT * FROM CAR2 c WHERE c.`group` IS NULL
 	%  represents any number of chars
 	
  */
-SELECT * FROM CAR c WHERE c.name LIKE '%A4%'
-SELECT * FROM CAR c WHERE c.name LIKE '_____A2'
-SELECT * FROM CAR c WHERE c.name LIKE 'A%A4'
+SELECT * FROM car c WHERE c.name LIKE '%rt%'
+
+
+SELECT * FROM car c WHERE c.name LIKE '%r%'
+
+SELECT * FROM car c WHERE c.name LIKE '____nd'
+
+SELECT * FROM car c WHERE c.name LIKE 'f%rst'
 
 
 
@@ -37,15 +42,15 @@ NOT
  */
 
 # 1)
-SELECT * FROM CAR c WHERE c.price NOT BETWEEN 5000 AND 7000
+SELECT * FROM car c WHERE c.price NOT BETWEEN 1 AND 500
 
 # 2)
-SELECT * FROM CAR c WHERE c.price NOT IN (5000,7000)
+SELECT * FROM car c WHERE c.price NOT IN (1,300)
 
 # 3)
-SELECT * FROM CAR c WHERE c.name NOT LIKE '_____A2'
+SELECT * FROM car c WHERE c.name NOT LIKE '____nd'
 
 # 4)
-SELECT * FROM CAR2 c WHERE c.`group` IS NOT NULL
+SELECT * FROM car c WHERE c.name  IS NOT NULL
 
 

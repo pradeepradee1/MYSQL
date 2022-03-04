@@ -4,9 +4,10 @@ ASSIGNMENTS
 */
 
 
-USE mydatabase
-SELECT * FROM CAR c
-WHERE c.name = 'AUDI A2'
+USE mydb
+
+SELECT * FROM car c
+WHERE c.name = 'first'
 
 
 /*
@@ -15,8 +16,11 @@ NOT
 	<>
  */
 
-SELECT * FROM CAR c
-WHERE c.name != 'AUDI A2'
+SELECT * FROM car c
+WHERE c.name != 'first'
 
-SELECT * FROM CAR c
-WHERE c.name <> 'AUDI A2'
+
+SELECT * FROM car c
+WHERE c.name <> 'first'
+
+

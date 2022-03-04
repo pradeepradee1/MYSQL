@@ -1,5 +1,6 @@
-use mydatabase;
+use mydb;
 
-desc CAR ;
+desc firsttable;
 (OR)
-describe CAR;
+describe firsttable;
+

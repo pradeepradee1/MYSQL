@@ -1,4 +1,5 @@
 #SCHEMAS
+#Here we can see DB ,command status(sleeping or process) ,memory used status, etc
 
 SELECT 
 * 
