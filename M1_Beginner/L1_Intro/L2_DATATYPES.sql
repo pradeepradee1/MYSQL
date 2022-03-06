@@ -28,7 +28,7 @@
 									unsigned 	(0 to 18446744073709551615)
 
 	
-	6)	FLOAT(m,d)				-	default to 10,2
+	6)	FLOAT(m,d)Precision,Scale-	default to 10,2
 									24 places for a float
 	
 	7)	DOUBLE(m,d)				-	default to 16,4
@@ -36,7 +36,7 @@
 	
 									
 
-2)	# STRINGS
+2)	# Strings
 
 	1)	VARCHAR()				-	#Maximum Size Of 255 Character
 	
@@ -51,11 +51,12 @@
 	6)	BINARY()				-	#Maximum Size Of 255 Character
 	
 	7)	VARBINARY()				-	#Maximum Size Of 255 Character
-	
 
 
 
-3)	#LOB(LARGE OBJECT)			-	#It is used to store files , picures and large voloume of data
+
+
+3)	#BLOB(Binary Large Object Binary)	-	#It is used to store files , picures and large voloume of data
 	
 	1)	TINYBLOB()				-	#Maximum Size Of 255 bytes 
 									
@@ -75,7 +76,7 @@
 	
 	3)	DATETIME()				-	#represents yyyy-mm-dd hh:mm:ss
 	
-	4)	TIMESTAMP()				-	#represents YYYY-MM-DD HH:MM:DD
+	4)	TIMESTAMP()				-	#represents YYYY-MM-DD HH:MM:DD 'UTC
 	
 	5)	YEAR()					-	#represents 4-digit (1901)
 	

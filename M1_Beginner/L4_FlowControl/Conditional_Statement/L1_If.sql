@@ -6,7 +6,7 @@ CONDITIONAL_STATEMENTS
 
 */
 
-#2) IF
+#1) IF
 
 use mydb
 

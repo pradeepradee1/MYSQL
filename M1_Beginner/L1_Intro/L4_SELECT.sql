@@ -1,3 +1,6 @@
+#Clause
+#Select
+
 USE mydb
 
 
