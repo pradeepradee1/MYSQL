@@ -2,27 +2,27 @@
 
 1)  #Numeric
 
-	1)	TINYINT()				-	4 digits  
+	1)	TINYINT()				-	 
 									1 bytes  
 									Signed 	 	(-128 to 127)
 									Unsigned  	(0 to 255)
 	
-	2)	SMALLINT()				-	5 digits
+	2)	SMALLINT()				-	
 									2 bytes
 									signed 		(-32768 to 32768)
 									unsigned 	(0 to 65535) 
 	
-	3)	MEDIUMINT()				-	9 digits 
+	3)	MEDIUMINT()				-	
 									3 bytes
 									signed 		( -8388608 to 8388607 )
 									unsigned 	( 0 to 16777215 ) 
 	
-	4)	INT() 				 	-   11 digits 	
+	4)	INT() 				 	-   
 									4 bytes 
 									signed 		(-2147483648 to 2147483647)
 									unsigned 	(0 to 4294967295)
 	
-	5)	BIGINT()				-	20 digits
+	5)	BIGINT()				-	
 									8 bytes
 									signed 		(9223372036854775808 to 9223372036854775807)
 									unsigned 	(0 to 18446744073709551615)
