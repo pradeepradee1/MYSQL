@@ -28,8 +28,8 @@
 									unsigned 	(0 to 18446744073709551615)
 
 	
-	6)	FLOAT(m,d)Precision,Scale-	default to 10,2
-									24 places for a float
+	6)  FLOAT(m,d)				-	default to 10,2
+	    Precision,Scale				24 places for a float
 	
 	7)	DOUBLE(m,d)				-	default to 16,4
 									53 places for a double
@@ -38,19 +38,31 @@
 
 2)	# Strings
 
-	1)	VARCHAR()				-	#Maximum Size Of 255 Character
+	1)	CHAR()					-	#Store the non-binary strings
+									#Maximum Size Of 255 Character	
+
+	2)	VARCHAR()				-	#Store the non-binary strings
+									#Maximum Size Of 255 Character
 	
-	2)	TINYTEXT()				-	#Maximum Size Of 255 Character
+	3)	BINARY()				-	#Store the binary strings
+									#Maximum Size Of 255 Character
 	
-	3)	TEXT()					-	#Maximum Size Of 65,535 Character
+	4)	VARBINARY()				-	#Store the binary strings
+									#Maximum Size Of 255 Character	
+	
+	5)	TINYTEXT()				-	#Store longer strings of text
+									#Maximum Size Of 255 Character
+	
+	6)	TEXT()					-	#Store longer strings of text
+									#Maximum Size Of 65,535 Character
 									
-	4)	MEDIUMTEXT()			-	#Maximum Size Of 16,777,215 Character
+	7)	MEDIUMTEXT()			-	#Store longer strings of text
+									#Maximum Size Of 16,777,215 Character
 	
-	5)	LONGTEXT()				-	#Maximum Size Of 4GB or 4,294,967,295 Character
+	8)	LONGTEXT()				-	#Store longer strings of text
+									#Maximum Size Of 4GB or 4,294,967,295 Character
 	
-	6)	BINARY()				-	#Maximum Size Of 255 Character
-	
-	7)	VARBINARY()				-	#Maximum Size Of 255 Character
+
 
 
 
@@ -79,7 +91,12 @@
 	4)	TIMESTAMP()				-	#represents YYYY-MM-DD HH:MM:DD 'UTC
 	
 	5)	YEAR()					-	#represents 4-digit (1901)
-	
-	
-	
 
+	
+	
+5) #JSON
+	
+	1) JSON						-	#represents the JSON Data Type 
+	
+	
+	

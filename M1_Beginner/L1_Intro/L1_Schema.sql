@@ -1,4 +1,5 @@
 #SCHEMAS
+#show all active & sleeping queries
 #Here we can see DB ,command status(sleeping or process) ,memory used status, etc
 
 SELECT 
@@ -24,6 +25,8 @@ SELECT
 FROM 
 information_schema.ROUTINES 
 WHERE ROUTINE_DEFINITION LIKE '%word%';
+
+
 
 
 

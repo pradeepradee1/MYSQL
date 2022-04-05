@@ -5,7 +5,7 @@ Grant a Database For New User
 
 
 #Create User And Password For Database
-use Baseball 
+use Baseball;
 
 CREATE USER 'John123'@'%' IDENTIFIED BY 'password123';
 CREATE USER 'John456'@'%' IDENTIFIED BY 'somePassword';

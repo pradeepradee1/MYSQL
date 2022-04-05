@@ -16,6 +16,328 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `Account`
+--
+
+DROP TABLE IF EXISTS `Account`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Account` (
+  `AccountID` int(10) unsigned NOT NULL,
+  `AccountNo` int(10) unsigned NOT NULL,
+  `PersonID` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`AccountID`),
+  KEY `PersonID` (`PersonID`),
+  CONSTRAINT `Account_ibfk_1` FOREIGN KEY (`PersonID`) REFERENCES `Person` (`PersonID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Account`
+--
+
+LOCK TABLES `Account` WRITE;
+/*!40000 ALTER TABLE `Account` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Account` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `BC_NF`
+--
+
+DROP TABLE IF EXISTS `BC_NF`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `BC_NF` (
+  `StudentID` int(11) DEFAULT NULL,
+  `SubjectName` varchar(80) DEFAULT NULL,
+  `Profesor` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BC_NF`
+--
+
+LOCK TABLES `BC_NF` WRITE;
+/*!40000 ALTER TABLE `BC_NF` DISABLE KEYS */;
+INSERT INTO `BC_NF` VALUES (10,'SQL','Prof.SQL'),(20,'Python','Prof.Python'),(30,'Java','Prof.Java'),(50,'SQL','Prof.SQL');
+/*!40000 ALTER TABLE `BC_NF` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `BC_NF_1`
+--
+
+DROP TABLE IF EXISTS `BC_NF_1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `BC_NF_1` (
+  `StudentID` int(11) DEFAULT NULL,
+  `ProfesorID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BC_NF_1`
+--
+
+LOCK TABLES `BC_NF_1` WRITE;
+/*!40000 ALTER TABLE `BC_NF_1` DISABLE KEYS */;
+INSERT INTO `BC_NF_1` VALUES (10,100),(20,101),(30,102),(50,100);
+/*!40000 ALTER TABLE `BC_NF_1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `BC_NF_2`
+--
+
+DROP TABLE IF EXISTS `BC_NF_2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `BC_NF_2` (
+  `ProfesorID` int(11) DEFAULT NULL,
+  `Subject` varchar(10) DEFAULT NULL,
+  `Profesor` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BC_NF_2`
+--
+
+LOCK TABLES `BC_NF_2` WRITE;
+/*!40000 ALTER TABLE `BC_NF_2` DISABLE KEYS */;
+INSERT INTO `BC_NF_2` VALUES (10,'SQL','Prof_SQL'),(20,'Java','Prof_Java'),(30,'python','Prof_python'),(50,'SQL','Prof_SQL');
+/*!40000 ALTER TABLE `BC_NF_2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Burn`
+--
+
+DROP TABLE IF EXISTS `Burn`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Burn` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(99) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Burn`
+--
+
+LOCK TABLES `Burn` WRITE;
+/*!40000 ALTER TABLE `Burn` DISABLE KEYS */;
+INSERT INTO `Burn` VALUES (1,'first'),(2,'second'),(4,'third');
+/*!40000 ALTER TABLE `Burn` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CUST_BR1`
+--
+
+DROP TABLE IF EXISTS `CUST_BR1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CUST_BR1` (
+  `CID` char(3) DEFAULT NULL,
+  `CNAME` varchar(20) DEFAULT NULL,
+  `MOBILE` int(10) DEFAULT NULL,
+  `CITY` varchar(20) DEFAULT NULL,
+  `GENDER` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CUST_BR1`
+--
+
+LOCK TABLES `CUST_BR1` WRITE;
+/*!40000 ALTER TABLE `CUST_BR1` DISABLE KEYS */;
+INSERT INTO `CUST_BR1` VALUES ('C1','VIJAY',1212121212,'HYD','MALE'),('C2','JOHN',1313131313,'DELHI','MALE'),('C3','SWATHI',1414141414,'HYD','FEMALE');
+/*!40000 ALTER TABLE `CUST_BR1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CUST_BR2`
+--
+
+DROP TABLE IF EXISTS `CUST_BR2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CUST_BR2` (
+  `CID` char(3) DEFAULT NULL,
+  `CNAME` varchar(20) DEFAULT NULL,
+  `MOBILE` bigint(20) DEFAULT NULL,
+  `CITY` varchar(20) DEFAULT NULL,
+  `GENDER` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CUST_BR2`
+--
+
+LOCK TABLES `CUST_BR2` WRITE;
+/*!40000 ALTER TABLE `CUST_BR2` DISABLE KEYS */;
+INSERT INTO `CUST_BR2` VALUES ('C1','KIRAN',9898989898,'HYD','MALE'),('C2','JOHN',1313131313,'DELHI','MALE'),('C3','LAKSHMI',8989898989,'DELHI','FEMALE');
+/*!40000 ALTER TABLE `CUST_BR2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CUST_BR3`
+--
+
+DROP TABLE IF EXISTS `CUST_BR3`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CUST_BR3` (
+  `CID` char(3) DEFAULT NULL,
+  `CNAME` varchar(20) DEFAULT NULL,
+  `MOBILE` bigint(20) DEFAULT NULL,
+  `CITY` varchar(20) DEFAULT NULL,
+  `GENDER` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CUST_BR3`
+--
+
+LOCK TABLES `CUST_BR3` WRITE;
+/*!40000 ALTER TABLE `CUST_BR3` DISABLE KEYS */;
+INSERT INTO `CUST_BR3` VALUES ('C1','KIRAN',9898989898,'HYD','MALE'),('C2','JOHN',1313131313,'DELHI','MALE'),('C5','VINAY',7878787878,'DELHI','MALE');
+/*!40000 ALTER TABLE `CUST_BR3` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ClonedPersons`
+--
+
+DROP TABLE IF EXISTS `ClonedPersons`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ClonedPersons` (
+  `PersonID` int(10) unsigned NOT NULL,
+  `LastName` varchar(66) NOT NULL,
+  `FirstName` varchar(66) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `City` varchar(66) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ClonedPersons`
+--
+
+LOCK TABLES `ClonedPersons` WRITE;
+/*!40000 ALTER TABLE `ClonedPersons` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ClonedPersons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `First_1NF`
+--
+
+DROP TABLE IF EXISTS `First_1NF`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `First_1NF` (
+  `EmployeeID` int(11) DEFAULT NULL,
+  `EmployeeName` varchar(80) DEFAULT NULL,
+  `PhoneNumber` bigint(20) DEFAULT NULL,
+  `Salary` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `First_1NF`
+--
+
+LOCK TABLES `First_1NF` WRITE;
+/*!40000 ALTER TABLE `First_1NF` DISABLE KEYS */;
+INSERT INTO `First_1NF` VALUES (10,'First',4444455555,60),(20,'Second',99999,20),(30,'Third',11111,10),(50,'Fourth',2222299999,30);
+/*!40000 ALTER TABLE `First_1NF` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `First_1NF_2`
+--
+
+DROP TABLE IF EXISTS `First_1NF_2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `First_1NF_2` (
+  `EmployeeID` int(11) DEFAULT NULL,
+  `EmployeeName` varchar(80) DEFAULT NULL,
+  `PhoneNumber` bigint(20) DEFAULT NULL,
+  `Salary` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `First_1NF_2`
+--
+
+LOCK TABLES `First_1NF_2` WRITE;
+/*!40000 ALTER TABLE `First_1NF_2` DISABLE KEYS */;
+INSERT INTO `First_1NF_2` VALUES (10,'First',44444,60),(10,'First',55555,60),(20,'Second',99999,20),(30,'Third',11111,10),(50,'Fourth',99999,30),(50,'Fourth',99999,30);
+/*!40000 ALTER TABLE `First_1NF_2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ModifiedPersons`
+--
+
+DROP TABLE IF EXISTS `ModifiedPersons`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ModifiedPersons` (
+  `PersonID` int(10) unsigned NOT NULL,
+  `FullName` double DEFAULT NULL,
+  PRIMARY KEY (`PersonID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ModifiedPersons`
+--
+
+LOCK TABLES `ModifiedPersons` WRITE;
+/*!40000 ALTER TABLE `ModifiedPersons` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ModifiedPersons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PER_INCR`
+--
+
+DROP TABLE IF EXISTS `PER_INCR`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PER_INCR` (
+  `INCRID` int(11) DEFAULT NULL,
+  `INCRVAL` varchar(20) DEFAULT NULL,
+  `DESCRIPTION` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PER_INCR`
+--
+
+LOCK TABLES `PER_INCR` WRITE;
+/*!40000 ALTER TABLE `PER_INCR` DISABLE KEYS */;
+INSERT INTO `PER_INCR` VALUES (101,'5%','Min INcrement'),(102,'10%','Second level INcrement'),(103,'15%','3rd level INcrement'),(104,'25%','Max level INcrement');
+/*!40000 ALTER TABLE `PER_INCR` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `PROCESS_LIST`
 --
 
@@ -40,29 +362,221 @@ LOCK TABLES `PROCESS_LIST` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Persons`
+-- Table structure for table `Person`
 --
 
-DROP TABLE IF EXISTS `Persons`;
+DROP TABLE IF EXISTS `Person`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Persons` (
-  `ID` int(11) NOT NULL,
-  `LastName` varchar(255) NOT NULL,
-  `FirstName` varchar(255) DEFAULT NULL,
-  `Age` int(11) DEFAULT NULL,
-  `City` varchar(255) DEFAULT NULL,
-  CONSTRAINT `CHK_Person` CHECK (`Age` >= 18 and `City` = 'Sandnes')
+CREATE TABLE `Person` (
+  `PersonID` int(10) unsigned NOT NULL,
+  `LastName` varchar(66) NOT NULL,
+  `FirstName` varchar(66) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `City` varchar(66) DEFAULT NULL,
+  PRIMARY KEY (`PersonID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Persons`
+-- Dumping data for table `Person`
 --
 
-LOCK TABLES `Persons` WRITE;
-/*!40000 ALTER TABLE `Persons` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Persons` ENABLE KEYS */;
+LOCK TABLES `Person` WRITE;
+/*!40000 ALTER TABLE `Person` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Person` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Second_2NF`
+--
+
+DROP TABLE IF EXISTS `Second_2NF`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Second_2NF` (
+  `EmployeeID` int(11) DEFAULT NULL,
+  `DepartmentID` int(11) DEFAULT NULL,
+  `OfficeLocation` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Second_2NF`
+--
+
+LOCK TABLES `Second_2NF` WRITE;
+/*!40000 ALTER TABLE `Second_2NF` DISABLE KEYS */;
+INSERT INTO `Second_2NF` VALUES (10,100,'pune'),(11,111,'Cheanni'),(12,123,'delhi'),(13,134,'Mumbai');
+/*!40000 ALTER TABLE `Second_2NF` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Second_2NF_1`
+--
+
+DROP TABLE IF EXISTS `Second_2NF_1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Second_2NF_1` (
+  `EmployeeID` int(11) DEFAULT NULL,
+  `DepartmentID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Second_2NF_1`
+--
+
+LOCK TABLES `Second_2NF_1` WRITE;
+/*!40000 ALTER TABLE `Second_2NF_1` DISABLE KEYS */;
+INSERT INTO `Second_2NF_1` VALUES (10,100),(11,111),(12,123),(13,134);
+/*!40000 ALTER TABLE `Second_2NF_1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Second_2NF_2`
+--
+
+DROP TABLE IF EXISTS `Second_2NF_2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Second_2NF_2` (
+  `EmployeeID` int(11) DEFAULT NULL,
+  `Office` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Second_2NF_2`
+--
+
+LOCK TABLES `Second_2NF_2` WRITE;
+/*!40000 ALTER TABLE `Second_2NF_2` DISABLE KEYS */;
+INSERT INTO `Second_2NF_2` VALUES (10,'pune'),(11,'Benguluru'),(12,'Delhi'),(13,'Chennai');
+/*!40000 ALTER TABLE `Second_2NF_2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Seond_1NF`
+--
+
+DROP TABLE IF EXISTS `Seond_1NF`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Seond_1NF` (
+  `EmployeeID` int(11) DEFAULT NULL,
+  `EmployeeName` varchar(80) DEFAULT NULL,
+  `PhoneNumber` bigint(20) DEFAULT NULL,
+  `Salary` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Seond_1NF`
+--
+
+LOCK TABLES `Seond_1NF` WRITE;
+/*!40000 ALTER TABLE `Seond_1NF` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Seond_1NF` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TestLastUpdate`
+--
+
+DROP TABLE IF EXISTS `TestLastUpdate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TestLastUpdate` (
+  `ID` int(11) DEFAULT NULL,
+  `Name` varchar(50) DEFAULT NULL,
+  `Address` varchar(50) DEFAULT NULL,
+  `LastUpdate` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Last Update';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TestLastUpdate`
+--
+
+LOCK TABLES `TestLastUpdate` WRITE;
+/*!40000 ALTER TABLE `TestLastUpdate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `TestLastUpdate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Third_NF`
+--
+
+DROP TABLE IF EXISTS `Third_NF`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Third_NF` (
+  `StudentID` int(11) DEFAULT NULL,
+  `StudentName` varchar(80) DEFAULT NULL,
+  `SubjectID` int(11) DEFAULT NULL,
+  `SubjectName` varchar(80) DEFAULT NULL,
+  `Address` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Third_NF`
+--
+
+LOCK TABLES `Third_NF` WRITE;
+/*!40000 ALTER TABLE `Third_NF` DISABLE KEYS */;
+INSERT INTO `Third_NF` VALUES (10,'A',100,'SQL','GOA'),(11,'B',101,'Python','Chennai'),(12,'C',102,'Java','Adyar'),(13,'D',103,'spark','AI');
+/*!40000 ALTER TABLE `Third_NF` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Third_NF_1`
+--
+
+DROP TABLE IF EXISTS `Third_NF_1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Third_NF_1` (
+  `StudentID` int(11) DEFAULT NULL,
+  `StudentName` varchar(80) DEFAULT NULL,
+  `SubjectID` int(11) DEFAULT NULL,
+  `Address` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Third_NF_1`
+--
+
+LOCK TABLES `Third_NF_1` WRITE;
+/*!40000 ALTER TABLE `Third_NF_1` DISABLE KEYS */;
+INSERT INTO `Third_NF_1` VALUES (10,'A',100,'GOA'),(11,'B',101,'Chennai'),(12,'C',102,'Adyar'),(13,'D',103,'AI');
+/*!40000 ALTER TABLE `Third_NF_1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Third_NF_2`
+--
+
+DROP TABLE IF EXISTS `Third_NF_2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Third_NF_2` (
+  `SubjectID` int(11) DEFAULT NULL,
+  `Subject` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Third_NF_2`
+--
+
+LOCK TABLES `Third_NF_2` WRITE;
+/*!40000 ALTER TABLE `Third_NF_2` DISABLE KEYS */;
+INSERT INTO `Third_NF_2` VALUES (100,'GOA'),(101,'Chennai'),(102,'Adyar'),(103,'AI');
+/*!40000 ALTER TABLE `Third_NF_2` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -134,7 +648,7 @@ CREATE TABLE `car` (
 
 LOCK TABLES `car` WRITE;
 /*!40000 ALTER TABLE `car` DISABLE KEYS */;
-INSERT INTO `car` VALUES (1,'first',300.00),(2,'second',300.00),(3,'second',3300.00),(4,NULL,1.00);
+INSERT INTO `car` VALUES (2,'second',300.00),(3,'second',3300.00),(4,NULL,1.00);
 /*!40000 ALTER TABLE `car` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -206,8 +720,57 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'kiran','Hyderabad'),(2,'Madhu','Hyderabad'),(3,'dinesh',NULL),(4,'john','Texas'),(1,'kiran','Hyderabad'),(2,'Madhu','Hyderabad'),(3,'dinesh',NULL),(4,'john','Texas');
+INSERT INTO `customer` VALUES (1,'kiran','Hyderabad'),(2,'Madhu','Hyderabad'),(3,'dinesh',NULL),(4,'john','Texas');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dept`
+--
+
+DROP TABLE IF EXISTS `dept`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dept` (
+  `dno` tinyint(4) DEFAULT NULL,
+  `dname` varchar(20) DEFAULT NULL,
+  `loc` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dept`
+--
+
+LOCK TABLES `dept` WRITE;
+/*!40000 ALTER TABLE `dept` DISABLE KEYS */;
+INSERT INTO `dept` VALUES (10,'Productions','Hyderabad'),(20,'Sales','Hyderabad'),(30,'Finance','Chennai');
+/*!40000 ALTER TABLE `dept` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emp`
+--
+
+DROP TABLE IF EXISTS `emp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emp` (
+  `eid` tinyint(4) DEFAULT NULL,
+  `ename` varchar(20) DEFAULT NULL,
+  `sal` int(11) DEFAULT NULL,
+  `dno` mediumint(9) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emp`
+--
+
+LOCK TABLES `emp` WRITE;
+/*!40000 ALTER TABLE `emp` DISABLE KEYS */;
+INSERT INTO `emp` VALUES (5,'C',1000,NULL),(6,'S',1300,NULL),(7,'D',2300,NULL),(8,'X',1200,NULL),(9,'B',2200,NULL),(1,'A',2000,10),(2,'X',1200,10),(3,'A',3400,30),(4,'Z',5000,10);
+/*!40000 ALTER TABLE `emp` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -220,7 +783,7 @@ DROP TABLE IF EXISTS `emp_info`;
 CREATE TABLE `emp_info` (
   `eid` tinyint(4) DEFAULT NULL,
   `ename` varchar(20) DEFAULT NULL,
-  `sal` tinyint(4) DEFAULT NULL,
+  `sal` int(11) DEFAULT NULL,
   `jdate` date DEFAULT NULL,
   `desg` varchar(20) DEFAULT NULL,
   `gender` varchar(20) DEFAULT NULL
@@ -233,8 +796,32 @@ CREATE TABLE `emp_info` (
 
 LOCK TABLES `emp_info` WRITE;
 /*!40000 ALTER TABLE `emp_info` DISABLE KEYS */;
-INSERT INTO `emp_info` VALUES (111,'Dinesh',75,'2023-04-14','developer','M'),(111,'john',117,'2023-05-14','developer','M'),(112,'dilroop',61,'2021-11-13','developer','F'),(55,'john',12,NULL,'salesman',NULL);
+INSERT INTO `emp_info` VALUES (111,'AA',7505,'2023-04-14','developer','M'),(111,'AA',7505,'2023-05-14','developer','M'),(112,'BB',7300,'2021-11-13','Senior Developer','F'),(55,'aa',12,NULL,'salesman',NULL),(112,'BB',7300,'0002-04-20','Senior Developer','M'),(113,'aa',2200,'2022-04-20','developer','F');
 /*!40000 ALTER TABLE `emp_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `emp_info_child`
+--
+
+DROP TABLE IF EXISTS `emp_info_child`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emp_info_child` (
+  `eid` tinyint(4) DEFAULT NULL,
+  `ename` varchar(20) DEFAULT NULL,
+  `sal` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emp_info_child`
+--
+
+LOCK TABLES `emp_info_child` WRITE;
+/*!40000 ALTER TABLE `emp_info_child` DISABLE KEYS */;
+INSERT INTO `emp_info_child` VALUES (111,'AA',7495),(111,'AA',1165),(112,'BB',7300),(112,'BB',1400),(113,'CC',2200);
+/*!40000 ALTER TABLE `emp_info_child` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -260,6 +847,206 @@ CREATE TABLE `firsttable` (
 LOCK TABLES `firsttable` WRITE;
 /*!40000 ALTER TABLE `firsttable` DISABLE KEYS */;
 /*!40000 ALTER TABLE `firsttable` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `invoice_line_items`
+--
+
+DROP TABLE IF EXISTS `invoice_line_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `invoice_line_items` (
+  `LineNum` smallint(5) unsigned NOT NULL,
+  `InvoiceNum` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`InvoiceNum`,`LineNum`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `invoice_line_items`
+--
+
+LOCK TABLES `invoice_line_items` WRITE;
+/*!40000 ALTER TABLE `invoice_line_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `invoice_line_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `iodku`
+--
+
+DROP TABLE IF EXISTS `iodku`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `iodku` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(99) NOT NULL,
+  `misc` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `iodku`
+--
+
+LOCK TABLES `iodku` WRITE;
+/*!40000 ALTER TABLE `iodku` DISABLE KEYS */;
+INSERT INTO `iodku` VALUES (1,'Leslie',123),(2,'Sally',3333),(4,'Dana',789),(5,'Legar',99);
+/*!40000 ALTER TABLE `iodku` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `iodkuchild`
+--
+
+DROP TABLE IF EXISTS `iodkuchild`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `iodkuchild` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(99) NOT NULL,
+  `misc` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `iodkuchild`
+--
+
+LOCK TABLES `iodkuchild` WRITE;
+/*!40000 ALTER TABLE `iodkuchild` DISABLE KEYS */;
+INSERT INTO `iodkuchild` VALUES (1,'Leslie',123),(2,'Sally',3333),(3,'Dana',789),(4,'Legar',99);
+/*!40000 ALTER TABLE `iodkuchild` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `mergeproducts`
+--
+
+DROP TABLE IF EXISTS `mergeproducts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mergeproducts` (
+  `productid` int(11) NOT NULL,
+  `productname` varchar(50) NOT NULL,
+  `cost` int(11) NOT NULL,
+  PRIMARY KEY (`productid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mergeproducts`
+--
+
+LOCK TABLES `mergeproducts` WRITE;
+/*!40000 ALTER TABLE `mergeproducts` DISABLE KEYS */;
+INSERT INTO `mergeproducts` VALUES (1,'parle G',100),(2,'butter',200),(3,'pista',300);
+/*!40000 ALTER TABLE `mergeproducts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `mergeproducts_child`
+--
+
+DROP TABLE IF EXISTS `mergeproducts_child`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mergeproducts_child` (
+  `productid` int(11) NOT NULL,
+  `productname` varchar(50) NOT NULL,
+  `cost` int(11) NOT NULL,
+  PRIMARY KEY (`productid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mergeproducts_child`
+--
+
+LOCK TABLES `mergeproducts_child` WRITE;
+/*!40000 ALTER TABLE `mergeproducts_child` DISABLE KEYS */;
+INSERT INTO `mergeproducts_child` VALUES (1,'parle G',100),(2,'butter',350),(3,'pista',450),(4,'dark',500),(5,'white',600);
+/*!40000 ALTER TABLE `mergeproducts_child` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `owners`
+--
+
+DROP TABLE IF EXISTS `owners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `owners` (
+  `owner_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `owner` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`owner_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `owners`
+--
+
+LOCK TABLES `owners` WRITE;
+/*!40000 ALTER TABLE `owners` DISABLE KEYS */;
+INSERT INTO `owners` VALUES (1,'Ben'),(2,'Jim'),(3,'Harry'),(6,'John'),(9,'Ellie');
+/*!40000 ALTER TABLE `owners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `people`
+--
+
+DROP TABLE IF EXISTS `people`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `people` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `gender` char(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `people`
+--
+
+LOCK TABLES `people` WRITE;
+/*!40000 ALTER TABLE `people` DISABLE KEYS */;
+INSERT INTO `people` VALUES (1,'Kathy','f'),(3,'Paul','m'),(4,'Kim','f');
+/*!40000 ALTER TABLE `people` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pets`
+--
+
+DROP TABLE IF EXISTS `pets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ownerId` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `color` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pets`
+--
+
+LOCK TABLES `pets` WRITE;
+/*!40000 ALTER TABLE `pets` DISABLE KEYS */;
+INSERT INTO `pets` VALUES (1,1,'Rover','beige'),(4,1,'Rover2','white');
+/*!40000 ALTER TABLE `pets` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -300,9 +1087,19 @@ DROP TABLE IF EXISTS `stack`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stack` (
-  `stack_id` int(11) DEFAULT NULL,
-  `name` varchar(20) DEFAULT NULL,
-  `price` decimal(8,2) DEFAULT NULL
+  `id_user` int(11) NOT NULL,
+  `mod_id` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `submit_date` datetime NOT NULL,
+  `newcolumn` date DEFAULT NULL,
+  `newcolumn1` date DEFAULT NULL,
+  `newcolumn11` date DEFAULT NULL,
+  `newcolumn2` date DEFAULT NULL,
+  `newcolumn12` date DEFAULT NULL,
+  `newcolumn333` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  KEY `stack_index` (`id_user`),
+  KEY `stack_index1` (`id_user`,`mod_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -312,7 +1109,6 @@ CREATE TABLE `stack` (
 
 LOCK TABLES `stack` WRITE;
 /*!40000 ALTER TABLE `stack` DISABLE KEYS */;
-INSERT INTO `stack` VALUES (1,'firs',100.00),(2,'second',200.00);
 /*!40000 ALTER TABLE `stack` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,8 +1120,9 @@ DROP TABLE IF EXISTS `stack1`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stack1` (
-  `id` int(11) DEFAULT NULL COMMENT 'You can include genus, but never subspecies.',
-  `name` varchar(10) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -336,6 +1133,53 @@ CREATE TABLE `stack1` (
 LOCK TABLES `stack1` WRITE;
 /*!40000 ALTER TABLE `stack1` DISABLE KEYS */;
 /*!40000 ALTER TABLE `stack1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stack2`
+--
+
+DROP TABLE IF EXISTS `stack2`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stack2` (
+  `id_user` int(11) NOT NULL,
+  `mod_id` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `submit_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stack2`
+--
+
+LOCK TABLES `stack2` WRITE;
+/*!40000 ALTER TABLE `stack2` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stack2` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stack3`
+--
+
+DROP TABLE IF EXISTS `stack3`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stack3` (
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stack3`
+--
+
+LOCK TABLES `stack3` WRITE;
+/*!40000 ALTER TABLE `stack3` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stack3` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -393,7 +1237,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (0,'b','java',2000,'8787878787'),(1,'a','oracle',9000,'8989898989'),(2,'x','oracle',9000,NULL),(11,'s','abc',100,NULL);
+INSERT INTO `student` VALUES (0,'b','java',2000,'8787878787'),(1,'a','oracle',9000,'8989898989'),(2,'x','oracle',9000,NULL),(12,'s','abc',100,NULL);
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -432,7 +1276,7 @@ CREATE TABLE `student_dtls` (
   `course` varchar(7) NOT NULL,
   `fee` tinyint(5) DEFAULT NULL,
   `mobile` tinyint(10) DEFAULT NULL,
-  PRIMARY KEY (`rno`) COMMENT 'We must search on species often.',
+  PRIMARY KEY (`rno`),
   UNIQUE KEY `mobile` (`mobile`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -445,6 +1289,31 @@ LOCK TABLES `student_dtls` WRITE;
 /*!40000 ALTER TABLE `student_dtls` DISABLE KEYS */;
 /*!40000 ALTER TABLE `student_dtls` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tools`
+--
+
+DROP TABLE IF EXISTS `tools`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tools` (
+  `tool_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tool` varchar(30) DEFAULT NULL,
+  `owner_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`tool_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tools`
+--
+
+LOCK TABLES `tools` WRITE;
+/*!40000 ALTER TABLE `tools` DISABLE KEYS */;
+INSERT INTO `tools` VALUES (1,'Hammer',9),(2,'Pliers',1),(3,'Knife',1),(4,'Chisel',2),(5,'Hacksaw',1),(6,'Level',NULL),(7,'Wrench',NULL),(8,'Tape Measure',9),(9,'Screwdriver',NULL),(10,'Clamp',NULL);
+/*!40000 ALTER TABLE `tools` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -455,4 +1324,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-06 16:48:15
+-- Dump completed on 2022-04-03 18:58:18

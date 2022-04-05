@@ -12,7 +12,6 @@ order by Temp
 limit 2
 
 # Limit Offset
-
 select * From Wheather w 
 order by Temp
 limit 2,3

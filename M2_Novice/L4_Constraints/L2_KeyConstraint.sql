@@ -138,3 +138,4 @@ WHERE TABLE_SCHEMA = "mydb" AND TABLE_NAME = "student_dtls"
 use mydb; 
 
 
+

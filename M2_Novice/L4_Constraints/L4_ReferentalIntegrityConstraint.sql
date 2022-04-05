@@ -17,7 +17,8 @@ REFERENCES:
 			EX : create comp_dtls as parent table
 			EX : create prod_dtls as child table
 */
-use mydb
+use mydb;
+
 
 create or replace table comp_dtls
 (
@@ -36,7 +37,7 @@ insert into comp_dtls values('cmp04','semantic','usa');
 
 
 
-create table prod_DTLS
+create or replace table prod_DTLS
 (
 pid char(4),
 pname varchar(20) not null,

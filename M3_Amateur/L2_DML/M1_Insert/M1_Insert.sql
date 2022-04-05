@@ -1,9 +1,5 @@
 /*
-DML
-*/
-
-/*
-1) INSERT
+1) Basic INSERT
 */						
 
 /*
@@ -16,7 +12,7 @@ DML
 
 use mydb;
 
-
+#Insert Single Values
 insert into 
 emp_info(eid,ename,sal,jdate,desg,gender)
 values(111,'Dinesh',75,'23-04-14','developer','M');
@@ -35,6 +31,7 @@ emp_info
 Values('kiran','5000');
 
 
+
 /*
 Insert Null Values
 	1) Implict
@@ -50,15 +47,12 @@ Insert into
 emp_info
 Values(8,'martin',12,null,null,null);
 
-
-
 /*
 # Default Keyword
 */
 Insert into 
 customer(cno,cname) 
 values (1,'kiran');
-
 
 
 Insert into 
@@ -75,45 +69,13 @@ values(4,'john','Texas');
 
 
 
-/*
-Update
-*/
-
-select * FROM  emp_info
-
-update emp_info 
-set sal = 100 
-where eid = 8
-
-#Update all sal as 100
-
-update emp_info 
-set sal = 100
+#Insert Multiple Values
+insert into 
+emp_info(eid,ename,sal,jdate,desg,gender)
+values
+(112,'Ertiga',12,'2-04-20','developer','M'),
+(113,'Ertiga1',22,'22-04-20','developer','F');
 
 
-# update the salesman salary with 20% increment , change their designition as
-# Sr.SALES who joined before 2005?
-
-update emp_info 
-set sal = sal+(0.20*sal),desg='Senior Developer' 
-where eid=112
-
-
-
-/*
-Delete
-*/
-
-delete from emp_info 
-
-delete from emp_info 
-where desg IS NULL 
-
-#Note:
-#We can get the back the deleted records / data within the current session by using
-#ROLLBACK.
-
-
-
-
+ 
 

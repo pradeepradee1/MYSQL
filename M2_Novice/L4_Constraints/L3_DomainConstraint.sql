@@ -30,6 +30,7 @@ constraint check (course in('oracle','sql server','unix')),
 constraint check (fee between 5000 and 10000)
 );
 
+SELECT * FROM stud_dtls
 
 insert into stud_dtls values(1,'a','oracle',7000,1212);
 insert into stud_dtls values(0,'b','sql server',7000,null);
