@@ -110,8 +110,8 @@ use mydb;
 /*
 #SYNTAX:
 
-<col> datatype(size) Constraint <User defined name><actual constraint name>,
-<col> datatype(size) Constraint <User defined name><actual constraint name>
+<col> datatype(size) Constraint <User defined name> <constraint name> (column name),
+<col> datatype(size) Constraint <User defined name> <constraint name> (column name)
 
 #EX:
 <col> datatype(size) Constraint pk_rno_student Primary key,
@@ -125,7 +125,7 @@ sname varchar(20) not null,
 course varchar(7) not null ,
 fee tinyint(5),
 mobile tinyint(10) unique,
-constraint PKConstraintName primary key(rno)
+constraint PKConstraintName1 primary key(rno)
 )
 ;
 
@@ -136,6 +136,5 @@ FROM KEY_COLUMN_USAGE
 WHERE TABLE_SCHEMA = "mydb" AND TABLE_NAME = "student_dtls" 
 
 use mydb; 
-
 
 

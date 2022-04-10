@@ -3,12 +3,10 @@ REFERENTIAL INTEGRITY CONSTRAINTS :
 									Used to implement PHYSICAL relationship between the tables by using primary key
 									of one table and we can define foriegn key in other table.
 									
-									Foriegn key column contains only values from primary key. Foriegn key contains
-									duplicates and null values also.
+									Foriegn key contains duplicates and null values also.
 
-									--A table which contains primary key is considered as parent /Master/Base table.
-									--A table which contains foriegn key is known as child table /Detailed table/ Derived
-									table.
+									--A table which contains primary key is considered as parent/Master/Base table.
+									--A table which contains foriegn key is known as child/Detailed/Derived table.
 
 
 REFERENCES:
@@ -18,6 +16,7 @@ REFERENCES:
 			EX : create prod_dtls as child table
 */
 use mydb;
+
 
 
 create or replace table comp_dtls
@@ -46,10 +45,13 @@ mfg date,
 warrenty varchar(10),
 cmpId char(5),
 constraint pk primary key (pid),
-constraint fk_prod_cmpid FOREIGN KEY(cmpId) REFERENCES comp_dtls(cmpId)
+constraint fk FOREIGN KEY(cmpId) REFERENCES comp_dtls(cmpId)
 /* foriegn key column */
 )
 ;
+
+
+
 
 
 insert into prod_DTLS values

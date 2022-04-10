@@ -1,6 +1,6 @@
 /*
 
-Backticks are mainly used to prevent an error called "MySQL reserved word"
+Backticks are mainly used to prevent an error called "MySQL Keyword (or) reserved word"
 
 */
 use mydb;

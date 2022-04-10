@@ -4,7 +4,7 @@ Export Database Or Table Dump
 
 #Note:
 /*
-> = export
+> = Export
 */
 
 /*
