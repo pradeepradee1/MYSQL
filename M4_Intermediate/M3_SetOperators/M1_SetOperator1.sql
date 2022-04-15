@@ -10,7 +10,6 @@ s2={x,y,z,c,b}
 #Union 
 {a,b,c,d,x,y,z}
 
-
 #UnionAll
 {a,b,c,d,x,y,z,c,b}
 
@@ -58,10 +57,13 @@ We need to select same data type of data in the same sequence under each select
 query.
  */
 
+
+# Error Query
+
 select cname,mobile from cust_br1
 union all
 select cid from cust_br2;
-# Error Query
+
 
 
 

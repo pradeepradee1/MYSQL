@@ -11,6 +11,10 @@ OuterJoin
 								: unmatched data from right tables
 */
 
+#Note :
+# There is no full outer join in MYSQL
+
+use mydb;
 
 #syntax:
 select col1, col2,
@@ -18,14 +22,21 @@ from
 table_1 [left join / right join / full join] table_2
 ON table1.pk=table2.fk;
 
+
+
 #Left join
-SELECT owners.owner_id , owners.owner, tools.tool
-FROM `owners`
-LEFT JOIN `tools` ON `owners`.`owner_id` = `tools`.`owner_id`
+SELECT e.*,d.*
+from emp e 
+left join dept d on e.dno = d.dno 
 
 #Right Join
-SELECT owners.owner_id,`owners`.`owner`, tools.tool
-FROM `owners`
-RIGHT JOIN `tools` ON `owners`.`owner_id` = `tools`.`owner_id`
+SELECT e.*,d.*
+from emp e 
+right join dept d on e.dno = d.dno 
 
 
+#Full outer join doesn't work in MYSQL
+#Full Outer Join
+SELECT e.*,d.*
+from emp e 
+full join dept d on e.dno = d.dno 

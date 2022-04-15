@@ -1,7 +1,7 @@
 /*
 DENORMALIZATION :
 					Denormalization is the inverse process of normalization
-					Where the normalized schema is converted into schema which has redundant information
+					Maintaining all informations in one big table is known as De-normalized methods
 
 
 Note:

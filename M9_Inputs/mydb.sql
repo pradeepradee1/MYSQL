@@ -121,7 +121,7 @@ DROP TABLE IF EXISTS `Burn`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Burn` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(99) NOT NULL,
+  `name` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
@@ -223,11 +223,8 @@ DROP TABLE IF EXISTS `ClonedPersons`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ClonedPersons` (
-  `PersonID` int(10) unsigned NOT NULL,
   `LastName` varchar(66) NOT NULL,
-  `FirstName` varchar(66) DEFAULT NULL,
-  `Address` varchar(255) DEFAULT NULL,
-  `City` varchar(66) DEFAULT NULL
+  `FirstName` varchar(66) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -237,6 +234,7 @@ CREATE TABLE `ClonedPersons` (
 
 LOCK TABLES `ClonedPersons` WRITE;
 /*!40000 ALTER TABLE `ClonedPersons` DISABLE KEYS */;
+INSERT INTO `ClonedPersons` VALUES ('10','100');
 /*!40000 ALTER TABLE `ClonedPersons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,6 +308,7 @@ CREATE TABLE `ModifiedPersons` (
 
 LOCK TABLES `ModifiedPersons` WRITE;
 /*!40000 ALTER TABLE `ModifiedPersons` DISABLE KEYS */;
+INSERT INTO `ModifiedPersons` VALUES (1,110);
 /*!40000 ALTER TABLE `ModifiedPersons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -384,6 +383,7 @@ CREATE TABLE `Person` (
 
 LOCK TABLES `Person` WRITE;
 /*!40000 ALTER TABLE `Person` DISABLE KEYS */;
+INSERT INTO `Person` VALUES (1,'10','100','chennai','chennai');
 /*!40000 ALTER TABLE `Person` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -502,6 +502,7 @@ CREATE TABLE `TestLastUpdate` (
 
 LOCK TABLES `TestLastUpdate` WRITE;
 /*!40000 ALTER TABLE `TestLastUpdate` DISABLE KEYS */;
+INSERT INTO `TestLastUpdate` VALUES (1,'tmp','No:11','2022-04-11 11:00:38');
 /*!40000 ALTER TABLE `TestLastUpdate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -648,7 +649,7 @@ CREATE TABLE `car` (
 
 LOCK TABLES `car` WRITE;
 /*!40000 ALTER TABLE `car` DISABLE KEYS */;
-INSERT INTO `car` VALUES (2,'second',300.00),(3,'second',3300.00),(4,NULL,1.00);
+INSERT INTO `car` VALUES (3,'second',3300.00),(4,NULL,1.00);
 /*!40000 ALTER TABLE `car` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -720,7 +721,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'kiran','Hyderabad'),(2,'Madhu','Hyderabad'),(3,'dinesh',NULL),(4,'john','Texas');
+INSERT INTO `customer` VALUES (1,'kiran','Hyderabad'),(2,'Madhu','Hyderabad'),(3,'dinesh',NULL),(4,'john','Texas'),(NULL,'Radee','Hyderabad');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -796,7 +797,7 @@ CREATE TABLE `emp_info` (
 
 LOCK TABLES `emp_info` WRITE;
 /*!40000 ALTER TABLE `emp_info` DISABLE KEYS */;
-INSERT INTO `emp_info` VALUES (111,'AA',7505,'2023-04-14','developer','M'),(111,'AA',7505,'2023-05-14','developer','M'),(112,'BB',7300,'2021-11-13','Senior Developer','F'),(55,'aa',12,NULL,'salesman',NULL),(112,'BB',7300,'0002-04-20','Senior Developer','M'),(113,'aa',2200,'2022-04-20','developer','F');
+INSERT INTO `emp_info` VALUES (111,'AB',11,'2023-04-14','developer','M'),(111,'AB',11,'2023-05-14','developer','M'),(112,'BC',14,'2021-11-13','Senior Developer','F'),(55,'aa',12,NULL,'salesman',NULL),(112,'BC',14,'0002-04-20','Senior Developer','M'),(113,'CD',22,'2022-04-20','developer','F');
 /*!40000 ALTER TABLE `emp_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -820,7 +821,7 @@ CREATE TABLE `emp_info_child` (
 
 LOCK TABLES `emp_info_child` WRITE;
 /*!40000 ALTER TABLE `emp_info_child` DISABLE KEYS */;
-INSERT INTO `emp_info_child` VALUES (111,'AA',7495),(111,'AA',1165),(112,'BB',7300),(112,'BB',1400),(113,'CC',2200);
+INSERT INTO `emp_info_child` VALUES (111,'AB',11),(111,'AB',11),(112,'BC',14),(112,'BC',14),(113,'CD',22);
 /*!40000 ALTER TABLE `emp_info_child` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -880,9 +881,9 @@ DROP TABLE IF EXISTS `iodku`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `iodku` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(99) NOT NULL,
-  `misc` int(11) NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) DEFAULT NULL,
+  `misc` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
@@ -894,7 +895,7 @@ CREATE TABLE `iodku` (
 
 LOCK TABLES `iodku` WRITE;
 /*!40000 ALTER TABLE `iodku` DISABLE KEYS */;
-INSERT INTO `iodku` VALUES (1,'Leslie',123),(2,'Sally',3333),(4,'Dana',789),(5,'Legar',99);
+INSERT INTO `iodku` VALUES (1,'A',1000),(2,'B',3333),(4,'C',1000),(5,'X',1000);
 /*!40000 ALTER TABLE `iodku` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -911,7 +912,7 @@ CREATE TABLE `iodkuchild` (
   `misc` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -920,7 +921,7 @@ CREATE TABLE `iodkuchild` (
 
 LOCK TABLES `iodkuchild` WRITE;
 /*!40000 ALTER TABLE `iodkuchild` DISABLE KEYS */;
-INSERT INTO `iodkuchild` VALUES (1,'Leslie',123),(2,'Sally',3333),(3,'Dana',789),(4,'Legar',99);
+INSERT INTO `iodkuchild` VALUES (1,'Leslie',123),(2,'Sally',3333),(3,'Dana',789);
 /*!40000 ALTER TABLE `iodkuchild` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1064,8 +1065,8 @@ CREATE TABLE `prod_DTLS` (
   `warrenty` varchar(10) DEFAULT NULL,
   `cmpId` char(5) DEFAULT NULL,
   PRIMARY KEY (`pid`),
-  KEY `fk_prod_cmpid` (`cmpId`),
-  CONSTRAINT `fk_prod_cmpid` FOREIGN KEY (`cmpId`) REFERENCES `comp_dtls` (`cmpId`)
+  KEY `fk` (`cmpId`),
+  CONSTRAINT `fk` FOREIGN KEY (`cmpId`) REFERENCES `comp_dtls` (`cmpId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1092,14 +1093,13 @@ CREATE TABLE `stack` (
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
   `submit_date` datetime NOT NULL,
-  `newcolumn` date DEFAULT NULL,
+  `newcolumn` date NOT NULL,
   `newcolumn1` date DEFAULT NULL,
   `newcolumn11` date DEFAULT NULL,
   `newcolumn2` date DEFAULT NULL,
   `newcolumn12` date DEFAULT NULL,
-  `newcolumn333` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  KEY `stack_index` (`id_user`),
-  KEY `stack_index1` (`id_user`,`mod_id`)
+  `newcolumn333` time DEFAULT NULL,
+  KEY `stack_index` (`id_user`,`mod_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1168,8 +1168,9 @@ DROP TABLE IF EXISTS `stack3`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stack3` (
-  `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `LastName` int(11) NOT NULL,
+  `FirstName` varchar(66) DEFAULT NULL,
+  PRIMARY KEY (`LastName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1179,6 +1180,7 @@ CREATE TABLE `stack3` (
 
 LOCK TABLES `stack3` WRITE;
 /*!40000 ALTER TABLE `stack3` DISABLE KEYS */;
+INSERT INTO `stack3` VALUES (10,'100');
 /*!40000 ALTER TABLE `stack3` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1209,7 +1211,7 @@ CREATE TABLE `stud_dtls` (
 
 LOCK TABLES `stud_dtls` WRITE;
 /*!40000 ALTER TABLE `stud_dtls` DISABLE KEYS */;
-INSERT INTO `stud_dtls` VALUES (1,'a','oracle',7000,'1212'),(12,'b','sql server',7000,NULL),(21,'hari','unix',9000,'1211');
+INSERT INTO `stud_dtls` VALUES (1,'a','oracle',7000,'1212'),(21,'hari','unix',9000,'1211');
 /*!40000 ALTER TABLE `stud_dtls` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1237,7 +1239,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (0,'b','java',2000,'8787878787'),(1,'a','oracle',9000,'8989898989'),(2,'x','oracle',9000,NULL),(12,'s','abc',100,NULL);
+INSERT INTO `student` VALUES (0,'b','java',2000,'8787878787'),(1,'a','oracle',9000,'8989898989'),(2,'x','oracle',9000,NULL),(11,'s','abc',100,NULL);
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1291,6 +1293,33 @@ LOCK TABLES `student_dtls` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tmp`
+--
+
+DROP TABLE IF EXISTS `tmp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tmp` (
+  `rno` int(2) NOT NULL,
+  `sname` varchar(20) DEFAULT NULL,
+  `course` varchar(7) DEFAULT NULL,
+  `fee` tinyint(5) DEFAULT NULL,
+  `mobile` tinyint(10) DEFAULT NULL,
+  PRIMARY KEY (`rno`),
+  UNIQUE KEY `tmpmobilepkcn` (`mobile`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tmp`
+--
+
+LOCK TABLES `tmp` WRITE;
+/*!40000 ALTER TABLE `tmp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tmp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tools`
 --
 
@@ -1324,4 +1353,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-03 18:58:18
+-- Dump completed on 2022-04-15 21:45:07

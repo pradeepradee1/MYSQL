@@ -20,7 +20,8 @@ ALL
 (SELECT date_time_column, ip FROM server_log_3 WHERE state = 'action' AND log_id = 150) UNION
 ALL
 (SELECT date_time_column, ip FROM server_log WHERE state = 'action' AND log_id = 150)
-) AS table_all
+) 
+AS table_all
 GROUP BY YEAR(date_time_column), MONTH(date_time_column);
 
 

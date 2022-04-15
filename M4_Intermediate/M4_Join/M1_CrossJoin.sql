@@ -15,7 +15,8 @@ order by col1, col2
 
 
 
-select ename,sal,dname from emp,dept;
+select eid,ename,sal,dname 
+from emp,dept;
 
 
 
