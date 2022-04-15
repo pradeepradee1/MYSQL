@@ -1,5 +1,5 @@
 /*
-Update
+Update Using Join
 */
 
 use mydb;
@@ -20,16 +20,7 @@ UPDATE emp_info parenttable
 join emp_info_child childtable
 ON parenttable.eid = childtable.eid 
 SET parenttable.sal = childtable.sal,
-parenttable.ename = childtable.ename;
+childtable.ename = parenttable.ename;
 
-
-
-#Update Mutiple Table
-
-UPDATE emp_info, emp_info_child
-SET emp_info_child.sal  = emp_info_child.sal - 5,
-emp_info.sal  = emp_info.sal + 5
-WHERE emp_info.eid  = emp_info_child.eid 
-AND emp_info_child.eid  = 111;
 
 

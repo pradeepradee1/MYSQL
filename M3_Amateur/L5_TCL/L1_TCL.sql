@@ -36,8 +36,11 @@ cid char(3),
 cname varchar(20)
 );
 
-insert into cust values('c00','Sanju');
-insert into cust values('c01','Manoj');
+insert into cust 
+values('c00','Sanju');
+
+insert into cust 
+values('c01','Manoj');
 
 
 select * from cust;
@@ -48,6 +51,9 @@ select * from cust;
 
 insert into cust values('c00','Sanju');
 insert into cust values('c01','Manoj');
+
+select * from cust;
+
 commit;
 
 select * from cust;
@@ -60,16 +66,22 @@ select * from cust;
 
 select * from cust;
 
-Insert into cust values('c02','hellen');
+Insert into cust 
+values('c02','hellen');
+
 select * from cust;
+
 delete from cust where cname='Sanju';
 
 select * from cust;
 
 savepoint s1;
+
 update cust set cname='aa' where cname='c02';
+
 savepoint s2;
 
+select * from cust;
 
 delete from cust;
 

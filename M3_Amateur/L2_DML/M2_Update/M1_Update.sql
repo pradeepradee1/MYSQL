@@ -21,23 +21,29 @@ set sal = sal+(0.20*sal),desg='Senior Developer'
 where eid=112
 
 
-#Bulk Update
-UPDATE emp_info
-SET ename =
-	(
-	CASE eid  
-	WHEN 111 THEN 'A'
-	WHEN 112 THEN 'B'
-	WHEN 113 THEN 'C'
-	END)
-WHERE eid  IN (111,112,113);
+#Update with case
+UPDATE iodku 
+SET name =
+(
+CASE id  
+WHEN 1 THEN 'A'
+WHEN 2 THEN 'B'
+WHEN 4 THEN 'C'
+else "X"
+END)
+WHERE id  IN (1,2,4,5);
 
 
 
-#Update Values with Order By and LIMIT
-select * FROM  emp_info
+#Update with Order By and LIMIT
+select * FROM  iodku
 
-UPDATE emp_info SET ename='aa' 
-ORDER BY sal  LIMIT 3
+UPDATE iodku 
+SET misc=1000 
+ORDER BY misc  
+LIMIT 3
+
+
+
 
 

@@ -3,20 +3,9 @@ DDL
 */
 
 /*
-1) Create a Table
+Create a Table
 */
-
-CREATE TABLE <table_name>
-(
-<colname-1> DATATYPE (size),
-<colname-2> DATATYPE (size),
-:,
-:,
-:
-);
-
 use mydb;
-
 
 CREATE or REPLACE  TABLE Person
 (
@@ -30,6 +19,15 @@ CREATE or REPLACE  TABLE Person
 #Note
 #Where Engine  is an optional parameter used to specify the table storage engine.
 
+#AutoIncrement Keyword
+CREATE or REPLACE  TABLE Person
+(
+`PersonID` INT AUTO_INCREMENT,
+`LastName` VARCHAR(80),
+`FirstName` VARCHAR(80),
+`Address` VARCHAR(80),
+`City` VARCHAR(80)
+)Engine=InnoDB;
 
 #Default Keyword 
 Create or replace Table customer
@@ -39,6 +37,18 @@ Cname varchar(20),
 City varchar(10) DEFAULT 'Hyderabad'
 );
 
+#Create Table With Time Stamp
+CREATE or REPLACE  TABLE `TestLastUpdate` 
+(
+`ID` INT NULL,
+`Name` VARCHAR(50) NULL,
+`Address` VARCHAR(50) NULL,
+`LastUpdate` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+COMMENT='Last Update'
+;
+
+#Constraints
 #PrimaryKey
 CREATE or REPLACE  TABLE Person 
 (
@@ -48,7 +58,6 @@ FirstName VARCHAR(66),
 Address VARCHAR(255),
 City VARCHAR(66)
 );
-
 
 CREATE or REPLACE TABLE Person 
 ( 
@@ -61,7 +70,7 @@ PRIMARY KEY (PersonID)
 );
 
 
-#Multiple PrimaryKey
+#Multiple PrimaryKey or Composite PriymaryKey
 CREATE or REPLACE TABLE invoice_line_items 
 (
 LineNum SMALLINT UNSIGNED NOT NULL,
@@ -84,16 +93,6 @@ FOREIGN KEY (PersonID) REFERENCES Person (PersonID)
 
 
 
-#Create Table With Time Stamp
-CREATE or REPLACE  TABLE `TestLastUpdate` 
-(
-`ID` INT NULL,
-`Name` VARCHAR(50) NULL,
-`Address` VARCHAR(50) NULL,
-`LastUpdate` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
-COMMENT='Last Update'
-;
 
 
 

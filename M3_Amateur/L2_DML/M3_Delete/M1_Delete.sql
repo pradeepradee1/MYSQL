@@ -15,7 +15,9 @@ where desg IS NULL
 #ROLLBACK.
 
 #Delete Records based on the LIMIT 
-DELETE FROM car  WHERE `name` is NOT  NULL  LIMIT 1
+DELETE FROM car  
+WHERE `name` is NOT NULL  
+LIMIT 1
 
 #Difference Between Delete and Truncate
 #Truncate
