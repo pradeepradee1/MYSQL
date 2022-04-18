@@ -1,0 +1,32 @@
+For Table Storage Issues in mariadb
+
+1)To find db is running in local or docker ?
+		which mysql
+
+2) /etc/mysql/mysql.conf.d
+
+		vi mysqld.cnf
+
+		innodb_log_file_size = 512M
+		innodb_strict_mode = 0
+
+Note:
+
+3) sudo service mysql restart
+   sudo service mysql stop
+   sudo service mysql status
+
+   We Need sign out mysql and sign in mysql
+
+
+4) /etc/mysql
+	vi my.cnf
+
+5) /etc/mysql/mariadb.conf.d
+	
+	vi 50-server.cnf
+
+	innodb_strict_mode  = 0
+
+
+
