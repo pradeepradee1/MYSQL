@@ -98,5 +98,6 @@
 	
 	1) JSON						-	#represents the JSON Data Type 
 	
-	
+#Note :
+#		MYSQL Does't has the Bool Data types	
 	

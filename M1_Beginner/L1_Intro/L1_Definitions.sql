@@ -22,7 +22,7 @@ Database	:
 Database Management Systems(DBMS):
 		
 		A Collection of programs 
-		which enables user to access database and represent data
+		which enables user to access database and represent data.
 		For ex : Manager access the employee and represent work to client
 
 
@@ -107,18 +107,6 @@ Entity And Its Attributes :
 
 */
 
-
-
-/*
- 
-MYSQL :
-		An Open-Source Software 
-		A Relational Database managment Systems
-		Provides multi-user access
-		Supports-multi-storage engines
-		Works on many platforms
-
-*/
 
 
 
