@@ -14,16 +14,16 @@ FK				:   		It Creates a relationship between any two tables
 
 AK				:  			AK are eligible to become PK but not choosen as primary key
 
-Candidate Key 	: 			one or more fields/columns that can identify a record uniquely in a table
-							There can be multiple Candidate Keys in one table
+Candidate Key 	: 			one or more columns should follow the unique constrain in a table
 							Each Candidate Key can work as a Primary Key.
-
+							
 							Example: ID, RollNo and EnrollNo are Candidate Keys 
 							since all these three fields can work as Primary Key.
 
-Super Keys	  	: 			more than one key that can be used to identify a record uniquely in a table
+Super Keys	  	: 			one or more keys should follow the unique constrain in a table
 							
 							Example: Primary key, Unique key, Alternate key are a subset of Super Keys.
+							
 
 
 
@@ -41,14 +41,13 @@ create or replace table keyparent
 id tinyint comment 'PK' ,
 Rollno mediumint comment 'AK' ,
 Name varchar(10) ,
-EnrollNo tinyint comment 'AK and Unique Key',
+EnrollNo tinyint comment 'AK',
 Address varchar(10),
 Deptid tinyint comment 'FK'
 )
 
-# PK , AK ,  unique key  = 	Super Key 
 # ID , Rolno, Enrollno   =  Candidate Key	
-
+# PK , AK 				 = 	Super Key 
 
 create or replace table keychild
 (
