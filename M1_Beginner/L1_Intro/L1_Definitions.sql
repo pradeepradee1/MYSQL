@@ -40,17 +40,14 @@ Types DBMS :
 1) Hierarchical DBMS :
 						This Model follows the parent-child relationship for storing data.
 
-
 2) Network DBMS	:
 						This Model follows the many-to many relations.
-		
 
 3) Relational DBMS :
 						It is collections of information in the form of tables with relations
 						For ex : 
 								 1) MS SQL 
 								 2) MYSQL
-
 4) Object-Oriented DBMS :
 						
 						It is similar to RDBMS
@@ -83,25 +80,25 @@ DataModel :
 
 		For any OLTP RDBMS the data model is E-R ( Entity-Relationship ) Model.
 		ER model is to visually represent the structure of a business database.
-		Where Entities or Table are linked by the defined relationship which expressing the dependicies and requirements.
+		Where Entities or Tables are linked by the defined relationship which expressing the dependicies and requirements.
 
 
 Entity And Its Attributes :
 
-		Composite 			: 	Can be divided into sub parts (name - > firstname,secondname,lastname)
+		Composite Attributes		: 	Can be divided into sub parts (name - > firstname,secondname,lastname)
 		
-		Simply or Atomic	: 	Which are not divisiable are simply know as simple or atomic attributes 
+		Simply or Atomic Attributes : 	Which are not divisiable are simply know as simple or atomic attributes 
 																					(housenumber,phone)
 
-		Single				:	single value for a particular entity know as single-valued attributes
+		Single(Single Class)		:	single value for a particular entity know as single-valued attributes
 		
-		Multi-Valued 		:	most Number of values allowed for each individual entity
+		Multi-Valued(multi Class) 	:	most Number of values allowed for each individual entity
 
 
-		Stored 				:	Attributes which are already stored in the database(Birth_date)
+		Stored Attributes			:	Attributes which are already stored in the database(Birth_date)
 		 				
 
-		Derived				:	Attributes which are derived from the real entities are known as derived attributes 
+		Derived	Attributes			:	Attributes which are derived from the real entities are known as derived attributes 
 																											(Age)
 
 

@@ -18,7 +18,8 @@ c.car_id ,
 c.name ,
 c.price ,
 CASE 
-	WHEN c.price > 2000 THEN 'COSTLY' ELSE 'AFFORD' 
+	WHEN c.price > 2000 THEN 'COSTLY' 
+	ELSE 'AFFORD' 
 END AS `PRICE_LABEL`
 FROM 
 car c 
