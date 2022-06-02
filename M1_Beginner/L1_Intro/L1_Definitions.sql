@@ -83,6 +83,7 @@ DataModel :
 
 		For any OLTP RDBMS the data model is E-R ( Entity-Relationship ) Model.
 		ER model is to visually represent the structure of a business database.
+		Where Entities or Table are linked by the defined relationship which expressing the dependicies and requirements.
 
 
 Entity And Its Attributes :
