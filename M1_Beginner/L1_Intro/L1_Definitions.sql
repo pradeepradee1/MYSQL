@@ -7,7 +7,7 @@ Data		:
 Database	:
 			
 				It is software, 
-				which stores the collection of information of all objects
+				Collection of information of all entity or objects or table will be stored in database
 			
 */
 
@@ -22,7 +22,7 @@ Database	:
 Database Management Systems(DBMS):
 		
 		A Collection of programs 
-		which enables user to access database and represent data.
+		which enables the user to access database and represent data.
 		For ex : Manager access the employee and represent work to client
 
 
