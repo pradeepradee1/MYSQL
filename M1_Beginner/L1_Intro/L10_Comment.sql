@@ -27,3 +27,6 @@ PRIMARY KEY (bird_id)
 #NOTE:
 #These comments, unlike the others, are saved with the schema and can be retrieved via SHOW CREATE TABLE or from information_schema .
 
+#How Do i See The Comment 
+show create table bird;
+
