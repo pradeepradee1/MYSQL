@@ -85,10 +85,13 @@ DataModel :
 
 Entity And Its Attributes :
 
+
+		Simple or Atomic Attributes : 	Which are not divisiable are simply know as simple or atomic attributes 
+																					(housenumber,phone)	
+
 		Composite Attributes		: 	Can be divided into sub parts (name - > firstname,secondname,lastname)
 		
-		Simply or Atomic Attributes : 	Which are not divisiable are simply know as simple or atomic attributes 
-																					(housenumber,phone)
+
 
 		Single(Single Class)		:	single value for a particular entity know as single-valued attributes
 		
@@ -100,7 +103,6 @@ Entity And Its Attributes :
 
 		Derived	Attributes			:	Attributes which are derived from the real entities are known as derived attributes 
 																											(Age)
-
 
 
 */
