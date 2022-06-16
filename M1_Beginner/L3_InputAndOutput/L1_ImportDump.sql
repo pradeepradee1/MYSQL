@@ -9,10 +9,10 @@ Import Database Or Table Dump
 
 
 # Database
-# sudo mysql dummydb < database_with_data.sql
+# sudo mysql dummydb < database_name.sql
 # OR 
-# mysql -uroot -ppassword database_name < file.sql
+# mysql -uroot -ppassword database_name < database_name.sql
 
 
 #Table 
-# sudo mysql dummydb < table_with_data.sql
+# sudo mysql dummydb < table_name.sql
