@@ -32,3 +32,13 @@ from
 car c 
 
 
+#Nested If
+SELECT
+c.car_id ,
+c.name ,
+c.price ,
+if (c.price > 2000 ,if (c.name='second',"SecondName","NotSecondName"),"NotSecondName") as pricelist
+from
+car c 
+
+
