@@ -3,8 +3,8 @@ Arithmetic Operators:
 	1)	+
 	2)	-
 	3)	*
-	4)	/ (OR) DIV
-	5)  % (OR) MOD
+	4)	/ (OR) DIV (Keyword)
+	5)  % (OR) MOD (Keyword)
 
 */
 
