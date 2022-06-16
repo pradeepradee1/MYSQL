@@ -1,6 +1,8 @@
 use mydb;
 
-desc firsttable;
+desc bird;
 (OR)
-describe firsttable;
+describe bird;
+(OR)
+show columns from bird;
 

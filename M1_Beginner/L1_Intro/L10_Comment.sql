@@ -28,9 +28,7 @@ PRIMARY KEY (bird_id)
 #View Comments
 show full columns from bird;
 
-
 ALTER table bird modify column bird_id tinyint comment "Changes in bird_id data type";
-
 
 #View Comments
 show full columns from bird;
@@ -40,5 +38,8 @@ show full columns from bird;
 #1) These comments, unlike the others, are saved with the schema and can be retrieved via SHOW CREATE TABLE or from information_schema .
 
 #Another Way
-show create table bird;
+show columns from bird;
+(OR)
+desc bird
 
+show create table bird;
