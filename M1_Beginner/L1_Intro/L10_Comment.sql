@@ -7,11 +7,13 @@ This is a
 multiple-line comment
 */
 
-#EXAMPLE:
+#EXAMPLE
+
 use mydb;
 SELECT * FROM car; -- this is comment
 
-#Using Comment Keyword
+#Using Keyword
+
 CREATE or REPLACE TABLE stack1(
 id int COMMENT 'You can include genus, but never subspecies.',
 name varchar(10)
@@ -37,9 +39,3 @@ show full columns from bird;
 #NOTE:
 #1) These comments, unlike the others, are saved with the schema and can be retrieved via SHOW CREATE TABLE or from information_schema .
 
-#Another Way
-show columns from bird;
-(OR)
-desc bird
-
-show create table bird;
