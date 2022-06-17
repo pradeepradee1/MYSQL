@@ -6,7 +6,6 @@ Data		:
 			
 Database	:
 			
-				It is software, 
 				Collection of information of all entity or objects or table will be stored in database
 			
 */
