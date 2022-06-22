@@ -44,7 +44,7 @@ cost float(7,2),
 mfg date,
 warrenty varchar(10),
 cmpId char(5),
-constraint pk primary key (pid),
+constraint pk primary key(pid),
 constraint fk FOREIGN KEY(cmpId) REFERENCES comp_dtls(cmpId)
 /* foriegn key column */
 )
@@ -82,3 +82,6 @@ SELECT *
 FROM KEY_COLUMN_USAGE
 WHERE TABLE_SCHEMA = "mydb" AND TABLE_NAME = "prod_DTLS" 
 
+(OR)
+
+SHOW COLUMNS FROM student_dtls;

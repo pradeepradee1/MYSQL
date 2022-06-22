@@ -4,7 +4,7 @@ Data Integrity Constraints
 
 /*
 CONSTRAINTS :
-				Constraint are the set of rules which will be defined at DDL level
+				Constraint are the set of rules which will be define the DDL level
 				Constraint enforce the database to allow only valid values into the table
 */
 

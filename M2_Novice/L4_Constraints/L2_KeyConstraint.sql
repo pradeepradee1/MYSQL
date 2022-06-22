@@ -15,7 +15,7 @@ KEY CONSTRAINT :
 
 3) PRIMARY KEY :
 
-			It doesnt allow duplicates and null values.
+			It doesn't allow duplicates and null values.
 			Generally a Primary key is used to identify any record in a table uniquely.
 			Only one primary key is allowed per a table
 			
@@ -129,12 +129,32 @@ constraint PKConstraintName1 primary key(rno)
 )
 ;
 
+(OR)
+
+create or replace table student_dtls
+(
+rno int(2),
+sname varchar(20) not null,
+course varchar(7) not null ,
+fee tinyint(5),
+mobile tinyint(10),
+constraint primary key(rno),
+constraint unique(mobile)
+)
+;
+
+
 USE INFORMATION_SCHEMA;
 
 SELECT *
 FROM KEY_COLUMN_USAGE
 WHERE TABLE_SCHEMA = "mydb" AND TABLE_NAME = "student_dtls" 
 
-use mydb; 
+(OR)
+
+SHOW COLUMNS FROM student_dtls;
+
+use mydb;
+
 
 

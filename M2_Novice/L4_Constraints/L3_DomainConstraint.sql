@@ -50,3 +50,6 @@ FROM KEY_COLUMN_USAGE
 WHERE TABLE_SCHEMA = "mydb" AND TABLE_NAME = "stud_dtls" 
 
 
+(OR)
+
+SHOW COLUMNS FROM student_dtls;
