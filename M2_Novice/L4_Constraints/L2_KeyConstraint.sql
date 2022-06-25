@@ -154,6 +154,10 @@ WHERE TABLE_SCHEMA = "mydb" AND TABLE_NAME = "student_dtls"
 
 SHOW COLUMNS FROM student_dtls;
 
+(OR)
+
+DESC student_dtls
+
 use mydb;
 
 

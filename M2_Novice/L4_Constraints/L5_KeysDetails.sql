@@ -26,13 +26,6 @@ Super Keys	  	: 			one or more keys should follow the unique constrain in a tabl
 							
 
 
-
-
-
-
-
-
-
 */
 
 use mydb;

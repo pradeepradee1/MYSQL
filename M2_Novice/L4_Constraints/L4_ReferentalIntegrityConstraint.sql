@@ -84,4 +84,8 @@ WHERE TABLE_SCHEMA = "mydb" AND TABLE_NAME = "prod_DTLS"
 
 (OR)
 
-SHOW COLUMNS FROM student_dtls;
+SHOW COLUMNS FROM prod_DTLS;
+
+(OR)
+
+DESC student_dtls'
