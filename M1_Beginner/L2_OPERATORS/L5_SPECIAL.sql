@@ -18,8 +18,8 @@ SELECT * FROM car c WHERE c.name  IS NULL
 
 # 4)
 /*
-	_  (underscore) represents anyone char
-	%  represents any number of chars
+	_  (underscore) represents any single chars
+	%  represents any groups of chars
 	
  */
 SELECT * FROM car c WHERE c.name LIKE '%rt%'

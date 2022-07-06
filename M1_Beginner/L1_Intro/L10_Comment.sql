@@ -30,7 +30,8 @@ PRIMARY KEY (bird_id)
 #View Comments
 show full columns from bird;
 
-ALTER table bird modify column bird_id tinyint comment "Changes in bird_id data type";
+ALTER table bird 
+modify column bird_id tinyint comment "Changes in bird_id data type";
 
 #View Comments
 show full columns from bird;
