@@ -39,8 +39,8 @@ Address varchar(10),
 Deptid tinyint comment 'FK'
 )
 
-# ID , Rolno, Enrollno   =  Candidate Key	
-# PK , AK 				 = 	Super Key 
+# ID, Rolno, Enrollno (PK,AK,AK)  		=  Candidate Key	
+# PK , AK 				 				= 	Super Key 
 
 create or replace table keychild
 (
