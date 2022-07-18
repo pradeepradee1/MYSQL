@@ -11,17 +11,20 @@ SELECT * FROM stack s
 ALTER TABLE stack 
 ADD INDEX `stack_index` (id_user)
 
-ALTER TABLE stack 
-Drop INDEX `stack_index`
-
 #Adding composite (Multiple) Index
 ALTER TABLE stack 
 ADD INDEX `stack_index` (id_user,mod_id);
 
+#Drop
+ALTER TABLE stack 
+Drop INDEX `stack_index`
 
+
+
+#Adding Constraints
 #Changing Priymary Key Columns
 ALTER TABLE stack1 
-MODIFY column id int PRIMARY KEY;
+MODIFY column columnname int PRIMARY KEY;
 
 ALTER TABLE stack1
 DROP PRIMARY KEY;
