@@ -63,7 +63,7 @@
 									#Maximum Size Of 4GB or 4,294,967,295 Character
 	
 
-
+#Note: Have To Specify Parenthesis for Varchar
 
 
 
