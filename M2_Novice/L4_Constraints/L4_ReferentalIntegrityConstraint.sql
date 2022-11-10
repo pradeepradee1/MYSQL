@@ -50,7 +50,7 @@ constraint fk FOREIGN KEY(cmpId) REFERENCES comp_dtls(cmpId)
 )
 ;
 
-
+#Note : FK creates relationship with another PK(cmpID)
 
 
 

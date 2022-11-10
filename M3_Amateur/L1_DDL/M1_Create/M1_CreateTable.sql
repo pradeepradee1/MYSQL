@@ -19,7 +19,8 @@ CREATE or REPLACE  TABLE Person
 #Note
 #Where Engine  is an optional parameter used to specify the table storage engine.
 
-#AutoIncrement Keyword
+#Keyword
+#AutoIncrement 
 CREATE or REPLACE  TABLE Person
 (
 `PersonID` INT AUTO_INCREMENT,
@@ -87,6 +88,9 @@ PersonID INT UNSIGNED,
 PRIMARY KEY (AccountID),
 FOREIGN KEY (PersonID) REFERENCES Person (PersonID)
 ) ENGINE=InnoDB;
+
+#Note: FK Creates relationsip with another table of PK 
+#ex  : Person (PersonID)
 
 #Note: foreign-key constraints are supported under the InnoDB storage engine (not MyISAM or MEMORY)
 
