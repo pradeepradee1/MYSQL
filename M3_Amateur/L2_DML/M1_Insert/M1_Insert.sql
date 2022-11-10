@@ -49,28 +49,8 @@ Values(8,'martin',12,null,null,null);
 
 
 
-
 /*
-    1) Default Keyword
-*/
-Insert into customer(cno,cname) 
-values (1,'kiran');
-
-Insert into customer(cno,cname) 
-values (2,'Madhu');
-
-Insert into customer 
-values(3,'dinesh',Null);
-
-Insert into customer 
-values(4,'john','Texas');
-
-Insert into customer(cname) 
-values ('Radee');
-
-
-/*
-	2) 	AutoIncerement Keyword
+	1) 	AutoIncerement Keyword
 */
 
 use mydb;
@@ -93,6 +73,29 @@ values
 insert into iodku(name,misc)
 values
 ('Kite123',75);
+
+
+
+/*
+    2) Default Keyword
+*/
+Insert into customer(cno,cname) 
+values (1,'kiran');
+
+Insert into customer(cno,cname) 
+values (2,'Madhu');
+
+Insert into customer 
+values(3,'dinesh',Null);
+
+Insert into customer 
+values(4,'john','Texas');
+
+Insert into customer(cname) 
+values ('Radee');
+
+
+
 
 
 

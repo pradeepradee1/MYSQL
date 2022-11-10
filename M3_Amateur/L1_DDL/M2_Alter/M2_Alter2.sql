@@ -1,21 +1,12 @@
 /*
 Alter
 */
-#Adding or Droping the Constrains Priymary Key  and Index
+#Adding or Droping Index
 
 use mydb;
 
 SELECT * FROM stack s 
 
-
-#Adding Constraints
-#Changing Priymary Key Columns
-ALTER TABLE stack1 
-MODIFY column columnname int PRIMARY KEY;
-
-#Droping The Constraints Columns
-ALTER TABLE stack1
-DROP PRIMARY KEY;
 
 #Adding a Index
 ALTER TABLE stack 

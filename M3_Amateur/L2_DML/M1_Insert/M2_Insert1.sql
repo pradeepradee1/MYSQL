@@ -18,7 +18,7 @@ CREATE or REPLACE  TABLE iodkuchild
 ) ENGINE=InnoDB;
 
 Insert into iodkuchild (name,misc)
-select iodku.name ,iodku.misc 
-from iodku 
-where iodku.name <> 'Legar'
+select i.name ,i.misc 
+from iodku i
+where i.name <> 'Legar'
 
