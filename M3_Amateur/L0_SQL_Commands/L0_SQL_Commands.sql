@@ -19,9 +19,8 @@ Types Of SQL Commands
 	INSERT
 	UPDATE
 	DELETE
-	TRUNCATE
 
-3) 	DRL(data retrieval language) :
+3) 	DRL(data retrieval language) or DQL(data query language) :
 
 	SELECT
 	

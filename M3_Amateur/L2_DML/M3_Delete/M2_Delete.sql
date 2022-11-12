@@ -36,13 +36,11 @@ values
 
 
 #Records Will be Deleted from pets
-DELETE p2 FROM people p1 
-JOIN pets p2 ON p2.ownerId = p1.id
+DELETE p2 FROM people p1 JOIN pets p2 ON p2.ownerId = p1.id
 WHERE p1.name = 'Paul';
 
 #Records Will be Deleted from both tables
-DELETE p1, p2 FROM people p1
-JOIN pets p2 ON p2.ownerId = p1.id
+DELETE p1, p2 FROM people p1 JOIN pets p2 ON p2.ownerId = p1.id
 WHERE p1.name = 'John';
 
 
