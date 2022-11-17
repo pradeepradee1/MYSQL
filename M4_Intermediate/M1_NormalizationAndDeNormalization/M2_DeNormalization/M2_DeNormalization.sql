@@ -13,11 +13,6 @@ but it has
     2) It Occupies more disk space 
     
     3) Data Retrieval time is very high.
-  
-
-Disk space	:
-
-			6 (Columns) X 9 (Records) = 54 kb
 
 */
 
