@@ -1,41 +1,30 @@
 /*
 Difference Between Normalization and DeNormalization
 
-1) 	Normaliztion is the technique of dividing the data into multiple tables to reduce 
-	data redundancy and inconsistency and to acheive the data integrity
+1) 	Normaliztion is the technique of dividing the data into multiple tables to acheive the data integrity
+ 	by reducing the data redundancy and inconsistency 
 	
-	DeNormalization is the technique of combining the data into a single table to make data retrieval faster
+	DeNormalization is the technique of combining the data into a single table to acheive data retrieval faster
 	
-2) 	Normalization is used in OLTP systems and making the insert,delete,and 
-	update anomalies faster 
-	
-	DeNormalization is used on OLAP systems and making the search and analysis faster
-	
-3)	Redundant data is eliminated in Normalization
+2)	Redundant data is eliminated in Normalization
 
 	Redundant data increase in DeNormalization
 
-4)	Data Integrity is maintained in normalization process
+3)	Data Integrity is maintained in normalization process
 	
 	Data Integrity is harder to retain
 	
-5)	Normalization increases the number of tables and joins 
+4)	Normalization increases the number of tables and joins 
 
 	DeNormalization reduces the number of tables and joins 
 	
-6)	Disk Space is optimized in normalized table
+5)	Disk Space is optimized in normalized table
 	
 	Disk Space is wasted in denormalized table because the same data is stored in different places
 
+6) 	Normalization is used in OLTP systems and making the insert,delete,and 
+	update anomalies faster 
+	
+	DeNormalization is used on OLAP systems and making the search faster	
+
 */
-
-
-/*
-Conclusion :
-
-Normalizaion is used when the faster insertion , deletoion , updation anomalies 
-and data consistency are necessarily required
-
-Denormalization is used when the faster search is more important and to optimize the read performance
-*/
-

@@ -1,6 +1,5 @@
 /*
 Set Operators
-
 */
 use mydb;
 
@@ -20,11 +19,6 @@ s2={x,y,z,c,b}
 {a,d}
 # Note : Minus Operator Not Supported in MYSQL
 
-select * from CUST_BR1 
-union all
-select * from CUST_BR2
-union all
-select * from CUST_BR3;
 
 
 select * from CUST_BR1
@@ -32,6 +26,14 @@ union
 select * from CUST_BR2
 union
 select * from CUST_BR3;
+
+
+select * from CUST_BR1 
+union all
+select * from CUST_BR2
+union all
+select * from CUST_BR3;
+
 
 
 SELECT CNAME,MOBILE FROM CUST_BR1

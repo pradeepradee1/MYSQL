@@ -35,6 +35,8 @@ use mydb;
 
 show engine innodb status
 
+
+
 select * FROM tmp;
 
 #Lock Table Explicitly
