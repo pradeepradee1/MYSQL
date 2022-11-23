@@ -16,6 +16,7 @@ select
 * 
 from sales_informations;
 
+
 create view finance_informations as
 select 
 e.*
@@ -30,6 +31,8 @@ select
 ename , sal 
 from finance_informations;
 
+
+
 #--SUB TABLES MAINTAINS DATA STATICALLY
 #--VIEWS MAINTAINS DATA DYNAMICALLY.
 
@@ -38,6 +41,7 @@ select
 * 
 from emp 
 where dno=30;
+
 
 select 
 *

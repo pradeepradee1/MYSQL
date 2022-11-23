@@ -1,13 +1,6 @@
 /*
-Views :
-		Views are known as logical tables.
-		They represent the data of one of more tables. 
-		A view derives its data from the tables on which it is based. These tables are called base tables.
-		Views can be based on actual tables or another view also.
-
-
 View :
-		It is a database object contains logical copy of selected table data.
+		It is a database object and which contains logical copy of selected table data.
 		It can be created based on frequently using data.
 		It reduces number of hits to the database.
 		It improves the performance of queries and database.

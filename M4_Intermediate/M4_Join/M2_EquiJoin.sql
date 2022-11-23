@@ -11,8 +11,7 @@ use mydb;
 
 select 
 ename, sal,dept.dno,dname,loc
-from 
-emp,dept
+from emp,dept
 where emp.dno =dept.dno ;
 
 

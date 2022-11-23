@@ -8,14 +8,13 @@ use mydb;
 #1)
 select
 eid,ename,sal,dname 
-from 
-emp cross join dept;
+from emp 
+cross join dept;
 
 #2)
 select
 eid,ename,sal,dname 
-from 
-emp,dept;
+from emp,dept;
 
 
 
