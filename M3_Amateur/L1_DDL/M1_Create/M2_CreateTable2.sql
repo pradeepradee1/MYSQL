@@ -4,6 +4,7 @@ DDL
 
 /*
 Create a Table from another table
+Create Index
 */
 
 use mydb;
@@ -41,3 +42,8 @@ SELECT PersonID, FirstName + LastName AS FullName FROM Person
 WHERE LastName IS NOT NULL;
 
 
+
+
+#Creating The Index
+
+create index idx_sal on emp(sal);

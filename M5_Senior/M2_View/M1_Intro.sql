@@ -1,7 +1,8 @@
 /*
 View :
-		It is a database object and which contains logical copy of selected table data.
-		It can be created based on frequently using data.
+		It is a database object and virtual table
+		It is created over an SQL Query
+		It Doesn't store any data
 		It reduces number of hits to the database.
 		It improves the performance of queries and database.
 
@@ -17,6 +18,17 @@ Types of Views :
 
 
 NOTE :
-		By default the Client user not having permission to create views. That can be assigned by DBA.
+		Due to maintain confidential data , we can create virtual table and share it to vendor.
+
+*/
+
+/*
+Main Purpose Of Using View / Advantages Of Views
+		
+		1) Security 
+					By Hiding the query used to generate the view
+
+		2) Simplify the complex sql queries
+					sharing a view is better than sharing complex query
 
 */

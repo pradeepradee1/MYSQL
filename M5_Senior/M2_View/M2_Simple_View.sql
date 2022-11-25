@@ -34,7 +34,7 @@ from finance_informations;
 
 
 #--SUB TABLES MAINTAINS DATA STATICALLY
-#--VIEWS MAINTAINS DATA DYNAMICALLY.
+#--VIEWS MAINTAINS DATA DYNAMICALLY (mutable)
 
 create or replace table emp_mgr as 
 select 
@@ -83,9 +83,3 @@ select
 *
 from 
 emp_mgr_info
-
-select 
-*
-from emp
-where 
-dno = 30
