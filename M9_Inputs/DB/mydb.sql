@@ -16,6 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Sequence structure for `srno1`
+--
+
+DROP SEQUENCE IF EXISTS `srno1`;
+CREATE SEQUENCE `srno1` start with 1 minvalue 1 maxvalue 9223372036854775806 increment by 1 cache 1000 nocycle ENGINE=InnoDB;
+SELECT SETVAL(`srno1`, 1, 0);
+
+--
 -- Table structure for table `Account`
 --
 
@@ -395,9 +403,9 @@ DROP TABLE IF EXISTS `Second_2NF`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Second_2NF` (
-  `EmployeeID` int(11) DEFAULT NULL,
-  `DepartmentID` int(11) DEFAULT NULL,
-  `OfficeLocation` varchar(80) DEFAULT NULL
+  `student_id` tinyint(3) unsigned DEFAULT NULL,
+  `student_name` varchar(10) DEFAULT NULL,
+  `address` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -407,7 +415,7 @@ CREATE TABLE `Second_2NF` (
 
 LOCK TABLES `Second_2NF` WRITE;
 /*!40000 ALTER TABLE `Second_2NF` DISABLE KEYS */;
-INSERT INTO `Second_2NF` VALUES (10,100,'pune'),(11,111,'Cheanni'),(12,123,'delhi'),(13,134,'Mumbai');
+INSERT INTO `Second_2NF` VALUES (10,'100','pune'),(11,'111','Cheanni'),(12,'123','delhi'),(13,'134','Mumbai');
 /*!40000 ALTER TABLE `Second_2NF` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,8 +427,8 @@ DROP TABLE IF EXISTS `Second_2NF_1`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Second_2NF_1` (
-  `EmployeeID` int(11) DEFAULT NULL,
-  `DepartmentID` int(11) DEFAULT NULL
+  `sub_id` tinyint(3) unsigned DEFAULT NULL,
+  `Sub_Name` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -430,7 +438,7 @@ CREATE TABLE `Second_2NF_1` (
 
 LOCK TABLES `Second_2NF_1` WRITE;
 /*!40000 ALTER TABLE `Second_2NF_1` DISABLE KEYS */;
-INSERT INTO `Second_2NF_1` VALUES (10,100),(11,111),(12,123),(13,134);
+INSERT INTO `Second_2NF_1` VALUES (10,'100'),(11,'111'),(12,'123'),(13,'134');
 /*!40000 ALTER TABLE `Second_2NF_1` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -442,8 +450,11 @@ DROP TABLE IF EXISTS `Second_2NF_2`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Second_2NF_2` (
-  `EmployeeID` int(11) DEFAULT NULL,
-  `Office` varchar(80) DEFAULT NULL
+  `score_id` tinyint(4) DEFAULT NULL,
+  `Student_id` tinyint(4) DEFAULT NULL,
+  `marks` tinyint(4) DEFAULT NULL,
+  `sub_id` tinyint(4) DEFAULT NULL,
+  `teacher` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -453,7 +464,7 @@ CREATE TABLE `Second_2NF_2` (
 
 LOCK TABLES `Second_2NF_2` WRITE;
 /*!40000 ALTER TABLE `Second_2NF_2` DISABLE KEYS */;
-INSERT INTO `Second_2NF_2` VALUES (10,'pune'),(11,'Benguluru'),(12,'Delhi'),(13,'Chennai');
+INSERT INTO `Second_2NF_2` VALUES (10,NULL,NULL,NULL,'pune'),(11,NULL,NULL,NULL,'Benguluru'),(12,NULL,NULL,NULL,'Delhi'),(13,NULL,NULL,NULL,'Chennai');
 /*!40000 ALTER TABLE `Second_2NF_2` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -514,11 +525,12 @@ DROP TABLE IF EXISTS `Third_NF`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Third_NF` (
-  `StudentID` int(11) DEFAULT NULL,
-  `StudentName` varchar(80) DEFAULT NULL,
-  `SubjectID` int(11) DEFAULT NULL,
-  `SubjectName` varchar(80) DEFAULT NULL,
-  `Address` varchar(80) DEFAULT NULL
+  `score_id` tinyint(4) DEFAULT NULL,
+  `studi_id` tinyint(4) DEFAULT NULL,
+  `sub_id` tinyint(4) DEFAULT NULL,
+  `marks` tinyint(4) DEFAULT NULL,
+  `exam_name` varchar(20) DEFAULT NULL,
+  `total_marks` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -528,7 +540,7 @@ CREATE TABLE `Third_NF` (
 
 LOCK TABLES `Third_NF` WRITE;
 /*!40000 ALTER TABLE `Third_NF` DISABLE KEYS */;
-INSERT INTO `Third_NF` VALUES (10,'A',100,'SQL','GOA'),(11,'B',101,'Python','Chennai'),(12,'C',102,'Java','Adyar'),(13,'D',103,'spark','AI');
+INSERT INTO `Third_NF` VALUES (10,NULL,NULL,NULL,'A',NULL),(11,NULL,NULL,NULL,'B',NULL),(12,NULL,NULL,NULL,'C',NULL),(13,NULL,NULL,NULL,'D',NULL);
 /*!40000 ALTER TABLE `Third_NF` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -589,9 +601,11 @@ DROP TABLE IF EXISTS `Wheather`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Wheather` (
   `Temp` varchar(250) DEFAULT NULL,
+  `Id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `Wind` varchar(250) DEFAULT NULL,
-  `Event` varchar(250) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Event` varchar(10) DEFAULT 'HOT',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -600,8 +614,56 @@ CREATE TABLE `Wheather` (
 
 LOCK TABLES `Wheather` WRITE;
 /*!40000 ALTER TABLE `Wheather` DISABLE KEYS */;
-INSERT INTO `Wheather` VALUES ('32','6','Rain'),('35','7','Sunny'),('28','2','Snow'),('24','7','Snow'),('32','4','Rain'),('31','2','Sunny');
+INSERT INTO `Wheather` VALUES ('32',1,'6','Rain'),('35',2,'7','Sunny'),('28',3,'2','Snow'),('24',4,'7','Snow'),('32',5,'4','Rain'),('31',6,'2','Sunny'),('33',7,'7',NULL),('33',8,'7','HOT'),('33',9,'7','HOT');
 /*!40000 ALTER TABLE `Wheather` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `accDetails`
+--
+
+DROP TABLE IF EXISTS `accDetails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `accDetails` (
+  `id` tinyint(3) unsigned DEFAULT NULL,
+  `sal` mediumint(8) unsigned DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `accDetails`
+--
+
+LOCK TABLES `accDetails` WRITE;
+/*!40000 ALTER TABLE `accDetails` DISABLE KEYS */;
+INSERT INTO `accDetails` VALUES (1,600,'Rad1'),(2,200,'Rad2'),(3,300,'Rad3');
+/*!40000 ALTER TABLE `accDetails` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bankaccounts`
+--
+
+DROP TABLE IF EXISTS `bankaccounts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bankaccounts` (
+  `accountno` varchar(20) NOT NULL,
+  `funds` decimal(8,2) DEFAULT NULL,
+  PRIMARY KEY (`accountno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bankaccounts`
+--
+
+LOCK TABLES `bankaccounts` WRITE;
+/*!40000 ALTER TABLE `bankaccounts` DISABLE KEYS */;
+INSERT INTO `bankaccounts` VALUES ('ACC1',900.00),('ACC2',1100.00);
+/*!40000 ALTER TABLE `bankaccounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -612,7 +674,7 @@ DROP TABLE IF EXISTS `bird`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bird` (
-  `bird_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bird_id` tinyint(4) NOT NULL COMMENT 'Changes in bird_id data type',
   `species` varchar(300) DEFAULT NULL COMMENT 'You can include genus, but never subspecies.',
   PRIMARY KEY (`bird_id`),
   KEY `idx_species` (`species`) COMMENT 'We must search on species often.'
@@ -698,6 +760,7 @@ CREATE TABLE `cust` (
 
 LOCK TABLES `cust` WRITE;
 /*!40000 ALTER TABLE `cust` DISABLE KEYS */;
+INSERT INTO `cust` VALUES ('c00','Sanju'),('c01','Manoj');
 /*!40000 ALTER TABLE `cust` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -750,6 +813,28 @@ INSERT INTO `dept` VALUES (10,'Productions','Hyderabad'),(20,'Sales','Hyderabad'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `dept123`
+--
+
+DROP TABLE IF EXISTS `dept123`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dept123` (
+  `deptno` tinyint(3) NOT NULL,
+  PRIMARY KEY (`deptno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dept123`
+--
+
+LOCK TABLES `dept123` WRITE;
+/*!40000 ALTER TABLE `dept123` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dept123` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `emp`
 --
 
@@ -770,7 +855,7 @@ CREATE TABLE `emp` (
 
 LOCK TABLES `emp` WRITE;
 /*!40000 ALTER TABLE `emp` DISABLE KEYS */;
-INSERT INTO `emp` VALUES (5,'C',1000,NULL),(6,'S',1300,NULL),(7,'D',2300,NULL),(8,'X',1200,NULL),(9,'B',2200,NULL),(1,'A',2000,10),(2,'X',1200,10),(3,'A',3400,30),(4,'Z',5000,10),(10,'V',5000,30);
+INSERT INTO `emp` VALUES (5,'C',1000,NULL),(6,'S',1300,NULL),(7,'D',2300,NULL),(8,'X',1200,NULL),(9,'B',2200,NULL),(1,'A',2000,10),(2,'X',1200,10),(3,'A',3400,30),(4,'Z',5000,10),(10,'V',5000,30),(10,'V',5000,30),(10,'V',5000,30),(100,'V',5000,30),(100,'V',5000,30);
 /*!40000 ALTER TABLE `emp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -797,7 +882,7 @@ CREATE TABLE `emp_info` (
 
 LOCK TABLES `emp_info` WRITE;
 /*!40000 ALTER TABLE `emp_info` DISABLE KEYS */;
-INSERT INTO `emp_info` VALUES (111,'AB',11,'2023-04-14','developer','M'),(111,'AB',11,'2023-05-14','developer','M'),(112,'BC',14,'2021-11-13','Senior Developer','F'),(55,'aa',12,NULL,'salesman',NULL),(112,'BC',14,'0002-04-20','Senior Developer','M'),(113,'CD',22,'2022-04-20','developer','F');
+INSERT INTO `emp_info` VALUES (111,'AB',111,'2023-04-14','developer','M'),(111,'AB',111,'2023-05-14','developer','M'),(112,'BC',141,'2021-11-13','Senior Developer','F'),(55,'aa',12,NULL,'salesman',NULL),(112,'BC',141,'0002-04-20','Senior Developer','M'),(113,'CD',221,'2022-04-20','developer','F');
 /*!40000 ALTER TABLE `emp_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -821,7 +906,7 @@ CREATE TABLE `emp_info_child` (
 
 LOCK TABLES `emp_info_child` WRITE;
 /*!40000 ALTER TABLE `emp_info_child` DISABLE KEYS */;
-INSERT INTO `emp_info_child` VALUES (111,'AB',11),(111,'AB',11),(112,'BC',14),(112,'BC',14),(113,'CD',22);
+INSERT INTO `emp_info_child` VALUES (111,'AB',111),(111,'AB',111),(112,'BC',141),(112,'BC',141),(113,'CD',221);
 /*!40000 ALTER TABLE `emp_info_child` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -846,41 +931,36 @@ CREATE TABLE `emp_mgr` (
 
 LOCK TABLES `emp_mgr` WRITE;
 /*!40000 ALTER TABLE `emp_mgr` DISABLE KEYS */;
-INSERT INTO `emp_mgr` VALUES (3,'A',3400,30);
+INSERT INTO `emp_mgr` VALUES (3,'A',3400,30),(10,'V',5000,30),(10,'V',5000,30),(11,'VV',5000,30);
 /*!40000 ALTER TABLE `emp_mgr` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Temporary table structure for view `emp_mgr_info`
+-- Table structure for table `employees`
 --
 
-DROP TABLE IF EXISTS `emp_mgr_info`;
-/*!50001 DROP VIEW IF EXISTS `emp_mgr_info`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `emp_mgr_info` (
-  `eid` tinyint NOT NULL,
-  `ename` tinyint NOT NULL,
-  `sal` tinyint NOT NULL,
-  `dno` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
+DROP TABLE IF EXISTS `employees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employees` (
+  `id` int(11) NOT NULL,
+  `fname` varchar(30) DEFAULT NULL,
+  `lname` varchar(30) DEFAULT NULL,
+  `hired` date NOT NULL DEFAULT '1970-01-01',
+  `separated` date NOT NULL DEFAULT '9999-12-31',
+  `job_code` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Temporary table structure for view `finance_informations`
+-- Dumping data for table `employees`
 --
 
-DROP TABLE IF EXISTS `finance_informations`;
-/*!50001 DROP VIEW IF EXISTS `finance_informations`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE TABLE `finance_informations` (
-  `eid` tinyint NOT NULL,
-  `ename` tinyint NOT NULL,
-  `sal` tinyint NOT NULL,
-  `dno` tinyint NOT NULL
-) ENGINE=MyISAM */;
-SET character_set_client = @saved_cs_client;
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `firsttable`
@@ -943,7 +1023,7 @@ CREATE TABLE `iodku` (
   `misc` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -952,8 +1032,32 @@ CREATE TABLE `iodku` (
 
 LOCK TABLES `iodku` WRITE;
 /*!40000 ALTER TABLE `iodku` DISABLE KEYS */;
-INSERT INTO `iodku` VALUES (1,'A',1000),(2,'B',3333),(4,'C',1000),(5,'X',1000);
+INSERT INTO `iodku` VALUES (1,'Leslie',100),(2,'Sally',100),(3,'Dana',100),(101,'Kite',101),(102,'K',102),(103,'Radee123',123);
 /*!40000 ALTER TABLE `iodku` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `iodku1`
+--
+
+DROP TABLE IF EXISTS `iodku1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `iodku1` (
+  `id` int(10) unsigned NOT NULL DEFAULT 0,
+  `name` varchar(10) DEFAULT NULL,
+  `misc` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `iodku1`
+--
+
+LOCK TABLES `iodku1` WRITE;
+/*!40000 ALTER TABLE `iodku1` DISABLE KEYS */;
+INSERT INTO `iodku1` VALUES (1,'Leslie',123),(2,'Sally',3333);
+/*!40000 ALTER TABLE `iodku1` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -980,6 +1084,55 @@ LOCK TABLES `iodkuchild` WRITE;
 /*!40000 ALTER TABLE `iodkuchild` DISABLE KEYS */;
 INSERT INTO `iodkuchild` VALUES (1,'Leslie',123),(2,'Sally',3333),(3,'Dana',789);
 /*!40000 ALTER TABLE `iodkuchild` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `keychild`
+--
+
+DROP TABLE IF EXISTS `keychild`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `keychild` (
+  `Deptid` tinyint(4) DEFAULT NULL COMMENT 'PK',
+  `Name` varchar(10) DEFAULT NULL,
+  `Address` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `keychild`
+--
+
+LOCK TABLES `keychild` WRITE;
+/*!40000 ALTER TABLE `keychild` DISABLE KEYS */;
+/*!40000 ALTER TABLE `keychild` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `keyparent`
+--
+
+DROP TABLE IF EXISTS `keyparent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `keyparent` (
+  `id` tinyint(4) DEFAULT NULL COMMENT 'PK',
+  `Rollno` mediumint(9) DEFAULT NULL COMMENT 'AK',
+  `Name` varchar(10) DEFAULT NULL,
+  `EnrollNo` tinyint(4) DEFAULT NULL COMMENT 'AK',
+  `Address` varchar(10) DEFAULT NULL,
+  `Deptid` tinyint(4) DEFAULT NULL COMMENT 'FK'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `keyparent`
+--
+
+LOCK TABLES `keyparent` WRITE;
+/*!40000 ALTER TABLE `keyparent` DISABLE KEYS */;
+/*!40000 ALTER TABLE `keyparent` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1030,6 +1183,33 @@ LOCK TABLES `mergeproducts_child` WRITE;
 /*!40000 ALTER TABLE `mergeproducts_child` DISABLE KEYS */;
 INSERT INTO `mergeproducts_child` VALUES (1,'parle G',100),(2,'butter',350),(3,'pista',450),(4,'dark',500),(5,'white',600);
 /*!40000 ALTER TABLE `mergeproducts_child` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `normalization`
+--
+
+DROP TABLE IF EXISTS `normalization`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `normalization` (
+  `s_id` tinyint(3) unsigned DEFAULT NULL,
+  `s_name` varchar(10) DEFAULT NULL,
+  `s_credits` tinyint(3) unsigned DEFAULT NULL,
+  `dept_name` varchar(10) DEFAULT NULL,
+  `building` varchar(10) DEFAULT NULL,
+  `room_no` tinyint(3) unsigned DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `normalization`
+--
+
+LOCK TABLES `normalization` WRITE;
+/*!40000 ALTER TABLE `normalization` DISABLE KEYS */;
+INSERT INTO `normalization` VALUES (1,'Rahul',5,'cse','B1',101),(2,'jiya',8,'cse','B1',101),(3,'jenny',9,'fash','B2',201),(4,'payal',9,'fash','B2',201),(5,'ankur',7,'civil','B1',110),(6,'aakash',7,'ece','B1',115),(7,'vakash',8,'civil','B1',110),(8,'Tahul',7,'cse','B1',101);
+/*!40000 ALTER TABLE `normalization` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1133,7 +1313,6 @@ CREATE TABLE `prod_DTLS` (
 
 LOCK TABLES `prod_DTLS` WRITE;
 /*!40000 ALTER TABLE `prod_DTLS` DISABLE KEYS */;
-INSERT INTO `prod_DTLS` VALUES ('p001','smart phone',34000.00,'2012-01-14','1 year','cmp01'),('p002','laptop',54000.00,'2003-01-14','3 years','cmp01'),('p003','Television',24000.00,'2008-08-14','5 years','cmp03'),('p004','Home Theatre',55000.00,'2011-08-13','2 years','cmp03'),('p005','Mobile',24000.00,'2008-08-14','1 year',NULL),('p006','vmware',64000.00,'2022-10-10','1 year','cmp04');
 /*!40000 ALTER TABLE `prod_DTLS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1192,9 +1371,8 @@ DROP TABLE IF EXISTS `stack1`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stack1` (
-  `id` int(11) NOT NULL,
-  `name` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `id` int(11) DEFAULT NULL COMMENT 'You can include genus, but never subspecies.',
+  `name` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1283,7 +1461,7 @@ CREATE TABLE `stud_dtls` (
 
 LOCK TABLES `stud_dtls` WRITE;
 /*!40000 ALTER TABLE `stud_dtls` DISABLE KEYS */;
-INSERT INTO `stud_dtls` VALUES (1,'a','oracle',7000,'1212'),(21,'hari','unix',9000,'1211');
+INSERT INTO `stud_dtls` VALUES (1,'a','oracle',7000,'1212'),(12,'b','sql server',7000,NULL),(21,'hari','unix',9000,'1211');
 /*!40000 ALTER TABLE `stud_dtls` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1365,6 +1543,31 @@ LOCK TABLES `student_dtls` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tempconsrainttable`
+--
+
+DROP TABLE IF EXISTS `tempconsrainttable`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tempconsrainttable` (
+  `id` tinyint(4) NOT NULL,
+  `name` tinytext NOT NULL,
+  `phone` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `ck` CHECK (`name` in ('radee','check','name'))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tempconsrainttable`
+--
+
+LOCK TABLES `tempconsrainttable` WRITE;
+/*!40000 ALTER TABLE `tempconsrainttable` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tempconsrainttable` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tmp`
 --
 
@@ -1388,8 +1591,88 @@ CREATE TABLE `tmp` (
 
 LOCK TABLES `tmp` WRITE;
 /*!40000 ALTER TABLE `tmp` DISABLE KEYS */;
-INSERT INTO `tmp` VALUES (1,'first','sql',20,12);
+INSERT INTO `tmp` VALUES (1,'first','sql',20,12),(2,'Sceond','SQL',12,1);
 /*!40000 ALTER TABLE `tmp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tmp1`
+--
+
+DROP TABLE IF EXISTS `tmp1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tmp1` (
+  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `FName` varchar(10) DEFAULT 'Rade',
+  `CurrentDateUpdate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `FName` (`FName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tmp1`
+--
+
+LOCK TABLES `tmp1` WRITE;
+/*!40000 ALTER TABLE `tmp1` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tmp1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tmp1backup`
+--
+
+DROP TABLE IF EXISTS `tmp1backup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tmp1backup` (
+  `rno` int(2) NOT NULL,
+  `sname` varchar(20) DEFAULT NULL,
+  `course` varchar(7) DEFAULT NULL,
+  `fee` tinyint(5) DEFAULT NULL,
+  `mobile` tinyint(10) DEFAULT NULL,
+  PRIMARY KEY (`rno`),
+  UNIQUE KEY `uq` (`mobile`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tmp1backup`
+--
+
+LOCK TABLES `tmp1backup` WRITE;
+/*!40000 ALTER TABLE `tmp1backup` DISABLE KEYS */;
+INSERT INTO `tmp1backup` VALUES (1,'first','sql',20,12),(2,'Sceond','SQL',12,1);
+/*!40000 ALTER TABLE `tmp1backup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tmpbackup`
+--
+
+DROP TABLE IF EXISTS `tmpbackup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tmpbackup` (
+  `rno` int(2) NOT NULL,
+  `sname` varchar(20) DEFAULT NULL,
+  `course` varchar(7) DEFAULT NULL,
+  `fee` tinyint(5) DEFAULT NULL,
+  `mobile` tinyint(10) DEFAULT NULL,
+  PRIMARY KEY (`rno`),
+  UNIQUE KEY `tmpmobilepkcn` (`mobile`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tmpbackup`
+--
+
+LOCK TABLES `tmpbackup` WRITE;
+/*!40000 ALTER TABLE `tmpbackup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tmpbackup` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1418,6 +1701,78 @@ INSERT INTO `tools` VALUES (1,'Hammer',9),(2,'Pliers',1),(3,'Knife',1),(4,'Chise
 UNLOCK TABLES;
 
 --
+-- Table structure for table `view_emp_mgr`
+--
+
+DROP TABLE IF EXISTS `view_emp_mgr`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `view_emp_mgr` (
+  `eid` tinyint(4) DEFAULT NULL,
+  `ename` varchar(20) DEFAULT NULL,
+  `sal` int(11) DEFAULT NULL,
+  `dno` mediumint(9) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `view_emp_mgr`
+--
+
+LOCK TABLES `view_emp_mgr` WRITE;
+/*!40000 ALTER TABLE `view_emp_mgr` DISABLE KEYS */;
+INSERT INTO `view_emp_mgr` VALUES (3,'A',3400,30),(10,'V',5000,30),(10,'V',5000,30),(10,'V',5000,30),(100,'V',5000,30);
+/*!40000 ALTER TABLE `view_emp_mgr` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `view_emp_mgr_info`
+--
+
+DROP TABLE IF EXISTS `view_emp_mgr_info`;
+/*!50001 DROP VIEW IF EXISTS `view_emp_mgr_info`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `view_emp_mgr_info` (
+  `eid` tinyint NOT NULL,
+  `ename` tinyint NOT NULL,
+  `sal` tinyint NOT NULL,
+  `dno` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `view_finance_informations`
+--
+
+DROP TABLE IF EXISTS `view_finance_informations`;
+/*!50001 DROP VIEW IF EXISTS `view_finance_informations`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `view_finance_informations` (
+  `eid` tinyint NOT NULL,
+  `ename` tinyint NOT NULL,
+  `sal` tinyint NOT NULL,
+  `dno` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `view_sales_informations`
+--
+
+DROP TABLE IF EXISTS `view_sales_informations`;
+/*!50001 DROP VIEW IF EXISTS `view_sales_informations`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `view_sales_informations` (
+  `dno` tinyint NOT NULL,
+  `dname` tinyint NOT NULL,
+  `loc` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary table structure for view `vw_emp_dept_info`
 --
 
@@ -1434,44 +1789,6 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
--- Final view structure for view `emp_mgr_info`
---
-
-/*!50001 DROP TABLE IF EXISTS `emp_mgr_info`*/;
-/*!50001 DROP VIEW IF EXISTS `emp_mgr_info`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `emp_mgr_info` AS select `emp`.`eid` AS `eid`,`emp`.`ename` AS `ename`,`emp`.`sal` AS `sal`,`emp`.`dno` AS `dno` from `emp` where `emp`.`dno` = 30 */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `finance_informations`
---
-
-/*!50001 DROP TABLE IF EXISTS `finance_informations`*/;
-/*!50001 DROP VIEW IF EXISTS `finance_informations`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `finance_informations` AS select `e`.`eid` AS `eid`,`e`.`ename` AS `ename`,`e`.`sal` AS `sal`,`e`.`dno` AS `dno` from (`emp` `e` join `dept` `d` on(`e`.`dno` = `d`.`dno`)) where `d`.`dname` = 'Finance' */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Final view structure for view `sales_informations`
 --
 
@@ -1486,6 +1803,63 @@ SET character_set_client = @saved_cs_client;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `sales_informations` AS select `dept`.`dno` AS `dno`,`dept`.`dname` AS `dname`,`dept`.`loc` AS `loc` from `dept` where `dept`.`dname` = 'Sales' */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `view_emp_mgr_info`
+--
+
+/*!50001 DROP TABLE IF EXISTS `view_emp_mgr_info`*/;
+/*!50001 DROP VIEW IF EXISTS `view_emp_mgr_info`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_emp_mgr_info` AS select `emp`.`eid` AS `eid`,`emp`.`ename` AS `ename`,`emp`.`sal` AS `sal`,`emp`.`dno` AS `dno` from `emp` where `emp`.`dno` = 30 */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `view_finance_informations`
+--
+
+/*!50001 DROP TABLE IF EXISTS `view_finance_informations`*/;
+/*!50001 DROP VIEW IF EXISTS `view_finance_informations`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_finance_informations` AS select `e`.`eid` AS `eid`,`e`.`ename` AS `ename`,`e`.`sal` AS `sal`,`e`.`dno` AS `dno` from (`emp` `e` join `dept` `d` on(`e`.`dno` = `d`.`dno`)) where `d`.`dname` = 'Finance' */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `view_sales_informations`
+--
+
+/*!50001 DROP TABLE IF EXISTS `view_sales_informations`*/;
+/*!50001 DROP VIEW IF EXISTS `view_sales_informations`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_sales_informations` AS select `dept`.`dno` AS `dno`,`dept`.`dname` AS `dname`,`dept`.`loc` AS `loc` from `dept` where `dept`.`dname` = 'Sales' */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1518,4 +1892,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-18  8:47:53
+-- Dump completed on 2022-11-26 10:08:50
