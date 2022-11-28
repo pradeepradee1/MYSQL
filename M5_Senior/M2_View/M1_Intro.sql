@@ -3,8 +3,7 @@ View :
 		It is a database object and virtual table
 		It is created over an SQL Query
 		It Doesn't store any data
-		It reduces number of hits to the database.
-		It improves the performance of queries and database.
+		It improves the performance of queries and database (reduces number of hits to the database)
 
 Types of Views : 
 
