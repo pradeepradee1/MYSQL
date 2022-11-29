@@ -1,7 +1,7 @@
 /*
 Index : 
+		Index is a database object
 		Indexes are used to retrieve data from the database more quickly than
-		Index is a table like object
 		Index like index in books
 
 
