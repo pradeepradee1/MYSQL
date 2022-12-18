@@ -27,8 +27,8 @@ CATEGORES:
 
 TYPES OF FUNCTIONS:	
 			
-			1) Numeric functions
-			2) String functions
+			1) String functions
+			2) Numeric functions
 			3) Date functions
 			4) Conversion functions
 */
