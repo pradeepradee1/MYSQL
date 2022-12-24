@@ -8,18 +8,18 @@ CATEGORES:
 			2) Scalar OR Single Row Functions
 
 
-1) Group or Aggregate Functions	:
+1) Group or Aggregate Functions		:
 			
-			These functions can acts on group of values and display single output value
-			These functions can acts on column level Or field level.
+			It Produces the single output value as per group of values 
+			Acts on Column level Or field level.
 
 			Ex: sum(), avg()
 
 
 2) Scalar OR Single Row Functions	:
 
-			These functions acts on group of values and display a set of output values. 
-			These functions	acts on Record level Or row level.
+			It Produces a set of output values as per the input values
+			Acts on Record level Or row level.
 
 			Ex:	lower(), length(), trim()
 

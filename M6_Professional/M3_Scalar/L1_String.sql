@@ -1,78 +1,91 @@
-#ASCII = Function returns the ASCII value for the specific character.
-SELECT ASCII(cname) AS NumCodeOfFirstChar FROM customer;
+#1)ASCII	:
+	SELECT ASCII(cname) AS NumCodeOfFirstChar FROM customer;
 
-#CHAR_LENGTH
-SELECT CHAR_LENGTH("SQL Tutorial")  LengthOfString;
+#2)CHAR_LENGTH :
+	SELECT CHAR_LENGTH("SQL Tutorial")  LengthOfString;
 
-#CHARACTER_LENGTH
-SELECT CHARACTER_LENGTH("SQL Tutorial check") AS LengthOfString;
+#3)CHARACTER_LENGTH
+	SELECT CHARACTER_LENGTH("SQL Tutorial check") AS LengthOfString;
 
-#CONCAT
-SELECT CONCAT("SQL ", "Tutorial ", "is ", "fun!") AS ConcatenatedString;
+#4)LENGTH
+	SELECT LENGTH("SQL Tutorial") AS LengthOfString;	
 
-#CONCAT_WS
-SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!") AS ConcatenatedString;
+#5)CONCAT
+	SELECT CONCAT("SQL ", "Tutorial ", "is ", "fun!") AS ConcatenatedString;
+	SELECT CONCAT(4, "Tutorial ", "is ", "fun!") AS ConcatenatedString;
 
-#FIELD = Return the index position of  "q" in the string list:
-SELECT FIELD("q", "s", "q", "l");
+#6)CONCAT_WS
+	SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!") AS ConcatenatedString;
 
-#FING_IN_SET = Search for "q" within the list of strings:
-SELECT FIND_IN_SET("q", "s,q,l");
+#7)FORMAT 
+	SELECT FORMAT(250500.5634, 2);
 
-#FORMAT = Format the number as "#,###,###.##" (and round with two decimal places):
-SELECT FORMAT(250500.5634, 2);
+#8)FIELD = Return the index position of  "q" in the string list:
+	SELECT FIELD("q", "s", "q", "l");
 
-#INSERT = Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:
-SELECT INSERT("W3Schools.com", 1, 9, "Example");
+#9)FIND_IN_SET = Search for "q" within the list of strings:
+	SELECT FIND_IN_SET("q", "s,q,l");
 
-#INSTR = Search for "3" in string "W3Schools.com", and return position:
-SELECT INSTR("W3Schools.com", "3") AS MatchPosition;
+#10)LOCATE = Search for "3" in string "W3Schools.com", and return position:
+	SELECT LOCATE("3", "W3Schools.com") AS MatchPosition;
 
-SELECT LCASE("SQL Tutorial is FUN!");
+#11)POSITION	
+	SELECT POSITION("3" IN "W3Schools.com") AS MatchPosition;
 
-#LEFT = Extract 3 characters from a string (starting from left):
-SELECT LEFT("SQL Tutorial", 3) AS ExtractString;
+#12)INSTR = Search for "3" in string "W3Schools.com", and return position:
+	SELECT INSTR("W3Schools.com", "3") AS MatchPosition;
 
-SELECT LENGTH("SQL Tutorial") AS LengthOfString;
+#13)INSERT = Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:
+	SELECT INSERT("W3Schools.com", 1, 9, "Example");
 
-#LOCATE = Search for "3" in string "W3Schools.com", and return position:
-SELECT LOCATE("3", "W3Schools.com") AS MatchPosition;
+#14)REPLACE
+	SELECT REPLACE("SQL Tutorial", "SQL", "HTML");
 
-SELECT LOWER("SQL Tutorial is FUN!");
+#15)LOWER
+	SELECT LOWER("SQL Tutorial is FUN!");
 
-#LPAD = Left-pad the string with "ABC", to a total length of 20
-SELECT LPAD("SQL Tutorial", 20, "ABC");
+#16)LCASE
+	SELECT LCASE("SQL Tutorial is FUN!");
 
-SELECT LTRIM("     SQL Tutorial") AS LeftTrimmedString;
+#17)UCASE
+	SELECT UPPER("SQL Tutorial is FUN!");
 
-SELECT MID("SQL Tutorial", 5, 3) AS ExtractString;
+#18)UPPER
+	SELECT UCASE("SQL Tutorial is FUN!");
 
+#19)LEFT = Extract 3 characters from a string (starting from left):
+	SELECT LEFT("SQL Tutorial", 3) AS ExtractString;
 
-SELECT POSITION("3" IN "W3Schools.com") AS MatchPosition;
+#20)MID
+	SELECT MID("SQL Tutorial", 5, 3) AS ExtractString;
 
-SELECT REPEAT("SQL Tutorial", 3);
+#21)RIGHT = Extract 4 characters from a string (starting from right):
+	SELECT RIGHT("SQL Tutorial is cool", 4) AS ExtractString;
 
-SELECT REPLACE("SQL Tutorial", "SQL", "HTML");
+#22)RPAD
+	SELECT RPAD("SQL Tutorial", 20, "ABC");
 
-SELECT REVERSE("SQL Tutorial");
+#23)LPAD = Left-pad the string with "ABC", to a total length of 20
+	SELECT LPAD("SQL Tutorial", 20, "ABC");
 
-#RIGHT = Extract 4 characters from a string (starting from right):
-SELECT RIGHT("SQL Tutorial is cool", 4) AS ExtractString;
+#24)TRIM
+	SELECT TRIM('    SQL Tutorial    ') AS TrimmedString;	
 
-SELECT RPAD("SQL Tutorial", 20, "ABC");
+#25)LTRIM
+	SELECT LTRIM("     SQL Tutorial") AS LeftTrimmedString;
 
-SELECT RTRIM("SQL Tutorial     ") AS RightTrimmedString;
+#26)RTRIM
+	SELECT RTRIM("SQL Tutorial     ") AS RightTrimmedString;
 
-SELECT SPACE(10);
+#27)REPEAT
+	SELECT REPEAT("SQL Tutorial", 3);
 
-SELECT STRCMP("SQL Tutorial", "SQL Tutorial ");
+#28)REVERSE
+	SELECT REVERSE("SQL Tutorial");
 
-SELECT TRIM('    SQL Tutorial    ') AS TrimmedString;
+#29)SPACE
+	SELECT SPACE(10);
 
-SELECT UCASE("SQL Tutorial is FUN!");
-
-SELECT UPPER("SQL Tutorial is FUN!");
-
-
-
+#30)STRCMP
+	SELECT STRCMP("SQL Tutorial", "SQL Tutorial ");
 
