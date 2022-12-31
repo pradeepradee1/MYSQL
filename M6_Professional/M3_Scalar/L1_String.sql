@@ -86,6 +86,9 @@
 #29)SPACE
 	SELECT SPACE(10);
 
-#30)STRCMP
-	SELECT STRCMP("SQL Tutorial", "SQL Tutorial ");
+#30)String Compare
+	SELECT STRCMP("SQL", "SQL"); 	-- 	0
+	SELECT STRCMP("SQL12", "SQL"); 	-- 	1
+	SELECT STRCMP("SQL", "SQL12"); 	-- -1
+	SELECT STRCMP("SQL", NULL); 	-- 	NULL
 

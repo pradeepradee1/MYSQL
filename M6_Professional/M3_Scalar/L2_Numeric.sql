@@ -19,7 +19,6 @@
 	
 	SELECT POWER(4, 2);
 
-
 	
 	SELECT EXP(1);
 
@@ -40,10 +39,14 @@
 	SELECT LEAST(3, 12, 34, 8, 25);
 
 
+	#Truncate = Return a number truncated to 2 decimal places:
+	SELECT TRUNCATE(135.375, 2); #135.37
+	SELECT FORMAT(135.375, 2); #135.38
+	SELECT FORMAT(250500.5634, 2); #250,500.56
+
+
 
 	SELECT RAND();
-
-
 
 	# SIGN  = 
 	#		If number > 0, it returns 1
@@ -53,10 +56,7 @@
 
 
 
-	#Truncate = Return a number truncated to 2 decimal places:
-	SELECT TRUNCATE(135.375, 2); #135.37
-	SELECT FORMAT(135.375, 2); #135.38
-	SELECT FORMAT(250500.5634, 2); #250,500.56
+
 	
 	
 	#Theata Functions
