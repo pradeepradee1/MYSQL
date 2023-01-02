@@ -3,56 +3,65 @@ select * from emp e
 
 select max(sal) from emp e 
 
-select e.dno ,
-max(sal) 
+select 
+e.dno ,max(sal) 
 from emp e
 group by e.dno 
 
-select e.* ,
-max(sal) over() as maxsalary  
+select 
+e.*,max(sal) over() as maxsalary  
 from emp e
 
-select e.* ,
-max(sal) over(partition by e.dno) as maxsalary  
+select 
+e.* ,max(sal) over(partition by e.dno) as maxsalary  
 from emp e
 
--- row_number,rank,dense_rank,lead and lag
+-- row_number
 
-select e.* ,
-row_number() over() as rn  
+select 
+e.*,row_number() over() as rn  
 from emp e
 
-select e.* ,
-row_number() over(partition by e.dno) as rn  
+select 
+e.*,row_number() over(partition by e.dno) as rn  
 from emp e
 
 -- Fetch the first 2 employees from each department to join the company
-select * from (
-	select e.* ,
-	row_number() over(partition by e.dno order by e.eid) as rn  
+select 
+* 
+from 
+(
+	select 
+	e.*,row_number() over(partition by e.dno order by e.eid) as rn  
 	from emp e
 ) x
 where x.rn < 3
 
 
+-- rank
+
 -- Fetch the top 3 employee in each department earning the max salary
-select * from (
-	select e.*,
-	rank() over(partition by e.dno order by e.sal desc) as rnk
+select 
+* 
+from 
+(
+	select 
+	e.*,rank() over(partition by e.dno order by e.sal desc) as rnk
 	FROM emp e 
 ) x
 where x.rnk < 4
 
+--dense_rank
 
-
-select e.*,
-rank() over(partition by e.dno order by e.sal desc) as rnk,
+select 
+e.*,rank() over(partition by e.dno order by e.sal desc) as rnk,
 dense_rank() over(partition by e.dno order by e.sal desc) as Dense_rnk
 FROM emp e
 
 
 
-select e.*,
+select 
+e.*,
 rank() over(partition by e.dno order by e.sal desc) as rnk,
 dense_rank() over(partition by e.dno order by e.sal desc) as Dense_rnk,
 row_number() over(partition by e.dno order by e.sal desc) as rn
@@ -60,19 +69,16 @@ FROM emp e
 
 
 -- fetch a query to display if the salary of an employee is higher , lower or equal to the previous employee
-
+-- lead and lag
 
 select 
-e.*,
-lag(sal) over (partition by e.dno order by e.eid) as previouse_employee_sal
+e.*,lag(sal) over (partition by e.dno order by e.eid) as previouse_employee_sal
 FROM emp e
 
 # Note : We can see the first eid null 
 
-
 select 
-e.*,
-lag(sal,2) over (partition by e.dno order by e.eid) as previouse_employee_sal
+e.*,lag(sal,2) over (partition by e.dno order by e.eid) as previouse_employee_sal
 FROM emp e
 
 
