@@ -68,8 +68,10 @@ row_number() over(partition by e.dno order by e.sal desc) as rn
 FROM emp e
 
 
--- fetch a query to display if the salary of an employee is higher , lower or equal to the previous employee
 -- lead and lag
+
+-- fetch a query to display if the salary of an employee is higher , lower or equal to the previous employee
+
 
 select 
 e.*,lag(sal) over (partition by e.dno order by e.eid) as previouse_employee_sal
