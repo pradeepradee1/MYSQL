@@ -1,3 +1,14 @@
+/*
+1) row_number()
+2) rank()
+3) dense_rank()
+4) percent_rank()
+5) lead()
+6) lag()
+*/
+
+
+
 select * from emp e 
 
 
@@ -51,8 +62,7 @@ from
 ) x
 where x.rnk < 4
 
---dense_rank
-
+--Dense_rank
 select 
 e.*,rank() over(partition by e.dno order by e.sal desc) as rnk,
 dense_rank() over(partition by e.dno order by e.sal desc) as Dense_rnk
@@ -66,6 +76,15 @@ rank() over(partition by e.dno order by e.sal desc) as rnk,
 dense_rank() over(partition by e.dno order by e.sal desc) as Dense_rnk,
 row_number() over(partition by e.dno order by e.sal desc) as rn
 FROM emp e
+
+--Percent_Rank
+SELECT
+*,
+sal,
+PERCENT_RANK() OVER (PARTITION BY dno ORDER BY sal) percentile_rank
+FROM
+emp;
+
 
 
 -- lead and lag
