@@ -1,4 +1,5 @@
 #With Clause 
+# To Avoid The Redundency Of Sub-Query
 #Refers To CTE(Common Table Expression) and Sub Query Factoring
 
 select * from emp
