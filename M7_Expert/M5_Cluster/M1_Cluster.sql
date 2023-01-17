@@ -3,7 +3,7 @@ Cluster
 */
 
 #Note
-#CLUSTER Keyword does not support in MYSQL
+#CLUSTER Keyword does not support in MYSQL and disambiguation in MYSQL
 
 CREATE TABLE emp (
 	empno NUMBER(5) PRIMARY KEY,

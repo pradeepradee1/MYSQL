@@ -1,3 +1,7 @@
+/*
+Procedure
+*/
+
 create procedure pr_buy_prducts()
 begin
 	declare v_product_name varchar(100);
@@ -35,7 +39,6 @@ begin
 	values (11,v_product_name,v_price);
 	
 end
-
 
 
 
