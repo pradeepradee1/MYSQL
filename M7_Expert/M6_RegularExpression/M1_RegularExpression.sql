@@ -8,7 +8,7 @@ WHERE ename REGEXP '^X'
 #Not Start with X
 SELECT * FROM regualr_emp 
 WHERE ename not REGEXP '^X'
-a
+
 #Ends with 300
 SELECT * FROM regualr_emp 
 WHERE sal  REGEXP '300$'
