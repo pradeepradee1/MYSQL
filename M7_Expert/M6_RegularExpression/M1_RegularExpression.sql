@@ -1,37 +1,50 @@
 
 SELECT * from regualr_emp e
 
-#Starts with X
+#Starts with a
 SELECT * FROM regualr_emp 
-WHERE ename REGEXP '^X'
+WHERE ename REGEXP '^a';
 
-#Not Start with X
+#Starts with a or d
 SELECT * FROM regualr_emp 
-WHERE ename not REGEXP '^X'
+WHERE ename REGEXP '^[ad]';
 
-#Ends with 300
+
+#Not Start with a
 SELECT * FROM regualr_emp 
-WHERE sal  REGEXP '300$'
+WHERE ename not REGEXP '^a';
 
-#Contains with a
+#OR
+
 SELECT * FROM regualr_emp 
-WHERE ename REGEXP 'a' 
+WHERE ename REGEXP '[^a]'
 
-#Start with A or B or C
+
+#Ends with j
 SELECT * FROM regualr_emp 
-WHERE ename REGEXP '^[ABC]'
+WHERE ename REGEXP 'j$';
 
-#Start with A , B , C [OR] Ends with v or c
+#String start with a or d and end with j
 SELECT * FROM regualr_emp 
-WHERE ename REGEXP '^[ABC]|[vc]$'
+WHERE ename REGEXP '^[ad]|[j]$'
 
-#Count start with A
-SELECT 
-ename, ename REGEXP '^A' as matching 
-FROM regualr_emp
 
-#Count start with A
-SELECT 
-ename, 
-IF(ename REGEXP '^A', 'matches ^N', 'does not match ^N') as matching
-FROM regualr_emp
+#String Should Contain aad and follow sequences
+SELECT * FROM regualr_emp 
+WHERE ename  REGEXP 'aad';
+
+
+#string contain a or a or d 
+SELECT * FROM regualr_emp 
+WHERE ename REGEXP '[aad]' ;
+
+
+#String Should Contain aas in sequences or b
+SELECT * FROM regualr_emp 
+WHERE ename REGEXP 'b|aas' ;
+
+
+
+#String has to follow d to e and followed by the p
+SELECT * FROM regualr_emp 
+WHERE ename REGEXP '[d-e].[p]' ;
