@@ -1,23 +1,5 @@
 /*
 
-Data		:
-			
-				Collection of information of any one Business entity is known as data.
-			
-Database	:
-			
-				Collection of information of all entity or objects or table will be stored in database
-			
-*/
-
-#Table Structure :
-
-#Table	= 	Entity
-#Row	=	Tuple
-#Column	=	Attribute
-#Cell	=	Field
-
-/*
 Database Management Systems(DBMS):
 		
 		A Collection of programs 

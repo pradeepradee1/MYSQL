@@ -1,0 +1,7 @@
+How To Configuration MYSQL with Visual Studio Code	?
+
+	1) In the Visual Studio Code , In Extension, Download the MYSQL Database Manager or Database client
+	2) Choose The DataBase Logo
+	3) Then Enter DB's IP and DB'Username and Password
+	4) We can access the DB
+
