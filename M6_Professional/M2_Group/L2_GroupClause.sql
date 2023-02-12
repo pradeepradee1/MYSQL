@@ -26,3 +26,22 @@ order by dno;
 select eid,dno,max(sal) from emp
 where dno is not null
 group by dno
+
+#Group Concat
+select 
+dno,GROUP_CONCAT(ename)
+from emp
+where dno is not null
+GROUP BY dno;
+
+select 
+dno,GROUP_CONCAT(distinct ename order by ename desc)
+from emp
+where dno is not null
+GROUP BY dno;
+
+select 
+dno,GROUP_CONCAT(distinct ename order by ename desc separator '<->')
+from emp
+where dno is not null
+GROUP BY dno;

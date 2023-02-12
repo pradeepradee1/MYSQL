@@ -12,19 +12,23 @@
 select * from emp e 
 
 
-select max(sal) from emp e 
+select avg(sal) from emp e 
 
 select 
-e.dno ,max(sal) 
+e.dno ,avg(sal) 
 from emp e
 group by e.dno 
 
 select 
-e.*,max(sal) over() as maxsalary  
+e.*,avg(sal) over() as maxsalary  
 from emp e
 
 select 
-e.* ,max(sal) over(partition by e.dno) as maxsalary  
+e.* ,avg(sal) over(order by e.dno) as maxsalary  
+from emp e
+
+select 
+e.* ,avg(sal) over(partition by e.dno) as maxsalary  
 from emp e
 
 -- row_number

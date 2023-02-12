@@ -28,7 +28,37 @@ from Product
 
 #Note : This is wrong
 
--- Frame Clause
+/*
+Frame Clause
+	
+	1)	Rows Between (define upper bound and lower bound of row to be covered)
+	2)	Range Between  (define upper and lower range of value for a column to be covered)
+			
+
+
+							partition 
+						|-----------------------|
+						|						|						 
+		N Preceding		|	______________      |   Unbounded preceding  
+						|						|
+						|						|
+		current row 	|_______________________|  
+ 						|						|
+						|						|
+						|						|
+		M following		|	______________      |  Unbounded following
+						|						|
+						|						|
+						|-----------------------|
+
+
+		Where N,M are Number Of Rows
+
+
+*/
+
+
+
 
 select 
 *,
