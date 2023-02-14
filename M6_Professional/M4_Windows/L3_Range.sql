@@ -8,7 +8,7 @@ Frame Clause
 
 							partition 
 						|-----------------------|
-						|    			   |						 
+						|    			   |
 			N Preceding		|	______________   |   Unbounded preceding  
 						|     			   |
 						|			   |

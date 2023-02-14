@@ -2,6 +2,13 @@
 # To Avoid The Redundency Of Sub-Query
 #Refers To CTE(Common Table Expression) and Sub Query Factoring
 
+/*
+Tow types
+			1)	Iterative
+			2)	Recursive
+
+*/
+
 select * from emp
 
 -- Fetch the emp who earns more than avg salary of all employess
