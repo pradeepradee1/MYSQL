@@ -1,18 +1,18 @@
 /*
-
+					
 Data				:
-				
+					
 						Collection of information of any one Business entity is known as data.
-			
+					
 Database			:
-			
+					
 						Collection of information of all entity or objects or table will be stored in database
-
+					
 Types Of DataBase	:
 						1)	Transactional DataBase (RDBMS) 	Ex : Mysql,Postgresql,Oracle
 						2)	NOSQL DataBase				  	Ex : Hbase,Cassandra,MongoDB,CouchDB
-			
-
+											
+					
 1) 	Transactional DataBase	:
 								1)	Vertical Scalable (Scale Out)
 								2)	Stores data in row based form
@@ -46,7 +46,9 @@ Transactional DataBase Follows the ACID Properties :
 
 		A 	=	Atomicity 	(entire transaction takes place at once , there is no midway , either success or failure)
 				if success	= commit will happen
-				if failure	= roll back will happen		
+				if failure	= roll back will happen
+
+				Ex : Atm Transations
 				
 		C  	=	Consistency	(data should be consistent before and after the transaction)
 				
@@ -64,14 +66,14 @@ Transactional DataBase Follows the ACID Properties :
 				
 		D   =   Durability 	(holding the data in the logs) 
 							(persist data from failure occurs)	
-
-
+				
+				
 Responsbility	:
 		
-Atomicity	=	Transaction Manager
-Consistency	=	Application programmer
-Isolation	=	Concurrency Control Manager
-Durability	=	Recovery Manager
+Atomicity		=	Transaction Manager
+Consistency		=	Application programmer
+Isolation		=	Concurrency Control Manager
+Durability		=	Recovery Manager
 
 
 */
