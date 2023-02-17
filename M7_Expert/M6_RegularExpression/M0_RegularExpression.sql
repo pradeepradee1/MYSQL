@@ -1,3 +1,4 @@
+/*
 [abc]		=	a,b or c
 [^abc]		=	Except  a,b or c
 [a-z]		=	a to z
@@ -40,3 +41,5 @@
 		[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z]{2,3}
 		
 
+
+*/

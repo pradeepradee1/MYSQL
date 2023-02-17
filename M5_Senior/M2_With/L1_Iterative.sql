@@ -75,7 +75,7 @@ on total_sales.total_sales_per_store > avg_sales.total_sales_per_store
 -- Here using more than subquery
 
 with Total_Sales (Store_id,total_sales_per_store) as (select s.Store_id ,sum(cost) as  total_sales_per_cost from Sales s group by s.Store_id ),
-	avg_sales(avg_sales_for_all_stores) as (select avg(total_sales_per_store) as avg_sales_for_all_stores from Total_Sales)
+		 avg_sales(avg_sales_for_all_stores) as (select avg(total_sales_per_store) as avg_sales_for_all_stores from Total_Sales)
 select 
 	*
 from 
