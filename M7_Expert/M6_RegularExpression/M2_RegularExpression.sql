@@ -1,6 +1,6 @@
 /*
 [abc]		=	a,b or c
-[^abc]		=	Except  a,b or c
+[^abc]		=	Except  a,b or c  # i didn't get it
 [a-z]		=	a to z
 [A-Z]		=	A to Z
 [a-zA-Z]	=	a to z,A to Z
@@ -9,9 +9,9 @@
 
 #Quantifier
 
-[]?			=	occurs 0 or 1 time
-[]+			=	occurs 1 or moretimes
+[]?			=	occurs 0 or 1 time 			# i didn't get it
 []*			=	occurs 0 or moretime
+[]+			=	occurs 1 or moretimes
 []{n}		=	occurs n time
 []{n,}		=	occurs n or more time
 []{y,z}		=	occurs atleast y time but less than z time

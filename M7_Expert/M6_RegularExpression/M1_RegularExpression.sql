@@ -14,6 +14,10 @@ WHERE ename REGEXP '^[ad]';
 SELECT * FROM regualr_emp 
 WHERE ename not REGEXP '^a';
 
+SELECT * FROM regualr_emp 
+WHERE ename not REGEXP '^[ad]';
+
+
 #OR
 
 SELECT * FROM regualr_emp 
@@ -29,14 +33,13 @@ SELECT * FROM regualr_emp
 WHERE ename REGEXP '^[ad]|[j]$'
 
 
-#String Should Contain aad and follow sequences
+#String Should follow pattern sequences
 SELECT * FROM regualr_emp 
-WHERE ename  REGEXP 'aad';
+WHERE ename  REGEXP 'pra';	
 
-
-#string contain a or a or d 
+#string contain p or r or a 
 SELECT * FROM regualr_emp 
-WHERE ename REGEXP '[aad]' ;
+WHERE ename REGEXP '[pra]' ;
 
 
 #String Should Contain aas in sequences or b
@@ -44,7 +47,3 @@ SELECT * FROM regualr_emp
 WHERE ename REGEXP 'b|aas' ;
 
 
-
-#String has to follow d to e and followed by the p
-SELECT * FROM regualr_emp 
-WHERE ename REGEXP '[d-e].[p]' ;
