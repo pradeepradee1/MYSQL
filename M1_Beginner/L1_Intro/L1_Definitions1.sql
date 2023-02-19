@@ -97,9 +97,12 @@ P   = 	Partition tolerance (distibution)
 
 
 
-Consistency		=	Data is the same across the cluster , So you can read from any node and get same data
-Avaliablity		=	Ability to access the cluster , even if a node in the cluster goes down
-Partition		=	cluster continues to function even if there is a partition (communication break) between two node
+Consistency		=	Data should be consistent before and after the transaction
+					Data is the same across the cluster , So you can read from any node and get same data
+
+Avaliablity		=	Cluster Ability to access , even if a node goes down in the cluster 
+
+Partition		=	Cluster continues to function , even if there is a communication break between two node
 
 
 */
