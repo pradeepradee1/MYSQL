@@ -3,16 +3,17 @@
 Keys			: 
 							1)PK
 							2)FK
-							3)Candidate Key
-							4)AK
-							5)Super Keys
+							3)Composite Key
+							4)Candidate Key
+							5)AK
+							6)Super Keys
 
 
 PK				: 			Combination of Not Null and unique Constrain , We can have only one primary key
 							
 							Example :
 										ID
-
+						
 FK				:   		It Creates a relationship between any two tables
 
 							Example :
@@ -34,6 +35,10 @@ AK				:  			Apart from Primary Key , all keys in Candidate keys are Alternate Ke
 										Phonenumber
 
 
+Composite Key   :			The Combination of more than one candidate key.
+ 
+
+
 
 Super Keys	  	: 			SuperSet Of Candidate Key
 							A Table can have multiple superkey
@@ -49,7 +54,7 @@ Super Keys	  	: 			SuperSet Of Candidate Key
 										ID,Country
 										etc...
 							
-
+				
 
 */
 
