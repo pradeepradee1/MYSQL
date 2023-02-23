@@ -121,3 +121,7 @@ Partition		=	Cluster continues to function , even if there is a communication br
 
 
 
+#Note : 
+
+#Consistency in CAP theorem is not same as Consistency in RDBMS ACID.
+#CAP consistency talks about data consistency across cluster of nodes and not on a single server/node.
