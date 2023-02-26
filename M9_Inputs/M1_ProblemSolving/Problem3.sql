@@ -47,6 +47,8 @@ Moving average is of two types
 #calculate the rolling sum for a week
 
 
-select *,
+select 
+       *,
        sum(sales_amount) over(order by sales_date range between interval '6' day preceding and current row) as running_weekly_sum
-from daily_sales;
+from 
+       daily_sales;
