@@ -11,9 +11,11 @@ adding the return quantities in January, February,March,April and then dividing 
 
 */
 
-select *,
+select 
+       *,
        avg(sales_amount) over(order by sales_data) as rolling_avg
-from amazon_sales_data;
+from 
+       amazon_sales_data;
 
 
 /*

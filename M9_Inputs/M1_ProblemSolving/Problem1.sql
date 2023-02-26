@@ -8,7 +8,7 @@
 				/ \     / \
 			   1   4   2   3
 
-We need to define the node 
+We need to define (or) classification the node 
 		
 		for ex : 8 			is  root node
 				 5,9		are Inner node
@@ -22,14 +22,24 @@ We need to define the node
 /*
 Here steps:	define inner node from the leaf node
 		
-		  node    parent
-			5       8
-			9		8
-			4		5
-			2       9
-			1       5
-			3       9
-			8       Null
+		  node    parent  
+			5       8       
+			9		8		
+			4		5      
+			2       9	
+			1       5	
+			3       9      
+			8       Null   
+
+
+		  node    parent   classfication
+			5       8        inner
+			9		8		 inner
+			4		5        leaf
+			2       9		 leaf
+			1       5		 leaf
+			3       9        leaf
+			8       Null     root			
 
 
 

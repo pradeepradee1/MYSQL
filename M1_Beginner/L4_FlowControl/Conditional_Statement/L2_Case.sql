@@ -25,6 +25,10 @@ FROM
 car c 
 
 
+#How it works ?	
+# 				it will go first when , if it is true
+#				once a condition is true, it will stop reading and return the result.
+
 #Multiple WHEN Statement 
 SELECT
 c.car_id ,
