@@ -4,9 +4,14 @@ CONDITIONAL_STATEMENTS
 	*) IF
 	*) CASE
 
+#2) CASE 
+
+How it works ?	
+ 				It will go first When , if it is true
+				Once a condition is true, it will stop reading (or) will'nt go the next when and return the result.
 */
 
-#2) CASE 
+
 
 use mydb
 
@@ -25,9 +30,6 @@ FROM
 car c 
 
 
-#How it works ?	
-# 				it will go first when , if it is true
-#				once a condition is true, it will stop reading and return the result.
 
 #Multiple WHEN Statement 
 SELECT

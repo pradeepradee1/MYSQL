@@ -2,8 +2,15 @@
 
 #Calculate the date wise rolling average of amazon sales
 
+
+select 
+       *,
+       avg(sales_amount) over(order by sales_data) as rolling_avg
+from 
+       amazon_sales_data;
+
+
 /*
-What is rolling Average ?
 
 adding the return quantities in January, February, and March, and then dividing that sum by three.
 adding the return quantities in January, February,March,April and then dividing that sum by four.
@@ -11,11 +18,44 @@ adding the return quantities in January, February,March,April and then dividing 
 
 */
 
+
+/*
+
+Calculate the date wise 5 day rolling average  of amazon sales
+
+What is rolling Average ?
+       
+       It is also know as moving averages 
+
+       Find the 3 day moving average 
+
+       for ex : [61,63,66,67,68,71,72]
+       
+     Averages     moving_avg_3_day
+       61            - 
+       63            -
+       66            63
+       67            65
+       68            67
+       71            69
+       72            70
+
+
+*/
+
+#Question 4 : 
+
+
+#Calculate the month wise of quarter rolling average of amazon sales
+
+
 select 
        *,
-       avg(sales_amount) over(order by sales_data) as rolling_avg
+       sum(salary) over(partition by empid  order by monthno 
+       range between  3 PRECEDING  and 0 FOLLOWING  ) as running_total_salary
 from 
-       amazon_sales_data;
+       tmptable2
+
 
 
 /*
