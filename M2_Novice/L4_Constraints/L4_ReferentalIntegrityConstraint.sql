@@ -89,3 +89,4 @@ SHOW COLUMNS FROM prod_DTLS;
 (OR)
 
 DESC student_dtls'
+

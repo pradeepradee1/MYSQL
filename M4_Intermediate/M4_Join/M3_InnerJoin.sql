@@ -6,8 +6,8 @@ use mydb;
 
 select 
 emp.*,dept.*
-from 
-emp Inner join dept ON emp.dno=dept.dno;
+from emp 
+Inner join dept ON emp.dno=dept.dno;
 
 
 

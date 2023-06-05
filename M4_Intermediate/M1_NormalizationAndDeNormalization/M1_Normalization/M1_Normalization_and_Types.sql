@@ -20,7 +20,7 @@ select * from normalization
 What is Anomaly ?
 			
 		When data is multiply copy , we updating the data at one place but we forget the data 
-		at another place
+		at another place (Similar to inconsistency problems)
 	
 		Insertion Anomaly 
 							: 1) If I want to insert the new MECH depatment in above table ,

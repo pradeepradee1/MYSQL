@@ -9,7 +9,7 @@ CORRELATED SUBQUERY:
 	<-----------------------------------------
 
 
-	
+
 use mydb;
 
 
@@ -43,4 +43,13 @@ SELECT
 *
 from 
 dept d 
+where exists (select * from emp e where e.dno=d.dno)
+
+SELECT 
+*
+from 
+dept d 
 where not exists (select * from emp e where e.dno=d.dno)
+
+
+

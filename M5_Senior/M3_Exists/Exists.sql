@@ -1,7 +1,7 @@
 /*
 
-Exists give bool function
-
+Exists give bool function 
+It Will be used in Subquery
 */
 
 

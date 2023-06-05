@@ -1,10 +1,9 @@
 /*
 Difference Between Normalization and DeNormalization
 
-1) 	Normaliztion is the technique of dividing the data into multiple tables to acheive the data integrity
- 	by reducing the data redundancy and inconsistency 
+1) 	Normaliztion is the technique of dividing the data into multiple tables
 	
-	DeNormalization is the technique of combining the data into a single table to acheive data retrieval faster
+	DeNormalization is the technique of combining the data into a single table
 	
 2)	Redundant data is eliminated in Normalization
 

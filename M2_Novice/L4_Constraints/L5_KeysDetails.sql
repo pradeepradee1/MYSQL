@@ -3,12 +3,12 @@
 Keys			: 
 							1)PK
 							2)FK
-							3)Composite Key
-							4)Candidate Key
-							5)AK
+							3)Candidate Key
+							4)AK
+							5)Composite Key
 							6)Super Keys
 
-
+							
 PK				: 			Combination of Not Null and unique Constrain , We can have only one primary key
 							
 							Example :

@@ -14,43 +14,35 @@ Types Of DataBase	:
 											
 					
 1) 	Transactional DataBase	:
-								1)	Vertical Scalable (Scale Out)
-								2)	Stores data in row based form
-								3)	Consistent (Multiple or concurrent user will get same answer)
+								1)	Stores data in row based form
+								2)	Consistent (Multiple or concurrent user will get same answer)
+								3)	Vertical Scalable (Scale Out)
 2)	NOSQL DataBase			:	
-								1)	Horizontal Scalable (Scale Up)
-								2) 	Stores data in Columner,key-value,Graph,document form
-								3)	Not Consistent as like RDBMS
-								4) 	Distributed
-								5)	Highly available If no Master-Slave Architecture
-
-*/
-
+								1) 	Stores data in Columner,key-value,Graph,document form
+								2)	Not Consistent as like RDBMS
+								3) 	Distributed
+								4)	Highly available
+								5)	Horizontal Scalable (Scale Up)
+					
+*/ 					
+                     
 #Note :
 # Highly available	=	(DB can easily and quickly UP , It will not take too much time)
 
 /*
-
-Why Transactional DataBase ?
-							It supports the CRUD operations
-
-
-Create,Update,Delete	=	Write
-Retrive					=	Read
-
-
-What is Transactional DataBase?
-							Smallest unit of execution will be known as transaction
+					
 
 Transactional DataBase Follows the ACID Properties :
 
-		A 	=	Atomicity 	(entire transaction takes place at once , there is no midway , either success or failure)
-				if success	= commit will happen
-				if failure	= roll back will happen
+		A 	=	Atomicity
+
+					Entire transaction takes place at once,there is no midway,either success or failure
 
 				Ex : Atm Transations
 				
-		C  	=	Consistency	(data should be consistent before and after the transaction)
+		C  	=	Consistency
+					
+					Data should be consistent before and after the transaction
 				
 				For Example	:	A is sending 100 amount to B 
 				success = if the transaction success 100 debited in A and 100 is credited in B (Consistent)
@@ -59,7 +51,9 @@ Transactional DataBase Follows the ACID Properties :
 				success	= commit will happen
 				failure	= roll back will happen
 				
-		I 	=	Isolation 	(multiple transaction will excute without impacting each other)
+		I 	=	Isolation 
+
+					multiple transaction will excute without impacting each other
 				
 				For Example :  A is writing the query , B is reading the query and C is Writing the query
 							   A,B,C are not impacting with each other
@@ -98,9 +92,9 @@ P   = 	Partition tolerance (distibution)
 
 
 Consistency		=	Data should be consistent before and after the transaction
-					Data is the same across the cluster , So you can read from any node and get same data
+					Data is the same across the cluster , So you can read data from any node and get same data
 
-Avaliablity		=	Cluster Ability to access , even if a node goes down in the cluster 
+Avaliablity		=	Cluster has Ability to access , even if a node goes down in the cluster 
 
 Partition		=	Cluster continues to function , even if there is a communication break between two node
 
@@ -125,3 +119,4 @@ Partition		=	Cluster continues to function , even if there is a communication br
 
 #Consistency in CAP theorem is not same as Consistency in RDBMS ACID.
 #CAP consistency talks about data consistency across cluster of nodes and not on a single server/node.
+
