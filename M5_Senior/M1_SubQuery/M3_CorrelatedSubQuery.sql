@@ -9,6 +9,7 @@ CORRELATED SUBQUERY:
 	<-----------------------------------------
 
 
+#Note	:	Equi-Join will be used in inner query
 
 use mydb;
 
@@ -20,6 +21,7 @@ select
 from 
 emp e1
 where sal > (select avg(sal) from emp e2 where e2.dno = e1.dno )
+
 
 
 #Find The Department who do not have any employees

@@ -1,7 +1,7 @@
 /*
 
 Exists give bool function 
-It Will be used in Subquery
+It Will be used in Subquery(Correlation Subquery)
 */
 
 

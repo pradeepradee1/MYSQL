@@ -55,7 +55,7 @@ select
 from 
 	(select s.Store_id,sum(s.cost) as total_sales_per_store from Sales s group by s.Store_id) total_sales
 
-#Fianl Step:
+#Final Step:
 
 select 
 	*
@@ -96,7 +96,7 @@ select
   d.dept_name, tmp.total_salary
 from 
   (select dept_id , sum(salary) as total_salary from amazon_employees group by dept_id) tmp
-  inner join department d on tmp.dept_id = d.dept_id;
+inner join department d on tmp.dept_id = d.dept_id;
 
 
 --- how to do it using with clause??
@@ -106,7 +106,7 @@ select
   d.dept_name, tmp.total_salary
 from 
   dept_wise_salary tmp
-  inner join department d on tmp.dept_id = d.dept_id;
+inner join department d on tmp.dept_id = d.dept_id;
 
 
 #Note : we have to run the with clause along with select d.dept_name, tmp.total_salary from dept_wise_salary tmp
