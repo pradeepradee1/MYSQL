@@ -18,11 +18,16 @@
 	SELECT SQRT(64);
 	
 	SELECT POWER(4, 2);
-
+	
 	
 	SELECT EXP(1);
-
+	
 	SELECT LOG(2);
+	
+
+	SELECT GREATEST(3, 12, 34, 8, 25);
+
+	SELECT LEAST(3, 12, 34, 8, 25);
 
 
 	
@@ -34,9 +39,13 @@
 
 
 
-	SELECT GREATEST(3, 12, 34, 8, 25);
+	SELECT RAND();
+	# SIGN  = 
+	#		If number > 0, it returns 1
+	#		If number = 0, it returns 0
+	#		If number < 0, it returns -1
+	SELECT SIGN(255.5);	
 
-	SELECT LEAST(3, 12, 34, 8, 25);
 
 
 	#Truncate = Return a number truncated to 2 decimal places:
@@ -46,13 +55,7 @@
 
 
 
-	SELECT RAND();
 
-	# SIGN  = 
-	#		If number > 0, it returns 1
-	#		If number = 0, it returns 0
-	#		If number < 0, it returns -1
-	SELECT SIGN(255.5);	
 
 
 

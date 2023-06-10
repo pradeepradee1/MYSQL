@@ -39,7 +39,7 @@ What is rolling Average ?
        68            67
        71            69
        72            70
-
+       
 
 */
 

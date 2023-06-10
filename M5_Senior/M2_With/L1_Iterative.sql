@@ -80,7 +80,7 @@ select
 	*
 from 
 	Total_Sales ts 
-	join avg_sales av on ts.total_sales_per_store > av.avg_sales_for_all_stores
+join avg_sales av on ts.total_sales_per_store > av.avg_sales_for_all_stores
 
 
 

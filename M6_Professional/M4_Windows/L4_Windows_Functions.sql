@@ -1,6 +1,6 @@
 /*
-10) ntile( Buckets or range )
-11) cume_dist()
+10) ntile( Buckets or range ) (Eg : Decile)
+11) cume_dist()				  (Eg : Distribution)
 */
 
 -- Ntile(Buckets or cluster)
@@ -12,6 +12,7 @@ select
 from 
 	Product
 
+#Note : query will be Like rolling average 
 
 select 
 	productname,
@@ -41,3 +42,4 @@ SELECT
 	CUME_DIST() OVER (ORDER BY price) cume_dist_val
 FROM
 	Product;
+
