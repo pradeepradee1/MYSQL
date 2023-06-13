@@ -1,6 +1,6 @@
 /*
 7) first_value()
-8) second_value()
+8) last_value()
 9) nth_value()
 */
 
