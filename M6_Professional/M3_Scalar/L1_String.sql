@@ -43,10 +43,10 @@
 
 #15)REVERSE
 	SELECT REVERSE("SQL Tutorial");
-
+	
 #16)REPEAT
 	SELECT REPEAT("SQL Tutorial", 3);
-
+	
 #17)LOWER
 	SELECT LOWER("SQL Tutorial is FUN!");
 

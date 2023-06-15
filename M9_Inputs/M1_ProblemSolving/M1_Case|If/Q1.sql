@@ -22,25 +22,24 @@ We need to define (or) classification the node
 /*
 Here steps:	define inner node from the leaf node
 		
-		  node    parent  
-			5       8       
-			9		8		
-			4		5      
-			2       9	
-			1       5	
-			3       9      
-			8       Null   
+Input Table		:	  node    parent  
+						5       8       
+						9		8		
+						4		5      
+						2       9	
+						1       5	
+						3       9      
+						8       Null   
 
 
-		  node    parent   classfication
-			5       8        inner
-			9		8		 inner
-			4		5        leaf
-			2       9		 leaf
-			1       5		 leaf
-			3       9        leaf
-			8       Null     root			
-
+Output Table	:	  node    parent   classfication
+						5       8        inner
+						9		8		 inner
+						4		5        leaf
+						2       9		 leaf
+						1       5		 leaf
+						3       9        leaf
+						8       Null     root			
 
 
 */
@@ -64,4 +63,5 @@ select node,
             else 'INNER'
        END as node_type
 from tree;
+
 

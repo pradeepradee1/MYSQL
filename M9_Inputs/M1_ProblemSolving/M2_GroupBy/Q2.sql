@@ -1,6 +1,6 @@
 #Question 3:
 		
-#			Get the year salary for each employee ,add 100 salary if is not and return all the employee 
+#Get the year salary for each & every employee  and if salary is null add 100 and return all the employee ?
 
 
 select * from tmptable1;

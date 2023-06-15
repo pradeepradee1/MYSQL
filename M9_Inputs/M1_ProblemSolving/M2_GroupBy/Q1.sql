@@ -75,3 +75,4 @@ from
 group by 
     merchant_id;
 
+

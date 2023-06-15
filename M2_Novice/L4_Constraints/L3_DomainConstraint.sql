@@ -56,4 +56,4 @@ SHOW COLUMNS FROM student_dtls;
 
 (OR)
 
-DESC student_dtls'
+DESC student_dtls

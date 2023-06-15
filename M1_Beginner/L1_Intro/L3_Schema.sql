@@ -9,6 +9,9 @@ information_schema.PROCESSLIST
 ORDER BY INFO DESC, TIME DESC
 
 
+#Note : We can also kill the process list using ID in SQL query (Like sudo service mysql status)
+
+#For Example	: kill ID (SQL query)
 
 
 SELECT ID, USER, HOST, DB, COMMAND,

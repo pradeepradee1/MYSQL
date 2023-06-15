@@ -59,3 +59,4 @@ from
 	ps3
 group by
 	ps3.id
+
