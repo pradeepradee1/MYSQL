@@ -61,7 +61,7 @@ where p2.a is null or p1.a > p2.a
 #OR
 where p2.a is not null
 
-#Approach3
+#Approach3 ; Correlation Subquery
 
 select 
 *
