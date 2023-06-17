@@ -1,11 +1,16 @@
 #Adding comments
 
 
+-- This is single line comment(Ctrl + /) as like in python
+
 /* This is an in-line comment */
+
 /*
 This is a
 multiple-line comment
 */
+
+
 
 #EXAMPLE
 
