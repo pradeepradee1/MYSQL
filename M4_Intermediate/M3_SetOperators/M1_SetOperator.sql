@@ -1,12 +1,15 @@
 /*
-Set Operators
+Set Operators 
 */
 use mydb;
 
 s1={a,b,c,d}
 s2={x,y,z,c,b}
 
+
 #Union 
+#Note : Combine the two or more SELECT statements. 
+
 {a,b,c,d,x,y,z}
 
 #UnionAll

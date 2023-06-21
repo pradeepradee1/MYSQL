@@ -1,0 +1,9 @@
+
+			Set                                             Join
+It combines two or more SELECT statements			It combines  many tables       	
+It combines data into new rows or records           It combines data into new columns
+
+For Ex:                                             For Ex:
+		select dno from emp 								(inner join on a.dno = b.dno) 
+		union 
+		select dno from dept
