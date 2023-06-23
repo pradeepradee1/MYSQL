@@ -15,6 +15,14 @@ FROM ( SELECT dno, count(*) emp_count FROM emp where dno is not null GROUP BY dn
 WHERE dept.dno = emp.dno;
 
 
+# (OR)
+
+SELECT 
+	*
+FROM ( SELECT dno, count(*) emp_count FROM emp where dno is not null GROUP BY dno ) a 
+join dept b on a.dno = b.dno;
+
+
 #Note : 
 --		After The From Clause select clause will be treated as table 
 

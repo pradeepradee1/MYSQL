@@ -17,9 +17,9 @@ Difference Between Normalization and DeNormalization
 
 	DeNormalization reduces the number of tables and joins 
 	
-5)	Disk Space is optimized in normalized table
+5)	Memory optimized in normalized table
 	
-	Disk Space is wasted in denormalized table because the same data is stored in different places
+	Memory is not optimized in denormalized table because the same data is stored in different places
 
 6) 	Normalization is used in OLTP systems and making the insert,delete,and 
 	update anomalies faster 
