@@ -8,6 +8,10 @@ CORRELATED SUBQUERY:
 	|										 |
 	<-----------------------------------------
 
+#Note   : When you have to go to Correlation Subquery ?
+				
+#				When the subquery meets join
+
 
 #Note	:	Equi-Join will be used in inner query
 

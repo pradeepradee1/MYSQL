@@ -1,8 +1,7 @@
 /*
 	Sequences : 
-				It is a data base object which is used to generate sequential integers 
-					with the specified interval value.
-				Generally the sequences are used to generate primary key values.
+				It is a data base object.
+				which is used to generate sequential and unique values.
 
 */
 

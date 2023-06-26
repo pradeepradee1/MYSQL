@@ -98,7 +98,7 @@ from
   (select dept_id , sum(salary) as total_salary from amazon_employees group by dept_id) tmp
 inner join department d on tmp.dept_id = d.dept_id;
 
-
+;
 --- how to do it using with clause??
 
 with dept_wise_salary  as  (select dept_id , sum(salary) as total_salary from amazon_employees group by dept_id)
