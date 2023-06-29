@@ -6,8 +6,14 @@ GroupBy Clause:
 
 
 
-#find out number of emps working under each dept ?
+#findout max sal under each deptno?
+select eid,dno,max(sal) from emp
+where dno is not null
+group by dno
 
+
+
+#find out number of emps working under each dept ?
 select dno, count(*) " No. of emps"
 from emp
 where dno is not null
@@ -21,11 +27,6 @@ where dno is not null
 GROUP BY dno
 order by dno;
 
-
-#findout max sal under each deptno?
-select eid,dno,max(sal) from emp
-where dno is not null
-group by dno
 
 #Group Concat
 select 

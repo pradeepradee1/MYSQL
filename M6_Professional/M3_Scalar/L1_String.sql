@@ -36,7 +36,7 @@
 	SELECT INSTR("W3Schools.com", "3") AS MatchPosition;
 
 #13)INSERT = Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:
-	SELECT INSERT("W3Schools.com", 1, 9, "Example");
+	SELECT INSERT("W3Schools.com", 1, 0, "Example");
 
 #14)REPLACE
 	SELECT REPLACE("SQL Tutorial", "SQL", "HTML");

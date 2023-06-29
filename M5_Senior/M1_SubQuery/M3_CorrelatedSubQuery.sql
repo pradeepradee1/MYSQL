@@ -27,6 +27,16 @@ emp e1
 where sal > (select avg(sal) from emp e2 where e2.dno = e1.dno )
 
 
+#Alternate Solution in (inline subquery)
+
+select 
+a.* 
+from emp a
+join (select avg(sal) avgsal,dno from emp group by dno) ab 
+on ab.dno =a.dno 
+where a.sal > ab.avgsal
+
+
 
 #Find The Department who do not have any employees
 
