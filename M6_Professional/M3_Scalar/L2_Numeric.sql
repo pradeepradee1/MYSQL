@@ -3,15 +3,16 @@
 	SELECT PI();
 
 	
-	SELECT COUNT(c.Cno) AS Customer FROM customer c;
-	
-	SELECT sum(c.Cno) AS CustomerNumber FROM customer c ;
-	
 	SELECT AVG(Price) AS AveragePrice FROM Products;
+
+	SELECT COUNT(c.Cno) AS Customer FROM customer c;	
 	
 	SELECT MAX(c.Cno) AS CustomerNumber FROM customer c ;
 	
 	SELECT MIN(c.Cno) AS CustomerNumber FROM customer c ;
+
+	SELECT sum(c.Cno) AS CustomerNumber FROM customer c ;
+	
 
 
 	

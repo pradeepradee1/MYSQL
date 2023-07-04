@@ -4,7 +4,7 @@
 9) nth_value()
 */
 
-
+-
 select * from Product p 
 
 -- First Value
