@@ -92,10 +92,9 @@ select
 	NTH_VALUE(productname,2) over w as second_most_exp_product
 from 
 	Product 
-where 
-	ProductCategory = 'Phone'
 	window w as (partition by ProductCategory order by price desc 
 	range between unbounded preceding and unbounded following);
+
 
 
 
