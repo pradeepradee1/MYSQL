@@ -15,7 +15,8 @@ select * from my_numbers
 
 
 /*
-Q : find biggest number which appers only once
+Q : Biggest Single Number
+	find biggest number which appers only once?
 
 OP:	
 	num

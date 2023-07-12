@@ -5,14 +5,16 @@ insert into pPerson (Id, Email) values ('3', 'john@example.com');
 
 /*
 
-Q:	Delete duplicate entries based on its smallest id
+Q:	Delete duplicate email entries based on its largest id
 
 OP : 
-		2	bob@example.com
 		1	john@example.com
+		2	bob@example.com
+		
 
 
 */
+select * from pPerson
 
 
 delete from pPerson

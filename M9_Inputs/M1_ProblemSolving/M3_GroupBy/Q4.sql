@@ -17,22 +17,31 @@ insert into Products (product_id, product_name, Width, Length, Height) values ('
 select * from Warehouse;
 select * from Products;
 
-#Question : We need to find the Cubic feet of volume ?
+#Question : How much cubic feet of volume does the inventry occupy in each warehouse ?
 
+#Note : 
+#		Volume = Consumed ex :  cylinder (gas cylinder) consume volume of gas 
+#						  ex :  Sump
+#		Area   = Space	  ex :  10 * 10 feet space in 100 square feet area
 
 /*
 
-	Rectangular :
-		 			V = l × w × h	
-	Cube		:	
-					V = a3
-	Cylinder	:
-					V = πr2h
-	Prism 		:
-					V = B × h	
+	Cube			:	
+						V = a3
+	Rectangular 	:
+		 				V = l × w × h	
+		 										
+	Cylinder		:
+						V = πr2h
+	Prism 			:
+						V = B × h	
 
 */
 
+/*
+	Area Of Circle	:   πr2	
+	Area Of Square	:	a*a
+*/
 
 /*
 Output:		
@@ -50,4 +59,3 @@ from
 	Warehouse w
 inner join Products p on w.product_id = p.product_id 
 group by w.name 
-

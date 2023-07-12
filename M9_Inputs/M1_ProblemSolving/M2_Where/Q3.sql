@@ -7,7 +7,16 @@ insert into pdcinema (id, movie, description, rating) values ('4', 'Ice song', '
 insert into pdcinema (id, movie, description, rating) values ('5', 'House card', 'Interesting', '9.1');
 
 /*
-report the movies with odd-numbered id and a desctiption that is not boring
+Question : report the movies with odd-numbered id and a desctiption that is not boring
+
+
+
+OP:
+		
+		1	War	great 	3D				9
+		5	House card	Interesting		9
+
+
 
 */
 

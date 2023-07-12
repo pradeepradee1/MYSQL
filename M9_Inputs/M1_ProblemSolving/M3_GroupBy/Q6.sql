@@ -15,6 +15,12 @@ select * from psCustomer
 
 
 
+#Questions : Get Customer id from customer table that bought all the product in the product table
+# For Ex   :
+#				1 and 3 bought all the prodycts
+# 					2 bought only the one products			
+
+
 select 
 	pc.customer_id
 from 

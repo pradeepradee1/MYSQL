@@ -26,7 +26,7 @@ OP:
 		2020-05-01	apples	2
 		2020-05-02	apples	0
 		2020-05-03	apples	20
-		2020-05-04	apples	1
+		2020-05-04	apples	-1
 
 
 
@@ -51,8 +51,7 @@ select
 	 diff
 from 
 	(
-		select *,sold_num - lead(sold_num,1)
-		over(PARTITION by sale_date) as diff from spSales
+		select *,sold_num - lead(sold_num,1) over(PARTITION by sale_date) as diff from spSales
 	) tmp 
 where fruit = 'apples'
 order by sale_date

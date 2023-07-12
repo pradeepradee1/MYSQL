@@ -32,14 +32,14 @@ Input Table		:	  node    parent
 						8       Null   
 
 
-Output Table	:	  node    parent   classfication
-						5       8        inner
-						9		8		 inner
-						4		5        leaf
-						2       9		 leaf
-						1       5		 leaf
-						3       9        leaf
-						8       Null     root			
+Output Table	:	  node     classfication
+						5          	inner
+						9	 		inner
+						4		   	leaf
+						2     	 	leaf
+						1     	 	leaf
+						3           leaf
+						8          	root			
 
 
 */
