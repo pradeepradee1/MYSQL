@@ -15,6 +15,7 @@ SELECT CURRENT_DATE();
 SELECT DATE("2022-12-27");
 
 #EXTRACT
+
 #DAY
 SELECT DAY("2022-12-27");
 #SELECT EXTRACT(DAY FROM "2022-12-27");
@@ -63,7 +64,8 @@ SELECT DATEDIFF("2022-12-27", "2022-11-1");
 SELECT MAKEDATE(2017, 3);
 
 
-
+#Extract
+select extract(year from time_stamp)
 
 
 

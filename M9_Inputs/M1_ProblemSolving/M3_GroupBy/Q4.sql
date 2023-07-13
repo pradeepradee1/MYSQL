@@ -17,7 +17,7 @@ insert into Products (product_id, product_name, Width, Length, Height) values ('
 select * from Warehouse;
 select * from Products;
 
-#Question : How much cubic feet of volume does the inventry occupy in each warehouse ?
+#Question : How much cubic of volume does the inventry occupy in each warehouse ?
 
 #Note : 
 #		Volume = Consumed ex :  cylinder (gas cylinder) consume volume of gas 

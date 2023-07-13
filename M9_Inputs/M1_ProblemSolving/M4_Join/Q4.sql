@@ -1,39 +1,49 @@
-create table ps_customers ( customer_id int, customer_name varchar(100), customer_email varchar(200), primary key (customer_id) );
+Create table If Not Exists cinema (seat_id SERIAL primary key, free bool);
 
-insert into ps_customers values(1,'Shashank','abc@gmail.com');
-insert into ps_customers values(2,'Rahul','aaa@gmail.com');
-insert into ps_customers values(3,'Ajay','klm@gmail.com');
-insert into ps_customers values(4,'Nitin','poc@gmail.com');
-insert into ps_customers values(5,'Naveen','mnc@gmail.com');
+insert into cinema (seat_id, free) values ('1', '1');
+insert into cinema (seat_id, free) values ('2', '0');
+insert into cinema (seat_id, free) values ('3', '1');
+insert into cinema (seat_id, free) values ('4', '1');
+insert into cinema (seat_id, free) values ('6', '1');
 
-create table ps_orders ( order_id int, customer_id int, amount float, status varchar(50), primary key (order_id) );
+/*
+we need find consecutive available sets 
 
-insert into ps_orders values(101,1,550,'Delivered');
-insert into ps_orders values(102,2,350,'Delivered');
-insert into ps_orders values(103,1,220,'Cancelled');
-insert into ps_orders values(104,3,660,'Delivered');
-insert into ps_orders values(105,3,300,'Delivered');
+Here 0 = Occupied
+	 1 = Free
+
+OutPut : 
+			seat_id
+				3
+				4
+
+*/
 
 
+select * from cinema
 
-SELECT * from ps_customers
+#Approach
+select 
+	seat_id,
+	if( (seat_id+1 - IFNULL(lead(seat_id) over(order by seat_id),0) ) = 0 , seat_id , 0) as availseart,
+	if( (seat_id-1 - IFNULL(lag(seat_id) over(order by seat_id),0) ) = 0 , seat_id , 0) as availseart
+from 
+	cinema
+where `free` is TRUE 
 
-SELECT * from ps_orders
+
+select 
+-- 	*,
+	seat_id,
+	if( (seat_id+1 - IFNULL(lead(seat_id) over(order by seat_id),0) ) = 0 , concat_ws(",",seat_id , lead(seat_id) over(order by seat_id)) , null) as availseart
+from 
+	cinema
+where `free` is TRUE 
+
+
 
 SELECT 
-	a.* 
-from 
-	ps_customers a
-	left join ps_orders b on a.customer_id = b.customer_id 
-where 
-	b.customer_id is not NULL  and a.customer_name = "Shashank"
-
-
-SELECT 
-	a.* 
-from 
-	ps_customers a
-where 
-	EXISTS (select * from ps_orders b where a.customer_id = b.customer_id and a.customer_name = "Shashank" )
-
-	
+distinct a.seat_id
+from cinema a
+join cinema b on abs(a.seat_id - b.seat_id) = 1 and a.free = true and b.free = true
+order by a.seat_id;

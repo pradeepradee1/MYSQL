@@ -20,7 +20,7 @@ select * from psCustomer
 #				1 and 3 bought all the prodycts
 # 					2 bought only the one products			
 
-
+#Static defined
 select 
 	pc.customer_id
 from 
@@ -29,7 +29,16 @@ inner join psCustomer pc on ps.product_key = pc.product_key
 group by pc.customer_id 
 having count(distinct ps.product_key) >= 2
 
+#Right Approach
+SELECT 
+	*
+from 
+	psCustomer pc 
+group by pc.customer_id 
+having count(*) = (select count (DISTINCT product_key) from psProduct) 
 
+
+#Right Approach
 SELECT 
 	customer_id 
 from 

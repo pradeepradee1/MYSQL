@@ -18,7 +18,7 @@ insert into spSales (sale_date, fruit, sold_num) values ('2020-05-04', 'oranges'
 
 
 /*
-
+l
 Q: Find Difference Between no. of apples amd no. of orranges sold each day
 
 OP:
@@ -43,6 +43,13 @@ from
 group by 
 	sale_date 
 
+
+select 
+	*,
+	sum(if(fruit="apples",sold_num,0))  - sum(if(fruit="oranges",sold_num,0)) as orangesum
+from 
+	spSales
+group by sale_date
 
 
 

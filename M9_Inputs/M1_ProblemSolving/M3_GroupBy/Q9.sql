@@ -23,3 +23,12 @@ from
 psLogins pl 
 where extract(year from time_stamp) = 2020
 group by user_id 
+
+
+select 
+	user_id ,
+	,max(time_stamp)
+from 
+	psLogins
+where left(CAST(time_stamp as char),4) = 2020
+group by user_id 
