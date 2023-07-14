@@ -15,6 +15,3 @@ There are Three Categories of Constraint
 	2)	Domain Constraint
 	3)	Referential Integrity Constraint
 */
-
-
-
