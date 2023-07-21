@@ -20,6 +20,8 @@ OP:
 
 */
 
+select * from pdcinema
+
 
 select 
 	* 

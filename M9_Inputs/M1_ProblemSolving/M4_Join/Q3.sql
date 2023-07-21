@@ -60,3 +60,5 @@ select
 		(select `date`,count(*) as unique_user_count from user_login group by `date`) t2 
 	on t1.`date` = t2.`date`
 ;
+
+	

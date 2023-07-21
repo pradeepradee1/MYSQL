@@ -4,7 +4,7 @@ SELECT * from regualr_emp e
 SELECT * FROM regualr_emp 
 WHERE ename REGEXP '^a';
 
-#Starts with a or d
+#Starts with a or d because a & d are group of characters
 SELECT * FROM regualr_emp 
 WHERE ename REGEXP '^[ad]';
 

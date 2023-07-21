@@ -31,7 +31,7 @@ from
 	cinema
 where `free` is TRUE 
 
-
+#Approach
 select 
 -- 	*,
 	seat_id,
@@ -40,6 +40,14 @@ from
 	cinema
 where `free` is TRUE 
 
+#Approach
+select 
+	if(lag(seat_id) over(order by seat_id) is null , 0 , 
+	if (seat_id - lag(seat_id) over(order by seat_id) = 1 , CONCAT_WS(",",seat_id,lag(seat_id) over(order by seat_id)),"NotSequence"  )
+	) as sequences_check
+from 
+	cinema
+where free != 0
 
 
 SELECT 

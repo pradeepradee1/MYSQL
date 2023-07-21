@@ -22,6 +22,8 @@ Output should be like
 */
 
 
+select * from problemsolving1
+
 #Approach1
 
 select 
