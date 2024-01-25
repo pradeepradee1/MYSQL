@@ -27,6 +27,9 @@ Candidate Key 	: 			A Primary Key can be selected from candidate key
 										Email
 										Phonenumber
 
+							Example:
+										Election CM  selected from the candidate person
+
 
 AK				:  			Apart from Primary Key , all keys in Candidate keys are Alternate Key
 
@@ -53,6 +56,12 @@ Super Keys	  	: 			SuperSet Of Candidate Key
 										ID,Phonenumber
 										ID,Country
 										etc...
+
+
+Surrogate key 	:           Unique identifier assigned to each row in a table
+
+							Example :
+										ID : ( 1 	,	2	,	3)
 							
 				
 
