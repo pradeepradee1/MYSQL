@@ -4,10 +4,11 @@ Normalization:
 
 	1)		Normalization Divides the larger table into smaller table and links them using relationship
 				
-	2) 		Normalization is the process of reducing the redundancy (repetation) of data in the table and 
-			improving the data integrity 
+	2) 		Normalization is the process of reducing the redundancy (repetation) 
+			
+    3)	    Improving the data integrity 
 
-	3) 		Without Normalization we may face issues like the Insertion anomaly, 
+	4) 		Without Normalization we may face issues like the Insertion anomaly, 
 			Updation anomaly,Deletion anomaly
 
 */

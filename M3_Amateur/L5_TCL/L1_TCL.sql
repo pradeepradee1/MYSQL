@@ -1,9 +1,10 @@
 /*
-TCL
+TCL =  TRANSACTION CONTROL LANGUAGE
 */
 
-#DML Statement can be a rollback
 #DDL Statement can’t be rollback	
+#DML Statement can be a rollback
+
 
 /*
 COMMIT :

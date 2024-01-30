@@ -1,5 +1,5 @@
 /*
-Set Operators 
+Set Operators = Records Level Matching
 */
 use mydb;
 
@@ -29,6 +29,11 @@ union
 select * from CUST_BR2
 union
 select * from CUST_BR3;
+
+
+select CNAME as name  from CUST_BR1
+union
+select CNAME as name from CUST_BR2;
 
 
 select * from CUST_BR1 
