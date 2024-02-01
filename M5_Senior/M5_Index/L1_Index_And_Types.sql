@@ -1,8 +1,7 @@
 /*
 Index : 
 		Index is a database object
-		Indexes are used to retrieve data from the database more quickly than
-		It optimize the performance
+		It optimize the performance while retrieve data
 		Index like index in books
 
 

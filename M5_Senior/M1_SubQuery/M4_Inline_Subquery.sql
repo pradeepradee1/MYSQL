@@ -9,6 +9,7 @@
 
 */
 
+# Equi Join
 SELECT 
 *
 FROM ( SELECT dno, count(*) emp_count FROM emp where dno is not null GROUP BY dno ) emp,dept
@@ -16,7 +17,7 @@ WHERE dept.dno = emp.dno;
 
 
 # (OR)
-
+# Inner Join
 SELECT 
 	*
 FROM ( SELECT dno, count(*) emp_count FROM emp where dno is not null GROUP BY dno ) a 
@@ -30,10 +31,16 @@ join dept b on a.dno = b.dno;
 # display the employees who earn the highest salary in each department?
 
 
-SELECT 
+# Correlation subquery
+ 
+select * from emp a
+join (select max(sal) maxsal , dno from emp where dno is not null group by dno) b 
+on a.dno = b.dno
+where a.sal = b.maxsal
+
+
+#Subquery
+select 
 *
-FROM ( SELECT dno, max(sal) maxsal FROM emp where dno is not null GROUP BY dno ) b, emp a
-WHERE
-a.sal= b.maxsal
-and
-a.dno = b.dno;
+from emp
+where (dno , sal) in (select dno,max(sal) from emp where dno is not null group by dno) 

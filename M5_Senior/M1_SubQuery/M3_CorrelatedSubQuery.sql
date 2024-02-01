@@ -20,6 +20,16 @@ use mydb;
 
 #Find The employee in each department who earns more than the average salary in that department
 
+
+# Note : This will not work
+
+select 
+*
+from emp e 
+where (dno,sal) in (select dno , avg(sal) from emp e where dno is not null group by dno)
+
+# Note : This is correct
+
 select 
 *
 from 
@@ -53,6 +63,13 @@ NOT EXISTS :
 			If it returns TRUE then outer query will display the result.
 	
 */
+
+
+SELECT 
+*
+from 
+dept d 
+where exists (select * from emp e)
 
 
 SELECT 

@@ -1,6 +1,7 @@
 /*
 View :
-		It is a database object and virtual table
+		It is a database object
+		It is a virtual table
 		It is created over an SQL Query
 		It Doesn't store any data
 		It is Hiding the logic from the user
