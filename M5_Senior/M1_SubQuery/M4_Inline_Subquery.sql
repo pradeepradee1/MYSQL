@@ -31,7 +31,7 @@ join dept b on a.dno = b.dno;
 # display the employees who earn the highest salary in each department?
 
 
-# Correlation subquery
+# Inline subquery
  
 select * from emp a
 join (select max(sal) maxsal , dno from emp where dno is not null group by dno) b 

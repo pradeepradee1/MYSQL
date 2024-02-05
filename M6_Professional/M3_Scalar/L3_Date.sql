@@ -19,16 +19,20 @@ SELECT DATE("2022-12-27");
 #DAY
 SELECT DAY("2022-12-27");
 #SELECT EXTRACT(DAY FROM "2022-12-27");
+
 SELECT DAYNAME("2022-12-27");
 
 SELECT LAST_DAY("2022-12-27");
 
 #WEEK
+
 SELECT WEEK("2022-12-27");
+
 #SELECT EXTRACT(WEEK FROM "2022-12-27");
 #Note: 0 = Monday, 1 = Tuesday, 2 = Wednesday, 3 = Thursday, 4 = Friday, 5 = Saturday, 6 = Sunday.
 #SELECT WEEKDAY("2022-12-27");
 #Note: 1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday.
+
 SELECT DAYOFWEEK("2022-12-27");
 
 
@@ -42,6 +46,8 @@ SELECT MONTHNAME("2022-12-27");
 
 #QUARTER
 SELECT QUARTER("2022-12-27");
+
+
 
 #YEAR
 SELECT YEAR("2022-12-27");
@@ -64,11 +70,6 @@ SELECT DATEDIFF("2022-12-27", "2022-11-1");
 
 #MakeDate
 SELECT MAKEDATE(2017, 3);
-
-
-
-
-
 
 
 

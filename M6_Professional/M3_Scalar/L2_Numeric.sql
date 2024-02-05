@@ -17,27 +17,21 @@
 
 	
 	SELECT SQRT(64);
-	
 	SELECT POWER(4, 2);
 	
 	
 	SELECT EXP(1);
-	
 	SELECT LOG(2);
 	
 
 	SELECT GREATEST(3, 12, 34, 8, 25);
-
 	SELECT LEAST(3, 12, 34, 8, 25);
 	
 
 	
+	SELECT FLOOR(25.95); # flooring
+	SELECT CEIL(25.152); # Ceiling(Roof ceiling)
 	SELECT ROUND(25.452);
-
-	SELECT CEIL(25.152);
-
-	SELECT FLOOR(25.95);
-
 
 
 	SELECT RAND();
