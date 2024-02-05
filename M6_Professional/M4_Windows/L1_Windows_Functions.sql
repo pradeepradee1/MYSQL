@@ -38,7 +38,7 @@ select
 from 
 	emp e
 
-#Note : Above Query is for floating Average
+#Note : Above Query is for Floating Average or Moving Average
 
 
 
