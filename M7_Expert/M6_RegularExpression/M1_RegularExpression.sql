@@ -23,9 +23,9 @@
 
 #Quantifier
 
-[]?				=	occurs 0 or 1 time 			# i didn't get it
-[]*				=	occurs 0 or moretime
 []+				=	occurs 1 or moretimes
+[]*				=	occurs 0 or moretime
+[]?				=	occurs 0 or 1 time 		
 []{n}			=	occurs n time
 []{n,}			=	occurs n or more time
 []{y,z}			=	occurs atleast y time but less than z time
