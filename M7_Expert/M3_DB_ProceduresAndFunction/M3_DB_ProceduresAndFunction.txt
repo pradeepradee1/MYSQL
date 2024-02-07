@@ -1,0 +1,10 @@
+Procedured 	:
+			
+			1) Does not return a value explicitly.
+			2) Can contain transaction control statements (COMMIT, ROLLBACK)
+
+Fuctions	:
+			
+			1) Return a value explicitly
+			2) Cannot contain transaction control statements
+
