@@ -1,4 +1,4 @@
-#Question 3
+#Question 2:
 
 #Calculate the date wise rolling average of amazon sales
 
@@ -43,7 +43,7 @@ What is rolling Average ?
 
 */
 
-#Question 4 : 
+#Question 3 : 
 
 
 #Calculate the month wise of quarter rolling average of amazon sales

@@ -33,13 +33,22 @@ from
 	emp e
 
 
+#Note : Query is for Floating Average or Moving Average
 select 
-	e.* ,avg(sal) over(order by e.dno) as maxsalary  
+	e.* ,
+	avg(sal) over(order by e.dno) as maxsalary  
 from 
 	emp e
 
-#Note : Above Query is for Floating Average or Moving Average
 
+
+#Note : Query is for Moving sum with restrictions
+select 
+	gender,
+	day,
+	sum(score_points) over(PARTITION by gender order by day) as total
+from pScores ps 
+	order by gender
 
 
 
