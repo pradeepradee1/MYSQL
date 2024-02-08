@@ -33,7 +33,7 @@ from
 	emp e
 
 
-#Note : Query is for Floating Average or Moving Average
+#Note : Floating Average or Moving Average
 select 
 	e.* ,
 	avg(sal) over(order by e.dno) as maxsalary  
@@ -42,7 +42,7 @@ from
 
 
 
-#Note : Query is for Moving sum with restrictions
+#Note : Moving total with restrictions
 select 
 	gender,
 	day,
