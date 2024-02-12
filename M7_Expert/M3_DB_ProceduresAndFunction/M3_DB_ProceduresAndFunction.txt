@@ -1,7 +1,7 @@
 Fuctions	:
 			
 			1) Return a value explicitly
-			2) Cannot contain transaction control statements
+			2) Can not contain transaction control statements
 
 
 Procedured 	:

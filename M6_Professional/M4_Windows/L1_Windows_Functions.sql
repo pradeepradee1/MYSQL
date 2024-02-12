@@ -13,30 +13,24 @@ select * from emp e
 select avg(sal) from emp e -- 3,192.8571
 
 
+#Note : Floating Average or Moving Average
 select 
 	e.*,avg(sal) over() as maxsalary  
 from 
 	emp e
 
 
-select 
-	e.dno ,avg(sal) 
-from 
-	emp e
-group by 
-	e.dno
-
-
-select 
-	e.* ,avg(sal) over(partition by e.dno) as maxsalary  
-from 
-	emp e
-
-
-#Note : Floating Average or Moving Average
+#Note : Floating Average based on the dno
 select 
 	e.* ,
 	avg(sal) over(order by e.dno) as maxsalary  
+from 
+	emp e
+
+
+# Group by dno
+select 
+	e.* ,avg(sal) over(partition by e.dno) as avgsalary  
 from 
 	emp e
 

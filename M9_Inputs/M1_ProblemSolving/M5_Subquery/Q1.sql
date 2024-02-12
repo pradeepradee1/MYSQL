@@ -1,9 +1,3 @@
-Create table  psEmployee (Id int, Salary int);
-
-insert into psEmployee (Id, Salary) values ('1', '100');
-insert into psEmployee (Id, Salary) values ('2', '200');
-insert into psEmployee (Id, Salary) values ('3', '300');
-
 select * from psEmployee
 
 #Get Second Max Salary
@@ -26,3 +20,11 @@ select
 from 
 	psEmployee pe 
 where Salary not in (select max(Salary) from psEmployee pe2 )
+
+
+SELECT * from 
+(SELECT *,
+DENSE_RANK() over(ORDER by Salary desc) as  rank
+from 
+psEmployee pe ) tab
+where tab.rank = 2
