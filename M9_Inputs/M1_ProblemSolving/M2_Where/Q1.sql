@@ -1,12 +1,3 @@
-Create table If Not Exists Patients_ps (patient_id int, patient_name varchar(30), conditions varchar(100));
-
-insert into Patients_ps (patient_id, patient_name, conditions) values ('1', 'Daniel', 'YFEV COUGH');
-insert into Patients_ps (patient_id, patient_name, conditions) values ('2', 'Alice', '');
-insert into Patients_ps (patient_id, patient_name, conditions) values ('3', 'Bob', 'DIAB100 MYOP');
-insert into Patients_ps (patient_id, patient_name, conditions) values ('4', 'George', 'ACNE DIAB100');
-insert into Patients_ps (patient_id, patient_name, conditions) values ('5', 'Alain', 'DIAB201');
-
-
 select 
 	*
 from 
