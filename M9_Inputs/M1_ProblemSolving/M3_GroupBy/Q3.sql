@@ -1,62 +1,62 @@
+#Question2:
+
+#Calculate the total amount recived in cash and recived in online for each merchant
+
+
 /*
+Output like this
 
-Pivot Table :
-		
-		11	english	88
-		11	tamil	66
-		11	maths	85
-		12	english	81
-		12	tamil	71
-		12	maths	100
-
-Output Table :
-		
-		id 		 englishMarks 	tamilMarks	mathsMarks
-		11 			88				66			85
-		12 			81				71			100
-
+For ex :        
+            merchant    cash_amount     online_amount
+                m1          250             500
+                m2          0               550
+                m3          600             0
+                m5          0               200
 
 */
 
+select * from transactions;
 
-
-create table ps3
-(
-id tinyint,
-subject varchar(50),
-marks int
-)
-
-insert into ps3 
-values (11,"english",88),(11,"tamil",66),(11,"maths",85),(12,"english",81),(12,"tamil",71),(12,"maths",100)
-
-select * from ps3
 
 select 
-	*,
-	CASE when ps3.subject = "english" then ps3.marks else 0 END as english_details,
-	CASE when ps3.subject = "tamil" then ps3.marks else 0 END as tamil_details,
-	CASE when ps3.subject = "maths" then ps3.marks else 0 END as maths_details
+    payment_mode,merchant_id,sum(amount)
 from 
-	ps3
-
-select 
-	*,
-	CASE when ps3.subject = "english" then ps3.marks else 0 END as english_details,
-	CASE when ps3.subject = "tamil" then ps3.marks else 0 END as tamil_details,
-	CASE when ps3.subject = "maths" then ps3.marks else 0 END as maths_details
-from 
-	ps3
+    transactions
 group by 
-	ps3.id 
+    payment_mode,merchant_id
+
 
 select 
-	*,
-	sum(CASE when ps3.subject = "english" then ps3.marks else 0 END) as english_details,
-	sum(CASE when ps3.subject = "tamil" then ps3.marks else 0 END) as tamil_details,
-	sum(CASE when ps3.subject = "maths" then ps3.marks else 0 END) as maths_details
+    merchant_id,
+    if (payment_mode = 'CASH'  , sum(amount),0) as cash_amount,
+    if (payment_mode = 'ONLINE', sum(amount),0) as online_amount
 from 
-	ps3
-group by
-	ps3.id
+    transactions 
+group by 
+    merchant_id;
+
+
+
+#This is Correct and match it with requirement
+
+select 
+    merchant_id,
+    sum(if (payment_mode = 'CASH'  , amount,0)) as cash_amount,
+    sum(if (payment_mode = 'ONLINE', amount,0)) as online_amount
+from 
+    transactions 
+group by 
+    merchant_id;
+
+#(OR)
+
+select 
+    merchant_id,
+    sum(case when payment_mode = 'CASH' then amount else 0 end) as cash_amount,
+    sum(case when payment_mode = 'ONLINE' then amount else 0 end) as online_amount
+from 
+    transactions 
+group by 
+    merchant_id;
+
 

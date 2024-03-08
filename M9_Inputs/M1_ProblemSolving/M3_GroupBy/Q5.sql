@@ -1,58 +1,62 @@
-Create table ps1_orders (order_number int, customer_number int);
-
-insert into ps1_orders (order_number, customer_number) values ('1', '1');
-insert into ps1_orders (order_number, customer_number) values ('2', '2');
-insert into ps1_orders (order_number, customer_number) values ('3', '3');
-insert into ps1_orders (order_number, customer_number) values ('4', '3');
-
-select * from ps1_orders
-
-
-# Write an sql query to find the customer number for customer who has largest number of orders
-
 /*
 
-	# for ex : 1 and 2 are placed each order
-			   3 is placed two orders which is larger no. of orders than it
+Pivot Table :
+		
+		11	english	88
+		11	tamil	66
+		11	maths	85
+		12	english	81
+		12	tamil	71
+		12	maths	100
 
-	
-	Output:
-			Customer_number
-				3
-	
+Output Table :
+		
+		id 		 englishMarks 	tamilMarks	mathsMarks
+		11 			88				66			85
+		12 			81				71			100
+
 
 */
 
-#this is wrong 
+
+
+create table ps3
+(
+id tinyint,
+subject varchar(50),
+marks int
+)
+
+insert into ps3 
+values (11,"english",88),(11,"tamil",66),(11,"maths",85),(12,"english",81),(12,"tamil",71),(12,"maths",100)
+
+select * from ps3
+
 select 
-	customer_number 
+	*,
+	CASE when ps3.subject = "english" then ps3.marks else 0 END as english_details,
+	CASE when ps3.subject = "tamil" then ps3.marks else 0 END as tamil_details,
+	CASE when ps3.subject = "maths" then ps3.marks else 0 END as maths_details
 from 
-	ps1_orders
-where order_number = (select max(order_number) from ps1_orders po)
-
-
-#wrong Approach 
-#because i am getting more than placed 2 order
+	ps3
 
 select 
-	customer_number 
+	*,
+	CASE when ps3.subject = "english" then ps3.marks else 0 END as english_details,
+	CASE when ps3.subject = "tamil" then ps3.marks else 0 END as tamil_details,
+	CASE when ps3.subject = "maths" then ps3.marks else 0 END as maths_details
 from 
-	(
-	select customer_number,count(*) as total_order_by_customer from ps1_orders
-	group by customer_number 
-) tmp
-where total_order_by_customer > 1
+	ps3
+group by 
+	ps3.id 
 
-
-#Right Approach
 select 
-	customer_number 
+	*,
+	sum(CASE when ps3.subject = "english" then ps3.marks else 0 END) as english_details,
+	sum(CASE when ps3.subject = "tamil" then ps3.marks else 0 END) as tamil_details,
+	sum(CASE when ps3.subject = "maths" then ps3.marks else 0 END) as maths_details
 from 
-	(
-	select customer_number,count(*) as total_order_by_customer from ps1_orders
-	group by customer_number 
-	order by total_order_by_customer desc
-) tmp limit 1;
-
-
+	ps3
+group by
+	ps3.id
 

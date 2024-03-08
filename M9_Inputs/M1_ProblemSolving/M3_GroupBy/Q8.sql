@@ -1,64 +1,47 @@
-CREATE or replace TABLE spSales (sale_date date,fruit ENUM ('apples','oranges')NULL, sold_num int);
+Create table psCustomer (customer_id int, product_key int);
+Create table psProduct (product_key int);
 
-desc spSales
+insert into psCustomer (customer_id, product_key) values ('1', '5');
+insert into psCustomer (customer_id, product_key) values ('2', '6');
+insert into psCustomer (customer_id, product_key) values ('3', '5');
+insert into psCustomer (customer_id, product_key) values ('3', '6');
+insert into psCustomer (customer_id, product_key) values ('1', '6');
 
+insert into psProduct (product_key) values ('5');
+insert into psProduct (product_key) values ('6');
 
--- CREATE TABLE fruit_baskets( AS ENUM ('apples','oranges'));
-
--- Create table If Not Exists spSales (sale_date date, fruit fruit_baskets, sold_num int);
-
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-01', 'apples', 10);
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-01', 'oranges', '8');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-02', 'apples', '15');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-02', 'oranges', '15');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-03', 'apples', '20');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-03', 'oranges', '0');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-04', 'apples', '15');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-04', 'oranges', '16');
-
-
-/*
-l
-Q: Find Difference Between no. of apples amd no. of orranges sold each day
-
-OP:
-
-		2020-05-01	apples	2
-		2020-05-02	apples	0
-		2020-05-03	apples	20
-		2020-05-04	apples	-1
+select * from psProduct
+select * from psCustomer
 
 
 
-*/
+#Questions : Get Customer id from customer table that bought all the product in the product table
+# For Ex   :
+#				1 and 3 bought all the prodycts
+# 					2 bought only the one products			
 
-
-
+#Static defined
 select 
-	sale_date,
-	fruit,
-	max(sold_num) - min(sold_num) as diff
+	pc.customer_id
 from 
-	spSales
-group by 
-	sale_date 
+	psProduct ps
+inner join psCustomer pc on ps.product_key = pc.product_key 
+group by pc.customer_id 
+having count(distinct ps.product_key) >= 2
 
-
-select 
-	*,
-	sum(if(fruit="apples",sold_num,0))  - sum(if(fruit="oranges",sold_num,0)) as orangesum
+#Right Approach
+SELECT 
+	*
 from 
-	spSales
-group by sale_date
+	psCustomer pc 
+group by pc.customer_id 
+having count(*) = (select count (DISTINCT product_key) from psProduct) 
 
 
-
-select 
-	 sale_date ,
-	 diff
+#Right Approach
+SELECT 
+	customer_id 
 from 
-	(
-		select *,sold_num - lead(sold_num,1) over(PARTITION by sale_date) as diff from spSales
-	) tmp 
-where fruit = 'apples'
-order by sale_date
+	psCustomer
+group by  customer_id 
+having count(DISTINCT product_key) = (select count(*) from psProduct pp)
