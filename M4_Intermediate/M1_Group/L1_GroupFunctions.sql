@@ -25,7 +25,8 @@
 			select * from emp where sal IN(select max(sal) from emp);
 
 
---4) MIN
+--4) MIN	
+			select min(sal) from emp where ename='A';
 
 			select * from emp where sal IN(select min(sal) from emp);
 
