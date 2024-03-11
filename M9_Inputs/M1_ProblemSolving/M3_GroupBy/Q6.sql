@@ -1,61 +1,62 @@
-Create table If Not Exists Warehouse (name varchar(50), product_id int, units int);
-Create table If Not Exists Products (product_id int, product_name varchar(50), Width int,Length int,Height int);
-
-insert into Warehouse (name, product_id, units) values ('LCHouse1', '1', '1');
-insert into Warehouse (name, product_id, units) values ('LCHouse1', '2', '10');
-insert into Warehouse (name, product_id, units) values ('LCHouse1', '3', '5');
-insert into Warehouse (name, product_id, units) values ('LCHouse2', '1', '2');
-insert into Warehouse (name, product_id, units) values ('LCHouse2', '2', '2');
-insert into Warehouse (name, product_id, units) values ('LCHouse3', '4', '1');
-
-insert into Products (product_id, product_name, Width, Length, Height) values ('1', 'LC-TV', '5', '50', '40');
-insert into Products (product_id, product_name, Width, Length, Height) values ('2', 'LC-KeyChain', '5', '5', '5');
-insert into Products (product_id, product_name, Width, Length, Height) values ('3', 'LC-Phone', '2', '10', '10');
-insert into Products (product_id, product_name, Width, Length, Height) values ('4', 'LC-T-Shirt', '4', '10', '20');
-
-
-select * from Warehouse;
-select * from Products;
-
-#Question : How much cubic of volume does the inventry occupy in each warehouse ?
-
-#Note : 
-#		Volume = Consumed ex :  cylinder (gas cylinder) consume volume of gas 
-#						  ex :  Sump
-#		Area   = Space	  ex :  10 * 10 feet space in 100 square feet area
-
 /*
 
-	Cube			:	
-						V = a3
-	Rectangular 	:
-		 				V = l × w × h	
-		 										
-	Cylinder		:
-						V = πr2h
-	Prism 			:
-						V = B × h	
+Pivot Table :
+		
+		11	english	88
+		11	tamil	66
+		11	maths	85
+		12	english	81
+		12	tamil	71
+		12	maths	100
+
+Output Table :
+		
+		id 		 englishMarks 	tamilMarks	mathsMarks
+		11 			88				66			85
+		12 			81				71			100
+
 
 */
 
-/*
-	Area Of Circle	:   πr2	
-	Area Of Square	:	a*a
-*/
 
-/*
-Output:		
-		 Name        Volume	
-		LCHouse1	 12250
-		LCHouse2	 20250
-		LCHouse3	 800
-*/
 
-select
-	w.name ,
-	sum(w.units),
-	sum(w.units * (p.Width * p.`Length` * p.Height)) as volume
+create table ps3
+(
+id tinyint,
+subject varchar(50),
+marks int
+)
+
+insert into ps3 
+values (11,"english",88),(11,"tamil",66),(11,"maths",85),(12,"english",81),(12,"tamil",71),(12,"maths",100)
+
+select * from ps3
+
+select 
+	*,
+	CASE when ps3.subject = "english" then ps3.marks else 0 END as english_details,
+	CASE when ps3.subject = "tamil" then ps3.marks else 0 END as tamil_details,
+	CASE when ps3.subject = "maths" then ps3.marks else 0 END as maths_details
 from 
-	Warehouse w
-inner join Products p on w.product_id = p.product_id 
-group by w.name 
+	ps3
+
+select 
+	*,
+	CASE when ps3.subject = "english" then ps3.marks else 0 END as english_details,
+	CASE when ps3.subject = "tamil" then ps3.marks else 0 END as tamil_details,
+	CASE when ps3.subject = "maths" then ps3.marks else 0 END as maths_details
+from 
+	ps3
+group by 
+	ps3.id 
+
+select 
+	*,
+	sum(CASE when ps3.subject = "english" then ps3.marks else 0 END) as english_details,
+	sum(CASE when ps3.subject = "tamil" then ps3.marks else 0 END) as tamil_details,
+	sum(CASE when ps3.subject = "maths" then ps3.marks else 0 END) as maths_details
+from 
+	ps3
+group by
+	ps3.id
+

@@ -1,64 +1,36 @@
-CREATE or replace TABLE spSales (sale_date date,fruit ENUM ('apples','oranges')NULL, sold_num int);
 
-desc spSales
+Create table If Not Exists my_numbers (num int);
+
+insert into my_numbers (num) values ('8');
+insert into my_numbers (num) values ('8');
+insert into my_numbers (num) values ('3');
+insert into my_numbers (num) values ('3');
+insert into my_numbers (num) values ('1');
+insert into my_numbers (num) values ('4');
+insert into my_numbers (num) values ('5');
+insert into my_numbers (num) values ('6');
 
 
--- CREATE TABLE fruit_baskets( AS ENUM ('apples','oranges'));
-
--- Create table If Not Exists spSales (sale_date date, fruit fruit_baskets, sold_num int);
-
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-01', 'apples', 10);
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-01', 'oranges', '8');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-02', 'apples', '15');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-02', 'oranges', '15');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-03', 'apples', '20');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-03', 'oranges', '0');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-04', 'apples', '15');
-insert into spSales (sale_date, fruit, sold_num) values ('2020-05-04', 'oranges', '16');
+select * from my_numbers
 
 
 /*
-l
-Q: Find Difference Between no. of apples amd no. of orranges sold each day
+Q : Biggest Single Number
+	find biggest number which appers only once?
 
-OP:
-
-		2020-05-01	apples	2
-		2020-05-02	apples	0
-		2020-05-03	apples	20
-		2020-05-04	apples	-1
-
-
+OP:	
+	num
+	 6
 
 */
 
-
-
 select 
-	sale_date,
-	fruit,
-	max(sold_num) - min(sold_num) as diff
+	num 
 from 
-	spSales
+	my_numbers
 group by 
-	sale_date 
-
-
-select 
-	*,
-	sum(if(fruit="apples",sold_num,0))  - sum(if(fruit="oranges",sold_num,0)) as orangesum
-from 
-	spSales
-group by sale_date
-
-
-
-select 
-	 sale_date ,
-	 diff
-from 
-	(
-		select *,sold_num - lead(sold_num,1) over(PARTITION by sale_date) as diff from spSales
-	) tmp 
-where fruit = 'apples'
-order by sale_date
+	num 
+having count(*) = 1
+order by 
+	num desc
+limit 1;

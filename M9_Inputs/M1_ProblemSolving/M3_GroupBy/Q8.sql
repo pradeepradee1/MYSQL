@@ -1,47 +1,58 @@
-Create table psCustomer (customer_id int, product_key int);
-Create table psProduct (product_key int);
+Create table ps1_orders (order_number int, customer_number int);
 
-insert into psCustomer (customer_id, product_key) values ('1', '5');
-insert into psCustomer (customer_id, product_key) values ('2', '6');
-insert into psCustomer (customer_id, product_key) values ('3', '5');
-insert into psCustomer (customer_id, product_key) values ('3', '6');
-insert into psCustomer (customer_id, product_key) values ('1', '6');
+insert into ps1_orders (order_number, customer_number) values ('1', '1');
+insert into ps1_orders (order_number, customer_number) values ('2', '2');
+insert into ps1_orders (order_number, customer_number) values ('3', '3');
+insert into ps1_orders (order_number, customer_number) values ('4', '3');
 
-insert into psProduct (product_key) values ('5');
-insert into psProduct (product_key) values ('6');
-
-select * from psProduct
-select * from psCustomer
+select * from ps1_orders
 
 
+# Write an sql query to find the customer number for customer who has largest number of orders
 
-#Questions : Get Customer id from customer table that bought all the product in the product table
-# For Ex   :
-#				1 and 3 bought all the prodycts
-# 					2 bought only the one products			
+/*
 
-#Static defined
+	# for ex : 1 and 2 are placed each order
+			   3 is placed two orders which is larger no. of orders than it
+
+	
+	Output:
+			Customer_number
+				3
+	
+
+*/
+
+#this is wrong 
 select 
-	pc.customer_id
+	customer_number 
 from 
-	psProduct ps
-inner join psCustomer pc on ps.product_key = pc.product_key 
-group by pc.customer_id 
-having count(distinct ps.product_key) >= 2
+	ps1_orders
+where order_number = (select max(order_number) from ps1_orders po)
+
+
+#wrong Approach 
+#because i am getting more than placed 2 order
+
+select 
+	customer_number 
+from 
+	(
+	select customer_number,count(*) as total_order_by_customer from ps1_orders
+	group by customer_number 
+) tmp
+where total_order_by_customer > 1
+
 
 #Right Approach
-SELECT 
-	*
+select 
+	customer_number 
 from 
-	psCustomer pc 
-group by pc.customer_id 
-having count(*) = (select count (DISTINCT product_key) from psProduct) 
+	(
+	select customer_number,count(*) as total_order_by_customer from ps1_orders
+	group by customer_number 
+	order by total_order_by_customer desc
+) tmp limit 1;
 
 
-#Right Approach
-SELECT 
-	customer_id 
-from 
-	psCustomer
-group by  customer_id 
-having count(DISTINCT product_key) = (select count(*) from psProduct pp)
+

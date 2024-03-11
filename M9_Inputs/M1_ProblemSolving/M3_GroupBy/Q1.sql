@@ -1,9 +1,9 @@
 #Task : Take the average of balance
 
-select 
-cid,
-month_name,
-avg(total_balance)
+select *  from trans_table
+
+
+select cid,month_name,avg(total_balance)
 from 
 trans_table
 group by cid

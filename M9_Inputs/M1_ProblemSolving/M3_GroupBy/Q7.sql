@@ -1,58 +1,61 @@
-Create table ps1_orders (order_number int, customer_number int);
+Create table If Not Exists Warehouse (name varchar(50), product_id int, units int);
+Create table If Not Exists Products (product_id int, product_name varchar(50), Width int,Length int,Height int);
 
-insert into ps1_orders (order_number, customer_number) values ('1', '1');
-insert into ps1_orders (order_number, customer_number) values ('2', '2');
-insert into ps1_orders (order_number, customer_number) values ('3', '3');
-insert into ps1_orders (order_number, customer_number) values ('4', '3');
+insert into Warehouse (name, product_id, units) values ('LCHouse1', '1', '1');
+insert into Warehouse (name, product_id, units) values ('LCHouse1', '2', '10');
+insert into Warehouse (name, product_id, units) values ('LCHouse1', '3', '5');
+insert into Warehouse (name, product_id, units) values ('LCHouse2', '1', '2');
+insert into Warehouse (name, product_id, units) values ('LCHouse2', '2', '2');
+insert into Warehouse (name, product_id, units) values ('LCHouse3', '4', '1');
 
-select * from ps1_orders
+insert into Products (product_id, product_name, Width, Length, Height) values ('1', 'LC-TV', '5', '50', '40');
+insert into Products (product_id, product_name, Width, Length, Height) values ('2', 'LC-KeyChain', '5', '5', '5');
+insert into Products (product_id, product_name, Width, Length, Height) values ('3', 'LC-Phone', '2', '10', '10');
+insert into Products (product_id, product_name, Width, Length, Height) values ('4', 'LC-T-Shirt', '4', '10', '20');
 
 
-# Write an sql query to find the customer number for customer who has largest number of orders
+select * from Warehouse;
+select * from Products;
+
+#Question : How much cubic of volume does the inventry occupy in each warehouse ?
+
+#Note : 
+#		Volume = Consumed ex :  cylinder (gas cylinder) consume volume of gas 
+#						  ex :  Sump
+#		Area   = Space	  ex :  10 * 10 feet space in 100 square feet area
 
 /*
 
-	# for ex : 1 and 2 are placed each order
-			   3 is placed two orders which is larger no. of orders than it
-
-	
-	Output:
-			Customer_number
-				3
-	
+	Cube			:	
+						V = a3
+	Rectangular 	:
+		 				V = l × w × h	
+		 										
+	Cylinder		:
+						V = πr2h
+	Prism 			:
+						V = B × h	
 
 */
 
-#this is wrong 
-select 
-	customer_number 
+/*
+	Area Of Circle	:   πr2	
+	Area Of Square	:	a*a
+*/
+
+/*
+Output:		
+		 Name        Volume	
+		LCHouse1	 12250
+		LCHouse2	 20250
+		LCHouse3	 800
+*/
+
+select
+	w.name ,
+	sum(w.units),
+	sum(w.units * (p.Width * p.`Length` * p.Height)) as volume
 from 
-	ps1_orders
-where order_number = (select max(order_number) from ps1_orders po)
-
-
-#wrong Approach 
-#because i am getting more than placed 2 order
-
-select 
-	customer_number 
-from 
-	(
-	select customer_number,count(*) as total_order_by_customer from ps1_orders
-	group by customer_number 
-) tmp
-where total_order_by_customer > 1
-
-
-#Right Approach
-select 
-	customer_number 
-from 
-	(
-	select customer_number,count(*) as total_order_by_customer from ps1_orders
-	group by customer_number 
-	order by total_order_by_customer desc
-) tmp limit 1;
-
-
-
+	Warehouse w
+inner join Products p on w.product_id = p.product_id 
+group by w.name 
