@@ -24,24 +24,24 @@ select * from Products;
 #						  ex :  Sump
 #		Area   = Space	  ex :  10 * 10 feet space in 100 square feet area
 
-/*
-
-	Cube			:	
-						V = a3
-	Rectangular 	:
-		 				V = l × w × h	
-		 										
-	Cylinder		:
-						V = πr2h
-	Prism 			:
-						V = B × h	
-
-*/
 
 /*
 	Area Of Circle	:   πr2	
+	
 	Area Of Square	:	a*a
 */
+
+
+/*
+
+Volume of Cube			:	V = a3
+
+Volume of Rectangular 	:   V = l × w × h	
+		 				
+Volume of Cylinder		:   V = πr2h  ( Area Of Circle: πr2	)
+
+*/
+
 
 /*
 Output:		
