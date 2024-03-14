@@ -45,14 +45,25 @@ where total_order_by_customer > 1
 
 
 #Right Approach
+
 select 
 	customer_number 
 from 
 	(
-	select customer_number,count(*) as total_order_by_customer from ps1_orders
-	group by customer_number 
-	order by total_order_by_customer desc
-) tmp limit 1;
+		select customer_number,count(*) as total_order_by_customer from ps1_orders 
+		group by customer_number  
+		order by total_order_by_customer desc
+	) tmp limit 1;
 
 
+#Right Approach
 
+select 
+	* 
+from 
+	ps1_orders
+where
+	 customer_number = (select customer_number as cid from ps1_orders 
+	 					group by customer_number 
+	 					order by count(*) desc limit 0,1) 
+limit 0,1

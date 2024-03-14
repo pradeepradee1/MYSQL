@@ -16,6 +16,9 @@ select * from psLogins
 Report the lateset login for all user in the year 2020.Do not include the users who did not login in 2020
 */
 
+
+
+
 SELECT 
 user_id ,
 max(time_stamp) as last_Stamp

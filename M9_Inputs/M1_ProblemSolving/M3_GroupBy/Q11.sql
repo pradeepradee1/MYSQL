@@ -21,7 +21,7 @@ insert into spSales (sale_date, fruit, sold_num) values ('2020-05-04', 'oranges'
 l
 Q: Find Difference Between no. of apples amd no. of orranges sold each day
 
-OP:
+Sample Output:
 
 		2020-05-01	apples	2
 		2020-05-02	apples	0
@@ -32,6 +32,7 @@ OP:
 
 */
 
+select * from spSales
 
 
 select 
