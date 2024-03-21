@@ -9,8 +9,8 @@ SELECT * from First_1NF_2;
 
 /*
 1NF:
-	1) Each Attribute should have unique name (phone_no shouldn't repeat)
-	2) Each Attribute should contain the atomic values
+	1) Each Attribute should contain the atomic values
+	2) Each Attribute should have unique name (phone_no shouldn't repeat)
 	3) Every Attribute should follow the same domain (Same Data type)
 	4) Ordering doesn't important
 	5) No Duplicate Rows

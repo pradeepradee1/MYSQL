@@ -6,6 +6,9 @@ insert into cinema (seat_id, free) values ('3', '1');
 insert into cinema (seat_id, free) values ('4', '1');
 insert into cinema (seat_id, free) values ('6', '1');
 
+
+select * from cinema
+
 /*
 we need find consecutive available sets 
 
