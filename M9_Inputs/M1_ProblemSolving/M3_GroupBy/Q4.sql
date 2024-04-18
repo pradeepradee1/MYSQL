@@ -1,4 +1,4 @@
-#Question2:
+#Question:
 
 #Calculate the total amount recived in cash and recived in online for each merchant
 

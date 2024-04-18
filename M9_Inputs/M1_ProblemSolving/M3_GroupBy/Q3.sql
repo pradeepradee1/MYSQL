@@ -3,13 +3,17 @@ insert into pPerson (Id, Email) values ('1', 'john@example.com');
 insert into pPerson (Id, Email) values ('2', 'bob@example.com');
 insert into pPerson (Id, Email) values ('3', 'john@example.com');
 
-
-
 /*
 
 Find the Duplicate records
 
 */
+
+
+select * from pPerson 
+
+
+
 
 select 
 	* 

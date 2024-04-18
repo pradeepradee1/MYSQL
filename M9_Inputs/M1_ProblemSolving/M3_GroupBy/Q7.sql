@@ -17,6 +17,8 @@ insert into Products (product_id, product_name, Width, Length, Height) values ('
 select * from Warehouse;
 select * from Products;
 
+
+
 #Question : How much cubic of volume does the inventry occupy in each warehouse ?
 
 #Note : 
@@ -34,11 +36,13 @@ select * from Products;
 
 /*
 
-Volume of Cube			:	V = a3
+Volume of Cylinder		:   V = πr2h  ( Area Of Circle: πr2	)
+
+Volume of Cube			:	V = a * a * a (Area of square : a*a)
 
 Volume of Rectangular 	:   V = l × w × h	
 		 				
-Volume of Cylinder		:   V = πr2h  ( Area Of Circle: πr2	)
+
 
 */
 

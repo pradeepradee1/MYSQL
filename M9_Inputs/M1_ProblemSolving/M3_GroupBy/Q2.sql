@@ -1,6 +1,14 @@
-#Task : Take only the active cusotmer of contributed in month of year
+Questions:
 
 
+#Task : Take average of balance that only the active cusotmer of contributed in month of year
+
+select *  from trans_table
+
+
+
+
+-----------------------------------------------------
 
 #Note : This will include the null values
 
