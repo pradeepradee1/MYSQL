@@ -45,6 +45,7 @@ group by
 	sale_date 
 
 
+# Right Approach
 select 
 	*,
 	sum(if(fruit="apples",sold_num,0))  - sum(if(fruit="oranges",sold_num,0)) as orangesum

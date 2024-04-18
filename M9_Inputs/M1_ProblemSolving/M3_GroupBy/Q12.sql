@@ -12,9 +12,24 @@ insert into psLogins (user_id, time_stamp) values ('14', '2021-01-06 11:59:59');
 
 select * from psLogins
 
+#Question :
 /*
 Report the lateset login for all user in the year 2020.Do not include the users who did not login in 2020
 */
+
+/* 
+Sample OP like this
+
+2	2020-01-16 02:49:50.000
+6	2020-06-30 15:06:07.000
+8	2020-12-30 00:46:50.000
+
+
+*/
+
+
+
+
 
 
 
