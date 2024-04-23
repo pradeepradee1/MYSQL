@@ -1,0 +1,11 @@
+						DDL 									DML
+
+1) 	used to create or define the database schema		1) used to add, retrieve, or update the data
+
+2)  CREATE, ALTER, TRUNCATE, RENAME, DROP				2) INSERT, UPDATE, DELETE
+
+3)	Queries can’t be a rollback							3) Queries can be a rollback
+
+
+
+

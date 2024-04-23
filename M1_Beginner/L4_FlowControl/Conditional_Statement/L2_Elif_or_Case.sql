@@ -2,7 +2,7 @@
 CONDITIONAL_STATEMENTS
 
 	*) IF
-	*) CASE
+	*) CASE (elif)
 
 #2) CASE 
 
