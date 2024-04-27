@@ -7,7 +7,7 @@ Sub Query	:
 #Execution process:
 #					Here the execution process is always from innermost query to the outermost.
 
-#Outer query<-----------o/p<------------Inner query
+#Outer query<-----------I/p<------------Inner query
 
 */
 
