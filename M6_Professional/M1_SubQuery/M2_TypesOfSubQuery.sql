@@ -38,3 +38,4 @@ select
 *
 from emp e 
 where (dno,sal) in (select dno , max(sal) from emp e where dno is not null group by dno)
+

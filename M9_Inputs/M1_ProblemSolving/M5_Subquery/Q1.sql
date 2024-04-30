@@ -7,6 +7,8 @@ select * from psEmployee
 
 */
 
+
+# Right Way
 select 
 	* 
 from 
@@ -21,6 +23,8 @@ from
 	psEmployee pe 
 where Salary not in (select max(Salary) from psEmployee pe2 )
 
+
+# Right Way (Professional Way)
 
 SELECT * from 
 (SELECT *,

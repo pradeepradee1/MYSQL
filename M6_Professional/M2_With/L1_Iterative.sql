@@ -26,14 +26,21 @@ from
 where 
 	e.sal > av.avg_sal;
 
+
+
+
+
 #Example : 2
 
 -- Find The Stores who's sales where better than the average sales accross all stores
 select * from Sales s 
 
-# 1) Total 	Sales per each store -- Total Sales
-# 2) Find The average sales with respect all the stores. -- Avg_Sales
+# 1) Total 	Sales per each store -- Total Sales 
+# 2) Find The average sales with respect all the stores. -- Avg_Sales 
 # 3) Find the stores where total sales  > avg sales of all stores
+
+
+
 
 #Step 1:
 select 
@@ -81,6 +88,10 @@ select
 from 
 	Total_Sales ts 
 join avg_sales av on ts.total_sales_per_store > av.avg_sales_for_all_stores
+
+
+
+
 
 
 

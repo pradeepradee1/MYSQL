@@ -2,8 +2,10 @@ select * from psRelations
 
 /*
 
+#Question : Find the user who has more follower
+
 find all the pairs of users with maximum number of common folowers
- 
+
 for ex : 
 		 1 and 2 have 2 common (3 and 4)
 
@@ -16,6 +18,14 @@ So , Ans is 1 and 7
 */
 
 
+# Try 1
+
+select user_id from (select user_id , count(*) as follwers from psRelations group by user_id) a 
+where a.follwers IN 
+(select max(follwers) from (select user_id , count(*) as follwers from psRelations group by user_id) a)
+
+
+# Try 2 
 with follower_count as
 (
 select 
