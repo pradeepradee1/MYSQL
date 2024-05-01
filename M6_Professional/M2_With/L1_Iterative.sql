@@ -33,6 +33,13 @@ where
 #Example : 2
 
 -- Find The Stores who's sales where better than the average sales accross all stores
+
+
+# The Records is in Product level (Accounts level)
+# Need to convert to store level  (Customer level)
+# Need to convert to over all store level (Over all Customer level)
+
+
 select * from Sales s 
 
 # 1) Total 	Sales per each store -- Total Sales 
