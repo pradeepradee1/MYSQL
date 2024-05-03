@@ -38,6 +38,7 @@ where
 # The Records is in Product level (Accounts level)
 # Need to convert to store level  (Customer level)
 # Need to convert to over all store level (Over all Customer level)
+# Question is Find The Stores level sales > average sales accross all stores ?
 
 
 select * from Sales s 

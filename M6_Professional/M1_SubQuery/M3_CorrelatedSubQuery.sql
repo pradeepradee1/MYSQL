@@ -11,11 +11,13 @@ CORRELATED SUBQUERY:
 
 
 # Note:    
+
 # When you have to go to Correlation Subquery ?
 	# When the subquery meets join
 
 
 #Note:	
+
 #Equi-Join will be used in inner query
 
 use mydb;
@@ -31,7 +33,11 @@ select
 from emp e 
 where (dno,sal) in (select dno , avg(sal) from emp e where dno is not null group by dno)
 
+
+
 # Note : This is correct (Correlation Subquery)
+
+# Note : No need to give group by dno , because it is join on dno
 
 select 
 *
@@ -74,18 +80,26 @@ from
 dept d 
 where exists (select * from emp e)
 
-
+# Return the department who has employee
 SELECT 
 *
 from 
 dept d 
 where exists (select * from emp e where e.dno=d.dno)
 
+
+# Return the department who hasn't employee
 SELECT 
 *
 from 
 dept d 
 where not exists (select * from emp e where e.dno=d.dno)
 
+
+# Return the employee who has  department
+select 
+* 
+from emp e 
+where exists (select dno from dept d  where e.dno = d.dno)
 
 

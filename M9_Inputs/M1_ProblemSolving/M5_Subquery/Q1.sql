@@ -32,3 +32,4 @@ DENSE_RANK() over(ORDER by Salary desc) as  rank
 from 
 psEmployee pe ) tab
 where tab.rank = 2
+
