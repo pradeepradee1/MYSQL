@@ -18,29 +18,28 @@ SELECT DATE("2022-12-27");
 
 #DAY
 SELECT DAY("2022-12-27");
-#SELECT EXTRACT(DAY FROM "2022-12-27");
-
 SELECT DAYNAME("2022-12-27");
 
-SELECT LAST_DAY("2022-12-27");
+
 
 #WEEK
 
 SELECT WEEK("2022-12-27");
+SELECT DAYOFWEEK("2022-12-27");
 
 #SELECT EXTRACT(WEEK FROM "2022-12-27");
 #Note: 0 = Monday, 1 = Tuesday, 2 = Wednesday, 3 = Thursday, 4 = Friday, 5 = Saturday, 6 = Sunday.
 #SELECT WEEKDAY("2022-12-27");
 #Note: 1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday.
 
-SELECT DAYOFWEEK("2022-12-27");
+
 
 
 #MONTH
 SELECT MONTH("2022-12-27");
-#SELECT EXTRACT(MONTH FROM "2022-12-27");
 SELECT DAYOFMONTH("2022-12-27");
 SELECT MONTHNAME("2022-12-27");
+#SELECT EXTRACT(MONTH FROM "2022-12-27");
 
 
 
@@ -57,13 +56,26 @@ SELECT DAYOFYEAR("2022-12-27");
 #Date Format
 SELECT DATE_FORMAT("2017-12-27", "%d-%m-%Y");
 
+#Note :
+# we can do like this in DATE_FORMAT
+#SELECT DATE_FORMAT("2017-12-27", "%d-%m/%Y");
+
+
 #STR_TO_DATE
 SELECT STR_TO_DATE("August 10 2017", "%M %d %Y");
+SELECT STR_TO_DATE("August/10/2017", "%M/%d/%Y");
 SELECT STR_TO_DATE("August 5 2017", "%M %e %Y");
 SELECT STR_TO_DATE("Monday  August 14 2017", "%W %M %e %Y");
 SELECT STR_TO_DATE("12-27-2017", '%m-%d-%Y');
 SELECT STR_TO_DATE('12/31/2011', '%m/%d/%Y');
 select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
+
+#Note :
+# we can't do like this in STR_TO_DATE
+#SELECT STR_TO_DATE("2017-12-27", "%d- %m / %Y");
+
+#we can do like this
+#SELECT DATE_FORMAT("2017-12-27", "%d- %m- %Y");
 
 #Date Different
 SELECT DATEDIFF("2022-12-27", "2022-11-1");

@@ -7,6 +7,10 @@ Equi Join :
 
 
 # Equi Join
+
+# Note:
+# It is sequence od cross join and where clause is using
+
 use mydb;
 
 select 

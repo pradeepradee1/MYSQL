@@ -13,7 +13,7 @@
 
 	SELECT sum(c.Cno) AS CustomerNumber FROM customer c ;
 	
-
+	
 
 	
 	SELECT SQRT(64);

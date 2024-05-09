@@ -1,0 +1,6 @@
+Note :
+
+1) Cor-relation subquery 			=	we should use Equi-Join.
+
+2) Inline sub-query , With 			=	we can use Cross, Equi and Inner.
+

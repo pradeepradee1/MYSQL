@@ -20,19 +20,20 @@
 #5)FORMAT 
 	SELECT FORMAT(250500.5634, 2);
 	
-#6)FIELD = Return the index position of  "q" in the string list:
+#6)FIELD
 	SELECT FIELD("q", "s", "q", "l");
 
-#7)FIND_IN_SET = Search for "q" within the list of strings:
+#7)FIND_IN_SET
 	SELECT FIND_IN_SET("q", "s,q,l");
 
-#8)LOCATE = Search for "3" in string "W3Schools.com", and return position:
+#8)LOCATE 
 	SELECT LOCATE("3", "W3Schools.com") AS MatchPosition;
 
 #9)POSITION	
 	SELECT POSITION("3" IN "W3Schools.com") AS MatchPosition;
 
-#10)INSTR = Search for "3" in string "W3Schools.com", and return position:
+#10)INSTR (Always prefer the INSTR because ( Input String is coming first & Target is second) for ex: ("W3Schools.com", "3")) 
+
 	SELECT INSTR("W3Schools.com", "3") AS MatchPosition;
 
 #11)INSERT = Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:
@@ -75,7 +76,7 @@
 	SELECT LPAD("SQL Tutorial", 20, "ABC");
 
 #24)TRIM
-	SELECT TRIM('    SQL Tutorial    ') AS TrimmedString;	
+	SELECT TRIM('    SQL Tutorial    ') AS TrimmedString;
 
 #25)LTRIM
 	SELECT LTRIM("     SQL Tutorial") AS LeftTrimmedString;
