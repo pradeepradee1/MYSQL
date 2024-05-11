@@ -2,7 +2,7 @@
 1) row_number()
 2) rank()
 3) dense_rank()
-4) percent_rank() 
+4) percent_rank() (Percentage Rank)
 */
 
 
@@ -13,22 +13,24 @@ select * from emp e
 select avg(sal) from emp e -- 3,192.8571
 
 
-#Note : Floating Average or Moving Average
+#Note : Floating Average or Moving Average or Running Average (Running Water)
+
 select 
 	e.*,avg(sal) over() as maxsalary  
 from 
 	emp e
 
 
-#Note : Floating Average based on the dno
+#Note : Floating Average based on the dno order (lowest order)
+
 select 
 	e.* ,
-	avg(sal) over(order by e.dno) as maxsalary  
+	avg(sal) over(order by e.dno) as avgsalary  
 from 
 	emp e
 
 
-# Group by dno
+#Note : Group by dno
 select 
 	e.* ,avg(sal) over(partition by e.dno) as avgsalary  
 from 
@@ -36,7 +38,7 @@ from
 
 
 
-#Note : Moving total with restrictions
+#Note : Moving total and group by 
 select 
 	gender,
 	day,

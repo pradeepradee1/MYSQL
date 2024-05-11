@@ -77,6 +77,8 @@ select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
 #we can do like this
 #SELECT DATE_FORMAT("2017-12-27", "%d- %m- %Y");
 
+# IP and OP should be same format
+
 #Date Different
 SELECT DATEDIFF("2022-12-27", "2022-11-1");
 

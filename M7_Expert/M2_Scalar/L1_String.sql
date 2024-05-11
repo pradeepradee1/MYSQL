@@ -32,7 +32,7 @@
 #9)POSITION	
 	SELECT POSITION("3" IN "W3Schools.com") AS MatchPosition;
 
-#10)INSTR (Always prefer the INSTR because ( Input String is coming first & Target is second) for ex: ("W3Schools.com", "3")) 
+#10)INSTR (Always prefer the INSTR because ( Source String is coming first & Target is second) for ex: ("W3Schools.com", "3")) 
 
 	SELECT INSTR("W3Schools.com", "3") AS MatchPosition;
 
