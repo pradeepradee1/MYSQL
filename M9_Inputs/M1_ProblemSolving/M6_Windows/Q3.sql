@@ -6,6 +6,8 @@ Q : find running total score for each gender at each day
 
 */
 
+select * from pScores
+
 /*
 	Output:
 

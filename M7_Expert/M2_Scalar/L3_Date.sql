@@ -79,8 +79,11 @@ select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
 
 # IP and OP should be same format
 
+# OP is constant format (2020-08-10)
+
 #Date Different
 SELECT DATEDIFF("2022-12-27", "2022-11-1");
+select DATEDIFF(CURRENT_DATE(),ADDDATE(CURRENT_DATE(),INTERVAL 10 day)) 
 
 #MakeDate
 SELECT MAKEDATE(2017, 3);

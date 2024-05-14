@@ -1,6 +1,13 @@
 #Question 1:
 		
-#			Get the first 2 and last 2 month of year salary  
+# Get the first 2 and last 2 month of year salary  
+
+
+
+
+
+
+
 
 
 select 

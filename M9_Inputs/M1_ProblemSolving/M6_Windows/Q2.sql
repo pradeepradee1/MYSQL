@@ -49,12 +49,24 @@ What is rolling Average ?
 #Calculate the month wise of quarter rolling average of amazon sales
 
 
+
+select 
+       *,
+       avg(salary) over w as avg_sal
+from 
+       tmptable2
+window w as (partition by empid order by monthno range between 3 PRECEDING and 0 FOLLOWING) 
+
+#(OR)
+
 select 
        *,
        sum(salary) over(partition by empid  order by monthno 
        range between  3 PRECEDING  and 0 FOLLOWING  ) as running_total_salary
 from 
        tmptable2
+
+
 
 
 
