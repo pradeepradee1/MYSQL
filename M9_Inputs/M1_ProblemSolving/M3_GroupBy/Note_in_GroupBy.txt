@@ -1,0 +1,11 @@
+Conditions:
+
+
+1) Group 
+
+2) Having
+
+3) Where
+
+4) max(CASE when action = "in" then `time` END) 
+
