@@ -86,7 +86,8 @@ P   = 	Partition tolerance (distibution)
 							 C
 					MYSQL	/ \   Hbase,Mongo
 						   /   \
-						  A-----P	
+						  A-----P
+
 					Cassandra,scyllaDB
 
 
@@ -96,7 +97,14 @@ Consistency		=	Data should be consistent before and after the transaction
 
 Avaliablity		=	Cluster has Ability to access , even if a node goes down in the cluster 
 
-Partition		=	Cluster continues to function , even if there is a communication break between two node
+Partition		=	Cluster has Ability to function , even if there is a communication break between two node
+
+
+
+C A 	=	Structured Data Base
+C P 	=	Mongo DB , HBase
+A P 	=	Cassandra
+
 
 
 */

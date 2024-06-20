@@ -47,3 +47,15 @@ END AS `PRICE_LABEL`
 FROM 
 car c 
 
+
+
+
+#Sum in case
+select 
+    merchant_id,
+    sum(case when payment_mode = 'CASH' then amount else 0 end) as cash_amount
+    # case sum(when payment_mode = 'CASH' then amount else 0) end as cash_amount #
+from 
+    transactions 
+group by 
+    merchant_id; 
