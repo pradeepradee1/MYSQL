@@ -18,6 +18,14 @@ OP 	:
 
 
 
+select * from emp_table a 
+
+
+
+
+
+
+
 
 # Answers
 

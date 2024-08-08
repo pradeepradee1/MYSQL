@@ -1,3 +1,6 @@
+# Aggregation Functions :
+
+
 --1) AVG
 
 			select avg(sal) as AvgCostOfProduct from emp
@@ -7,7 +10,7 @@
 
 
 
---2) COUNT
+--2) COUNT  
 
 			select count(dno) from emp where dno is not null;
 			

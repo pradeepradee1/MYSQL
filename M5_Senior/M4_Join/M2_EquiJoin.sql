@@ -16,7 +16,7 @@ use mydb;
 select 
 ename, sal,dept.dno,dname,loc
 from emp,dept
-where emp.dno =dept.dno ;
+where emp.dno = dept.dno ;
 
 
 #Equi Join 5 tables 

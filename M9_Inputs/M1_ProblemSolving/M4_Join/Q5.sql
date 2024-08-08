@@ -5,10 +5,15 @@
 /*
 # OP : 
 
-   cid		Orgin  destination
-	1		 Hyd		Blr
-	2		 Agra	    Kol
+	1		 Del		Blr
+	2		 Mum	   Kol
 */
+
+
+
+select * from flights a
+
+
 
 
 select 
