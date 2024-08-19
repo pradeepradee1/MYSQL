@@ -5,7 +5,7 @@
 # Group by and get the maximum count in group
 
 # Note :
-# 		 Nested group code using the while
+# 		 Nested group by clause code using the case (elif) statement
 
 
 #Sample Output :
