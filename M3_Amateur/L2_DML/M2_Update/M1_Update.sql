@@ -25,10 +25,10 @@ where eid=112
 UPDATE iodku 
 SET name =
 (
-CASE id  
-WHEN 1 THEN 'A'
-WHEN 2 THEN 'B'
-WHEN 4 THEN 'C'
+CASE   
+WHEN id=1 THEN 'A'
+WHEN id=2 THEN 'B'
+WHEN id=4 THEN 'C'
 else "X"
 END)
 WHERE id  IN (1,2,4,5);
