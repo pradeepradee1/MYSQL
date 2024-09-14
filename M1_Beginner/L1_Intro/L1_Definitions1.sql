@@ -11,6 +11,7 @@ Database			:
 Types Of DataBase	:
 						1)	Transactional DataBase (RDBMS) 	Ex : Mysql,Postgresql,Oracle
 						2)	NOSQL DataBase				  	Ex : Hbase,Cassandra,MongoDB,CouchDB
+						3) 	Vector DataBase 		Ex : ChromoDB
 											
 					
 1) 	Transactional DataBase	:
@@ -23,6 +24,10 @@ Types Of DataBase	:
 								3) 	Distributed
 								4)	Highly available
 								5)	Horizontal Scalable (Scale Up)
+3)	Vector DataBase 
+	ChromaDB 		: 	ChromaDB is an open-source vector database for NLP
+					It is effciently for storing  vector embeddings
+
 					
 */ 					
                      
