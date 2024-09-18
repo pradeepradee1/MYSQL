@@ -27,11 +27,17 @@ use mydb;
 
 
 # Note : This will not work (SubQuery)
-
 select 
 *
 from emp e 
 where (dno,sal) in (select dno , avg(sal) from emp e where dno is not null group by dno)
+
+
+# Note : This will not work (SubQuery) , because this will give you the records in all department
+select 
+*
+from emp e 
+where sal > (select  avg(sal) from emp e where dno is not null group by dno)
 
 
 
