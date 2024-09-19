@@ -34,6 +34,12 @@
 	SELECT ROUND(25.452);
 
 
+
+	#Truncate = Return a number truncated to 2 decimal places:
+	SELECT TRUNCATE(135.375, 2); #135.37
+	SELECT FORMAT(135.375, 2); #135.38
+	SELECT FORMAT(250500.5634, 2); #250,500.56
+
 	SELECT RAND();
 	# SIGN  = 
 	#		If number > 0, it returns 1
@@ -43,10 +49,7 @@
 
 
 
-	#Truncate = Return a number truncated to 2 decimal places:
-	SELECT TRUNCATE(135.375, 2); #135.37
-	SELECT FORMAT(135.375, 2); #135.38
-	SELECT FORMAT(250500.5634, 2); #250,500.56
+
 
 
 
