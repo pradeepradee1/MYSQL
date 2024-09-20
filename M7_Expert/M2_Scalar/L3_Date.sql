@@ -57,7 +57,8 @@ SELECT DAYOFYEAR("2022-12-27");
 SELECT DATE_FORMAT("2017-12-27", "%d-%m-%Y");
 
 #Note :
-# DATE_FORMAT is not important
+#In DATE_FORMAT functions
+# date Format is not important
 #SELECT DATE_FORMAT("2017-12-27", "%d-%m/%Y");
 
 
@@ -71,8 +72,8 @@ SELECT STR_TO_DATE('12/31/2011', '%m/%d/%Y');
 select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
 
 #Note :
-
-# DATE_FORMAT is important
+# In STR_TO_DATE functions 
+# date Format is important
 # IP and OP should be same format
 	# Ex: STR_TO_DATE("2024 APR 15","%Y %M %d")
 
