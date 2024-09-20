@@ -1,1 +1,4 @@
 
+Materialized view: 
+                  1) A Materialized view has a real table filled by an SQL query unkike the views 
+                  2) The Real table is truncated and refilled with a specified time frequency
