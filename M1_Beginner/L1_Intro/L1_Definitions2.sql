@@ -44,14 +44,15 @@ Types DBMS :
 
 /*
 1) OLTP RDBMS	: Online Transactions Processing
-				
-				It contains Transactinal data (or) day to day data (or) dynamic data
-				It is used to store or process the business data
+				Data will be normalized form
+				It is desgined to support for transaction operations like insert,update,delete 
+				It is supporting the ACID properties
 
 2) OLAP RDBMS   : OnLine Analtical Processing
 
-				It contains historical data.
-				It is used to analyze the business.
+				Data will be De-normalized form
+				It is desgined to support for analytical query (select query) 
+				It will not supporting the ACID properties
 */
 
 
