@@ -46,7 +46,7 @@ Types DBMS :
 1) OLTP RDBMS	: Online Transactions Processing
 				Data will be normalized form
 				It is desgined to support for transaction operations like insert,update,delete 
-				It is supporting the ACID properties
+				It will care the ACID properties
 
 2) OLAP RDBMS   : OnLine Analtical Processing
 
