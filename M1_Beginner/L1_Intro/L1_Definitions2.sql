@@ -52,7 +52,7 @@ Types DBMS :
 
 				Data will be De-normalized form
 				It is desgined to support for analytical query (select query) 
-				It will not supporting the ACID properties
+				It will not care about the ACID properties
 */
 
 
