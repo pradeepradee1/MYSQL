@@ -51,7 +51,7 @@ Types DBMS :
 2) OLAP RDBMS   : OnLine Analtical Processing
 
 				Data will be De-normalized form
-				It is desgined to support for analytical query (select query) 
+				It is desgined to support for analytical operations like select 
 				It will not care about the ACID properties
 */
 
