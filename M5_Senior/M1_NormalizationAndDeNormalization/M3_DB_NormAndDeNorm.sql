@@ -21,8 +21,8 @@ Difference Between Normalization and DeNormalization
 	
 	Memory is not optimized in denormalized table because the same data is stored in different places
 
-6) 	Normalization is effcient in OLTP systems and making the insert,delete and update anomalies faster 
+6) 	It is desgined to support for transaction operations like insert,update,delete (OLTP System)
 	
-	DeNormalization is effcient in OLAP systems and making the search faster	
+	It is desgined to support for analytical operations like select statement (OLAP System)	
 
 */
