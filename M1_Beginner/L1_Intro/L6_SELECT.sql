@@ -41,3 +41,10 @@ emp
 p
 
 
+select * from tabname
+where (CASE 
+            WHEN job_id = 1 then 1
+            WHEN job_id = 2 then 2
+            else 0
+        END) = 1
+
