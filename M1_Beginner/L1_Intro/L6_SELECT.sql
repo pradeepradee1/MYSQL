@@ -3,6 +3,14 @@
 
 USE mydb
 
+#Note:
+
+#SQL Statements are not case senstive
+#we can write like this
+
+SELECT * FROM CAR;
+select * from car;
+Select * From Car;
 
 #SELECT ALL THE COLUMNS
 SELECT * FROM stack;
@@ -19,5 +27,17 @@ SELECT username val FROM stack;
 #NOTE:
 #(Note: AS is syntactically optional.)
 
+#Note:
+#SQL Statements are separated into multiple lines
+
+select
+*
+from
+emp
+
+#We can't do like this
+#sel * from emp
+#select * from em
+p
 
 
