@@ -95,9 +95,27 @@ SELECT MAKEDATE(2017, 3);
 
 
 
+#Date Formats:
+YYYY 		=	2021
+RR-YY		=	96
+YEAR 		= 	TWENTY TWENTY FOUR
 
+MM 		=	11
+MON 		=	APR
+MONTH 		=	APRIL
 
+DD		=	12
+DY		=	SAT
+DAY		=	SATURDAY
 
+HH12 or HH24	=	two digit hour
+MI		=	two digit minute
+SS		=	two digit seconds
 
+DDTH		=	5th
+MMTH		=	12th
+
+DDSP		=	TWENTY
+DDTHSP		=	TWENTYTH
 
 
