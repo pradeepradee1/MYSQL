@@ -15,18 +15,18 @@ Types Of DataBase	:
 											
 					
 1) 	Transactional DataBase	:
-								1)	Stores data in row based form
-								2)	It is not scalable system and Vertical Scalable and Scale Up approach
-								3)	Consistent 
+						1)	Stores data in row based form
+						2)	It is not scalable system and Vertical Scalable and Scale Up approach
+						3)	Consistent 
 								
-2)	NOSQL DataBase			:	
-								1) 	Stores data in Columner,key-value,Graph,document form
-								2)      It is scalable system and Horizontal Scalable and Scale Out approach
-								2)	Not Consistent as like RDBMS
-								4)	Highly available
+2)	NOSQL DataBase		:	
+						1) 	Stores data in Columner,key-value,Graph,document form
+						2)      It is scalable system and Horizontal Scalable and Scale Out approach
+						3)	Not Consistent as like RDBMS
+						4)	Highly available
 3)	Vector DataBase 
-	ChromaDB 		: 	ChromaDB is an open-source vector database for NLP
-					It is effciently for storing  vector embeddings
+	ChromaDB 		: 		1)	ChromaDB is an open-source vector database for NLP
+						2)	It is effciently for storing  vector embeddings
 
 					
 */ 					
