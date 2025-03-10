@@ -123,7 +123,7 @@ A P 	=	Cassandra
 #Table Structure :
 
 #Table	= 	Entity
-#Row	=	Tuple
+#Row	=	Records (or) Tuple
 #Column	=	Attribute
 #Cell	=	Field
 
