@@ -44,14 +44,15 @@ Types DBMS :
 
 /*
 1) OLTP RDBMS	: Online Transactions Processing
-				Data will be normalized form
+				It is optimized for the quick access
 				Data is frequently used for insert, update, and delete
+				Data will be normalized form
 				It will care the ACID properties
 
 2) OLAP RDBMS   : OnLine Analtical Processing
-
-				Data will be De-normalized form
+				It Optimized for the complex analytical queries on historical data
 				Data is frequently used for retrieval 
+				Data will be De-normalized form
 				It will not care about the ACID properties
 */
 
