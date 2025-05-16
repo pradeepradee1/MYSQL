@@ -5,7 +5,16 @@
 4) percent_rank() (Percentage Rank)
 */
 
+/*
+Rank 
+	*) Tt will skips ranks if there are ties
+	*) If two rows are tied at rank 2, the next rank will be 4 (not 3)
 
+Dense Rank
+	*) Tt will not skips ranks if there are ties
+	*) If two rows are tied at rank 2, the next rank will be 3
+
+*/
 
 select * from emp e 
 
