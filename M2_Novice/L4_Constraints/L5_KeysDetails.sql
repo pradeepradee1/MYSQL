@@ -9,7 +9,7 @@ Keys			:
 							6)Super Keys
 
 							
-PK				: 			Combination of Not Null and unique Constrain , We can have only one primary key
+PK				: 			It will not allow the Null and duplicate values , We can have only one primary key
 							
 							Example :
 										ID
