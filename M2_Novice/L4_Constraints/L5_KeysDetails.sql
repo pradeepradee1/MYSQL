@@ -58,8 +58,8 @@ Super Keys	  	: 			SuperSet Of Candidate Key
 										etc...
 
 
-Surrogate key 	:           Unique identifier assigned to each row in a table
-
+Surrogate key (synthentic key) 	:           Unique identifier assigned to each row in a table
+     
 							Example :
 										ID : ( 1 	,	2	,	3)
 							
