@@ -11,7 +11,21 @@ Truncate	:
 			Cannot be rolled back in most databases
 
 
-2) Difference between the DDL and DML ?
+2) Difference between Truncate and delete ?
+
+Truncate 	:
+			It is DDL Statement
+			Deletes all rows from a table but keeps the structure
+			Cannot be rolled back in most databases
+
+Delete		:
+			It is DML Statement
+			Deletes specific rows from a table based on a WHERE clause
+			Can be rolled back
+
+
+
+3) Difference between the DDL and DML ?
 		
 		DDL 							DML
 
