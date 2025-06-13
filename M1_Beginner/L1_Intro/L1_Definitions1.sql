@@ -44,12 +44,14 @@ Transactional DataBase Follows the ACID Properties :
 		A 	=	Atomicity
 
 					Entire transaction takes place at once,there is no midway,either success or failure
+					It is also called as Transaction Manager
 
 				Ex : Atm Transations
 				
 		C  	=	Consistency
 					
 					Data should be consistent before and after the transaction
+					It is also called as Application Manager
 				
 				For Example	:	A is sending 100 amount to B 
 				success = if the transaction success 100 debited in A and 100 is credited in B (Consistent)
@@ -61,12 +63,16 @@ Transactional DataBase Follows the ACID Properties :
 		I 	=	Isolation 
 
 					multiple transaction will excute without impacting each other
+					It is also called as Concurrency Control Manager
 				
 				For Example :  A is writing the query , B is reading the query and C is Writing the query
 							   A,B,C are not impacting with each other
 				
-		D   =   Durability 	(holding the data in the logs) 
-							(persist data from failure occurs)	
+		D   	=   	Durability 
+					
+					Recover the data from failure occurs
+					holding the data in the logs
+					It is also called as Recovery Manager
 				
 				
 Responsbility	:
