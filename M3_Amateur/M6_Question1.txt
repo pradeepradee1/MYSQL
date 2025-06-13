@@ -1,0 +1,26 @@
+1) Difference between Drop and Truncate ?
+
+Drop 		: 	
+			It removes a database object (like a table, view, or index) 
+			Deletes the table structure and data permanently
+			Cannot be rolled back in most databases
+
+
+Truncate	:	
+			Deletes all rows from a table but keeps the structure
+			Cannot be rolled back in most databases
+
+
+2) Difference between the DDL and DML ?
+		
+		DDL 							DML
+
+1) Used to create or define the database schema		1) used to add, retrieve, or update the data
+
+2) CREATE, ALTER, TRUNCATE, RENAME, DROP		2) INSERT, UPDATE, DELETE
+
+3) Queries can’t be a rollback				3) Queries can be a rollback
+
+
+
+
