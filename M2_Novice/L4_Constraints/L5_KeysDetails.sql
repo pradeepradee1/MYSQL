@@ -1,50 +1,49 @@
 /*
 
-Keys			: 
-							1)PK
-							2)FK
-							3)Candidate Key
-							4)AK
-							5)Composite Key
-							6)Super Keys
+Keys				: 
+					1)PK
+					2)FK
+					3)Candidate Key
+					4)AK
+					5)Composite Key
+					6)Super Keys
 
+
+PK				: 	The Combination of not null and unique constraints		
+					It will not allow the Null and duplicate values , We can have only one primary key
 							
-PK				: 			It will not allow the Null and duplicate values , We can have only one primary key
-							
-							Example :
-										ID
+					Example :
+						ID
 						
-FK				:   		It Creates a relationship between any two tables
-
-							Example :
-										Deptid
-
-
-Candidate Key 	: 			A Primary Key can be selected from candidate key
-							
-							Example: 
-										ID 
-										Email
-										Phonenumber
-
-							Example:
-										Election CM  selected from the candidate person
+FK				:   	It Creates a relationship between any two tables
+					Example :
+						Deptid
 
 
-AK				:  			Apart from Primary Key , all keys in Candidate keys are Alternate Key
+Candidate Key 			: 	A Primary Key can be selected from candidate key		
+					Example: 
+						ID 
+						Email
+						Phonenumber
 
-							Example :
-										Email
-										Phonenumber
+					Example:
+						Election CM  selected from the candidate person
 
 
-Composite Key   :			The Combination of more than one candidate key.
+AK				:  	Apart from Primary Key , all keys in Candidate keys are Alternate Key
+
+					Example :
+						Email
+						Phonenumber
+
+
+Composite Key   		:	The Combination of more than one candidate key.
  
 
 
 
-Super Keys	  	: 			SuperSet Of Candidate Key
-							A Table can have multiple superkey
+Super Keys	  		: 	SuperSet Of Candidate Key
+					A Table can have multiple superkey
 
 							Example : 
 										ID
