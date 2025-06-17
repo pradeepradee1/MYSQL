@@ -1,0 +1,8 @@
+How Do I Know that Query Process Or Request List Or Queues Or OpenConnection Request In DB ?
+		
+		show processlist;
+
+How Do I Kill the process list in DB ?
+		
+		kill processlistid
+
