@@ -1,6 +1,0 @@
-Select		-->	5	
-From		-->	1
-Where		-->	2
-Group By	-->	3
-Having		-->	4
-Order By	-->	6
