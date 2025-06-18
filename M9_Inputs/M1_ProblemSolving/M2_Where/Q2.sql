@@ -21,3 +21,12 @@ from
 	pdcinema
 where id%2 <>0 and description <> 'boring'
 order by rating desc
+
+
+
+#Response 2
+select 
+	* 
+from 
+	pdcinema as a 
+where a.id mod 2 != 0 and a.description not like "%boring%"
