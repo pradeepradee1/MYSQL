@@ -2,7 +2,7 @@
 
 # Question :
 
-# Group by and get the maximum count in group
+# get the maximum count in paymeny method
 
 # Note :
 # 		 Nested group by clause code using the case (elif) statement
