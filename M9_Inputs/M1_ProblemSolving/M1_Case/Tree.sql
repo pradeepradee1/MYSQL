@@ -1,22 +1,23 @@
-| id | parent\_id  |
-| -- | ----------  |
-| 1  | NULL        |
-| 2  | 1           |
-| 3  | 1 		   |	        
-| 4  | 2           |
-| 5  | 2           |
 
 
+Node    Classify
+5	      inner
+9	      inner
+4	      Leaf
+2	      Leaf
+1	      Leaf
+3	      Leaf
+8		  Root
 
 
-| id | parent\_id | name    
-| -- | ---------- | ------- 
-| 1  | NULL       | Root    
-| 2  | 1          | Branch1 
-| 3  | 1          | Branch2 
-| 4  | 2          | Leaf1   
-| 5  | 2          | Leaf2   
-
+Node   Parnet    Classify
+5	    8	        inner
+9	    8	        inner
+4    	5	        Leaf
+2	    9	        Leaf
+1	    5	        Leaf
+3	    9	        Leaf
+8	  NULL	         Root
 
 
 
