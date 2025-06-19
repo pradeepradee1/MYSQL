@@ -8,7 +8,7 @@ insert into ps1_orders (order_number, customer_number) values ('4', '3');
 select * from ps1_orders
 
 
-# Write an sql query to find the customer number for customer who has largest number of orders
+# Write an sql query to find the customer number for customer who has most number of orders
 
 /*
 
