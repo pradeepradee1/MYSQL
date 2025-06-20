@@ -7,5 +7,5 @@ Conditions:
 
 3) Where
 
-4) max(if action = "in" , `time`,100)  or max(CASE when action = "in" then `time` END) 
+4) (nested group by) --->  max(if action = "in" , `time`,100)  or max(CASE when action = "in" then `time` END) 
 
