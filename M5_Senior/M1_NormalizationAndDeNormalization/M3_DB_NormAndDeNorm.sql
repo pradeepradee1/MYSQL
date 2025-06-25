@@ -21,8 +21,8 @@ Difference Between Normalization and DeNormalization
 	
 	Memory is not optimized in denormalized table because the same data is stored in different places
 
-6) 	It is desgined to support for transaction operations like insert,update,delete (OLTP System)
+6) 	It is optimized for the quick access and Data is frequently used for insert, update, and delete
 	
-	It is desgined to support for analytical operations like select statement (OLAP System)	
+	It Optimized for the complex analytical queries on historical data and Data is frequently used for retrieval 
 
 */
