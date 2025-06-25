@@ -6,16 +6,27 @@ use mydb;
 s1={a,b,c,d}
 s2={x,y,z,c,b}
 
+#Definitions :
 
-#Union 
-#Note : Combine the two or more SELECT statements. 
+# Union 
+
+# 1) Combine the two or more SELECT statements. 
+# 2) It will Remove the duplicate records 
 
 {a,b,c,d,x,y,z}
 
-#UnionAll
+# UnionAll
+
+# 1) Combine the two or more SELECT statements. 
+# 2) It will'not Remove the duplicate records 
+  
 {a,b,c,d,x,y,z,c,b}
 
 #InterSection
+
+# 1) Combine the two or more SELECT statements. 
+# 2) It will give you the common records
+  
 {c,b}
 
 #Minus
