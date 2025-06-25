@@ -1,5 +1,8 @@
 /*
-Inner Join : Return only matching records from all tables.
+Inner Join 
+1) Combine the two or more SELECT statements. 
+2) Return only matching records from all tables.
+
 */
 use mydb;
 
