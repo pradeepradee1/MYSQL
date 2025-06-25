@@ -1,11 +1,13 @@
 /*
 OuterJoin
 		
-			1) Left Join 
-								: Return all the Records from left table and only matching data from right table.
+			1) Left Join  
+					1) Combine the two or more tables.
+					2) Return all the Records from left table and only matching data from right table.
 
 			2) Right Join 
-								: Return all the Records from right table and only matching data from left table.
+					1) Combine the two or more tables. 
+					2) Return all the Records from right table and only matching data from left table.
 			
 			3) Full join 
 								: matching data from both the tables
