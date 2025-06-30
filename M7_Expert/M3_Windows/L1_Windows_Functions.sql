@@ -7,12 +7,20 @@
 
 /*
 Rank 
-	*) Tt will skips ranks if there are ties
+	*) if there are ties Tt will skips ranks
+	*) gaps will be in ranking
+	*) For ex :
 	*) If two rows are tied at rank 2, the next rank will be 4 (not 3)
 
 Dense Rank
-	*) Tt will not skips ranks if there are ties
+	*) if there are ties Tt will not skips ranks
+	*) gaps will not be in ranking
+	*) For ex :
 	*) If two rows are tied at rank 2, the next rank will be 3
+
+Row Number
+	*) Asigns a unique sequential number to each row 
+	*) No Gaps in numbering
 
 */
 
