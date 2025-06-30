@@ -15,9 +15,9 @@
 	
 	
 
-	
-	SELECT SQRT(64);
 	SELECT POWER(4, 2);
+	SELECT SQRT(64);
+	
 	
 	
 	SELECT EXP(1);
