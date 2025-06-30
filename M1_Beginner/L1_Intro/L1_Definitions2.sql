@@ -7,6 +7,15 @@ Database Management Systems(DBMS):
 		For ex : Manager access the employee and represent work to client
 
 
+#Difference between SQL and PL/SQL
+SQL :
+	It Interact with RDBMS
+	Which allows us to do Restrive, Insert, Update, Delete the data
+PL/SQL :
+	PL/SQL is Oracle procedural extension to SQL
+	Which allows us to do procedure, functions, loops, conditions and erro handling
+
+
 Types DBMS :
 			
 			1) Hierarchical DBMS
