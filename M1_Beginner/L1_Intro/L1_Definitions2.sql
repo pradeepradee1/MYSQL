@@ -1,11 +1,5 @@
 /*
 
-Database Management Systems(DBMS):
-		
-		A Collection of programs 
-		which enables the user to access database and represent data.
-		For ex : Manager access the employee and represent work to client
-
 
 #Difference between SQL and PL/SQL
 SQL :
@@ -14,6 +8,15 @@ SQL :
 PL/SQL :
 	PL/SQL is Oracle procedural extension to SQL
 	Which allows us to do procedure, functions, loops, conditions and erro handling
+
+
+
+Database Management Systems(DBMS):
+		
+		A Collection of programs 
+		which enables the user to access database and represent data.
+		For ex : Manager access the employee and represent work to client
+
 
 
 Types DBMS :
