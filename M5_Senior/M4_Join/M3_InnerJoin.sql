@@ -1,6 +1,6 @@
 /*
 Inner Join 
-1) Combine the two or more SELECT statements. 
+1) Combine the two or more table. 
 2) Return only matching records from all tables.
 
 */
