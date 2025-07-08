@@ -48,17 +48,23 @@ Types DBMS :
 */
 
 
-# ETL 			= 	OLTP
-# DataWareHouse = 	OLAP
+# OLTP represents the database 
+# OLAP represents the DataWareHouse
 
 /*
 1) OLTP RDBMS	: Online Transactions Processing
+
+				It Store the structure data
+				It is suitable for handling the small volume of data
 				It is optimized for the quick access
 				Data is frequently used for insert, update, and delete (DML)
 				Data will be normalized form
 				It will care the ACID properties
 
 2) OLAP RDBMS   : OnLine Analtical Processing
+
+				It Store the structure data
+				It is suitable for handling the large volume of data
 				It Optimized for the complex analytical queries on historical data
 				Data is frequently used for retrieval (DQL)
 				Data will be De-normalized form
