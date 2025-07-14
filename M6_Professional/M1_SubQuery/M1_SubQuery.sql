@@ -1,6 +1,9 @@
 /*
 Sub Query	:
-				A Query with in other query is known as sub_query
+				A query inside another query that runs independently of the outer query
+				Runs once and gives a result to the outer query
+
+
 
 
 

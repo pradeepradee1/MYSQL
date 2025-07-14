@@ -1,8 +1,12 @@
 #With Clause 
 
-#	Refers To CTE(Common Table Expression) and Sub Query Factoring
-# 	To Avoid The Redundency Of Sub-Query
-#	It is efficiency in performance than views (database object)
+/*
+It is Used to define a temporary result set (like a virtual table) that can be referenced in the main query.
+Can define one or more temporary result sets
+Improves readability and modularity (dividing a system into separate modules) of complex SQL queries
+
+
+*/
 
 /*
 Tow types
