@@ -64,7 +64,7 @@ Types DBMS :
 				Data will be normalized form
 				It will care the ACID properties
 
-2) OLAP RDBMS   : OnLine Analtical Processing
+2) OLAP DWH     : OnLine Analtical Processing
 
 				It Store the structure data
 				It is suitable for handling the large volume of data
