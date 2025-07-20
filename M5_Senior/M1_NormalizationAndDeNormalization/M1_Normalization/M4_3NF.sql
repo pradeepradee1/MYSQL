@@ -13,9 +13,7 @@ SELECT * from Third_NF_2 ;
 
 /*
 	What is transitive dependency ?
-			when one column depends on a column which is not primary key
-			non-prime key depends on non-prime key
-			non-prime key can take null values
+		Non-Primary Key columns should not depend among themselves
 
 	EX:
 		Third_NF table total_marks (non-prime) depends on exam_name (non-prime)
