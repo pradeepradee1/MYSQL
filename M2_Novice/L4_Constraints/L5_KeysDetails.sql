@@ -57,7 +57,7 @@ Super Keys	  		: 	SuperSet Of Candidate Key
 										etc...
 
 
-Surrogate key (synthentic key) 	:           Unique identifier assigned to each row in a table
+Surrogate key (synthentic key) 	:          It is artificial key , a Unique integer to identify the each records of the dimnesional table in Data warehouse
      
 							Example :
 										ID : ( 1 	,	2	,	3)
