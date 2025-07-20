@@ -8,19 +8,16 @@ SELECT * from Second_2NF_2 ;
 /*
 2NF:
 	1) Table Has to be follow 1st NF
-	2) In the Table should not have partial dependency
+	2) It Should not have any partial dependency
 
 */
 
 
 
-/*
-	What is Dependency ?
-				Dependency = functional dependency = all columns are dependent on one primary key
-	
+/*	
 	What is partial dependency?
-				when there are 2 or more primary keys in one table (composite primary key)
-				any attribute depends only on a part of candidate key
+		Non Primary Key attributes should depend on the complete candiate key
+
 	EX:
 		In the Second_2NF_2 Table , marks is dependent on sub_id ,marks is dependent on stud_id 
 		But teacher depends on the sub_id ,teacher doesn't depends in the stud_id ,
