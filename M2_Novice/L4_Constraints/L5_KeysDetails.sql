@@ -10,7 +10,8 @@ Keys				:
 
 
 PK				: 	The Combination of not null and unique constraints		
-					It will not allow the Null and duplicate values , We can have only one primary key
+					It will not allow the Null and duplicate values 
+					We can have only one primary key that is called as simple Primary key
 							
 					Example :
 						ID
