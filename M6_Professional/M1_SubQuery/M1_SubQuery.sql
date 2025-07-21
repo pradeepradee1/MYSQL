@@ -1,6 +1,7 @@
 /*
 Sub Query	:
-				A query inside another query that runs independently of the outer query
+				A query inside another query 
+				It runs independently
 				Runs once and gives a result to the outer query
 
 
