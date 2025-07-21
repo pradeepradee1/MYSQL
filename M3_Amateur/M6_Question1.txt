@@ -31,7 +31,7 @@ Delete		:
 		
 		DDL 													DML
 
-1) Used to create the table or define the database schema		1) used to manipulative the records, we can  add or update the data
+1) Used to create the table or define the database schema		1) used to manipulative the records, we can insert, update, delete the data
 
 2) CREATE, ALTER, DROP, TRUNCATE, RENAME						2) INSERT, UPDATE, DELETE
 
