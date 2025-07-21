@@ -1,11 +1,13 @@
 SubQuery :
-    A query inside another query that runs independently of the outer query	
+    A query inside another query 
+    It runs independently of the outer query	
     Runs once and gives a result to the outer query	
     Does not keep reference columns from the outer query	
-    Usually faster, because it's executed once	
+    It is faster, because it's executed once	
 
 Correlated Subquery
-    A query inside another query that depends on values from the outer query
+    A query inside another query 
+    It depends on values from the outer query
     Runs once for every row in the outer query
     keep References columns from the outer query
-    Often slower, since it's executed multiple times
+    It is slower, since it's executed multiple times
