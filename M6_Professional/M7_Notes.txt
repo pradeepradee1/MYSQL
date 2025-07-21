@@ -4,3 +4,9 @@ Note :
 
 2) Inline sub-query , With 			=	we can use Cross, Equi and Inner.
 
+
+1) Difference between the SubQuery and Correlation subquery ?
+
+
+2) What is CTE ?
+
