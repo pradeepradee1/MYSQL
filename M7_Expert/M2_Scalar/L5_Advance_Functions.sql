@@ -15,19 +15,6 @@ SELECT IFNULL(NULL, 500);
 SELECT NULLIF(25,25);
 
 
-/*
-Difference between COALESCE and IFNULL
-
-COALESCE :
-            Returns the first non-NULL value from a list	
-            Accepts 2 or more arguments	
-
-IFNULL  :
-            Returns the second value if first is NULL
-            Accepts exactly 2 arguments
-
-
-*/
 
 
 
