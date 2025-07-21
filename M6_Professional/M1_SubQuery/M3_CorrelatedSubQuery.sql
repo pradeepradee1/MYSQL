@@ -1,6 +1,7 @@
 /*
 CORRELATED SUBQUERY:
-						A query inside another query that depends on values from the outer query
+						A query inside another query 
+						it depends on values from the outer query
 						Runs once for every records in the outer query
 
 */
