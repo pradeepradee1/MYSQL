@@ -1,7 +1,7 @@
 /*
 	Sequences : 
 				It is a data base object.
-				which is used to generate sequential and unique values.
+				The unique interger to identify the each records of the table
 
 */
 
