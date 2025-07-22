@@ -1,7 +1,7 @@
 1) Difference between Drop and Truncate ?
 
 Drop 		:
-			It is DML Operation
+			It is DDL Operation
 			It removes a database object (like a table, view, or index) 
 			Deletes the data and table structure permanently
 			Cannot be rolled back in most databases
