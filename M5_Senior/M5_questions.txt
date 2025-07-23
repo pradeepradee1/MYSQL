@@ -1,7 +1,10 @@
 
 			Set                                             Join
 It combines two or more SELECT statements			It combines  many tables       	
-It combines data into new rows or records           It combines data into new columns
+It combines data into new rows or records           		It combines data into new columns
+Set Operators are 						Join are
+	Union, Union all , Intersection					Inner Join , Left outer join ,right outer joins , full outer joins
+
 
 For Ex:                                             For Ex:
 		select dno from emp 								(inner join on a.dno = b.dno) 
