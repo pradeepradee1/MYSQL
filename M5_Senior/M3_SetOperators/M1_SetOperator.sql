@@ -11,14 +11,14 @@ s2={x,y,z,c,b}
 # Union 
 
 # 1) Combine the two or more SELECT statements. 
-# 2) It will Remove the duplicate records 
+# 2) Duplicate records will not be there
 
 {a,b,c,d,x,y,z}
 
 # UnionAll
 
 # 1) Combine the two or more SELECT statements. 
-# 2) It will'not Remove the duplicate records 
+# 2) Duplicate records will be there
   
 {a,b,c,d,x,y,z,c,b}
 
