@@ -1,0 +1,39 @@
+Note :
+
+1) Cor-relation subquery 			=	we should use Equi-Join.
+
+2) Inline sub-query , With 			=	we can use Cross, Equi and Inner.
+
+
+1) Difference between the SubQuery and Correlation subquery ?
+
+SubQuery :
+    A query inside another query 
+    It runs independently of the outer query	
+    Runs once and gives a result to the outer query	
+    Does not keep reference columns from the outer query	
+    It is faster, because it's executed once	
+
+Correlated Subquery
+    A query inside another query 
+    It depends on values from the outer query
+    Runs once for every row in the outer query
+    keep References columns from the outer query
+    It is slower, since it's executed multiple times
+
+
+2) Diffrence between CTE and View ?
+    CTE :
+    define a temporary result set that can be referenced in the main query
+    It is not persistence ( temporary result will not be there after execution is completed)
+    It is Not resuable
+    Not stored in the database	
+
+    View :
+    It is database object and virtal table saved in the database
+    It is persistence ( we can virual table multiple purpose )
+    It is resuable
+    stored as metadata in the database	
+
+
+
