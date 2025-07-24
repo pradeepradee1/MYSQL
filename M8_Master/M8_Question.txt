@@ -1,0 +1,9 @@
+Notes :
+
+
+🔹 Partitioning ≈ PARTITION BY
+
+
+🔹 Clustering ≈ BUCKET BY
+
+
