@@ -70,8 +70,10 @@
 
 #21)RIGHT = Extract 4 characters from a string (starting from right):
 	SELECT RIGHT("SQL Tutorial is cool", 4) AS ExtractString;
-
-
+'''
+#Note : TRIM and Pad are vintage ---> It suit for SQL
+#Note : Strip and just are new ----> It suit for Python
+'''
 #22)TRIM
 	SELECT TRIM('    SQL Tutorial    ') AS TrimmedString;
 
