@@ -118,6 +118,8 @@ C A 	=	Structured Data Base
 A P 	=	Cassandra
 C P 	=	Mongo DB , HBase
 
+# Note
+(C P is top --> Mango tree)
 
 
 */
