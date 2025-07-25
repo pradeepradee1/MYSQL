@@ -71,20 +71,24 @@
 #21)RIGHT = Extract 4 characters from a string (starting from right):
 	SELECT RIGHT("SQL Tutorial is cool", 4) AS ExtractString;
 
-#22)RPAD
-	SELECT RPAD("SQL Tutorial", 20, "ABC");
-	
-#23)LPAD = Left-pad the string with "ABC", to a total length of 20
-	SELECT LPAD("SQL Tutorial", 20, "ABC");
 
-#24)TRIM
+#22)TRIM
 	SELECT TRIM('    SQL Tutorial    ') AS TrimmedString;
 
-#25)LTRIM
+#23)LTRIM
 	SELECT LTRIM("     SQL Tutorial") AS LeftTrimmedString;
 
-#26)RTRIM
+#24)RTRIM
 	SELECT RTRIM("SQL Tutorial     ") AS RightTrimmedString;
+
+
+#25)RPAD
+	SELECT RPAD("SQL Tutorial", 20, "ABC");
+	
+#26)LPAD = Left-pad the string with "ABC", to a total length of 20
+	SELECT LPAD("SQL Tutorial", 20, "ABC");
+
+
 
 #27)String Compare
 	SELECT STRCMP("SQL", "SQL"); 	-- 	0
