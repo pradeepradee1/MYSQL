@@ -53,13 +53,13 @@ Correlated Subquery
 4) Difference between In and EXISTS ?
     IN :
         It Will check the value exist
-        work with Small set  ( list )
-        Slower with large result sets	
+        It suit for work with Small set  ( list )
+        Performance will be Slower with large result sets	
 
     Exist :
         It Will check If rows exist
-        work with Large sets ( correlated queries )
-        Faster with large result sets 
+        It suit for work with Large sets ( correlated queries )
+        Performance will be Faster with large result sets 
         
 
 
