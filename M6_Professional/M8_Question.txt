@@ -35,7 +35,20 @@ Correlated Subquery
     stored as metadata in the database
     It is persistence ( we can virual table multiple purpose )
     It is resuable
-    	
+
+3) Difference between View and Mview ?
+    View :
+        Does not store data
+        Always fetches live data
+        No extra storage needed
+        It is Slower 
+    MView :
+        Stores data physically	as like table 
+        Needs manual or scheduled refresh the data 
+        Consumes storage	
+        Faster 
+        
+
 
 
 
