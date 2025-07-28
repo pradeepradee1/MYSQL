@@ -39,14 +39,14 @@ Correlated Subquery
     View :
         Virtual Table 
         Does not store data
-        Always fetches live data
+        Always fetches the data from live table
         No extra storage needed
         It is Slower 
     
     MView :
         Physical table
         Stores data physically	as like table 
-        Needs manual or scheduled to refresh the data 
+        Needs manual to refresh the data  from table
         Consumes storage	
         Faster 
     
