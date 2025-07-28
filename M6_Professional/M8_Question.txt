@@ -26,15 +26,16 @@ Correlated Subquery
     CTE :
     define a temporary result set that can be referenced in the main query
     Not stored in the database
-    It is not persistence ( temporary result will not be there after execution is completed)
-    It is Not resuable
+    Not persistence ( temporary result will not be there after execution is completed)
+    Not resuable
     	
 
     View :
     It is database object and virtal table and created over the SQL query
     stored as metadata in the database
-    It is persistence ( we can virual table multiple purpose )
-    It is resuable
+    persistence ( we can virual table multiple purpose )
+    resuable
+
 
 3) Difference between View and Mview ?
     View :
@@ -42,12 +43,26 @@ Correlated Subquery
         Always fetches live data
         No extra storage needed
         It is Slower 
+    
     MView :
         Stores data physically	as like table 
         Needs manual or scheduled refresh the data 
         Consumes storage	
         Faster 
+    
+4) Difference between In and EXISTS ?
+    IN :
+        It Will check the value exist
+        work with Small set  ( list )
+        Slower with large result sets	
+
+    Exist :
+        It Will check If rows exist
+        work with Large sets ( correlated queries )
+        Faster with large result sets 
         
+
+
 
 
 
