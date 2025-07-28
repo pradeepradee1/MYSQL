@@ -30,7 +30,7 @@ Correlated Subquery
     It doesn't store any data 
 
     View :
-    It is database object and virtal table and created over the SQL query
+    It is Virtal table 
     persistence ( we can virual table multiple purpose )
     resuable
     It Store the metadata of data
