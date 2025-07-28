@@ -1,12 +1,12 @@
 Diffference Between Where and Having ?
 
 Where 
-    Filter will be applied on Individual rows
+    Filter will be applied on Individual rows of table
     It will execute before grouping
 
 
 Having :
-    Filter will be applied on group records
+    Filter will be applied on group records of table
     It will execute after grouping
 
 
