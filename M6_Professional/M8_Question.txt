@@ -25,28 +25,28 @@ Correlated Subquery
 2) Diffrence between CTE and View ?
     CTE :
     define a temporary result set that can be referenced in the main query
-    Not stored in the database
     Not persistence ( temporary result will not be there after execution is completed)
     Not resuable
     	
 
     View :
     It is database object and virtal table and created over the SQL query
-    stored as metadata in the database
     persistence ( we can virual table multiple purpose )
     resuable
 
 
 3) Difference between View and Mview ?
     View :
+        Virtual Table 
         Does not store data
         Always fetches live data
         No extra storage needed
         It is Slower 
     
     MView :
+        Physical table
         Stores data physically	as like table 
-        Needs manual or scheduled refresh the data 
+        Needs manual or scheduled to refresh the data 
         Consumes storage	
         Faster 
     
