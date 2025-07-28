@@ -4,7 +4,7 @@ Materialized view :
 
                 1) A Materialized View is a database object and stored result of a query
                 2) It is physically stored like a table.
-                3) Unlike a regular view (It doesn't store data, saved SQL query and fetches fresh data each time), 
+                3) Unlike a regular view (It doesn't store data, saved SQL query and fetches  data from live table), 
                 4) This improves performance, especially for complex aggregations or joins.
 
 */
