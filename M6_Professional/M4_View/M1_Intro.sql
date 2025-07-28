@@ -3,9 +3,11 @@ View :
 		It is a database object
 		It is a virtual table
 		It Doesn't store any data
-		Main objective is Hiding the logic from the user
-		It improves the performance of queries and database (reduces number of hits to the database)
+		Always fetches the data from live table
+		It is Performance Optimization techniques
 
+		Main objective is Hiding the logic from the user
+		
 	
 Types of Views : 
 

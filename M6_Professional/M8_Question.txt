@@ -46,7 +46,7 @@ Correlated Subquery
     MView :
         Physical table
         Stores data physically	as like table 
-        Needs manual to refresh the data  from table
+        Needs manual intervention to refresh the data  from table
         Consumes storage	
         Faster 
     
