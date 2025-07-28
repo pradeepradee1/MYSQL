@@ -1,9 +1,12 @@
 Notes :
 
+1) What is Partitioning By and Clustering ?
 
 🔹 Partitioning ≈ PARTITION BY
 
 
 🔹 Clustering ≈ BUCKET BY
+
+2) 
 
 
