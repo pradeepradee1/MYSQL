@@ -27,13 +27,13 @@ Correlated Subquery
     define a temporary result set that can be referenced in the main query
     Not persistence ( temporary result will not be there after execution is completed)
     Not resuable
-    	
+    It doesn't store any data 
 
     View :
     It is database object and virtal table and created over the SQL query
     persistence ( we can virual table multiple purpose )
     resuable
-
+    It Store the metadata of data
 
 3) Difference between View and Mview ?
     View :

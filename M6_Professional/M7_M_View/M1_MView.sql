@@ -4,7 +4,7 @@ Materialized view :
 
                 IT is a database object
                 It is a physically table
-                It is stored result of a query and stored like a table
+                It is stored result of a query 
                 Unlike a regular view (It doesn't store data and fetches  data from live table), 
                 This improves performance, especially for complex aggregations or joins.
 
