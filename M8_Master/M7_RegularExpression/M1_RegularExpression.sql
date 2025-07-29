@@ -23,8 +23,9 @@
 
 #Quantifier
 
+
+[]*				=	occurs 0 or moretime (based on bodo MAS )
 []+				=	occurs 1 or moretimes
-[]*				=	occurs 0 or moretime
 []?				=	occurs 0 or 1 time 		
 []{n}			=	occurs n time
 []{n,}			=	occurs n or more time
