@@ -3,6 +3,7 @@ View :
 		It is a database object
 		It is a virtual table
 		It Doesn't store any data
+	how ?
 		Always fetches the data from live table
 		It is Performance Optimization techniques
 
