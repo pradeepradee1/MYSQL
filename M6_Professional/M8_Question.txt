@@ -55,7 +55,7 @@ Correlated Subquery
 (talks about storage)
         Consumes storage	
         Faster 
-    
+
 4) Difference between In and EXISTS ?
     IN :
         It Will check the value exist
