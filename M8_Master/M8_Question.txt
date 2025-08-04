@@ -9,6 +9,26 @@ Notes :
 
 2) what are performance optimizations technique in RDBMS
 
+    Query-Level Performance Optimization
+
+        Avoding the Select *
+        Useing CTEs Efficiently
+        using hash aggreation instead of sort aggreation during aggreation
+        Use LIMIT/OFFSET 
+    
+    Table-Level Performance Optimization
+
+        Indexing
+        Materialized Views
+        Partitioning By and bucketing By 
+        Normalization & Denormalization table 
+        
+
+
+
+
+
+
 
 
 
