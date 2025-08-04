@@ -25,12 +25,14 @@ Correlated Subquery
 2) Diffrence between CTE and View ?
     CTE :
     define a temporary result set that can be referenced in the main query
+(talks about storage)
     Not persistence ( temporary result will not be there after execution is completed)
     Not resuable
     It doesn't store any data 
 
     View :
     It is Virtal table 
+(talks about storage)
     persistence ( we can virual table multiple purpose )
     resuable
     It Store the metadata of data
@@ -40,13 +42,15 @@ Correlated Subquery
         Virtual Table 
         Does not store data
         Always fetches the data from live table
-        No extra storage needed
+(talks about storage)
+        It doesn't consume storage 
         It is Slower 
     
     MView :
         Physical table
         Stores data physically	as like table 
         Needs manual intervention to refresh the data  from table
+(talks about storage)
         Consumes storage	
         Faster 
     
