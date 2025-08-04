@@ -7,6 +7,9 @@ Notes :
 
 🔹 Clustering ≈ BUCKET BY
 
-2) 
+2) what are performance optimizations technique in RDBMS
+
+
+
 
 
