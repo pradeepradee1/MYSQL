@@ -11,17 +11,18 @@ Notes :
 
     Query-Level Performance Optimization
 
-        Avoding the Select *
+        Avoding * in Select Statement
+        using hash aggreation instead of sort aggreation
         Useing CTEs Efficiently
-        using hash aggreation instead of sort aggreation during aggreation
         Use LIMIT/OFFSET 
     
     Table-Level Performance Optimization
 
+        Normalization & Denormalization table
         Indexing
         Materialized Views
         Partitioning By and bucketing By 
-        Normalization & Denormalization table 
+         
         
 
 
