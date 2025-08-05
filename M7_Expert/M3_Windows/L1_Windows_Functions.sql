@@ -33,7 +33,8 @@ select avg(sal) from emp e -- 3,192.8571
 #Note : Floating Average or Moving Average or Running Average (Running Water)
 
 select 
-	e.*,avg(sal) over() as maxsalary  
+	e.*,
+	avg(sal) over() as maxsalary  
 from 
 	emp e
 
@@ -49,7 +50,8 @@ from
 
 #Note : Group by dno
 select 
-	e.* ,avg(sal) over(partition by e.dno) as avgsalary  
+	e.* ,
+	avg(sal) over(partition by e.dno) as avgsalary  
 from 
 	emp e
 
@@ -69,13 +71,15 @@ from pScores ps
 -- row_number
 
 select 
-	e.*,row_number() over() as rn  
+	e.*,
+	row_number() over() as rn  
 from 
 	emp e
 
 
 select 
-	e.*,row_number() over(partition by e.dno) as rn  
+	e.*,
+	row_number() over(partition by e.dno) as rn  
 from 
 	emp e
 
@@ -85,7 +89,8 @@ select
 from 
 	(
 		select 
-		e.*,row_number() over(partition by e.dno order by e.eid) as rn  
+		e.*,
+		row_number() over(partition by e.dno order by e.eid) as rn  
 		from emp e
 	) x
 where 
