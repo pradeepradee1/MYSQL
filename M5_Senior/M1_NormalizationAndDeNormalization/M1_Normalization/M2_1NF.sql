@@ -13,7 +13,7 @@ SELECT * from First_1NF_2;
 	2) Every Attribute should follow the same domain (Same Data type)
 	3) Each Attribute should have unique name (phone_no shouldn't repeat)
 	4) No Duplicate Rows
-	5) Primary key should be in this table for identify the records
+	5) Table should have primary key
 
 
 */
