@@ -19,8 +19,8 @@ Notes :
     Table-Level Performance Optimization
 
         Normalization & Denormalization table
+        Materialized Views        
         Indexing
-        Materialized Views
         Partitioning By and bucketing By 
          
         
