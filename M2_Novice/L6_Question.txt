@@ -1,0 +1,12 @@
+Diffrence Between Unique (constraint) and distinct keyword ?
+    Unique :
+        Unique is keyword and constraint
+        It are the set of rules which will be define the DDL level
+	    It enforce the database to allow only valid values into the table
+        It will be using in DDL statment
+    Distinct :
+        It is keyword 
+        Filters duplicate rows from query result
+        It will be using select statemnt 
+
+
