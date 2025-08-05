@@ -9,6 +9,10 @@ Note :
     CTE = We can go CTE in Subquery scenario and Inline Subqury
           Not Cor-related subquery
 
+#Note :
+    Cor-relared subqury can join with same table 
+    It can join with two different tables also ( based on the requirement )
+
 
 1) Difference between the SubQuery and Correlation subquery ?
 
