@@ -6,9 +6,8 @@ Note :
 
 
 #Note :
-    CTE = We can got CTE in Subquery scenario and Inline Subqury
-#Note :
-    Not Cor-related subquery
+    CTE = We can go CTE in Subquery scenario and Inline Subqury
+          Not Cor-related subquery
 
 
 1) Difference between the SubQuery and Correlation subquery ?
