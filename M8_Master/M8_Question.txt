@@ -19,7 +19,7 @@ Notes :
     Table-Level Performance Optimization
 
         Normalization & Denormalization table
-        Materialized Views        
+        Materialized Views  ( DB object )
         Indexing
         Partitioning By and bucketing By 
          
