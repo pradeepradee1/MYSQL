@@ -5,6 +5,12 @@ Note :
 2) Inline sub-query , With 			=	we can use Cross, Equi and Inner.
 
 
+#Note :
+    CTE = We can got CTE in Subquery scenario and Inline Subqury
+#Note :
+    Not Cor-related subquery
+
+
 1) Difference between the SubQuery and Correlation subquery ?
 
 SubQuery :
