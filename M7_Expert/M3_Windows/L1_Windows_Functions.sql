@@ -57,7 +57,7 @@ from
 
 
 
-#Note : Moving total and group by 
+# Note : Moving total and Running Total and Floating total 
 select 
 	gender,
 	day,
