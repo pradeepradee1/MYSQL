@@ -2,7 +2,7 @@
 Merge Statement : Not Supported in MYSQL
 
 It also known as "upsert" 
-It is used to perform insert, update, or delete operations in a single statement
+It is used to perform update,insert, or delete operations in a single statement
 
 #Note
 Explain the merge statement
