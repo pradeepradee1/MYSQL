@@ -14,6 +14,7 @@ Notes :
         Avoding * in Select Statement
         using hash aggreation instead of sort aggreation
         Useing CTEs Efficiently ( instaed of sub-query and inline subqury )
+        Use Exist Operator instead of IN operator
         Use LIMIT/OFFSET 
     
     Table-Level Performance Optimization
