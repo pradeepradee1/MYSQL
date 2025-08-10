@@ -13,6 +13,7 @@ Notes :
 
         Avoding * in Select Statement
         using hash aggreation instead of sort aggreation
+        Apply the filter earilier stages (Predicate Psushdown)
         Useing CTEs Efficiently ( instaed of sub-query and inline subqury )
         Use Exist Operator instead of IN operator
         Use LIMIT/OFFSET 
