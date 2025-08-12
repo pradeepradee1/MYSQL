@@ -1,4 +1,5 @@
 /*
+
 OuterJoin
 		
 			1) Left Join  
@@ -15,6 +16,7 @@ OuterJoin
 								: matching data from both the tables
 								: unmatching data from left tables
 								: unmatching data from right tables
+
 */
 
 #Note :
