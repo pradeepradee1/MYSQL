@@ -1,7 +1,7 @@
 Diffrence Between Unique (constraint) and distinct keyword ?
     Unique :
         Unique is keyword and constraint 
-        Prevent the duplicate values in columns during the table creating 
+        Prevent the duplicate values from columns of table during the table creating 
         It will be using in DDL statment 
         If Column has multiple null's values It will  treat as unequal ( for ex : both null are not same )
         It focus in column in the table
@@ -9,7 +9,7 @@ Diffrence Between Unique (constraint) and distinct keyword ?
     
     Distinct :
         It is keyword
-        Remove duplicate in rows as query result
+        Remove duplicate values from rows of table during the query result
         It will be using select statemnt 
         If Column has multiple null's values  It will treat as equal ( for ex: both null are same )
         It focus in rows in query result
