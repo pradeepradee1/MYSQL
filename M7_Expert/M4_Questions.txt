@@ -1,1 +1,16 @@
+1) DB GroupBy and Windows
 
+
+GroupBy :
+1) Operate on groups of rows and return one result per group
+2) Result will be less rows
+3) It will be using with GROUP BY Clause
+4) Group function are Avg, Count, Max, Min and Sum
+
+
+
+Windows :
+1) Operate across a set of rows related to the current row, but do not collapse rows
+2) Result will be same as number of rows
+3) It will be using with OVER() cluase
+4) Windows functions are row_number, Rank, Dense_rank, lead , lag  etc
