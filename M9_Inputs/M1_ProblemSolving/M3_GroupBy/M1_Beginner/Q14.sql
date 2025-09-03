@@ -24,3 +24,19 @@ SELECT
     MAX(CASE WHEN property = 'age'  THEN value END) AS age
 FROM entity_table
 GROUP BY entity_id;
+
+/* Using PIVOT */
+
+
+SELECT 
+    entity_id,
+    [name],
+    [age]
+FROM (
+    SELECT entity_id, property, value
+    FROM entity_table
+) src
+PIVOT (
+    MAX(value) FOR property IN ([name], [age])
+) p;
+
