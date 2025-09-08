@@ -4,6 +4,16 @@
 */
 
 
+/*
+
+LAG = 	Returns the value from a previous row in the window.
+		Compare the current row with a past value.
+
+LEAD = 	Returns the value from a following row in the window.
+		Compare the current row with a future value.
+
+*/
+
 -- Fetch a query to display if the salary of an employee is higher , lower or equal to the previous employee
 
 
