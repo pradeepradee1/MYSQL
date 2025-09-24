@@ -1,0 +1,2 @@
+1) How will dump the data ?
+2) How will load the data into table ?
