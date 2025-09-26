@@ -17,12 +17,12 @@ PK				: 	The Combination of not null and unique constraints
 					Example :
 						ID
 						
-FK				:   	It Creates a relationship between any two tables
+FK				:   It Creates a relationship between any two tables
 					Example :
 						Deptid
 
 
-Candidate Key 			: 	A Primary Key can be selected from candidate key		
+Candidate Key 	: 	A Primary Key can be selected from candidate key		
 					Example: 
 						ID 
 						Email
@@ -39,12 +39,12 @@ AK				:  	Apart from Primary Key , all keys in Candidate keys are Alternate Key
 						Phonenumber
 
 
-Composite Key   		:	The Combination of more than one candidate key.
+Composite Key   :	The Combination of more than one candidate key.
  
 
 
 
-Super Keys	  		: 	SuperSet Of Candidate Key
+Super Keys	  	: 	SuperSet Of Candidate Key
 					A Table can have multiple superkey
 
 							Example : 
@@ -59,10 +59,11 @@ Super Keys	  		: 	SuperSet Of Candidate Key
 										etc...
 
 
-Surrogate key (synthentic key) 	:          It is artificial key , a Unique integer ,  to identify the each records of the dimnesional table in Data warehouse
-     
-							Example :
-										ID : ( 1 	,	2	,	3)
+Surrogate key (synthentic key) 	:          
+								It is also called as artificial key
+								It is used to identify the unique record of a dimnesional table in Data warehouse     
+								Example :
+										ID : ( 1 ,2	,3)
 							
 				
 
