@@ -15,10 +15,10 @@ KEY CONSTRAINT :
 
 3) PRIMARY KEY :
 
-			The combination of NOT NULL Constraint and UNIQUE Constraint
-			It doesn't allow duplicates and null values.
-			Primary key is used to identify the unique record of a table .
-			Only one primary key is allowed per a table
+					The Combination of not null and unique constraints		
+					It will not allow the Null and duplicate values 
+					Primary key is used to identify the unique record of a table
+					We can have only one primary key that is called as simple Primary key
 			
 			PRIMARY KEY has two types :
 			
