@@ -6,13 +6,13 @@ From the orders table, find customers who placed at least one order in January b
 
 */
 
-CREATE TABLE orders (
+CREATE TABLE orders_1 (
  order_id INT,
  customer_id INT,
  order_date DATE
 );
 
-INSERT INTO orders VALUES
+INSERT INTO orders_! VALUES
 (1, 101, '2024-01-05'),
 (2, 102, '2024-01-10'),
 (3, 103, '2024-01-15'),
@@ -26,10 +26,6 @@ INSERT INTO orders VALUES
 
 
 SELECT DISTINCT customer_id
-FROM orders
+FROM orders_1
 WHERE EXTRACT(MONTH FROM order_date) = 1
- AND customer_id NOT IN (
- SELECT customer_id
- FROM orders
- WHERE EXTRACT(MONTH FROM order_date) = 2
- );
+AND customer_id NOT IN ( SELECT customer_id FROM orders WHERE EXTRACT(MONTH FROM order_date) = 2 );

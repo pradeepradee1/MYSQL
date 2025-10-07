@@ -21,6 +21,7 @@ SELECT
     store,
     product,
     sales,
+    sales * 100.0  / SUM(sales) OVER(PARTITION BY store) as pct_contribution1,
     ROUND(sales * 100.0  / SUM(sales) OVER(PARTITION BY store), 2) AS pct_contribution
 FROM sales_data;
 

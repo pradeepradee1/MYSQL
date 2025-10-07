@@ -87,7 +87,7 @@ SELECT
     campaign_id,
     impressions,
     clicks,
-    ROUND((clicks * 100.0 / impressions), 2) AS ctr_percentage
+    (clicks / impressions * 100.0) AS ctr_percentage1
 FROM ad_performance;
 
 /*
