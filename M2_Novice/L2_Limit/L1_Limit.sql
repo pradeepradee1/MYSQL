@@ -17,10 +17,13 @@ order by Temp
 limit 2,3
 
 #Note:
---		2 is Starting Number , 3 is how many records needed
+--      Skips the first 2 rows and returns the next 2.
 
 select * From Wheather w 
 order by Temp
 limit 0,2
+
+
+/* LIMIT 2 OFFSET 2 */
 
 
