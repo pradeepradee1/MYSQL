@@ -11,6 +11,25 @@ select *  from trans_table
 
 -----------------------------------------------------
 
+
+/*
+
+See the difference Count (*) vs Count (1) vs Count (Coulmn name) In SQL
+
+Note : This is aggregations functions it will same as rest of the functions
+
+*/
+
+
+/*
+
+Note : Important
+Group By handle the Null values
+Aggragation function wlll not hadle the NULL values
+
+*/
+
+
 #Note : This will include the null values
 
 select 
