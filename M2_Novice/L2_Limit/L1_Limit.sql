@@ -17,7 +17,7 @@ order by Temp
 limit 2,3
 
 #Note:
---      Skips the first 2 rows and returns the next 2.
+--      Skips the first 2 rows and returns the next 3.
 
 select * From Wheather w 
 order by Temp

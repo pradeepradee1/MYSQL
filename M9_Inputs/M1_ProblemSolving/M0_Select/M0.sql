@@ -30,6 +30,6 @@ Order Of execution
  
 12. TOP → Top Operator
  
-13. OFFSET / FETCH → Top + Filter
+13. LIMIT / OFFSET 
  
 */

@@ -22,7 +22,7 @@ Group By :
     Groups the records for aggregation
     It required the aggregations functions
     number of rows in output is reduced 
-    It will be using before aggregate functions, after WHERE
+    It will be using after WHERE and before aggregate functions
 
 
 
