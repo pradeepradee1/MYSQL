@@ -2,12 +2,12 @@
 
 
 Input Table:
-entity_id | property | value 
-----------|----------|------- 
-1 | name | Alice 
-1 | age | 30 
-2 | name | Bob 
-2 | age | 28 
+entity_id   | property  | value 
+----------  |---------- |------- 
+1           | name      | Alice 
+1           | age       | 30 
+2           | name      | Bob 
+2           | age       | 28 
 
 Expected Output:
 entity_id | name | age 
@@ -26,7 +26,7 @@ FROM entity_table
 GROUP BY entity_id;
 
 /* Using PIVOT */
-
+/* Not in-built functions MYSQL */ 
 
 SELECT 
     entity_id,
