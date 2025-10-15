@@ -4,28 +4,28 @@ Problem: Find the top 5 customers with the highest total purchase amount in the 
 
 */
 
-CREATE TABLE customers (
+CREATE TABLE customers_1 (
  id INT,
  name VARCHAR(50),
  state VARCHAR(2),
  country VARCHAR(50)
 );
 
-INSERT INTO customers (id, name, state, country)
+INSERT INTO customers_1 (id, name, state, country)
 VALUES (1, 'John Smith', 'CA', 'USA'),
  (2, 'Jane Doe', 'NY', 'USA'),
  (3, 'Bob Johnson', 'TX', 'USA'),
  (4, 'Samantha Lee', 'CA', 'USA'),
  (5, 'Mike Brown', 'NY', 'USA');
 
-CREATE TABLE orders (
+CREATE TABLE orders_1 (
  id INT,
  customer_id INT,
  purchase_amount DECIMAL(10,2),
  purchase_date DATE
 );
 
-INSERT INTO orders (id, customer_id, purchase_amount, purchase_date)
+INSERT INTO orders_11 (id, customer_id, purchase_amount, purchase_date)
 VALUES (1, 1, 100.00, '2021-05-01'),
  (2, 2, 50.00, '2021-05-02'),
  (3, 3, 200.00, '2021-05-03'),
@@ -43,10 +43,19 @@ VALUES (1, 1, 100.00, '2021-05-01'),
  (15, 5, 100.00, '2021-07-05');
 
 
-SELECT c.name AS customer_name, SUM(o.purchase_amount) AS total_purchase_amount
-FROM customers c
-INNER JOIN orders o ON c.id = o.customer_id
-WHERE o.purchase_date >= DATEADD(month, -3, GETDATE()) 
-GROUP BY c.name
-ORDER BY total_purchase_amount DESC
+SELECT 
+    c.id AS customer_id,
+    c.name,
+    SUM(o.purchase_amount) AS total_purchase
+FROM 
+    customers_1 c
+JOIN 
+    orders_11 o ON c.id = o.customer_id
+WHERE 
+    o.purchase_date >= CURDATE() - INTERVAL 3 MONTH
+GROUP BY 
+    c.id, c.name
+ORDER BY 
+    total_purchase DESC
 LIMIT 5;
+

@@ -1,29 +1,87 @@
-#PROBLEM STATEMENT : Write a SQL query to find the total number of people present inside the hospital.
-
-select * from hospital
-
 /*
-Sample OP :
+    Flattening and Unflattening Rows
 
-		2	2019-12-22 09:30:00.000		2019-12-22 09:15:00.000
-		
-		3	2019-12-22 09:45:00.000		2019-12-22 09:30:00.000
-		
-		4	2019-12-22 09:45:00.000	
 
+StudentID StudentName CourseName
+1 Alice Math
+1 Alice Science
+1 Alice English
+2 Bob Math
+2 Bob History
+3 Charlie Science
+
+Output :
+StudentId StudentName Courses
+1 Alice Math, Science, English
+2 Bob Math, History
+3 Charlie Science
 
 
 */
 
+CREATE TABLE student_courses (
+    StudentID INT,
+    StudentName VARCHAR(50),
+    CourseName VARCHAR(50)
+);
+
+
+INSERT INTO student_courses (StudentID, StudentName, CourseName) VALUES
+(1, 'Alice', 'Math'),
+(1, 'Alice', 'Science'),
+(1, 'Alice', 'English'),
+(2, 'Bob', 'Math'),
+(2, 'Bob', 'History'),
+(3, 'Charlie', 'Science');
+
+
+SELECT
+    StudentID,
+    StudentName,
+    GROUP_CONCAT(CourseName ORDER BY CourseName SEPARATOR ', ') AS Courses
+FROM
+    student_courses
+GROUP BY
+    StudentID, StudentName
+ORDER BY
+    StudentID;
+
+
+/*
+
+Input : (Reverse the Process)
+
+StudentId StudentName Courses
+3 Charlie Science
+1 Alice Math, Science, English
+2 Bob Math, History
+
+*/
+CREATE TABLE student_courses_combined (
+    StudentID INT,
+    StudentName VARCHAR(50),
+    Courses VARCHAR(255)
+);
 
 
 
-with cte as  
-( select 
-emp_id,
-max(CASE when action = "in" then `time` END) as Intime,
-max(CASE when action = "out" then `time` END) as Outtime
-from hospital
-group by emp_id )
-select * from cte
-where Intime > Outtime or Outtime is null
+INSERT INTO student_courses_combined (StudentID, StudentName, Courses) VALUES
+(3, 'Charlie', 'Science'),
+(1, 'Alice', 'Math, Science, English'),
+(2, 'Bob', 'Math, History');
+
+
+
+SELECT 
+    StudentID,
+    StudentName,
+    TRIM(course) AS CourseName
+FROM 
+    student_courses_combined,
+    JSON_TABLE(
+        CONCAT('["', REPLACE(Courses, ', ', '","'), '"]'),
+        "$[*]" COLUMNS (course VARCHAR(50) PATH "$")
+    ) AS jt
+ORDER BY 
+    StudentID;
+
