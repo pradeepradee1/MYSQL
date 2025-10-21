@@ -1,46 +1,57 @@
 /*
 
-Find all customers who have placed orders in at least 3 different product categories in the same calendar month.
-
-
-Context: You're working at an online fashion retailer like Myntra. The marketing team wants to identify customers who purchased from 3 or more 
-different product categories in the same month to send them personalized offers.
+Problem: Find the top 5 customers with the highest total purchase amount, and their respective total purchase amount, 
+for the month of January 2021.
 
 
 */
-CREATE TABLE customers (
- customer_id INT,
- customer_name VARCHAR(100)
+
+/*
+
+CREATE TABLE customers3 (
+ id INT PRIMARY KEY,
+ name VARCHAR(50)
 );
 
-CREATE TABLE orders (
- order_id INT,
+CREATE TABLE orders5 (
+ id INT PRIMARY KEY,
  customer_id INT,
- order_date DATE,
- category VARCHAR(50)
+ purchase_date DATE,
+ purchase_amount DECIMAL(10,2)
 );
 
-INSERT INTO customers VALUES
-(1, 'Gowtham'), (2, 'Sneha'), (3, 'Arjun');
+INSERT INTO customers3 (id, name) VALUES
+(1, 'John'),
+(2, 'Sarah'),
+(3, 'David'),
+(4, 'Emily'),
+(5, 'Michael');
 
-INSERT INTO orders VALUES
-(101, 1, '2024-04-05', 'Shirts'),
-(102, 1, '2024-04-15', 'Shoes'),
-(103, 1, '2024-04-22', 'Watches'),
-(104, 2, '2024-04-10', 'Shirts'),
-(105, 2, '2024-05-11', 'Shirts'),
-(106, 3, '2024-04-03', 'Shoes'),
-(107, 3, '2024-04-14', 'Shoes'),
-(108, 3, '2024-04-29', 'Shoes');
+INSERT INTO orders5 (id, customer_id, purchase_date, purchase_amount) 
+VALUES
+(1, 1, '2021-01-05', 100.50),
+(2, 2, '2021-01-10', 75.20),
+(3, 3, '2021-01-15', 200.00),
+(4, 4, '2021-01-20', 150.75),
+(5, 5, '2021-01-25', 300.00),
+(6, 1, '2021-01-30', 50.00),
+(7, 2, '2021-01-31', 125.30),
+(8, 3, '2021-01-31', 75.50),
+(9, 4, '2021-01-31', 250.00),
+(10, 5, '2021-01-31', 175.00);
 
 
-SELECT c.customer_id, c.customer_name
-FROM customers c
-JOIN (
- SELECT customer_id, EXTRACT(YEAR FROM order_date) AS yr,
- EXTRACT(MONTH FROM order_date) AS mon,
- COUNT(DISTINCT category) AS category_count
- FROM orders
- GROUP BY customer_id, yr, mon
- HAVING COUNT(DISTINCT category) >= 3
-) o ON c.customer_id = o.customer_id;
+*/
+
+
+
+SELECT 
+	c.name AS customer_name, SUM(o.purchase_amount) AS total_purchase_amount
+FROM 
+	customers3 c
+INNER JOIN orders5 o ON c.id = o.customer_id
+WHERE o.purchase_date BETWEEN '2021-01-01' AND '2021-01-31'
+GROUP BY c.name
+ORDER BY total_purchase_amount DESC
+LIMIT 5;
+

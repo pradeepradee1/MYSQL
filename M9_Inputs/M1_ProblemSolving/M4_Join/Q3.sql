@@ -1,78 +1,49 @@
-//*
-Question2:
+/*
 
-			1	2
-			3	2
-			2	4
-			2	1
-			5	6
-			4	2
+ How do you safely join product & transaction tables while excluding null foreign keys?
 
-Remove The Duplicate Entry in mirror side
+*/
 
-Output should be like 
+/*
 
-			1	2
-			3	2
-			2	4
-			5	6
+CREATE TABLE product3 (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(50)
+);
 
+CREATE TABLE transaction3 (
+    txn_id INT PRIMARY KEY,
+    product_id INT,  -- foreign key to product.product_id
+    amount DECIMAL(10,2)
+);
+
+INSERT INTO product3 (product_id, product_name) VALUES
+(1, 'Laptop'),
+(2, 'Phone'),
+(3, 'Tablet'),
+(4, 'Headphones');
+
+INSERT INTO transaction3 (txn_id, product_id, amount) VALUES
+(101, 1, 1200.00),
+(102, 2, 800.00),
+(103, NULL, 500.00),     -- Invalid transaction (no product_id)
+(104, 3, 600.00),
+(105, 99, 300.00);       -- Nonexistent product_id (no match)
 
 
 */
 
+SELECT   
+	t.txn_id, t.amount, p.product_name
+FROM 
+	transaction3 t JOIN product3 p ON t.product_id = p.product_id
+WHERE t.product_id IS NOT NULL;
 
-select * from problemsolving1
 
+/* Alternative filter inside */
 
-
-
-
-#Approach1
-
-select 
-a,b
-from 
-(select 
-	*,
-	 case 
-	 	when a < b and b > a then CONCAT(cast(a as char),cast(b as char))
-	 	when b < a and a > b then CONCAT(cast(b as char),cast(a as char))
-	 	else "both equal"
-	 end as logic
-from 
-	problemsolving1
-) a
-group by a.logic
-having count(*) >= 1
-
-#Approach2
-
-select 
-*
-from 
-problemsolving1 p1 
-left join problemsolving1 p2
-on p1.a = p2.b and  p1.b = p2.a
-
-select 
-p1.a,
-p1.b
-from 
-problemsolving1 p1 
-left join problemsolving1 p2
-on p1.b = p2.a and p1.a = p2.b 
-where p2.a is null or p1.a > p2.a
-
-#OR
-where p2.a is not null
-
-#Approach3 ; Correlation Subquery
-
-select 
-*
-from problemsolving1 p1
-where not EXISTS 
-(select * from problemsolving1 p2 
-where p1.b = p2.a and p2.a = p1.b and p1.a > p2.a)
-
+SELECT t.transaction_id, t.amount, p.product_name
+FROM transactions t
+JOIN products p
+    ON t.product_id = p.product_id
+    AND t.product_id IS NOT NULL;

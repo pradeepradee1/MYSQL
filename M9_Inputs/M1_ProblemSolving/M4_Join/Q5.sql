@@ -1,25 +1,30 @@
-# IP : Get the orgin and destination of customers
-
-
-
 /*
-# OP : 
+Question : Find the correspnding manager name
 
-	1		 Del		Blr
-	2		 Mum	   Kol
+IP :
+
+	1	Alice		2
+	2	Bob			3
+	3	Charlie		
+
+
+OP 	:
+
+	1	Alice		2		2		Bob			3
+	2	Bob			3		3		Charlie		NULL
+	3	Charlie		NULL	NULL	NULL		NULL
+
 */
 
 
 
-select * from flights a
+select * from emp_table a 
 
 
 
+# Answers
 
 select 
-	a.cid,
-	a.origin,
-	a.Destination
-from 
-	flights a
-inner join flights b on a.origin = b.Destination
+* 
+from emp_table a 
+left join emp_table b on a.manager_id = b.emp_id 
