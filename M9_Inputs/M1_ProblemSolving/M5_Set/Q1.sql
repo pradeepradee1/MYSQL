@@ -15,7 +15,17 @@ OutPut:
 
 */
 
-#Approach 1 :
+
+#Approach 1:
+
+select 'LowSalary' as category , count(*) as Accountssp from Accountssp where income < 20000
+union 
+select 'AverageSalary' as category , count(*) as Accountssp from Accountssp where income > 20000 and income <=50000
+union
+select 'HighSalary' as category , count(*) as Accountssp from Accountssp where income >=50000
+
+
+#Approach 2 :
 #				Here Query failed becasue AverageSalary sal is not in core table (a)
 
 
@@ -37,11 +47,4 @@ group by a.Salarydesc
 
 
 
-#Approach 2:
-
-select 'LowSalary' as category , count(*) as Accountssp from Accountssp where income < 20000
-union 
-select 'AverageSalary' as category , count(*) as Accountssp from Accountssp where income > 20000 and income <=50000
-union
-select 'HighSalary' as category , count(*) as Accountssp from Accountssp where income >=50000
 
