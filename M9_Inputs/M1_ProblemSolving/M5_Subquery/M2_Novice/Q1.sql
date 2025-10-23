@@ -4,7 +4,7 @@ From a watch_history table, find content where more than 50% of viewers watched 
 total content duration.
 
 */  
-
+/*
 CREATE TABLE watch_history (
     user_id INT,
     content_id INT,
@@ -29,6 +29,8 @@ INSERT INTO watch_history (user_id, content_id, watch_time, total_duration) VALU
 (1, 3, 5, 100),    -- 5%
 (2, 3, 10, 100),   -- 10%
 (3, 3, 15, 100);   -- 15%
+
+*/
 
 
 SELECT content_id

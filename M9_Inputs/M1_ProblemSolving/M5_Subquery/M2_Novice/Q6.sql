@@ -1,58 +1,49 @@
 /*
 
-
-sensor_id | log_date | status 
-----------|------------|-------- 
-A | 2025-08-01 | OK 
-A | 2025-08-02 | OK 
-A | 2025-08-03 | FAIL 
-A | 2025-08-04 | FAIL 
-A | 2025-08-05 | OK 
-
-Expected Output:
-sensor_id | start_date | end_date | status 
-----------|------------|------------|-------- 
-A | 2025-08-01 | 2025-08-02 | OK 
-A | 2025-08-03 | 2025-08-04 | FAIL 
-A | 2025-08-05 | 2025-08-05 | OK 
-
+Find the employees who earn more than the average salary of their department and have at least two subordinates reporting 
+directly to them.
 
 */
 
 /*
 
-CREATE TABLE sensor_logs (
-    sensor_id VARCHAR(10),
-    log_date DATE,
-    status VARCHAR(10)
+CREATE TABLE Employees4 (
+ emp_id INT,
+ emp_name VARCHAR(100),
+ salary INT,
+ department_id INT,
+ manager_id INT
 );
 
-
-INSERT INTO sensor_logs (sensor_id, log_date, status) VALUES
-('A', '2025-08-01', 'OK'),
-('A', '2025-08-02', 'OK'),
-('A', '2025-08-03', 'FAIL'),
-('A', '2025-08-04', 'FAIL'),
-('A', '2025-08-05', 'OK');
+INSERT INTO Employees4 VALUES
+(1, 'Alice', 120000, 10, NULL),
+(2, 'Bob', 90000, 10, 1),
+(3, 'Charlie', 95000, 10, 1),
+(4, 'David', 60000, 20, 2),
+(5, 'Eve', 70000, 20, 2),
+(6, 'Frank', 85000, 10, 1),
+(7, 'Grace', 105000, 30, NULL),
+(8, 'Heidi', 95000, 30, 7),
+(9, 'Ivan', 92000, 10, 3),
+(10, 'Judy', 88000, 10, 3);
 
 */
 
 
-
-WITH status_groups AS (
-    SELECT
-        sensor_id,
-        log_date,
-        status,
-        ROW_NUMBER() OVER (PARTITION BY sensor_id ORDER BY log_date) -
-        ROW_NUMBER() OVER (PARTITION BY sensor_id, status ORDER BY log_date) AS grp
-    FROM sensor_logs
-)
-SELECT
-    sensor_id,
-    MIN(log_date) AS start_date,
-    MAX(log_date) AS end_date,
-    status
-FROM status_groups
-GROUP BY sensor_id, grp, status
-ORDER BY start_date;
+SELECT 
+    e.emp_id,
+    e.emp_name,
+    e.salary,
+    e.department_id,
+    COUNT(sub.emp_id) AS num_subordinates
+FROM Employees4 e
+LEFT JOIN Employees4 sub
+    ON sub.manager_id = e.emp_id
+GROUP BY e.emp_id, e.emp_name, e.salary, e.department_id
+HAVING e.salary > (
+        SELECT AVG(salary)
+        FROM Employees4
+        WHERE department_id = e.department_id
+    )
+    AND COUNT(sub.emp_id) >= 2
+ORDER BY e.department_id, e.salary DESC;

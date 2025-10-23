@@ -14,6 +14,7 @@ You need to return a list of user IDs and the count of their "highly interactive
 */
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Schema
+/*
 
 CREATE TABLE videos (
     video_id INT,
@@ -45,7 +46,7 @@ INSERT INTO videos (video_id, user_id, upload_date, likes, comments) VALUES
 (14, 3, '2025-01-03', 80, 20),
 (15, 3, '2025-01-04', 150, 40),
 (16, 3, '2025-01-05', 70, 10);
-
+*/
 
 SELECT 
     user_id,
