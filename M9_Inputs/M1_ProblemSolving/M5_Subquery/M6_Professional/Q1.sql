@@ -4,6 +4,22 @@
 
 */
 
+
+CREATE TABLE sales_data2 (
+    sale_id INT,
+    amount DECIMAL(10,2)
+);
+
+INSERT INTO sales_data2 (sale_id, amount) VALUES
+(1, 100),
+(2, 120),
+(3, 115),
+(4, 130),
+(5, 5000), -- outlier
+(6, 110),
+(7, 125);
+
+
 /* 1️⃣ Z-Score Method (Standard Deviation Approach) */
 
 WITH stats AS (

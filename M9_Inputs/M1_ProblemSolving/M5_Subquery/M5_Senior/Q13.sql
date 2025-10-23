@@ -1,6 +1,6 @@
 /*
 
-Given a Customers table, write a query to find all missing customer IDs in the range between 1 and the maximum customer_id present in the table.
+find all missing customer IDs in the range between 1 and the maximum customer_id present in the table.
 
 */
 
@@ -11,6 +11,9 @@ CREATE TABLE Customers (
 -- Sample Data:
 INSERT INTO Customers (customer_id)
 VALUES (1), (2), (3), (5), (7), (8), (10);
+
+
+#Approach1
 
 WITH All_IDs AS (
  SELECT n AS customer_id
@@ -31,3 +34,19 @@ WHERE
  customer_id NOT IN (SELECT customer_id FROM Customers)
 ORDER BY 
  customer_id;
+
+
+# Approach 2
+
+WITH RECURSIVE All_IDs AS (
+    SELECT 1 AS customer_id
+    UNION ALL
+    SELECT customer_id + 1
+    FROM All_IDs
+    WHERE customer_id + 1 <= (SELECT MAX(customer_id) FROM Customers)
+)
+SELECT customer_id
+FROM All_IDs
+WHERE customer_id NOT IN (SELECT customer_id FROM Customers)
+ORDER BY customer_id;
+

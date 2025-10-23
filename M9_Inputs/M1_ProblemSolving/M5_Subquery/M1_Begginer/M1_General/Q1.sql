@@ -1,12 +1,14 @@
-select * from psEmployee
+
+/*
 
 #Get Second Max Salary
-/*
+
 		SecondMaxSalary
 			200
 
 */
 
+select * from psEmployee
 
 # Right Way
 select 

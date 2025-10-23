@@ -3,6 +3,8 @@
 cumulative distinct count
 
 */
+
+/*
 CREATE TABLE purchases (
     customer_id INT,
     purchase_date DATE,
@@ -16,6 +18,7 @@ INSERT INTO purchases (customer_id, purchase_date, product_id) VALUES
 (2, '2025-09-01', 'P2'),
 (2, '2025-09-02', 'P3');
 
+*/
 
 SELECT p1.customer_id,
        p1.purchase_date,

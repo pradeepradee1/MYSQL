@@ -31,6 +31,26 @@ INSERT INTO zomato_ratings VALUES
 (1, 1001, 4, '2025-01-10');1
 
 
+SELECT 
+    o.customer_id
+FROM (
+    SELECT customer_id, COUNT(*) AS total_orders
+    FROM zomato_orders
+    WHERE order_date >= DATE_SUB('2025-03-01', INTERVAL 6 MONTH)
+    GROUP BY customer_id
+) o
+LEFT JOIN (
+    SELECT customer_id, COUNT(*) AS total_ratings
+    FROM zomato_ratings
+    WHERE rating_date >= DATE_SUB('2025-03-01', INTERVAL 6 MONTH)
+    GROUP BY customer_id
+) r
+ON o.customer_id = r.customer_id
+WHERE o.total_orders > 5
+  AND COALESCE(r.total_ratings, 0) = 1;
+
+
+
 
 
 

@@ -1,5 +1,3 @@
-select * from psRelations
-
 /*
 
 #Question : Find the user who has more follower
@@ -16,6 +14,9 @@ for ex :
 So , Ans is 1 and 7
 
 */
+
+
+select * from psRelations
 
 
 # Try 1
