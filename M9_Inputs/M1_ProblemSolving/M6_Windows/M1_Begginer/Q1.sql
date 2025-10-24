@@ -1,4 +1,4 @@
-#Question 2:
+#Question 1:
 
 #Calculate the date wise rolling average of amazon sales
 
@@ -22,7 +22,7 @@ adding the return quantities in January, February,March,April and then dividing 
 /*
 
 Calculate the date wise 5 day rolling average  of amazon sales
-
+       
 What is rolling Average ?
        
        It is also know as moving averages 
@@ -43,7 +43,7 @@ What is rolling Average ?
 
 */
 
-#Question 3 : 
+#Question 2 : 
 
 
 #Calculate the month wise of quarter rolling average of amazon sales

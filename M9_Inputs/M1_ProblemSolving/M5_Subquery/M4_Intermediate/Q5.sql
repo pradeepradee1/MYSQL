@@ -58,3 +58,21 @@ distinct a.seat_id
 from cinema a
 join cinema b on abs(a.seat_id - b.seat_id) = 1 and a.free = true and b.free = true
 order by a.seat_id;
+
+
+#Correct Approach 
+
+SELECT seat_id
+FROM cinema c1
+WHERE free = 1
+  AND (
+        EXISTS (
+            SELECT 1 FROM cinema c2 
+            WHERE c2.seat_id = c1.seat_id - 1 AND c2.free = 1
+        )
+     OR EXISTS (
+            SELECT 1 FROM cinema c3 
+            WHERE c3.seat_id = c1.seat_id + 1 AND c3.free = 1
+        )
+  )
+ORDER BY seat_id;

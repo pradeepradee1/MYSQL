@@ -53,7 +53,6 @@ with user_login as (
 	where 
 		seq_num = 1
 	)
-
 select 
 	t1.`date`,
 	case when t2.`date` is null then 0 else t2.unique_user_count end as unique_user_count
@@ -63,5 +62,8 @@ select
 		(select `date`,count(*) as unique_user_count from user_login group by `date`) t2 
 	on t1.`date` = t2.`date`
 ;
+
+
+
 
 	

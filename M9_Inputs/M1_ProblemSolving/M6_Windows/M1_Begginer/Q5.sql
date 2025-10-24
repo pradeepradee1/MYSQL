@@ -1,7 +1,8 @@
 /*
 
 As a restaurant owner evaluating potential expansion, it’s essential to analyze customer spending trends over time. 
-Write an SQL query to calculate the 7-day moving average of customer payments, helping identify peak spending patterns and low-demand days. 
+Write an SQL query to calculate the 7-day moving average of customer payments, helping identify peak spending patterns 
+and low-demand days. 
 The average, average_amount, should be rounded to two decimal places for clarity.
 
 */
@@ -21,9 +22,9 @@ INSERT INTO daily_sales (sale_date, amount_paid) VALUES
 ('2024-10-07', 300.00),
 ('2024-10-08', 250.00);
 
-I’ve shared the explanation and query; however, I recommend trying to solve it on your own first. You can refer to the query afterward.
-
-𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧 
+/*I’ve shared the explanation and query; however, I recommend trying to solve it on your own first.
+You can refer to the query afterward.
+*/
 
 SELECT 
  sale_date,
