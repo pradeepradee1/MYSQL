@@ -68,11 +68,13 @@ Transactional DataBase Follows the ACID Properties :
 				For Example :  A is writing the query , B is reading the query and C is Writing the query
 							   A,B,C are not impacting with each other
 				
-		D   	=   	Durability 
+		D   =  Durability 
 					
 				Recover the data from failure occurs
+				Changes are presistent
 				holding the data in the logs
 				It is also called as Recovery Manager
+				
 				
 				
 Responsbility	:
