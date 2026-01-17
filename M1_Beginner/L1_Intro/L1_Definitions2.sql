@@ -97,7 +97,7 @@ Entity And Its Attributes :
 		Single Attributes			:	single value for a particular entity know as single-valued attributes
 		(Single Class)
 
-		Binary Attributes			:	single value for a particular entity know as single-valued attributes
+		Binary Attributes			:	Binary value for a particular entity know as Binary-valued attributes
 		(Binary Class)
 
 		Multi-Valued Attributes 	:	most Number of values allowed for each individual entity
