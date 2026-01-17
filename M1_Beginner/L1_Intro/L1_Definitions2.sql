@@ -87,8 +87,8 @@ DataModel :
 Entity And Its Attributes :
 
 
-		Simple or Atomic Attributes : 	Which are not divisiable are simply know as simple or atomic attributes 
-																					(housenumber,phone)	
+		Simple or Atomic Attributes : 	Cann't be divided into sub parts
+										It simply know as simple or atomic attributes (housenumber,phone)	
 
 		Composite Attributes		: 	Can be divided into sub parts (name - > firstname,secondname,lastname)
 		
