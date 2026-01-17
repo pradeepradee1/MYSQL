@@ -88,16 +88,20 @@ Entity And Its Attributes :
 
 
 		Simple or Atomic Attributes : 	Cann't be divided into sub parts
-										It simply know as simple or atomic attributes (housenumber,phone)	
+										It simply know as simple or atomic attributes 
+										Ex : housenumber,phone	
 
-		Composite Attributes		: 	Can be divided into sub parts (name - > firstname,secondname,lastname)
-		
+		Composite Attributes		: 	Can be divided into sub parts 
+										Ex : name - > firstname,secondname,lastname
 
+		Single Attributes			:	single value for a particular entity know as single-valued attributes
+		(Single Class)
 
-		Single(Single Class)		:	single value for a particular entity know as single-valued attributes
-		
-		Multi-Valued(multi Class) 	:	most Number of values allowed for each individual entity
+		Binary Attributes			:	single value for a particular entity know as single-valued attributes
+		(Binary Class)
 
+		Multi-Valued Attributes 	:	most Number of values allowed for each individual entity
+		(Multi Class)
 
 		Stored Attributes			:	Attributes which are already stored in the database(Birth_date)
 		 				
