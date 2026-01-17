@@ -94,20 +94,21 @@ Entity And Its Attributes :
 		Composite Attributes		: 	Can be divided into sub parts 
 										Ex : name - > firstname,secondname,lastname
 
-		Single Attributes			:	single value for a particular entity know as single-valued attributes
+		Single Attributes			:	the attribute contain the single value know as single-valued attributes
 		(Single Class)
 
-		Binary Attributes			:	Binary value for a particular entity know as Binary-valued attributes
+		Binary Attributes			:	the attribute contain the binary value know as Binary-valued attributes
 		(Binary Class)
 
-		Multi-Valued Attributes 	:	most Number of values allowed for each individual entity
+		Multi-Valued Attributes 	:	the attribute contain the most Number of values 
 		(Multi Class)
 
-		Stored Attributes			:	Attributes which are already stored in the database(Birth_date)
+		Stored Attributes			:	Attributes which are already stored in the database
+										Eg : (Birth_date)
 		 				
 
 		Derived	Attributes			:	Attributes which are derived from the real entities are known as derived attributes 
-																											(Age)
+										Eg : (Age)
 
 
 */
