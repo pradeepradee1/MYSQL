@@ -55,7 +55,7 @@ Types DBMS :
 # OLAP represents the DataWareHouse
 
 /*
-1) OLTP RDBMS	: Online Transactions Processing
+1) OLTP (RDBMS)	: Online Transactions Processing
 
 				It Store the structure data
 				It is suitable for handling the small volume of data
@@ -64,7 +64,7 @@ Types DBMS :
 				Data will be normalized form
 				It will care the ACID properties
 
-2) OLAP DWH     : OnLine Analtical Processing
+2) OLAP (DWH)   : OnLine Analtical Processing
 
 				It Store the structure data
 				It is suitable for handling the large volume of data
