@@ -1,7 +1,7 @@
 /*
 KEY CONSTRAINT :
 
-			These constraints check the individual values in to a column according to Business.
+			Check the individual values in a column
 
 1) UNIQUE :
 
@@ -18,7 +18,7 @@ KEY CONSTRAINT :
 					The Combination of not null and unique constraints		
 					It will not allow the Null and duplicate values 
 					Primary key is used to identify the unique record of a table
-					We can have only one primary key that is called as simple Primary key
+					We can have one primary key that is know as simple Primary key
 			
 			PRIMARY KEY has two types :
 			
