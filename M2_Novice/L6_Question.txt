@@ -1,4 +1,19 @@
-Diffrence Between Unique (constraint) and distinct keyword ?
+1) Difference between Primary Key and Foreign Key ?
+
+Primary Key :
+                
+                A table which contains primary key is considered as parent/Master/Base table.
+Foreign Key :
+                implement relationship between the two tables by using primary key of one table
+				nd we can have foriegn key in other table.
+
+				Foriegn key contains duplicates and null values also.
+
+				A table which contains foriegn key is known as child/Detailed/Derived table.
+
+
+
+1) Diffrence Between Unique (constraint) and distinct keyword ?
     Unique :
         Unique is keyword and constraint 
         Prevent the duplicate values from columns of table during the table creating 
