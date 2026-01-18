@@ -17,7 +17,10 @@ PK				: 	The Combination of not null and unique constraints
 					Example :
 						ID
 						
-FK				:   It Creates a relationship between any two tables
+FK				:	Create the relationship between the two tables by using primary key of one table
+					and we can have foriegn key in other table.				
+					Foriegn key contains duplicates and null values also.
+					
 					Example :
 						Deptid
 
