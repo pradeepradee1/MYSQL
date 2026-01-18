@@ -1,8 +1,13 @@
 1) Difference between Primary Key and Foreign Key ?
 
 Primary Key :
-                
+				Primary key is used to identify the unique record of a table
+
+                The Combination of not null and unique constraints						
+				It will not allow the Null and duplicate values 
+				
                 A table which contains primary key is considered as parent/Master/Base table.
+
 Foreign Key :
                 implement relationship between the two tables by using primary key of one table
 				nd we can have foriegn key in other table.
