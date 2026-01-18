@@ -14,10 +14,9 @@ KEY CONSTRAINT :
 			Ex: EmpNames, CustNames, .....
 
 3) PRIMARY KEY :
-
+					Primary key is used to identify the unique record of a table
 					The Combination of not null and unique constraints		
 					It will not allow the Null and duplicate values 
-					Primary key is used to identify the unique record of a table
 					We can have one primary key that is know as simple Primary key
 			
 			PRIMARY KEY has two types :
