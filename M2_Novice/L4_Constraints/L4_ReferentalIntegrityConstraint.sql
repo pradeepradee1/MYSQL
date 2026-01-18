@@ -1,7 +1,7 @@
 /*
 REFERENTIAL INTEGRITY CONSTRAINTS :
-									Used to implement PHYSICAL relationship between the tables by using primary key
-									of one table and we can define foriegn key in other table.
+									implement PHYSICAL relationship between the two tables by using primary key of one table
+									and we can have foriegn key in other table.
 									
 									Foriegn key contains duplicates and null values also.
 
