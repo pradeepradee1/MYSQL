@@ -1,7 +1,6 @@
 /*
 DOMAIN constraints:
-					It is used to define a valid range / valid list of values on a column by using the keyword
-					CHECK
+					Checking the valid range (or) list of values in a column
 					
 					CHECK Has two operators
 					
