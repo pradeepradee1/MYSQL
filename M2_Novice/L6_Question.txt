@@ -1,6 +1,7 @@
 1) Difference between Primary Key and Foreign Key ?
 
 Primary Key :
+				Objective :
 				Primary key is used to identify the unique record of a table
 
                 The Combination of not null and unique constraints						
@@ -9,6 +10,7 @@ Primary Key :
                 A table which contains primary key is considered as parent/Master/Base table.
 
 Foreign Key :
+				Objective :
                 implement relationship between the two tables by using primary key of one table
 				nd we can have foriegn key in other table.
 
