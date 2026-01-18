@@ -7,6 +7,7 @@ Keys				:
 					4)AK
 					5)Composite Key
 					6)Super Keys
+					7)Surrogate key
 
 
 PK				: 	The Combination of not null and unique constraints		
