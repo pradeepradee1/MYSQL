@@ -50,6 +50,8 @@ COMMENT='Last Update'
 ;
 
 #Constraints
+# 1) Key Constraint
+  
 #PrimaryKey
 CREATE or REPLACE  TABLE Person 
 (
@@ -79,6 +81,21 @@ InvoiceNum INT UNSIGNED NOT NULL,
 PRIMARY KEY (InvoiceNum, LineNum)
 );
 
+#2) Domain Constraint
+
+create or replace table stud_dtls
+(
+rno int(2) primary key,
+sname varchar(10)  not null ,
+course varchar(15)   not null ,
+fee int(5)  not null,
+mobile  char(10)  unique,
+constraint check (rno between 1 and 60),
+constraint check (course in('oracle','sql server','unix')),
+constraint check (fee between 5000 and 10000)
+);
+
+3) reference intergrtiy constraint
 
 #Foreign KEY 
 CREATE or REPLACE  TABLE Account (
