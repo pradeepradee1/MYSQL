@@ -1,0 +1,11 @@
+1) What is purpose of commit ?
+IT savea all changes made in the current transaction permanently in the database.
+
+
+2) What is purpose of ROLLBACK ?
+It undo changes made in the current transaction.
+
+
+3) What is purpose of SAVEPOINT ?
+It creates a checkpoint inside a transaction
+and allowing rollback to that specific point instead of the whole transaction.

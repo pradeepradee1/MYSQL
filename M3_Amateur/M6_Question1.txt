@@ -37,6 +37,3 @@ Delete		:
 
 3) Queries can’t be a rollback									3) Queries can be a rollback
 
-
-
-
