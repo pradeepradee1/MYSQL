@@ -16,6 +16,7 @@ Seat table:
 | 4 | Green |
 | 5 | Jeames |
 +----+---------+
+
 Output: 
 +----+---------+
 | id | student |
@@ -32,12 +33,12 @@ Output:
 /*
 Solution 1: Using Window functions & CASE (better readability) */
 
-CREATE TABLE Seat (
+CREATE or replace TABLE Temp (
     id INT,
     student VARCHAR(50)
 );
 
-INSERT INTO Seat VALUES
+INSERT INTO Temp VALUES
 (1, 'Abbot'),
 (2, 'Doris'),
 (3, 'Emerson'),
@@ -47,11 +48,11 @@ INSERT INTO Seat VALUES
 
 SELECT 
     CASE 
-        WHEN MOD(id, 2) = 1 AND id + 1 <= (SELECT MAX(id) FROM Seat) THEN id + 1
-        WHEN MOD(id, 2) = 0 THEN id - 1
-        ELSE id
+        WHEN MOD(id, 2) = 1 AND id + 1 <= (SELECT MAX(id) FROM Temp) THEN id + 1 
+        WHEN MOD(id, 2) = 0 THEN id - 1 
+        ELSE id 
     END AS id,
     student
-FROM Seat
+FROM Temp
 ORDER BY id;
 
