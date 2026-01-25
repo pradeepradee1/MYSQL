@@ -1,4 +1,26 @@
-1) Diffference Between Where and Having ?
+1) Is that like we have use same column used in group by and used in aggregate functions ?
+    Not exactly
+
+    *) Correct Query 
+    
+    SELECT region, SUM(amount)
+    FROM sales
+    GROUP BY region;
+
+    *) Wrong Query
+
+    SELECT region, product, SUM(amount)
+    FROM sales
+    GROUP BY region;
+
+    *) Correct Query 
+
+    SELECT region, product, SUM(amount)
+    FROM sales
+    GROUP BY region, product;
+
+
+2) Diffference Between Where and Having ?
 
 Where :
     Filter will be applied on Individual rows of table
@@ -10,25 +32,21 @@ Having :
     It will execute after grouping
 
 
-2) Difference between Order By and Group By ?
-
+3) Difference between Order By and Group By ?
 
 Group By :
     Groups the records for aggregation
     It required the aggregations functions
     number of rows in output is reduced 
-    It will be using after WHERE and before aggregate functions
-    all NULL values are treated as equal
+    It will be execute after WHERE and before aggregate functions
+    It will treat the all NULL values are equal
 
 Order BY :
     Sorts the records
     It doesn't required the aggregations functions
     number of rows in output is same as number of rows in input
-    It will be using end of the query
-    NULLs are treated as unknown / missing values
-
-
-
+    It will be execute end of the query
+    It will treated NULLs as unknown / missing values
 
 
 

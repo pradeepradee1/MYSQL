@@ -1,7 +1,7 @@
-create or replace table pPerson (Id int, Email varchar(255));
-insert into pPerson (Id, Email) values ('1', 'john@example.com');
-insert into pPerson (Id, Email) values ('2', 'bob@example.com');
-insert into pPerson (Id, Email) values ('3', 'john@example.com');
+create or replace table Temp  (Id int, Email varchar(255));
+insert into Temp (Id, Email) values ('1', 'john@example.com');
+insert into Temp (Id, Email) values ('2', 'bob@example.com');
+insert into Temp (Id, Email) values ('3', 'john@example.com');
 
 /*
 
@@ -10,7 +10,7 @@ Find the Duplicate records
 */
 
 
-select * from pPerson 
+select * from Temp 
 
 
 
@@ -18,7 +18,7 @@ select * from pPerson
 select 
 	* 
 from 
-	pPerson 
+	Temp 
 group by Email 
 having count(*) > 1
 
@@ -35,11 +35,11 @@ OP :
 
 
 */
-select * from pPerson
+select * from Temp
 
 
-delete from pPerson
-where Id not in (select min(Id) from pPerson group by Email)
+delete from Temp
+where Id not in (select min(Id) from Temp group by Email)
 
-select * from pPerson
+select * from Temp
 

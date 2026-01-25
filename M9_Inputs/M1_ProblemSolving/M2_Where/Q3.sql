@@ -13,7 +13,8 @@ CREATE or replace TABLE Temp (
     premium_upgrade_date DATE
 );
 
-INSERT INTO Temp (user_id, user_name, signup_date, premium_upgrade_date) 
+INSERT INTO Temp 
+(user_id, user_name, signup_date, premium_upgrade_date) 
 VALUES
 (1, 'Alice',  DATE '2025-10-01', DATE '2025-10-05'),   -- 4 days -> within 7
 (2, 'Bob',    DATE '2025-10-01', DATE '2025-10-10'),   -- 9 days -> NOT within 7
