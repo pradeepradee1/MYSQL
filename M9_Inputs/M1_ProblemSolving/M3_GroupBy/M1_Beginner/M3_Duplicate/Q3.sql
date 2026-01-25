@@ -12,6 +12,8 @@ Q : Count distinct users per day from a log table
 | 2        | 2025-03-02 |
 | 2        | 2025-03-02 |
 
+
+
 OP as 
 
 
