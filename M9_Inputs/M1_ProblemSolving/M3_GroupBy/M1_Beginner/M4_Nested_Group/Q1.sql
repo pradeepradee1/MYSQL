@@ -3,6 +3,25 @@
 #Calculate the total amount recived in cash and recived in online for each merchant
 
 
+
+CREATE TABLE `Temp` (
+  `trx_date` date DEFAULT NULL,
+  `merchant_id` varchar(10) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `payment_mode` varchar(10) DEFAULT NULL
+) 
+
+INSERT INTO Temp 
+(trx_date, merchant_id, amount, payment_mode) VALUES
+('2022-04-02', 'm1', 150, 'CASH'),
+('2022-04-02', 'm1', 500, 'ONLINE'),
+('2022-04-03', 'm2', 450, 'ONLINE'),
+('2022-04-03', 'm1', 100, 'CASH'),
+('2022-04-03', 'm3', 600, 'CASH'),
+('2022-04-05', 'm5', 200, 'ONLINE'),
+('2022-04-05', 'm2', 100, 'ONLINE');
+
+
 /*
 Output like this
 
@@ -15,13 +34,13 @@ For ex :
 
 */
 
-select * from transactions;
+select * from Temp;
 
 
 select 
     payment_mode,merchant_id,sum(amount)
 from 
-    transactions
+    Temp
 group by 
     payment_mode,merchant_id
 
@@ -31,7 +50,7 @@ select
     if (payment_mode = 'CASH'  , sum(amount),0) as cash_amount,
     if (payment_mode = 'ONLINE', sum(amount),0) as online_amount
 from 
-    transactions 
+    Temp 
 group by 
     merchant_id;
 
@@ -44,7 +63,7 @@ select
     sum(if (payment_mode = 'CASH'  , amount,0)) as cash_amount,
     sum(if (payment_mode = 'ONLINE', amount,0)) as online_amount
 from 
-    transactions 
+    Temp 
 group by 
     merchant_id;
 
@@ -55,7 +74,7 @@ select
     sum(case when payment_mode = 'CASH' then amount else 0 end) as cash_amount,
     sum(case when payment_mode = 'ONLINE' then amount else 0 end) as online_amount
 from 
-    transactions 
+    Temp 
 group by 
     merchant_id;
 
@@ -68,7 +87,7 @@ group by
 
 #Calculate the total amount recived in cash and recived in online for each merchant and each day
 
-select * from transactions1;
+select * from Temp;
 
 
 /*
@@ -92,5 +111,5 @@ select
     sum(if(payment_mode = 'CASH',amount,0)) as cashamount1,
     sum(if(payment_mode != 'CASH',amount,0)) as onlineamount1   
 from 
-    transactions1
+    Temp
 group by merchant_id , trx_date 

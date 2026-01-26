@@ -8,7 +8,7 @@
     GROUP BY region;
 
     *) Wrong Query
-
+    
     SELECT region, product, SUM(amount)
     FROM sales
     GROUP BY region;
@@ -37,16 +37,17 @@ Having :
 Group By :
     Groups the records for aggregation
     It required the aggregations functions
-    number of rows in output is reduced 
-    It will be execute after WHERE and before aggregate functions
     It will treat the all NULL values are equal
+    It will be execute after WHERE and before aggregate functions
+    number of rows in output is reduced 
 
 Order BY :
     Sorts the records
     It doesn't required the aggregations functions
-    number of rows in output is same as number of rows in input
-    It will be execute end of the query
     It will treated NULLs as unknown / missing values
+    It will be execute end of the query
+    number of rows in output is same as number of rows in input
+    
 
 
 

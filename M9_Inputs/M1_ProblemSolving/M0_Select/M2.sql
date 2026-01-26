@@ -36,7 +36,7 @@ COUNT(1) = 5
 /*
 COUNT(column_name)
 
-Count only the rows where column has some value (not NULL)
+It will count how many rows are in the table and it focus on the not NULL values
 It will excluded the NULL 
 
 Example:
