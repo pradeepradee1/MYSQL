@@ -1,4 +1,21 @@
-1) Is that like we have use same column used in group by and used in aggregate functions ?
+1) Can we use GROUP BY without aggregate functions?    
+    No
+
+    *)  Wrong  Query
+
+        SELECT dept
+        FROM emp
+        GROUP BY dept;
+
+    *)  Correct Query
+    
+        SELECT dept, COUNT(*) AS total_employees
+        FROM emp
+        GROUP BY dept;
+
+    
+
+2) Do we need to use same column used in group by and used in aggregate functions ?
     Not exactly
 
     *) Correct Query 
@@ -20,19 +37,21 @@
     GROUP BY region, product;
 
 
-2) Diffference Between Where and Having ?
 
+
+
+
+3) Diffference Between Where and Having ?
 Where :
     Filter will be applied on Individual rows of table
     It will execute before grouping
-
-
 Having :
     Filter will be applied on group records of table
     It will execute after grouping
 
 
-3) Difference between Order By and Group By ?
+
+4) Difference between Order By and Group By ?
 
 Group By :
     Groups the records for aggregation
@@ -50,5 +69,3 @@ Order BY :
     
 
 
-
-    
