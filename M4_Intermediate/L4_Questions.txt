@@ -1,13 +1,11 @@
 1) Can we use GROUP BY without aggregate functions?    
-    No
-
-    *)  Wrong  Query
+    Yes, but it works like DISTINCT.
 
         SELECT dept
         FROM emp
         GROUP BY dept;
 
-    *)  Correct Query
+    *)  Proper Query
     
         SELECT dept, COUNT(*) AS total_employees
         FROM emp
@@ -37,11 +35,26 @@
     GROUP BY region, product;
 
 
+3) Can we use columns in SELECT that are not in GROUP BY?
+    No
+
+    *) Wrong Query 
+
+    SELECT department, salary
+    FROM employees
+    GROUP BY department;
+
+    *) Correct Query 
+
+    SELECT department, AVG(salary)
+    FROM employees
+    GROUP BY department;
 
 
 
 
-3) Diffference Between Where and Having ?
+
+4) Diffference Between Where and Having ?
 Where :
     Filter will be applied on Individual rows of table
     It will execute before grouping
@@ -51,7 +64,7 @@ Having :
 
 
 
-4) Difference between Order By and Group By ?
+5) Difference between Order By and Group By ?
 
 Group By :
     Groups the records for aggregation

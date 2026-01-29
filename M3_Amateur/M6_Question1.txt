@@ -37,3 +37,14 @@ Delete		:
 
 3) Queries can’t be a rollback									3) Queries can be a rollback
 
+
+
+4) Can DDL be Rolled Back?
+
+    NO, because it auto-commits
+
+5) What is Auto-Commit?
+
+	Auto-commit means every statement is saved automatically.
+	DDL is auto-commit
+
