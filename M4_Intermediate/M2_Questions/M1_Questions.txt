@@ -55,6 +55,7 @@
 
 
 4) Diffference Between Where and Having ?
+
 Where :
     Filter will be applied on Individual rows of table
     It will execute before grouping
@@ -79,6 +80,28 @@ Order BY :
     It will treated NULLs as unknown / missing values
     It will be execute end of the query
     number of rows in output is same as number of rows in input
-    
+
+
+6) How the groupBy handle NULL values ?
+
+It will treat the all NULL values are equal
+
+IP 
+
+| dept_id | salary |
+| ------- | ------ |
+| 10      | 5000   |
+| 20      | 6000   |
+| NULL    | 4000   |
+| NULL    | 4500   |
+| 10      | 5500   |
+
+OP 
+
+| dept_id | emp_count |
+| ------- | --------- |
+| 10      | 2         |
+| 20      | 1         |
+| NULL    | 2         |
 
 
