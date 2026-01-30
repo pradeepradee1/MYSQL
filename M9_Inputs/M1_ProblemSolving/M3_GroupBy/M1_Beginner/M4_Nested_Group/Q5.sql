@@ -2,6 +2,7 @@
 
 
 Input Table:
+
 entity_id   | property  | value 
 ----------  |---------- |------- 
 1           | name      | Alice 
@@ -9,13 +10,32 @@ entity_id   | property  | value
 2           | name      | Bob 
 2           | age       | 28 
 
+
+
 Expected Output:
+
 entity_id | name | age 
 ----------|-------|----- 
 1 | Alice | 30 
 2 | Bob | 28 
 
 */
+
+
+CREATE or replace TABLE Temp (
+    entity_id INT,
+    property VARCHAR(50),
+    value VARCHAR(50)
+);
+
+INSERT INTO Temp (entity_id, property, value)
+VALUES
+(1, 'name', 'Alice'),
+(1, 'age', '30'),
+(2, 'name', 'Bob'),
+(2, 'age', '28');
+
+
 
 
 SELECT 
