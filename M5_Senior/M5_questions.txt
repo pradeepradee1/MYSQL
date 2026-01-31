@@ -1,4 +1,6 @@
 
+1) Difference between Set and Join 
+
 			Set                                             Join
 It combines two or more SELECT statements			It combines  many tables       	
 It combines data into new rows or records           It combines data into new columns

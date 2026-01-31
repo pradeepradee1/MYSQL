@@ -1,7 +1,7 @@
 /*
-Inner Join 
-1) Combine the two or more table. 
-2) Return only matching records from all tables.
+Inner Join :
+            It Combine the two or more table. 
+            It Return only matching records from all tables.
 
 */
 use mydb;

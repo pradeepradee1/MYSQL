@@ -7,32 +7,41 @@ s1={a,b,c,d}
 s2={x,y,z,c,b}
 
 #Definitions :
+/*
 
 # Union 
 
-# 1) Combine the two or more SELECT statements. 
-# 2) Duplicate records will not be there
+*) Combine the two or more SELECT statements. 
+*) Duplicate records will not be there
 
 {a,b,c,d,x,y,z}
 
 # UnionAll
 
-# 1) Combine the two or more SELECT statements. 
-# 2) Duplicate records will be there
+*) Combine the two or more SELECT statements. 
+*) Duplicate records will be there
   
 {a,b,c,d,x,y,z,c,b}
 
 #InterSection
 
-# 1) Combine the two or more SELECT statements. 
-# 2) It will give you the common records
+*) Combine the two or more SELECT statements. 
+*) It will give you the common records
   
 {c,b}
 
 #Minus
+
+*) Combine the two or more SELECT statements. 
+*) It will give you the difference records
+
+
+
 {a,d}
+
 # Note : Minus Operator Not Supported in MYSQL
 
+*/
 
 
 select * from CUST_BR1

@@ -1,8 +1,8 @@
 /*
 Equi Join :
 
-					A Equi join is known as Inner join , if we specify join condition using '=' operator.
-					Return only matching records from all tables.
+			It Combine the two or more table and  we specify '=' operator in where clause
+			It Return only matching records from all tables.
 */
 
 

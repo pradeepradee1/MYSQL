@@ -1,6 +1,8 @@
 /* 
 
-Returns rows from the left table where no match exists in the right table
+Anti Join :
+            
+            Returns rows from the left table where no match exists in the right table
 
 
 */

@@ -1,16 +1,18 @@
 /*
-Merge Statement : Not Supported in MYSQL
+Merge Statement :
 
 It also known as "upsert" 
-It is used to perform update,insert, or delete operations in a single statement
+It will perform update, insert, or delete operations in a single statement
 
-#Note
-Explain the merge statement
+Explain the merge statement ?
 
 Merging the target table using source table with equi join conditions
 when matched then update statement will execute
 when not matched then insert statment will execute
-					
+
+Note : 
+        Not Supported in MYSQL
+
 */
 
 use mydb;

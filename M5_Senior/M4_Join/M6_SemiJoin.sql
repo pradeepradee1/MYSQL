@@ -1,6 +1,7 @@
 /* 
+Semi Join :
 
-Returns rows from the left table where a match exists in the right table.
+            Returns rows from the left table where a match exists in the right table.
 
 */
 

@@ -1,6 +1,7 @@
 /*
 
-Self Join
+Self Join 
+            A table joins with itself.
 
 */
 
