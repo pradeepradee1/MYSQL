@@ -1,14 +1,15 @@
 /*
 
 From the purchase history, find users who bought at least one ‘Shirt’ AND one ‘Pant’.
+
 */
 
-CREATE TABLE purchases (
+CREATE or replace TABLE Temp (
  user_id INT,
  product_name VARCHAR(100)
 );
 
-INSERT INTO purchases VALUES
+INSERT INTO Temp VALUES
 (1, 'Shirt'),
 (1, 'Pant'),
 (1, 'Shoes'),
@@ -17,6 +18,8 @@ INSERT INTO purchases VALUES
 (4, 'Pant'),
 (4, 'Shirt'),
 (5, 'Shoes');
+
+select * from Temp 
 
 SELECT user_id
 FROM purchases
