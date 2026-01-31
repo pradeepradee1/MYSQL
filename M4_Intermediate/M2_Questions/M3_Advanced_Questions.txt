@@ -1,0 +1,30 @@
+1) What ROLLUP Does ?
+
+ROLLUP adds:
+
+*) Subtotal per department
+*) Grand total (all departments)
+
+
+2) What CUBE Does ?
+
+CUBE gives:
+
+*) By department + gender
+*) By department only
+*) By gender only
+*) Grand total
+
+
+3) Difference between ROLLUP and CUBE ?
+
+| Feature     | ROLLUP           | CUBE             |
+| ----------- | ---------------- | ---------------- |
+| Subtotals   | Hierarchical     | All combinations |
+| Complexity  | Simple           | More rows        |
+| Performance | Faster           | Slower           |
+| Use Case    | Reports by level | Analytics        |
+
+
+ROLLUP = Top → Down totals
+CUBE = Every possible total

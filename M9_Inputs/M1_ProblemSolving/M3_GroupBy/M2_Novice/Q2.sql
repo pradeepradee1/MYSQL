@@ -1,38 +1,131 @@
 /*
+    Flattening and Unflattening Rows
 
-𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐒𝐭𝐚𝐭𝐞𝐦𝐞𝐧𝐭
-You’re given a database of call records for a telecom company. Each record contains information on a call, 
-including the caller, receiver, and call time. Your task is to write a query that returns the number of calls between 
-each unique pair of individuals (both directions counted as one).
+
+StudentID   StudentName     CourseName
+1           Alice           Math
+1           Alice           Science
+1           Alice           English
+2           Bob             Math
+2           Bob             History
+3           Charlie         Science
+
+Output :
+
+StudentId   StudentName     Courses
+1           Alice           Math, Science, English
+2           Bob             Math, History
+3           Charlie         Science
 
 
 */
 
-CREATE TABLE calls (
- call_id INT PRIMARY KEY,
- caller_id INT,
- receiver_id INT,
- call_timestamp TIMESTAMP
+CREATE TABLE student_courses (
+    StudentID INT,
+    StudentName VARCHAR(50),
+    CourseName VARCHAR(50)
 );
 
-INSERT INTO calls (call_id, caller_id, receiver_id, call_timestamp) VALUES
-(1, 101, 102, '2024-10-01 08:00:00'),
-(2, 102, 101, '2024-10-01 08:05:00'),
-(3, 101, 103, '2024-10-01 09:00:00'),
-(4, 102, 103, '2024-10-01 09:30:00'),
-(5, 101, 102, '2024-10-01 10:00:00');
+
+INSERT INTO student_courses (StudentID, StudentName, CourseName) VALUES
+(1, 'Alice', 'Math'),
+(1, 'Alice', 'Science'),
+(1, 'Alice', 'English'),
+(2, 'Bob', 'Math'),
+(2, 'Bob', 'History'),
+(3, 'Charlie', 'Science');
+
+
+SELECT
+    StudentID,
+    StudentName,
+    GROUP_CONCAT(CourseName ORDER BY CourseName SEPARATOR ', ') AS Courses
+FROM
+    student_courses
+GROUP BY
+    StudentID, StudentName
+ORDER BY
+    StudentID;
+
+
+/*
+
+Input : (Reverse the Process)
+
+StudentId   StudentName Courses
+3           Charlie     Science
+1           Alice       Math, Science, English
+2           Bob         Math, History
+
+
+Output  :
+
+StudentID   StudentName     CourseName
+1           Alice           Math
+1           Alice           Science
+1           Alice           English
+2           Bob             Math
+2           Bob             History
+3           Charlie         Science
+
+
+*/
+CREATE TABLE student_courses_combined (
+    StudentID INT,
+    StudentName VARCHAR(50),
+    Courses VARCHAR(255)
+);
+
+
+
+INSERT INTO student_courses_combined (StudentID, StudentName, Courses) VALUES
+(3, 'Charlie', 'Science'),
+(1, 'Alice', 'Math, Science, English'),
+(2, 'Bob', 'Math, History');
+
 
 
 SELECT 
- LEAST(caller_id, receiver_id) AS person1,
- GREATEST(caller_id, receiver_id) AS person2,
- COUNT(*) AS call_count
+    StudentID,
+    StudentName,
+    TRIM(course) AS CourseName
 FROM 
- calls
-GROUP BY 
- LEAST(caller_id, receiver_id), 
- GREATEST(caller_id, receiver_id)
+    student_courses_combined,
+    JSON_TABLE(CONCAT('["', REPLACE(Courses, ', ' , '","'), '"]'),"$[*]" COLUMNS (course VARCHAR(50) PATH "$")) AS jt
 ORDER BY 
- person1, person2;
+    StudentID;
+
+/*
+
+Explanation : 
+
+"$[*]" COLUMNS (course VARCHAR(50) PATH "$") 
+
+It is inside:
+
+JSON_TABLE(json_data, json_path COLUMNS (...))
+
+How to read JSON and convert it into rows and columns.
+
+"$[*]" 
+
+This is a JSON Path expression. “Go to the root $ and take all elements inside the array.”
+
+| Symbol | Meaning               |
+| ------ | --------------------- |
+| `$`    | Root of JSON document |
+| `[*]`  | All elements in array |
 
 
+COLUMNS (course VARCHAR(50) PATH "$")
+
+Means:
+
+Create a column named course
+
+Data type: VARCHAR(50)
+
+Take its value from JSON path $
+
+
+*/
