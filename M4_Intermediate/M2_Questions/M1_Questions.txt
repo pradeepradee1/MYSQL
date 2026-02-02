@@ -1,4 +1,5 @@
 1) Can we use GROUP BY without aggregate functions?    
+
     Yes, but it works like DISTINCT.
 
         SELECT dept
@@ -43,6 +44,12 @@
     SELECT department, salary
     FROM employees
     GROUP BY department;
+
+    *) Correct Query 
+
+    SELECT department, salary , count(*)
+    FROM employees
+    GROUP BY department,salary;
 
     *) Correct Query 
 

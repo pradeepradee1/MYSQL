@@ -10,7 +10,7 @@ ROLLUP adds:
 
 CUBE gives:
 
-*) Every Pssible total and All combinations 
+*) Every Possible total and All combinations 
    Ex :
     By department + gender
     By department only

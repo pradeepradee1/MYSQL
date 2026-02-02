@@ -1,7 +1,8 @@
 /*
 Equi Join :
 
-			It Combine the two or more table and  we specify '=' operator in where clause
+			It Combine the two or more table 
+			we specify '=' operator in where clause
 			It Return only matching records from all tables.
 */
 
