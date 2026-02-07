@@ -21,8 +21,11 @@ INSERT INTO Temp VALUES
 
 select * from Temp 
 
-SELECT user_id
-FROM purchases
+SELECT
+    user_id
+FROM 
+    purchases
 WHERE product_name IN ('Shirt', 'Pant')
-GROUP BY user_id
+GROUP BY 
+    user_id
 HAVING COUNT(DISTINCT product_name) = 2;

@@ -14,7 +14,7 @@ select * from Temp1
 select * from Temp2
 
 /*
-	
+
 #Questions : Get Customer id from customer table that bought all the product in the product table
 # For Ex   :
 #				1 and 3 bought all the prodycts
