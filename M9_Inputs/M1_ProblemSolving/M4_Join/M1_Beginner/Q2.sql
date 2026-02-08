@@ -60,6 +60,25 @@ inner join problemsolving2_table2 pt2 on pt1.colA <=> pt2.colB
 
 #Approach 2
 
+/* FULL OUTER JOIN equivalent in MySQL */
+
+SELECT t1.colA AS TableA, t2.colB AS TableB
+FROM problemsolving2_table1 t1
+LEFT JOIN problemsolving2_table2 t2
+    ON t1.colA = t2.colB
+
+UNION ALL
+
+SELECT t1.colA AS TableA, t2.colB AS TableB
+FROM problemsolving2_table1 t1
+RIGHT JOIN problemsolving2_table2 t2
+    ON t1.colA = t2.colB
+WHERE t1.colA IS NULL;
+
+
+
+#Approach 3
+
 select 
 	*
 from 

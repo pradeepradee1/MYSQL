@@ -20,7 +20,7 @@ Our Task: Our task is to get the mismatched records from both tables and print t
 
 
 Note :
-       🚫 ❌ You’re not allowed to use ANY kind of JOIN.
+       You’re not allowed to use ANY kind of JOIN.
 
 */
 

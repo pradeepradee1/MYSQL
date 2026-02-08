@@ -1,5 +1,6 @@
-//*
-Q:
+/*
+Questions: Remove The Duplicate Entry in mirror side
+
 
 			1	2
 			3	2
@@ -8,9 +9,8 @@ Q:
 			5	6
 			4	2
 
-Remove The Duplicate Entry in mirror side
 
-Output should be like 
+Output :
 
 			1	2
 			3	2
@@ -21,16 +21,32 @@ Output should be like
 
 */
 
+CREATE or replace TABLE Temp (
+    col1 INT,
+    col2 INT
+);
 
-select * from problemsolving1
+
+INSERT INTO Temp (col1, col2) 
+VALUES
+(1, 2),
+(3, 2),
+(2, 4),
+(2, 1),
+(5, 6),
+(4, 2);
+
+
+
+select * from Temp
 
 #Approach1
 
 select 
 *
 from 
-problemsolving1 p1 
-left join problemsolving1 p2
+Temp p1 
+left join Temp p2
 on p1.a = p2.b and  p1.b = p2.a
 
 select 

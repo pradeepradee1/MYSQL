@@ -1,7 +1,11 @@
 
-# Questions : get all unique pairs of teams from a single-column table
 
 /*
+
+Questions : get all unique pairs of teams from a single-column table
+
+
+Input :
 
 col1 
 ----- 
@@ -10,16 +14,17 @@ CSK
 MI 
 PBKS
 
+
 Expected Output:
 
-team1 team2
+team1   team2
 
-RCB CSK
-RCB MI
-RCB PBKS
-CSK MI
-CSK PBKS
-MI PBKS
+RCB     CSK
+RCB     MI
+RCB     PBKS
+CSK     MI
+CSK     PBKS
+MI      PBKS
 
 */
 

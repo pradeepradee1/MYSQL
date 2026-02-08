@@ -1,50 +1,63 @@
-Create table If Not Exists Accountssp (account_id int, income int);
+/*
 
-insert into Accountssp (account_id, income) values ('3', '108939');
-insert into Accountssp (account_id, income) values ('2', '12747');
-insert into Accountssp (account_id, income) values ('8', '87709');
-insert into Accountssp (account_id, income) values ('6', '91796');
+Full outer join in MySQL
 
-select * from Accountssp
+	Table A 			Table B
+		1 				  NULL					
+		2  					2
+		1 					5
+		5 					5
+	   NULL
+	   NULL
+
+
+	Output should be
+
+		2          2
+		5 		   5
+		5          5
+	   NULL       NULL
+	   NULL       NULL
+*/
 
 /*
-OutPut:
-		LowSalary		1
-		AverageSalary	0
-		HighSalary		3
+create table problemsolving2_table1
+(
+colA tinyint
+)
+
+insert into problemsolving2_table1
+values(1),(2),(1),(5),(Null),(Null)
+
+
+
+create table problemsolving2_table2
+(
+colB tinyint
+)
+
+insert into problemsolving2_table2
+values (Null),(2),(5),(5)
 
 */
 
-
-#Approach 1:
-
-select 'LowSalary' as category , count(*) as Accountssp from Accountssp where income < 20000
-union 
-select 'AverageSalary' as category , count(*) as Accountssp from Accountssp where income > 20000 and income <=50000
-union
-select 'HighSalary' as category , count(*) as Accountssp from Accountssp where income >=50000
+select * from problemsolving2_table1;
+select * from problemsolving2_table2;
 
 
-#Approach 2 :
-#				Here Query failed becasue AverageSalary sal is not in core table (a)
+#Approach 1
 
+/* FULL OUTER JOIN equivalent in MySQL */
 
-select
-*
-from 
-(select 
-	*,
-	CASE 
-		when income between 0 and 20000 THEN "LowSal"
-		when income between 20000 and 50000 THEN "AverageSalary"
-		else "HighSal"
-	END as Salarydesc
-from 
-	Accountssp
-) a
-group by a.Salarydesc
+SELECT t1.colA AS TableA, t2.colB AS TableB
+FROM problemsolving2_table1 t1
+LEFT JOIN problemsolving2_table2 t2
+    ON t1.colA = t2.colB
 
+UNION ALL
 
-
-
-
+SELECT t1.colA AS TableA, t2.colB AS TableB
+FROM problemsolving2_table1 t1
+RIGHT JOIN problemsolving2_table2 t2
+    ON t1.colA = t2.colB
+WHERE t1.colA IS NULL;

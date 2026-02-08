@@ -1,4 +1,29 @@
-select * from problemsolving2_table1;
+/*
+Questions :
+
+INNER / LEFT / FULL OUTER join equivalents in MySQL ?
+
+
+*/
+
+
+CREATE or replace TABLE temp1 (
+    colA TINYINT(4) DEFAULT NULL
+) 
+
+INSERT INTO temp1 (colA) 
+VALUES
+(1),
+(2),
+(1),
+(5),
+(NULL),
+(NULL);
+
+
+
+select * from temp1;
+
 
 /*
 
@@ -14,7 +39,19 @@ NULL
 
 */
 
-select * from problemsolving2_table2;
+CREATE TABLE temp2 (
+    colB TINYINT(4) DEFAULT NULL
+) 
+
+INSERT INTO temp2 (colB) 
+VALUES
+(NULL),
+(2),
+(5),
+(5);
+
+
+SELECT * FROM temp2;
 
 /*
 

@@ -28,17 +28,39 @@ VALUES
 (9, 'Mikaela', NULL, 50937),
 (11, 'Joziah', 6, 28485);
 
+/*
+Input :
+
+| employee_id | name      | manager_id | salary |
+| ----------- | --------- | ---------- | ------ |
+| 3           | Mila      | 9          | 60301  |
+| 12          | Antonella | NULL       | 31000  |
+| 13          | Emery     | NULL       | 67084  |
+| 1           | Kalel     | 11         | 21241  |
+| 9           | Mikaela   | NULL       | 50937  |
+| 11          | Joziah    | 6          | 28485  |
+
+Excepected Output :
+
+| employee_id | name   | manager_id | salary |
+| ----------- | ------ | ---------- | ------ |
+| 1           | Kalel  | 11         | 21241  |
+| 11          | Joziah | 6          | 28485  |
+
+
+*/
 
 /*
 Solution 1: Self LEFT JOIN
 */
 
-SELECT e.employee_id
-FROM Employees e
-LEFT JOIN Employees m ON e.manager_id = m.employee_id
-WHERE e.salary < 30000
- AND m.employee_id IS NULL
- AND e.manager_id IS NOT NULL
+SELECT 
+    e.employee_id
+FROM 
+    Employees e
+LEFT JOIN Employees m 
+    ON e.manager_id = m.employee_id
+WHERE e.salary < 30000 AND m.employee_id IS NULL AND e.manager_id IS NOT NULL
 ORDER BY e.employee_id;
 
 

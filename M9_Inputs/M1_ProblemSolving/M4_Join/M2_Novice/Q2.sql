@@ -7,7 +7,7 @@ broken down by each day of the week. Here’s a solution that structures each da
 
 */
 
-#Create the Items table
+
 
 CREATE TABLE Items1 (
  item_id INT,
@@ -40,6 +40,39 @@ INSERT INTO Orders1 (order_id, item_id, order_date, quantity) VALUES
 (8, 2, '2024-10-02', 18),
 (9, 1, '2024-10-05', 30),
 (10, 3, '2024-10-01', 7);
+
+/*
+
+Input :
+
+item_id     item_category
+    1	       Electronics 
+    2	       Clothing
+    3	       Books
+
+Input :
+order_id    item_id     order_date  quantity
+    1	        1	    2024-10-01	    10
+    2	        1	    2024-10-02	    15
+    3	        2	    2024-10-01	    20
+    4   	    2	    2024-10-04	    25
+    5	        1	    2024-10-01	    5
+    6	        3	    2024-10-03	    8
+    7	        3	    2024-10-02	    12
+    8	        2	    2024-10-02	    18
+    9	        1	    2024-10-05	    30
+    10	        3	    2024-10-01	    7
+
+Output :
+
+item_category | Mon | Tue | Wed | Thu | Fri | Sat | Sun
+--------------+-----+-----+-----+-----+-----+-----+-----
+Books         |  7  | 12  |  8  |  0  |  0  |  0  |  0
+Clothing      | 20  | 18  |  0  | 25  |  0  |  0  |  0
+Electronics   | 15  | 15  |  0  |  0  |  0  | 30  |  0
+
+
+*/
 
 
 SELECT 

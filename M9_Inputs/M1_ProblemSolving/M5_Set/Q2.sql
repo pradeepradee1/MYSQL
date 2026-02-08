@@ -1,126 +1,50 @@
+Create table If Not Exists Accountssp (account_id int, income int);
+
+insert into Accountssp (account_id, income) values ('3', '108939');
+insert into Accountssp (account_id, income) values ('2', '12747');
+insert into Accountssp (account_id, income) values ('8', '87709');
+insert into Accountssp (account_id, income) values ('6', '91796');
+
+select * from Accountssp
+
 /*
-
-Movie Rating. 
-
-Input: 
-
-Movies table:
-+-------------+--------------+
-| movie_id | title |
-+-------------+--------------+
-| 1 | Avengers |
-| 2 | Frozen 2 |
-| 3 | Joker |
-+-------------+--------------+
-
-Users table:
-+-------------+--------------+
-| user_id | name |
-+-------------+--------------+
-| 1 | Daniel |
-| 2 | Monica |
-| 3 | Maria |
-| 4 | James |
-+-------------+--------------+
-
-
-MovieRating table:
-+-------------+--------------+--------------+-------------+
-| movie_id | user_id | rating | created_at |
-+-------------+--------------+--------------+-------------+
-| 1 | 1 | 3 | 2020-01-12 |
-| 1 | 2 | 4 | 2020-02-11 |
-| 1 | 3 | 2 | 2020-02-12 |
-| 1 | 4 | 1 | 2020-01-01 |
-| 2 | 1 | 5 | 2020-02-17 | 
-| 2 | 2 | 2 | 2020-02-01 | 
-| 2 | 3 | 2 | 2020-03-01 |
-| 3 | 1 | 3 | 2020-02-22 | 
-| 3 | 2 | 4 | 2020-02-25 | 
-+-------------+--------------+--------------+-------------+
-
-Output: 
-+--------------+
-| results |
-+--------------+
-| Daniel |
-| Frozen 2 |
-+--------------+
-
+OutPut:
+		LowSalary		1
+		AverageSalary	0
+		HighSalary		3
 
 */
 
 
-/*
+#Approach 1:
+
+select 'LowSalary' as category , count(*) as Accountssp from Accountssp where income < 20000
+union 
+select 'AverageSalary' as category , count(*) as Accountssp from Accountssp where income > 20000 and income <=50000
+union
+select 'HighSalary' as category , count(*) as Accountssp from Accountssp where income >=50000
 
 
--- Create Movies table
-CREATE TABLE Movies (
-    movie_id INT PRIMARY KEY,
-    title VARCHAR(100)
-);
-
--- Insert data into Movies
-INSERT INTO Movies (movie_id, title) VALUES
-(1, 'Avengers'),
-(2, 'Frozen 2'),
-(3, 'Joker');
+#Approach 2 :
+#				Here Query failed becasue AverageSalary sal is not in core table (a)
 
 
--- Create Users table
-CREATE TABLE Users (
-    user_id INT PRIMARY KEY,
-    name VARCHAR(100)
-);
-
--- Insert data into Users
-INSERT INTO Users (user_id, name) VALUES
-(1, 'Daniel'),
-(2, 'Monica'),
-(3, 'Maria'),
-(4, 'James');
-
-
--- Create MovieRating table
-CREATE TABLE MovieRating (
-    movie_id INT,
-    user_id INT,
-    rating INT,
-    created_at DATE,
-    FOREIGN KEY (movie_id) REFERENCES Movies(movie_id),
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
-);
-
--- Insert data into MovieRating
-INSERT INTO MovieRating (movie_id, user_id, rating, created_at) VALUES
-(1, 1, 3, '2020-01-12'),
-(1, 2, 4, '2020-02-11'),
-(1, 3, 2, '2020-02-12'),
-(1, 4, 1, '2020-01-01'),
-(2, 1, 5, '2020-02-17'),
-(2, 2, 2, '2020-02-01'),
-(2, 3, 2, '2020-03-01'),
-(3, 1, 3, '2020-02-22'),
-(3, 2, 4, '2020-02-25');
+select
+*
+from 
+(select 
+	*,
+	CASE 
+		when income between 0 and 20000 THEN "LowSal"
+		when income between 20000 and 50000 THEN "AverageSalary"
+		else "HighSal"
+	END as Salarydesc
+from 
+	Accountssp
+) a
+group by a.Salarydesc
 
 
-*/
 
 
-(
-    SELECT name AS results
-    FROM Users u
-    JOIN MovieRating mr ON u.user_id = mr.user_id
-    GROUP BY u.user_id, u.name
-    ORDER BY COUNT(mr.movie_id) DESC, u.name
-    FETCH FIRST 1 ROWS ONLY
-)
-UNION ALL
-(
-    SELECT title AS results
-    FROM Movies m
-    JOIN MovieRating mr ON m.movie_id = mr.movie_id
-    GROUP BY m.movie_id, m.title
-    ORDER BY AVG(mr.rating) DESC, m.title
-    FETCH FIRST 1 ROWS ONLY
-);
+
