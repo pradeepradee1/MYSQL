@@ -21,7 +21,7 @@ Types Of DataBase	:
 								
 2)	NOSQL DataBase		:	
 						1) 	Stores data in Columner,key-value,Graph,document form
-						2)      It is scalable system and Horizontal Scalable and Scale Out approach
+						2)  It is scalable system and Horizontal Scalable and Scale Out approach
 						3)	Not Consistent as like RDBMS
 						4)	Highly available
 3)	Vector DataBase 

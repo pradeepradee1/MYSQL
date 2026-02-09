@@ -18,6 +18,7 @@ Distinct for two attributes
 SELECT DISTINCT name , price FROM car 
 
 
+/*
 
 # Note : We can't do like this 
 
@@ -25,3 +26,5 @@ select
 	*,
 	DISTINCT parent 
 from tree
+
+*/

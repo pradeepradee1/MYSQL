@@ -1,2 +1,4 @@
-1) How will dump the data ?
-2) How will load the data into table ?
+1) How will dump with data ?
+2) How will dump without data ?
+3) How will import the data into table ?
+4) How will export the data into table ?
