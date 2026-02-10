@@ -23,6 +23,6 @@ Difference Between Normalization and DeNormalization
 
 6) 	It is suit for OLTP and It is optimized for the quick access and Data is frequently used for insert, update, and delete
 	
-	It is suit for OLAP and It Optimized for the complex analytical queries on historical data and Data is frequently used for retrieval 
+	It is suit for OLAP and It Optimized for analysis the complex  queries on historical data and Data is frequently used for retrieval 
 
 */

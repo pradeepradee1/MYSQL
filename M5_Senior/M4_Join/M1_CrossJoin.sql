@@ -16,7 +16,15 @@ eid,ename,sal,dname
 from emp 
 cross join dept;
 
+
 #2)
+select
+eid,ename,sal,dname 
+from emp 
+join dept;
+
+
+#3)
 select
 eid,ename,sal,dname 
 from emp,dept;

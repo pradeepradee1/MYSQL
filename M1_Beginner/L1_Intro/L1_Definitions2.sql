@@ -68,7 +68,7 @@ Types DBMS :
 
 				It Store the structure data
 				It is suitable for handling the large volume of data
-				It Optimized for the complex analytical queries on historical data
+				It Optimized for analysis the complex queries on historical data
 				Data is frequently used for retrieval (DQL)
 				Data will be De-normalized form
 				It will not care about the ACID properties

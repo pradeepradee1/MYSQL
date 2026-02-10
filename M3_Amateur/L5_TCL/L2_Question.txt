@@ -1,5 +1,5 @@
 1) What is purpose of commit ?
-IT savea all changes made in the current transaction permanently in the database.
+IT saves all changes made in the current transaction permanently in the database.
 
 
 2) What is purpose of ROLLBACK ?

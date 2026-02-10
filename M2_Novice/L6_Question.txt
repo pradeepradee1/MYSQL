@@ -20,7 +20,7 @@ Foreign Key :
 
 
 
-1) Diffrence Between Unique (constraint) and distinct keyword ?
+2) Diffrence Between Unique (constraint) and distinct keyword ?
     Unique :
         Unique is keyword and constraint 
         Prevent the duplicate values from columns of table during the table creating 

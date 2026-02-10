@@ -39,12 +39,16 @@ Delete		:
 
 
 
-4) Can DDL be Rolled Back?
+4) What is  ROLLBACK ?
+	It undo changes made in the current transaction.
 
+
+
+5) Can DDL be Rolled Back?
     NO, because it auto-commits
 
-5) What is Auto-Commit?
 
+6) What is Auto-Commit?
 	Auto-commit means every statement is saved automatically.
 	DDL is auto-commit
 
