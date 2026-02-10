@@ -72,7 +72,7 @@ Having :
 
 
 
-5) Difference between Order By and Group By ?
+5) Difference between Group By and Order By ?
 
 Group By :
     Groups the records for aggregation
