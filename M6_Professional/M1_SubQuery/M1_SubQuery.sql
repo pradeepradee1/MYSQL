@@ -2,7 +2,7 @@
 Sub Query	:
 				A query inside another query 
 				It runs independently
-				Runs once and gives a result to the outer query
+				It Runs once and gives a result to the outer query
 
 
 
