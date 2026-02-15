@@ -1,7 +1,7 @@
 /*
 	InLine View Or Inline SubQuery :
 
-			An inline subquery will be using in the SELECT statement in the FROM-clause of another SELECT statement.
+			It will be using in the SELECT statement in the FROM-clause of another SELECT statement.
 			It used to simplify complex queries by removing join operations.
 
 
