@@ -1,9 +1,8 @@
 /*
 	InLine View Or Inline SubQuery :
 
-			An inline subquery (or) view  is a SELECT statement in the FROM-clause of another SELECT statement.
-			In-line views are commonly used to simplify complex queries by removing join operations
-			and condensing several separate queries into a single query.
+			An inline subquery will be using in the SELECT statement in the FROM-clause of another SELECT statement.
+			It used to simplify complex queries by removing join operations.
 
 
 
