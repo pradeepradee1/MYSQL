@@ -1,7 +1,7 @@
 /*
 	Sequences : 
 				It is a data base object.
-				It is identify the unique records of the table
+				It is used identify the unique interger records of the table
 
 */
 
