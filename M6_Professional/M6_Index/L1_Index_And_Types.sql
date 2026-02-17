@@ -1,7 +1,7 @@
 /*
 Index : 
 		Index is a database object
-		It optimize the performance while retrieve the data from table
+		It optimize the performance while retrieve the data from table (read performance)
 		Index work like index in books
 		It locate records quickly without scanning the entire table
 		Most indexes use a B-tree structure and used in filtering, joining, and sorting.

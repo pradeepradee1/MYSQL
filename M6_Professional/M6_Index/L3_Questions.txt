@@ -25,4 +25,62 @@ A clustered index defines the physical order of rows in a table.
 A table can only be stored in one physical order at a time.
 Therefore, only one clustered index per table is allowed.
 
-3) 
+
+3) What is index scan vs index seek?
+Index Seek (Efficient)
+    The database directly navigates the index to find matching rows.
+    Works like using the table of contents in a book.
+    Uses the B-Tree structure to jump to the exact location
+    Very fast (O(log n))
+
+Index Scan (Less Efficient)
+    The database reads all or most of the index pages to find matching rows.
+    Works like reading the entire table of contents page by page
+
+4) What is B-Tree index?
+        It is a type of index structure used by most databases (SQL Server, MySQL, Oracle, PostgreSQL) 
+to store and search data efficiently.
+        It organizes the data in a tree structure, which allows the database to quickly find 
+rows without scanning the entire table.
+
+5) What is cardinality?
+        It refers to the number of distinct values in a column or the uniqueness of data.
+    
+6) What happens when you index low-cardinality column?
+        Indexing such columns may not improve performance much and sometimes can even hurt performance
+
+7) Why Indexing Low-Cardinality Columns Can Be Inefficient ?
+        Such columns have few distinct values, so many rows match the same value. 
+This leads to poor selectivity, and queries may still need to scan a large portion of the table
+making the index less effective
+
+8) When should you not use index?
+        You should avoid indexing when the table is small, the column has low cardinality, 
+the column is frequently updated, the queries are not selective and return most rows, or 
+the table is temporary. 
+        Indexes improve read performance but add storage overhead and slow down write operations
+
+9) What is index fragmentation?
+        Index fragmentation occurs when the logical order of index pages does not match the 
+physical order of data pages on disk, causing inefficient reads. 
+        It can be internal (wasted space within pages) or external/logical (pages scattered on disk). 
+        Fragmentation slows down SELECT queries and increases I/O. 
+        It can be fixed by reorganizing or rebuilding indexes.
+
+10) How do indexes affect INSERT/UPDATE performance?
+        Indexes improve read performance but slow down write operations. 
+        For INSERT, each row must be added to all indexes, causing extra I/O and possible 
+page splits. 
+        For UPDATE, if indexed columns are modified, index entries must also be updated. 
+        DELETE operations are similarly affected. Therefore, high-write tables should have minimal 
+or carefully designed indexes to balance read and write performance.
+
+
+11) Why too many indexes are bad?
+        Too many indexes are bad because each write operation (INSERT, UPDATE, DELETE) must update 
+all indexes, which slows down performance. 
+        They also consume additional storage, increase index maintenance overhead, and can confuse 
+the query optimizer, potentially leading to suboptimal execution plans. 
+        Moreover, beyond a few well-chosen indexes, additional indexes provide diminishing returns 
+for query performance.
+
