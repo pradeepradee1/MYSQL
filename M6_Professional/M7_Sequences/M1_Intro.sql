@@ -1,10 +1,17 @@
 /*
 	Sequences : 
 				It is a data base object.
-				It is used identify the unique interger records of the table
+				It is used generate the unique interger records of the table for primary keys.
 
 */
 
+/*
+
+Note : 
+	Sequence will generate the unique value
+	Priymary Key will identfiy the unique value
+
+*/
 use mydb
 
 create sequence srno1;

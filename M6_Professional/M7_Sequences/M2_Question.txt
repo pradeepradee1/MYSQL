@@ -1,0 +1,8 @@
+1) Difference between sequence and auto-increment?
+
+Sequence :
+A separate database object
+It is used generate the unique interger records of the table for primary keys
+
+Auto-Increment (Identity) :
+A column property that automatically generates numbers when inserting rows.
