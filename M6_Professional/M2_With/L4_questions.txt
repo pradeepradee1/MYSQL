@@ -1,0 +1,65 @@
+1) What are advantages of CTE?
+
+*) Improves Readability
+*) Reusability Within Same Query
+*) Supports Recursive Queries
+*) Helps in Complex Transformations
+*) Works with SELECT, UPDATE, DELETE
+*) Better Logical Separation
+
+
+2) What is a Temporary Table?
+        A real table created temporarily
+        Stored physically (in temp space)
+        Exists for the session or transaction
+        Can be indexed
+
+3) Difference between CTE and Temporary Table 
+CTE : 
+*) It doesn't store physically
+*) Scope is single query
+*) Index can't created
+*) It suit  for recursion
+*) It is average in performance for large data
+*) Data is not reused multiple times
+
+Temporary Table :
+*) It store physically
+*) Scope is Session or transaction
+*) Index can be created
+*) It doesn't suit  for recursion
+*) It is good in performance for large data
+*) Reusing result multiple times
+
+
+
+4) Which performs better: CTE or subquery?
+CTE and subquery have similar performance because the optimizer often 
+produces the same execution plan. However, in older systems, 
+CTE may be materialized and act as an optimization barrier, which can make it slower. 
+Performance depends more on indexing, query structure, and execution plan rather than 
+whether you use a CTE or subquery.
+
+
+5) Can we update/delete using CTE?
+Yes , You can use a CTE with UPDATE and DELETE in most modern databases.
+
+WITH dept_avg AS (
+    SELECT department_id, AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY department_id
+)
+UPDATE employees e
+SET salary = d.avg_salary
+FROM dept_avg d
+WHERE e.department_id = d.department_id
+AND e.salary < d.avg_salary;
+
+
+6) What is recursive CTE?
+
+*) A recursive CTE is a Common Table Expression that references itself to repeatedly 
+execute a query until a stopping condition is met
+
+*) consists of an anchor query and a recursive query combined using UNION ALL. 
+It is commonly used to process hierarchical or tree-structured data

@@ -1,0 +1,28 @@
+1) What is difference between clustered and non-clustered index?
+
+Clustered Index :
+*) Determines the physical order of rows and Table rows are stored in the order of the index
+*) One per table
+*) No extra storage for data (data itself is in index)
+*) Frequently used for primary key or columns in ORDER BY, BETWEEN
+*) Fast for range queries and retrieving consecutive rows
+*) Insert/Update Impact Slower if values cause row movement (maintaining physical order)
+
+Non-Clustered Index :
+*) Table rows are not stored in index order
+*) Multiple allowed table
+*) Separate index structure, extra storage needed
+*) Frequently used for foreign keys, search/filtering, or queries not sorted by clustered index
+*) Fast for individual row lookups or filtered queries
+*) Insert/Update Impact Slightly faster, only index tree updated
+
+
+
+2) Can a table have multiple clustered indexes?
+No ,  a table cannot have multiple clustered indexes.
+
+A clustered index defines the physical order of rows in a table.
+A table can only be stored in one physical order at a time.
+Therefore, only one clustered index per table is allowed.
+
+3) 

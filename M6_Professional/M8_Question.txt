@@ -1,8 +1,5 @@
 Note :
-
-1) Cor-relation subquery 			=	we should use Equi-Join.
-
-2) Inline sub-query , With 			=	we can use Cross, Equi and Inner.
+Cor-relation subquery 			=	we should use Equi-Join.
 
 
 
@@ -10,31 +7,48 @@ Note :
     Cor-related subqury can join with same table 
     It can join with two different tables also ( based on the requirement )
 
-
 #Note :
     CTE = We can go CTE in Subquery scenario and Inline Subqury
           Not Cor-related subquery
 
 
+1) Differences Between Subquery and JOIN
+    Subquery :
+        A query inside another query.
+        Filter rows based on some condition from another table.
+        It is used for Filtering, aggregation
+        when you work with Large data It is Risky if correlated 
+        Performance Can be slow (correlated)
+
+    Join :
+        combines two or more tables.
+        Show data from multiple related tables
+        It is used for Retrieving related data
+        when you work with Large data It is Better optimized   
+        Performance Usually faster
 
 
-1) Difference between the SubQuery and Correlation subquery ?
+2) What is the difference between IN, EXISTS, and = ANY in subqueries?
 
-SubQuery :
-    A query inside another query 
-    It runs independently of the outer query	
-    Runs once and gives a result to the outer query	
-(talks about storage)
-    Does not keep reference columns from the outer query	
-    It is faster, because it's executed once	
+    IN :
+        It Will check the value exist
+        It suit for work with Small set  ( list )
+        Performance will be Slower if subquery returns a large number of rows	
+        It behave unexpectedly if subquery contains NULL values.
 
-Correlated Subquery
-    A query inside another query 
-    It depends on values from the outer query
-    Runs once for every row in the outer query
-(talks about storage)
-    keep References columns from the outer query
-    It is slower, since it's executed multiple times
+    Exist :
+        It Will check If rows exist
+        It suit for work with Large sets ( correlated queries )
+        Performance will be Faster if subquery returns a large number of rows 
+        It is Safer when NULL values exist.
+
+    ANY :
+        It similar to the IN operator
+        It Will check the value exist
+        It suit for work with Small set  ( list )
+        Performance will be Slower with large result sets
+        It behave unexpectedly if subquery contains NULL values.
+
 
 
 2) Diffrence between CTE and View ?
@@ -52,6 +66,23 @@ Correlated Subquery
     resuable
     It Store the metadata of data
 
+
+3) Difference between CTE vs Subquery ?
+
+CTE :
+    It is Used to define a temporary result set using with clause
+    Can be referenced multiple times in same query
+    Improves readability
+    It support Recursive 
+    
+
+Subquery :
+    A query inside another query
+    Can't be referenced multiple times
+    Not Improves readability
+    It doesn't support Recursive
+    
+
 3) Difference between View and Mview ?
     View :
         Virtual Table 
@@ -60,6 +91,7 @@ Correlated Subquery
 (talks about storage)
         It doesn't consume storage 
         It is Slower 
+        It is used for Abstraction, security
     
     MView :
         Physical table
@@ -68,17 +100,8 @@ Correlated Subquery
 (talks about storage)
         Consumes storage	
         Faster 
+        It is used for Performance optimization
 
-4) Difference between In and EXISTS ?
-    IN :
-        It Will check the value exist
-        It suit for work with Small set  ( list )
-        Performance will be Slower with large result sets	
-
-    Exist :
-        It Will check If rows exist
-        It suit for work with Large sets ( correlated queries )
-        Performance will be Faster with large result sets 
         
 
 

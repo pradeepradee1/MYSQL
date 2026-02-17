@@ -1,0 +1,24 @@
+1) Can we insert/update/delete into a view?
+Yes — but only if the view is updatable.
+
+
+2) When is a View Updatable ?
+A view is usually updatable 
+if,
+*) It is based on one single table
+*) It does NOT use GROUP BY, DISTINCT, Aggregate functions, UNION, Subqueries in SELECT
+ and Complex joins (in many databases)
+
+
+3) What are limitations of views? 
+*) No Physical Data Storage
+*) Limited Updatability
+*) No Indexes
+*) Cannot Use Parameters
+*) ORDER BY Limitation
+
+
+4) What is indexed view?
+It has a clustered index created on it, which causes the view’s result 
+set to be stored physically on disk.
+Once indexed, the view behaves like a materialized view

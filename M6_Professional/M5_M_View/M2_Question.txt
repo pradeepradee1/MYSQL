@@ -1,0 +1,77 @@
+1) What is a materialized view?
+    *) Stores the result of a query physically on disk
+    *) Must be refreshed to reflect changes in base tables
+    *) It is used for Performance optimization
+
+2) When should we use materialized view?
+Use a materialized view when you want to improve performance for expensive, 
+frequently executed queries, especially in read-heavy systems.
+
+
+3) What are types of refresh in materialized view?
+There are mainly three types of refresh:
+
+3.1) Complete Refresh
+3.2) Fast Refresh
+3.3) Force Refresh
+
+3.1) Complete Refresh (Full Refresh)
+    Deletes all data from the materialized view
+    Re-executes the entire query
+    Rebuilds everything from scratch
+
+Pros:
+
+Simple
+Works for all materialized views
+No special setup required
+
+Cons:
+
+Slow for large datasets
+High resource usage
+
+3.2) Fast Refresh (Incremental Refresh)
+
+    Refreshes only the changed data
+    Updates only affected rows
+
+Pros:
+
+Much faster
+Efficient for large datasets
+Lower resource usage
+
+Cons:
+
+Requires special setup (logs, primary keys, etc.)
+Not supported for all queries
+
+3.3) Force Refresh
+    Attempts Fast Refresh
+    If not possible → falls back to Complete Refresh
+
+Pros:
+
+Flexible
+Automatically chooses best method
+
+Cons:
+May unexpectedly perform full refresh
+
+
+3.4 )On Demand vs On Commit (Refresh Timing)
+
+On Demand
+
+Refresh manually or scheduled
+Most common
+
+On Commit
+Refresh automatically when base table commits
+Useful for near real-time reporting
+Can slow down transactions
+
+
+4) Can materialized view have index?
+    Yes 

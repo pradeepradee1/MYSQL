@@ -17,9 +17,9 @@ Sub Query	:
 
 
 use mydb;
-
+/*
 #Find The Employee who's salary is more than the average salary earned by all employee
-
+*/
 
 
 select 

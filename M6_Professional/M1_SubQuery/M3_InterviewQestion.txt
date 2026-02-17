@@ -1,0 +1,111 @@
+1) Where Can Subqueries Be Used in SQL?
+    *) In the WHERE Clause (Most Common)
+    *) In the SELECT Clause (Scalar Subquery)
+    *) In the FROM Clause (Inline View / Derived Table)
+    *) In the HAVING Clause
+    *) In INSERT Statement
+    *) In UPDATE Statement
+    *) In DELETE Statement
+
+*) In Having 
+SELECT department_id
+FROM employees
+GROUP BY department_id
+HAVING AVG(salary) > (
+    SELECT AVG(salary) FROM employees
+);
+
+*) In insert 
+INSERT INTO high_salary_employees
+SELECT *
+FROM employees
+WHERE salary > (
+    SELECT AVG(salary) FROM employees
+);
+
+*) In Update
+UPDATE employees
+SET salary = salary * 1.1
+WHERE department_id IN (
+    SELECT department_id
+    FROM departments
+    WHERE location = 'Mumbai'
+);
+
+*) In Delete 
+DELETE FROM employees
+WHERE department_id IN (
+    SELECT department_id
+    FROM departments
+    WHERE location = 'Closed'
+);
+
+
+2) Difference between the SubQuery and Correlation subquery ?
+
+SubQuery :
+    A query inside another query 
+    It runs independently of the outer query	
+    Runs once and gives a result to the outer query	
+(talks about storage)
+    Does not keep reference columns from the outer query	
+    It is faster, because it's executed once	
+
+Correlated Subquery
+    A query inside another query 
+    It depends on values from the outer query
+    Runs once for every row in the outer query
+(talks about storage)
+    keep References columns from the outer query
+    It is slower, since it's executed multiple times
+
+
+3) When would you prefer correlated subquery?
+
+    I prefer correlated subqueries mainly for existence checks using EXISTS and 
+    when implementing row-level comparison logic that depends on the outer query. 
+    However, for large datasets or heavy aggregation, I prefer rewriting them 
+    as JOINs or CTEs for better performance
+
+
+4) Can correlated subqueries be used in DELETE or UPDATE?
+    Yes, Correlated subqueries can absolutely be used in DELETE and UPDATE statements.
+
+*) Correlated Subquery in DELETE
+
+DELETE FROM employees e
+WHERE salary < (
+    SELECT AVG(salary)
+    FROM employees
+    WHERE department_id = e.department_id
+);
+
+*) Correlated Subquery in UPDATE
+
+UPDATE employees e
+SET salary = (
+    SELECT AVG(salary)
+    FROM employees
+    WHERE department_id = e.department_id
+);
+
+*) DELETE with JOIN (MySQL Example)
+
+DELETE e
+FROM employees e
+JOIN departments d
+ON e.department_id = d.department_id
+WHERE d.location = 'India';
+
+
+
+
+5) How can you improve performance of correlated subqueries?
+
+*) Rewrite using JOIN with pre-aggregated results.
+*) Use window functions when possible.
+*) Add proper indexes on correlated columns.
+*) Reduce dataset before applying correlation.
+*) Replace IN with EXISTS when appropriate.
+*) Always check execution plan using EXPLAIN.
+
