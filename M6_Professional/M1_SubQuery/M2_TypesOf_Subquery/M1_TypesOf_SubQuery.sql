@@ -5,8 +5,7 @@ Types :
 		2)	Multiple Row Subquery
 		3) 	Multiple-Column Subquery
 		4) 	Correlated Subquery
-		5) 	Non-Correlated Subquery
-		6)	Subquery in SELECT Clause
-		7) 	Subquery in FROM Clause
+		5)	Subquery in SELECT Clause
+		6) 	Subquery in FROM Clause
 */
 

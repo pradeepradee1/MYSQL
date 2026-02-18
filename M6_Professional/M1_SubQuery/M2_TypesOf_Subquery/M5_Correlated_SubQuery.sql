@@ -2,51 +2,35 @@
 CORRELATED SUBQUERY:
 						A query inside another query 
 						It runs depends on values from the outer query
-						It Runs once for every records in the outer query
+						It Runs once for every records of the outer query
 
 */
 
-#outer query---I/p---> Inner query--->I/p--->|
+/*
+
+outer query---I/p---> Inner query--->I/p--->|
 	^										 |
 	|										 |
 	<-----------------------------------------
 
+*/
 
-
+/*
 # Note:    
 
 # When you have to go to Correlation Subquery ?
 	# When the subquery meets join
 
-
-#Note:	
-
-#Equi-Join will be used in inner query
-
-use mydb;
+*/
 
 
-#Find The employee in each department who earns more than the average salary in that department
-
-
-# Note : This will not work (SubQuery)
-select 
-*
-from emp e 
-where (dno,sal) in (select dno , avg(sal) from emp e where dno is not null group by dno)
-
-
-# Note : This will not work (SubQuery) , because this will give you the records in all department
-select 
-*
-from emp e 
-where sal > (select  avg(sal) from emp e where dno is not null group by dno)
-
-
-
+/*
 # Note : This is correct (Correlation Subquery)
 
+
 # Note : No need to give group by dno , because it is join on dno
+*/
+
 
 select 
 *
@@ -97,7 +81,12 @@ dept d
 where exists (select * from emp e where e.dno=d.dno)
 
 
-# Return the department who hasn't employee
+/*
+
+Return the department who hasn't employee 
+
+*/
+
 SELECT 
 *
 from 

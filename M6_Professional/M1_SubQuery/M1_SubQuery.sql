@@ -4,10 +4,10 @@ Sub Query	:
 				It runs independently
 				It Runs once and gives a result to the outer query
 
+*/
 
 
-
-
+/*
 #Execution process:
 #					Here the execution process is always from innermost query to the outermost.
 

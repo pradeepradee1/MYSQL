@@ -12,3 +12,10 @@ FROM (
     GROUP BY department_id
 ) t
 WHERE avg_salary > 50000;
+
+/*
+
+Note :
+        This is Inline view or derived table
+
+*/

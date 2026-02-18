@@ -12,3 +12,12 @@ SELECT name,
         FROM departments d 
         WHERE d.department_id = e.department_id) AS dept_name
 FROM employees e;
+
+/*
+
+Note :
+        This is scalar subquery
+        No aggregatiion function used
+        since it return the single columns
+
+*/
