@@ -15,7 +15,7 @@
 2) What are advantages of CTE?
 
         *) Improves Readability
-        *) Better Logical Separation (modularity)
+        *) Modularity of complex sql Queries ( Better Logical Separation )
         *) Reusability Within Same Query
         *) Supports Recursive Queries
 
