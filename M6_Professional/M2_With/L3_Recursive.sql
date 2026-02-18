@@ -1,5 +1,12 @@
-#recursive
---- Write a Query to generate numbers from 1 to 10 in SQL
+/*
+recursive
+*/
+
+/*
+Write a Query to generate numbers from 1 to 10 in SQL
+*/
+
+
 
 with recursive generate_numbers as   
 (

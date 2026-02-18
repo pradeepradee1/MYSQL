@@ -1,7 +1,11 @@
 /*
 
-Exists give bool function 
-It Will be used in Subquery(Correlation Subquery)
+Exists :
+
+        *) It is a conditional operator and used in a subquery 
+        *) check any records exists in the result.
+
+
 */
 
 

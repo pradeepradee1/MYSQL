@@ -1,7 +1,7 @@
 /*
 Multiple Column Subquery :
                         Returns more than one column
-                        Used with tuple comparison
+                        Used with tuple comparison and  IN, ANY, ALL, EXISTS
 */
 
 SELECT *

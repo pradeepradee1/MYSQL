@@ -3,7 +3,7 @@ Subquery in SELECT Clause (Scalar Subquery) :
 
                         *) Returns a single value (one row, one column)
 
-                        *) Often used in SELECT clause
+                        *) It used in SELECT clause
 
 */
 

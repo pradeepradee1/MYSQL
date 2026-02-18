@@ -1,5 +1,8 @@
-#With Clause 
+/*
 
+With Clause 
+
+*/
 
 select 
 	* 
@@ -15,7 +18,7 @@ select
 from 
 	emp e 
 where 
-	e.sal >(select cast(avg(sal) as int) from emp)
+	e.sal > (select cast(avg(sal) as int) from emp)
 
 
 with average_salary (avg_sal) as (select cast(avg(sal) as int) from emp)
@@ -30,18 +33,48 @@ where
 
 
 
-#Example : 2
+/*  Example : 2  */
 
 -- Find The Stores who's sales where better than the average sales accross all stores
 
+/*
 
+CREATE or replace TABLE sales 
+(
+  Store_id INT,
+  store_name VARCHAR(20),
+  product VARCHAR(20),
+  quantity INT,
+  cost INT
+);
+
+INSERT INTO sales 
+(Store_id, store_name, product, quantity, cost) VALUES
+(1, 'Apple Orginal1', 'Iphone 12 pro', 1, 1000),
+(1, 'Apple Orginal1', 'macbook pro 13', 3, 2000),
+(1, 'Apple Orginal1', 'airpods pro', 2, 280),
+(2, 'Apple Orginal2', 'Iphone 12 pro', 2, 1000),
+(3, 'Apple Orginal3', 'Iphone 12 pro', 1, 1000),
+(3, 'Apple Orginal3', 'macbook pro 13', 1, 2000),
+(3, 'Apple Orginal3', 'macbook air', 4, 1100),
+(3, 'Apple Orginal3', 'Iphone 12', 2, 1000),
+(3, 'Apple Orginal3', 'airpods pro', 3, 280),
+(4, 'Apple Orginal4', 'Iphone 12 pro', 2, 1000),
+(4, 'Apple Orginal4', 'macbook pro 13', 1, 2500);
+
+
+
+*/
+
+/*
 # The Records is in Product level (Accounts level)
 # Need to convert to store level  (Customer level)
 # Need to convert to over all store level (Over all Customer level)
 # Question is Find The Stores level sales > average sales accross all stores ?
-
+*/
 
 select * from Sales s 
+
 
 # 1) Total 	Sales per each store -- Total Sales 
 # 2) Find The average sales with respect all the stores. -- Avg_Sales 
@@ -90,7 +123,7 @@ on total_sales.total_sales_per_store > avg_sales.total_sales_per_store
 -- Here using more than subquery
 
 with Total_Sales (Store_id,total_sales_per_store) as (select s.Store_id ,sum(cost) as  total_sales_per_cost from Sales s group by s.Store_id ),
-		 avg_sales(avg_sales_for_all_stores) as (select avg(total_sales_per_store) as avg_sales_for_all_stores from Total_Sales)
+	  avg_sales(avg_sales_for_all_stores) as (select avg(total_sales_per_store) as avg_sales_for_all_stores from Total_Sales)
 select 
 	*
 from 

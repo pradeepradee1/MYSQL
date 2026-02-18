@@ -120,7 +120,7 @@
     *) Use window functions when possible.
     *) Add proper indexes on correlated columns.
     
-    *) Reduce dataset before applying correlation.
     *) Replace IN with EXISTS when appropriate.
+    *) Reduce dataset before applying correlation.   
     *) Always check execution plan using EXPLAIN.
 
