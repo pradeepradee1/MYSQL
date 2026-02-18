@@ -3,13 +3,14 @@
     *) Must be refreshed to reflect changes in base tables
     *) It is used for Performance optimization
 
+
 2) When should we use materialized view?
-Use a materialized view when you want to improve performance for expensive, 
-frequently executed queries, especially in read-heavy systems.
+    Use a materialized view when you want to improve performance for expensive, 
+    frequently executed queries, especially in read-heavy systems.
 
 
 3) What are types of refresh in materialized view?
-There are mainly three types of refresh:
+    There are mainly three types of refresh:
 
 3.1) Complete Refresh
 3.2) Fast Refresh
