@@ -8,9 +8,10 @@ Materialized view :
 
           How data is getting  refresh?
                 Needs manual intervention to refresh the data  from table
+                
                 It is Performance Optimization techniques
                 
-                Unlike a regular view (It doesn't store data and fetches  data from live table), 
+                Unlike a normal view (It doesn't store data and fetches  data from live table), 
                 
 */
 

@@ -6,6 +6,7 @@ View :
 		
 	how it is getting data ?
 		Always fetches the data from live table
+		
 		It is Performance Optimization techniques
 
 		Main objective is Hiding the logic from the user
