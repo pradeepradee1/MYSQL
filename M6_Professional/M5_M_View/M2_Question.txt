@@ -1,46 +1,32 @@
-1) What is a materialized view?
-    Refer the note
-
-
-2) When should we use materialized view?
-    I want to improve performance for
-    frequently executed queries, 
-    especially in read-heavy systems.
-
-
-3) What are types of refresh in materialized view?
+1) What are types of refresh in materialized view?
     There are mainly three types of refresh:
 
-    3.1) Complete Refresh
-    3.2) Fast Refresh
-    3.3) Force Refresh
+    1.1) Complete Refresh
+    1.2) Fast Refresh
+    1.3) Force Refresh
 
-    3.1) Complete Refresh (Full Refresh) :
+    1.1) Complete Refresh (Full Refresh) :
         Refresh everything from scratch
         Re-executes the entire query from scratch
     
-    3.2) Fast Refresh (Incremental Refresh) :
+    1.2) Fast Refresh (Incremental Refresh) :
         Refreshes only the changed data
         executes only affected query
 
-    3.3) Force Refresh :
+    1.3) Force Refresh :
         Attempts Fast Refresh
         If not possible → falls back to Complete Refresh
 
 
-4) On Demand vs On Commit (Refresh Timing)
+2) On Demand vs On Commit (Refresh Timing)
 
-    On Demand
+    On Demand :
+                Refresh by manually or scheduled
 
-    Refresh by manually or scheduled
-    Most common
-
-    On Commit
-    
-    Refresh by automatically when base table commits
-    Useful for near real-time reporting
-    Can slow down transactions
+    On Commit :        
+                Refresh by automatically when base table commits
 
 
-5) Can materialized view have index?
+
+3) Can materialized view have index?
     Yes 

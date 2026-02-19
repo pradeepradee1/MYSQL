@@ -64,5 +64,5 @@ produces the same execution plan.
 
         *) The Query References by itself until a condition is matching
         *) Consists of an anchor query and a recursive query combined using UNION ALL. 
-        *) It is commonly used to process hierarchical or tree-structured data
+        *) It is commonly used to process hierarchical (or) tree structured data
 
