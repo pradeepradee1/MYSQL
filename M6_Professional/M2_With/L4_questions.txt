@@ -1,12 +1,12 @@
-1) Can we update/delete using CTE ?
+1) Can we insert/update/delete using CTE ?
 
         Yes , You can use a CTE with UPDATE and DELETE in most modern databases.
 
         WITH dept_avg AS (
-                        SELECT department_id, AVG(salary) AS avg_salary
-                        FROM employees
-                        GROUP BY department_id
-        )
+                                SELECT department_id, AVG(salary) AS avg_salary
+                                FROM employees
+                                GROUP BY department_id
+                        )
         UPDATE employees JOIN dept_avg ON employees.department_id = dept_avg.department_id
         SET employees.salary = dept_avg.avg_salary
         WHERE employees.salary < dept_avg.avg_salary;
@@ -18,12 +18,11 @@
         *) Modularity of complex sql Queries ( Better Logical Separation )
         *) Reusability Within Same Query
         *) Supports Recursive Queries
-
         *) Helps in Complex Transformations
-        *) Works with SELECT, UPDATE, DELETE
+        *) Works with SELECT,INSERT, UPDATE, DELETE
         
 
-3) What is a Temporary Table?
+3) What is a Temporary Table? (temp table)
         
         It is used to create the table for temporarily
         Storing the data in physical
@@ -39,10 +38,9 @@ Temporary Table :
         *) It store the data in physical
         *) Scope is Session or transaction
         *) Index can be created
-        *) It doesn't suit  for recursion
+        *) It doesn't suit for recursion
         *) It is good in performance for large data
 
-        #*) Reusing result multiple times
 
 CTE : 
         *) It is Used to define a temporary result set
@@ -52,25 +50,19 @@ CTE :
         *) It suit for recursion
         *) It is average in performance for large data
 
-        #*) Data is not reused multiple times
-
-
 
 
 5) Which performs better CTE or subquery ?
 
         *) CTE and subquery have similar performance because the optimizer 
 produces the same execution plan. 
-        *) However, in older systems, CTE may be materialized and act as an optimization barrier, 
-which can make it slower. 
         *) Performance depends more on indexing, query structure, and execution plan.
 
 
 
 6) What is recursive CTE?
 
-        *) It will execute a query and References by itself until a condition is matching
-
+        *) The Query References by itself until a condition is matching
         *) Consists of an anchor query and a recursive query combined using UNION ALL. 
-        
         *) It is commonly used to process hierarchical or tree-structured data
+

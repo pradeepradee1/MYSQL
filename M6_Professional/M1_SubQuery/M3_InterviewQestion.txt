@@ -55,6 +55,14 @@
 2) Can correlated subqueries be used in DELETE or UPDATE?
 
     Yes, Correlated subqueries can absolutely be used in DELETE and UPDATE statements.
+    *) Correlated Subquery in UPDATE
+
+        UPDATE employees e
+        SET salary = (
+                        SELECT AVG(salary) FROM employees
+                        WHERE department_id = e.department_id
+                     );
+
 
     *) Correlated Subquery in DELETE
 
@@ -64,13 +72,7 @@
                             WHERE department_id = e.department_id
                         );
 
-    *) Correlated Subquery in UPDATE
-
-        UPDATE employees e
-            SET salary = (
-                            SELECT AVG(salary) FROM employees
-                            WHERE department_id = e.department_id
-                         );
+ 
 
     *) DELETE with JOIN (MySQL Example)
 
@@ -119,8 +121,10 @@
     *) Rewrite using JOIN or CTEs with pre-aggregated results.
     *) Use window functions when possible.
     *) Add proper indexes on correlated columns.
-    
     *) Replace IN with EXISTS when appropriate.
+above used keyword
+    
     *) Reduce dataset before applying correlation.   
     *) Always check execution plan using EXPLAIN.
+
 

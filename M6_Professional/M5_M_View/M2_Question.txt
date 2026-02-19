@@ -1,9 +1,11 @@
 1) What is a materialized view?
     Refer the note
 
+
 2) When should we use materialized view?
-    I want to improve performance for expensive, frequently executed queries, 
-especially in read-heavy systems.
+    I want to improve performance for
+    frequently executed queries, 
+    especially in read-heavy systems.
 
 
 3) What are types of refresh in materialized view?
@@ -14,65 +16,31 @@ especially in read-heavy systems.
     3.3) Force Refresh
 
     3.1) Complete Refresh (Full Refresh) :
-
-        Rebuilds everything from scratch
-        Deletes all data from the materialized view
-        Re-executes the entire query
-    Pros:
-
-        Simple
-        Works for all materialized views
-        No special setup required
-
-    Cons:
-
-        Slow for large datasets
-        High resource usage
+        Refresh everything from scratch
+        Re-executes the entire query from scratch
     
-
-    3.2) Fast Refresh (Incremental Refresh)
-
+    3.2) Fast Refresh (Incremental Refresh) :
         Refreshes only the changed data
-        Updates only affected rows
+        executes only affected query
 
-    Pros:
-
-        Much faster
-        Efficient for large datasets
-        Lower resource usage
-
-    Cons:
-
-        Requires special setup (logs, primary keys, etc.)
-        Not supported for all queries
-
-
-    3.3) Force Refresh
+    3.3) Force Refresh :
         Attempts Fast Refresh
         If not possible → falls back to Complete Refresh
 
-    Pros:
 
-        Flexible
-        Automatically chooses best method
-
-    Cons:
-        May unexpectedly perform full refresh
-
-
-    3.4 )On Demand vs On Commit (Refresh Timing)
+4) On Demand vs On Commit (Refresh Timing)
 
     On Demand
 
-    Refresh manually or scheduled
+    Refresh by manually or scheduled
     Most common
 
     On Commit
     
-    Refresh automatically when base table commits
+    Refresh by automatically when base table commits
     Useful for near real-time reporting
     Can slow down transactions
 
 
-4) Can materialized view have index?
+5) Can materialized view have index?
     Yes 

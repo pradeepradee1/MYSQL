@@ -13,7 +13,7 @@ and Subqueries
         
         *) Cannot Store Data Permanently
         *) No Indexes
-        *) Not All Views Are Updatable (View Updatable)
+        *) All Views Are Not Updatable (View Updatable)
         *) Performance Issues
         *) Security Is Limited 
                 Users may still access base tables if granted permission.

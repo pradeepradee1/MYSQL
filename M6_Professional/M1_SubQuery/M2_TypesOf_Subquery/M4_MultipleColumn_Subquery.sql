@@ -6,5 +6,4 @@ Multiple Column Subquery :
 
 SELECT *
 FROM employees
-WHERE (department_id, job_id) IN 
-      (SELECT department_id, job_id FROM job_history);
+WHERE (department_id, job_id) IN (SELECT department_id, job_id FROM job_history);

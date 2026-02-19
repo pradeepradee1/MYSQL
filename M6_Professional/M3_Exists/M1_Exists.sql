@@ -2,8 +2,9 @@
 
 Exists :
 
-        *) It is a conditional operator and used in a subquery 
-        *) check any records exists in the result.
+        *) It is a conditional operator
+        *) It will be using in a subquery 
+        *) check any records exists or not
 
 
 */
