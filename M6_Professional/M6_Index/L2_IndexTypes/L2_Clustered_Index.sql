@@ -1,11 +1,13 @@
 /*
 Clustered Index :
 
-            Determines the physical order of rows in the table.
-            One per table (because table rows can only be in one order)
-            Faster retrieval for range queries (BETWEEN, <, >)
-            Usually created on primary key by default
-
+        It Store Physically data on disk and sorts the data in the table
+        Only One per table (because table rows can only be in one order)
+        It automatically creates on Primary Key
+        
+        It is Best for 
+                Range queries (BETWEEN)
+                Sorting queries (ORDER BY)
 */
 
 

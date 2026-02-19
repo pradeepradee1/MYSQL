@@ -51,7 +51,7 @@ Cor-relation subquery 			=	we should use Equi-Join.
 
 
 
-2) Diffrence between CTE and View ?
+3) Diffrence between CTE and View ?
     CTE :
     define a temporary result set that can be referenced in the main query
 (talks about storage)
@@ -67,7 +67,7 @@ Cor-relation subquery 			=	we should use Equi-Join.
     It Store the metadata of data
 
 
-3) Difference between CTE vs Subquery ?
+4) Difference between CTE vs Subquery ?
 
 CTE :
     It is Used to define a temporary result set using with clause
@@ -83,7 +83,7 @@ Subquery :
     It doesn't support Recursive
     
 
-3) Difference between View and Mview ?
+5) Difference between View and Mview ?
     View :
         Virtual Table 
         Does not store data

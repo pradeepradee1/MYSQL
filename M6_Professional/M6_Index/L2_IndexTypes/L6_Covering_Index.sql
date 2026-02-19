@@ -1,8 +1,8 @@
 /*
 Covering Index :
 
-                Special non-clustered index that includes all columns needed by a query
-                Query can be satisfied entirely from index without touching the table
+                It is Special non-clustered index that includes all columns 
+                Query can be satisfied entirely without touching the table
 
 */
 

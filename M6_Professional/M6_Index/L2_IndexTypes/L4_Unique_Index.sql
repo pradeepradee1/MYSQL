@@ -1,7 +1,7 @@
 /*
 Unique Index :
-                Ensures all values in the column are unique
-                Automatically created with PRIMARY KEY or UNIQUE constraint
+                Ensures unique values in the column
+                It Automatically created with PRIMARY KEY or UNIQUE constraint
 
 
 */

@@ -2,10 +2,13 @@
 Index : 
 		Index is a database object
 		It optimize the performance while retrieve the data from table (read performance)
-		Index work like index in books
+		
+		It works like normal index in books
 		It locate records quickly without scanning the entire table
-		Most indexes use a B-tree structure and used in filtering, joining, and sorting.
-
+		
+		Most indexes use a B-tree structure 
+		Which used in filtering (where), joining (join), and sorting (order by).
+		
 Types Of Index:
 				1)	Simple
 				2) 	Composite

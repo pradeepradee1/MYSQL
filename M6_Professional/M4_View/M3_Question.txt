@@ -21,7 +21,7 @@ and Subqueries
 
 4) What is indexed view?
         It has a clustered index
-        the view’s result set to be physically stored on disk
+        It store Physically data on disk 
         Once indexed then the view behaves like a materialized view
         It improves performance for complex aggregations and reporting queries.
         

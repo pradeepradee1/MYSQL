@@ -1,86 +1,80 @@
 1) What is difference between clustered and non-clustered index?
 
 Clustered Index :
-*) Determines the physical order of rows and Table rows are stored in the order of the index
-*) One per table
-*) No extra storage for data (data itself is in index)
-*) Frequently used for primary key or columns in ORDER BY, BETWEEN
-*) Fast for range queries and retrieving consecutive rows
-*) Insert/Update Impact Slower if values cause row movement (maintaining physical order)
+        *) It Store Physically data on disk and sorts the data in the table
+        *) It doesn't require extra storage for data (data itself is in index)
+        *) Only One per table
+        *) Frequently used for primary key 
+        *) It is suit for Range queries (BETWEEN) and Sorting queries (ORDER BY)
 
 Non-Clustered Index :
-*) Table rows are not stored in index order
-*) Multiple allowed table
-*) Separate index structure, extra storage needed
-*) Frequently used for foreign keys, search/filtering, or queries not sorted by clustered index
-*) Fast for individual row lookups or filtered queries
-*) Insert/Update Impact Slightly faster, only index tree updated
-
+        *) It doesn't stored data in index order
+        *) extra storage , Separate index structure from table and stores index key + pointers to table rows
+        *) Multiple allowed table
+        *) Frequently used for foreign keys
+        *) It suit for filtering queries , search queries and  join queries
 
 
 2) Can a table have multiple clustered indexes?
-No ,  a table cannot have multiple clustered indexes.
-
-A clustered index defines the physical order of rows in a table.
-A table can only be stored in one physical order at a time.
-Therefore, only one clustered index per table is allowed.
+        No ,  a table cannot have multiple clustered indexes.
 
 
-3) What is index scan vs index seek?
-Index Seek (Efficient)
-    The database directly navigates the index to find matching rows.
-    Works like using the table of contents in a book.
-    Uses the B-Tree structure to jump to the exact location
-    Very fast (O(log n))
+3) What is index scan vs index seek ?
 
-Index Scan (Less Efficient)
-    The database reads all or most of the index pages to find matching rows.
-    Works like reading the entire table of contents page by page
+        Index Seek (Efficient)     :
+                It will find the matching rows by directly reading the specfic index
+                
+                Ex :
+                Works like reading the table of contents in a book.
+                
+        
+        Index Scan (Less Efficient) :
+                It will find the matching rows by reading all of the index pages 
+
+                Ex :
+                Works like reading the entire table of contents page by page
+
 
 4) What is B-Tree index?
-        It is a type of index structure used by most databases (SQL Server, MySQL, Oracle, PostgreSQL) 
-to store and search data efficiently.
+        It is a type of index structure 
+        It is used by most databases.
         It organizes the data in a tree structure, which allows the database to quickly find 
 rows without scanning the entire table.
 
+
 5) What is cardinality?
-        It refers to the number of distinct values in a column or the uniqueness of data.
-    
-6) What happens when you index low-cardinality column?
-        Indexing such columns may not improve performance much and sometimes can even hurt performance
+        It refers to the number of distinct values in a column
+
+
+6) What happens when you index low-cardinality column ?
+        It may not improve performance
+        sometimes can even hurt performance
+
 
 7) Why Indexing Low-Cardinality Columns Can Be Inefficient ?
         Such columns have few distinct values, so many rows match the same value. 
-This leads to poor selectivity, and queries may still need to scan a large portion of the table
+This leads to poor selectivity .
+
+        queries may still need to scan a large portion of the table
 making the index less effective
 
+
 8) When should you not use index?
-        You should avoid indexing when the table is small, the column has low cardinality, 
-the column is frequently updated, the queries are not selective and return most rows, or 
-the table is temporary. 
+        When the table is small
+        the column has low cardinality, 
+        the column is frequently updated, 
+        the queries are not selective and return most rows
         Indexes improve read performance but add storage overhead and slow down write operations
 
+
 9) What is index fragmentation?
-        Index fragmentation occurs when the logical order of index pages does not match the 
-physical order of data pages on disk, causing inefficient reads. 
-        It can be internal (wasted space within pages) or external/logical (pages scattered on disk). 
+        logical order of index pages does not match the physical order of data pages on disk, 
+causing inefficient reads.  
         Fragmentation slows down SELECT queries and increases I/O. 
         It can be fixed by reorganizing or rebuilding indexes.
 
-10) How do indexes affect INSERT/UPDATE performance?
-        Indexes improve read performance but slow down write operations. 
-        For INSERT, each row must be added to all indexes, causing extra I/O and possible 
-page splits. 
-        For UPDATE, if indexed columns are modified, index entries must also be updated. 
-        DELETE operations are similarly affected. Therefore, high-write tables should have minimal 
-or carefully designed indexes to balance read and write performance.
-
 
 11) Why too many indexes are bad?
-        Too many indexes are bad because each write operation (INSERT, UPDATE, DELETE) must update 
-all indexes, which slows down performance. 
-        They also consume additional storage, increase index maintenance overhead, and can confuse 
-the query optimizer, potentially leading to suboptimal execution plans. 
-        Moreover, beyond a few well-chosen indexes, additional indexes provide diminishing returns 
-for query performance.
+        Each write operation (INSERT, UPDATE, DELETE) must update all indexes, 
+which slows down performance. 
 

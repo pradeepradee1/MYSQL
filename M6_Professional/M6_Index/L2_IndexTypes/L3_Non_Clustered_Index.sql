@@ -2,10 +2,13 @@
 Non-Clustered Index
 
 Definition: 
-            Separate structure from table; contains pointers to table rows
-            Multiple per table allowed
-            Faster lookup but table rows remain unordered
+            Separate index structure from table and stores index key + pointers to table rows
+            Multiple per table
 
+            It is Best for
+                WHERE conditions
+                Frequently searched columns
+                JOIN columns
 
 */
 
