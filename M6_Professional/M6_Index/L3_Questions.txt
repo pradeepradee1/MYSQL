@@ -9,7 +9,7 @@ Clustered Index :
 
 Non-Clustered Index :
         *) It doesn't stored data in index order
-        *) extra storage , Separate index structure from table and stores index key + pointers to table rows
+        *) Separate data structure from table then the stores indexed column values along with row
         *) Multiple allowed table
         *) Frequently used for foreign keys
         *) It suit for filtering queries , search queries and  join queries
