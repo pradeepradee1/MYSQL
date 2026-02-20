@@ -13,19 +13,20 @@ Cor-relation subquery 			=	we should use Equi-Join.
 
 
 1) Differences Between Subquery and JOIN
-    Subquery :
-        A query inside another query.
-        Filter rows based on some condition from another table.
-        It is used for Filtering, aggregation
-        when you work with Large data It is Risky if correlated 
-        Performance Can be slow (correlated)
-
+    
     Join :
         combines two or more tables.
-        Show data from multiple related tables
+        Show data from multiple relations tables
+        Performance Can be faster if working with large data        
         It is used for Retrieving related data
-        when you work with Large data It is Better optimized   
-        Performance Usually faster
+
+    Subquery :
+        A query inside another query.
+        Show data based on some condition from another table.
+        Performance Can be slow if working with large data
+        It is used for Filtering, aggregation
+
+
 
 
 2) What is the difference between IN, EXISTS, and = ANY in subqueries?
