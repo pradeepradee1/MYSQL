@@ -12,7 +12,7 @@ Cor-relation subquery 			=	we should use Equi-Join.
           Not Cor-related subquery
 
 
-1) Differences Between Subquery and JOIN
+1) Differences Between JOIN and Subquery ?
     
     Join :
         combines two or more tables. (definition)
@@ -28,7 +28,13 @@ Cor-relation subquery 			=	we should use Equi-Join.
 
 
 
-2) Difference between Subquery Vs CTE ?
+2) Difference between  CTE Vs Subquery ?
+
+CTE :
+    It is Used to define a temporary result set using with clause (definition)
+    Can be referenced multiple times in same query
+    Improves readability
+    It support Recursive 
 
 Subquery :
     A query inside another query (definition)
@@ -36,11 +42,7 @@ Subquery :
     Not Improves readability
     It doesn't support Recursive
 
-CTE :
-    It is Used to define a temporary result set using with clause (definition)
-    Can be referenced multiple times in same query
-    Improves readability
-    It support Recursive 
+
     
 
 
