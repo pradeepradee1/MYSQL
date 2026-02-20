@@ -118,10 +118,11 @@
 
 5) How can you improve performance of correlated subqueries?
 
-    *) Rewrite using JOIN or CTEs with pre-aggregated results.
-    *) Use window functions when possible.
+    *) Rewrite using JOIN  with pre-aggregated results.
+    *) Replace IN with EXISTS when appropriate. 
     *) Add proper indexes on correlated columns.
-    *) Replace IN with EXISTS when appropriate.
+    *) Use window functions when possible.
+    
 above used keyword
     
     *) Reduce dataset before applying correlation.   
