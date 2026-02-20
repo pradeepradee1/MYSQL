@@ -26,8 +26,9 @@
         
         It is used to create the table for temporarily
         Storing the data in physical
-        Scope is Session or transaction
         Can be indexed
+        Scope is Session or transaction
+        
 
 
 4) Difference between CTE and Temporary Table ?
@@ -36,8 +37,8 @@ Temporary Table :
 
         *) It is used to create the table for temporarily
         *) It store the data in physical
-        *) Scope is Session or transaction
         *) Index can be created
+        *) Scope is Session or transaction
         *) It doesn't suit for recursion
         *) It is good in performance for large data
 
@@ -45,8 +46,8 @@ Temporary Table :
 CTE : 
         *) It is Used to define a temporary result set
         *) It doesn't store the data in physically
-        *) Scope is single query
         *) Index can't created
+        *) Scope is single query
         *) It suit for recursion
         *) It is average in performance for large data
 
