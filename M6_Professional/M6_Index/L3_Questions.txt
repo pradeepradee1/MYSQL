@@ -22,7 +22,7 @@ Non-Clustered Index :
 3) What is index scan vs index seek ?
 
         Index Seek (Efficient)     :
-                It will find the matching rows by directly reading the specfic index page
+                It will find the matching rows by reading the specfic index page
                 
                 Ex :
                 Works like reading the table of contents in a book.
