@@ -32,15 +32,16 @@ Cor-relation subquery 			=	we should use Equi-Join.
 
 CTE :
     It is Used to define a temporary result set using with clause (definition)
-    Can be referenced multiple times in same query
-    Improves readability
+    Improves readability and modularity of complex queries
     It support Recursive 
+    Can be referenced multiple times in same query
 
 Subquery :
     A query inside another query (definition)
-    Can't be referenced multiple times
-    Not Improves readability
+    Not Improves readability and modularity of complex queries
     It doesn't support Recursive
+    Can't be referenced multiple times
+    
 
 
     
