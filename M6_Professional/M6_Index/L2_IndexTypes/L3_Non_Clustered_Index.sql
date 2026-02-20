@@ -2,7 +2,7 @@
 Non-Clustered Index
 
 Definition: 
-            Separate index structure from table and stores index key + pointers to table rows
+            Separate data structure from table then the stores indexed column values along with row
             Multiple per table
 
             It is Best for
