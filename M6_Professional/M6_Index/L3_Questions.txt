@@ -61,7 +61,6 @@ This leads to poor selectivity and affecct the performance
         When the table is small
         the column has low cardinality, 
         the column is frequently updated, 
-        the queries are not selective and return most rows
         Indexes improve read performance but add storage overhead and slow down write operations
 
 
