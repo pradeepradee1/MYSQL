@@ -11,6 +11,7 @@ Cor-relation subquery 			=	we should use Equi-Join.
     CTE = We can go CTE in Subquery scenario and Inline Subqury
           Not Cor-related subquery
 
+#Note : Focus on join 
 
 1) Differences Between JOIN and Subquery ?
     
@@ -27,6 +28,7 @@ Cor-relation subquery 			=	we should use Equi-Join.
         It is used for Filtering, aggregation
 
 
+#Note : Focus on CTE
 
 2) Difference between  CTE Vs Subquery ?
 
