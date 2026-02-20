@@ -15,14 +15,14 @@ Cor-relation subquery 			=	we should use Equi-Join.
 1) Differences Between Subquery and JOIN
     
     Join :
-        combines two or more tables.
-        Show data from multiple relations tables
+        combines two or more tables. (definition)
+        Show data from multiple relations tables (another table)
         Performance Can be faster if working with large data        
         It is used for Retrieving related data
 
     Subquery :
-        A query inside another query.
-        Show data based on some condition from another table.
+        A query inside another query. (definition)
+        Show data based on some condition from another table. (another table)
         Performance Can be slow if working with large data
         It is used for Filtering, aggregation
 
