@@ -51,7 +51,24 @@ Cor-relation subquery 			=	we should use Equi-Join.
 
 
 
-3) Diffrence between CTE and View ?
+3) Difference between CTE vs Subquery ?
+
+CTE :
+    It is Used to define a temporary result set using with clause
+    Can be referenced multiple times in same query
+    Improves readability
+    It support Recursive 
+    
+
+Subquery :
+    A query inside another query
+    Can't be referenced multiple times
+    Not Improves readability
+    It doesn't support Recursive
+
+
+
+4) Diffrence between CTE and View ?
     CTE :
     define a temporary result set that can be referenced in the main query
 (talks about storage)
@@ -67,20 +84,7 @@ Cor-relation subquery 			=	we should use Equi-Join.
     It Store the metadata of data
 
 
-4) Difference between CTE vs Subquery ?
 
-CTE :
-    It is Used to define a temporary result set using with clause
-    Can be referenced multiple times in same query
-    Improves readability
-    It support Recursive 
-    
-
-Subquery :
-    A query inside another query
-    Can't be referenced multiple times
-    Not Improves readability
-    It doesn't support Recursive
     
 
 5) Difference between View and Mview ?
