@@ -51,20 +51,20 @@ Cor-relation subquery 			=	we should use Equi-Join.
 
 
 
-3) Difference between CTE vs Subquery ?
+3) Difference between Subquery Vs CTE ?
+
+Subquery :
+    A query inside another query (definition)
+    Can't be referenced multiple times
+    Not Improves readability
+    It doesn't support Recursive
 
 CTE :
-    It is Used to define a temporary result set using with clause
+    It is Used to define a temporary result set using with clause (definition)
     Can be referenced multiple times in same query
     Improves readability
     It support Recursive 
     
-
-Subquery :
-    A query inside another query
-    Can't be referenced multiple times
-    Not Improves readability
-    It doesn't support Recursive
 
 
 
