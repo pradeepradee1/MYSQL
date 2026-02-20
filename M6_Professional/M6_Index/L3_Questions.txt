@@ -65,9 +65,8 @@ This leads to poor selectivity and affecct the performance
 
 
 9) What is index fragmentation?
-        logical order of index pages does not match the physical order of data pages on disk, 
-causing inefficient reads.  
-        Fragmentation slows down SELECT queries and increases I/O. 
+        logical order of index pages does not match the physical order of data pages on disk
+        Fragmentation slows down read operations and increases I/O. 
         It can be fixed by reorganizing or rebuilding indexes.
 
 
