@@ -9,7 +9,8 @@ View :
 		
 		It is Performance Optimization techniques
 
-		Main objective is Hiding the logic from the user
+		Main objective is for Abstraction and security
+
 		
 	
 Types of Views : 
