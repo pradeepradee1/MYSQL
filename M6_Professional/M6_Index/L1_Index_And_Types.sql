@@ -2,7 +2,7 @@
 Index : 
 		Index is a database object
 		It optimize the performance while retrieve the data from table (read performance)
-		
+real time ex:
 		It works like normal index in books
 		It locate records quickly without scanning the entire table
 		
