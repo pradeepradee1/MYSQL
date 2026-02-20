@@ -43,7 +43,7 @@ Cor-relation subquery 			=	we should use Equi-Join.
         Performance will be Faster if subquery returns a large number of rows 
         It is Safer when NULL values exist.
 
-    ANY : (similar to the IN operator)
+    ANY : IN operator
         It Will check the value exist
         It suit for work with Small set  ( list )
         Performance will be Slower with large result sets
