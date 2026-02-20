@@ -28,30 +28,7 @@ Cor-relation subquery 			=	we should use Equi-Join.
 
 
 
-
-2) What is the difference between IN, EXISTS, and = ANY in subqueries?
-
-    IN :
-        It Will check the value exist
-        It suit for work with Small set  ( list )
-        Performance will be Slower if subquery returns a large number of rows	
-        It behave unexpectedly if subquery contains NULL values.
-
-    Exist :
-        It Will check If rows exist
-        It suit for work with Large sets ( correlated queries )
-        Performance will be Faster if subquery returns a large number of rows 
-        It is Safer when NULL values exist.
-
-    ANY : IN operator
-        It Will check the value exist
-        It suit for work with Small set  ( list )
-        Performance will be Slower with large result sets
-        It behave unexpectedly if subquery contains NULL values.
-
-
-
-3) Difference between Subquery Vs CTE ?
+2) Difference between Subquery Vs CTE ?
 
 Subquery :
     A query inside another query (definition)
@@ -68,7 +45,7 @@ CTE :
 
 
 
-4) Diffrence between CTE and View ?
+3) Diffrence between CTE and View ?
     CTE :
     define a temporary result set that can be referenced in the main query
 (talks about storage)
@@ -87,7 +64,7 @@ CTE :
 
     
 
-5) Difference between View and Mview ?
+4) Difference between View and Mview ?
     View :
         Virtual Table 
         Does not store data
@@ -107,6 +84,27 @@ CTE :
         It is used for Performance optimization
 
         
+
+5) What is the difference between IN, EXISTS, and = ANY in subqueries?
+
+    IN :
+        It Will check the value exist
+        It suit for work with Small set  ( list )
+        Performance will be Slower if subquery returns a large number of rows	
+        It behave unexpectedly if subquery contains NULL values.
+
+    Exist :
+        It Will check If rows exist
+        It suit for work with Large sets ( correlated queries )
+        Performance will be Faster if subquery returns a large number of rows 
+        It is Safer when NULL values exist.
+
+    ANY : IN operator
+        It Will check the value exist
+        It suit for work with Small set  ( list )
+        Performance will be Slower with large result sets
+        It behave unexpectedly if subquery contains NULL values.
+
 
 
 
