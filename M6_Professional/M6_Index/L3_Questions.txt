@@ -38,8 +38,10 @@ Non-Clustered Index :
 4) What is B-Tree index?
         It is a type of index structure 
         It is used by most databases.
-        It organizes the data in a tree structure, which allows the database to quickly find 
-rows without scanning the entire table.
+        It organizes the data in a tree structure, 
+        So , It locate records quickly without scanning the entire table
+
+		
 
 
 5) What is cardinality?
