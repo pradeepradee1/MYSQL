@@ -37,7 +37,6 @@ Non-Clustered Index :
 
 4) What is B-Tree index?
         It is a type of index structure 
-        It is used by most databases.
         It organizes the data in a tree structure, 
         So , It locate records quickly without scanning the entire table
 
@@ -55,10 +54,7 @@ Non-Clustered Index :
 
 7) Why Indexing Low-Cardinality Columns Can Be Inefficient ?
         Such columns have few distinct values, so many rows match the same value. 
-This leads to poor selectivity .
-
-        queries may still need to scan a large portion of the table
-making the index less effective
+This leads to poor selectivity and affecct the performance
 
 
 8) When should you not use index?
