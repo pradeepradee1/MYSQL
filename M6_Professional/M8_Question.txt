@@ -11,8 +11,8 @@ Cor-relation subquery 			=	we should use Equi-Join.
     CTE = We can go CTE in Subquery scenario and Inline Subqury
           Not Cor-related subquery
 
-#Note : Focus on join 
 
+#Note : Focus on join (good performance)
 1) Differences Between JOIN and Subquery ?
     
     Join :
@@ -28,8 +28,7 @@ Cor-relation subquery 			=	we should use Equi-Join.
         It is used for Filtering, aggregation
 
 
-#Note : Focus on CTE
-
+#Note : Focus on CTE (good performance)
 2) Difference between  CTE Vs Subquery ?
 
 CTE :
@@ -49,21 +48,22 @@ Subquery :
     
 
 
-
+#Focus on View 
 3) Diffrence between CTE and View ?
-    CTE :
-    define a temporary result set that can be referenced in the main query
-(talks about storage)
-    Not persistence ( temporary result will not be there after execution is completed)
-    Not resuable
-    It doesn't store any data 
 
-    View :
+View :
     It is Virtal table 
 (talks about storage)
     persistence ( we can virual table multiple purpose )
     resuable
     It Store the metadata of data
+    
+CTE :
+    define a temporary result set that can be referenced in the main query
+(talks about storage)
+    Not persistence ( temporary result will not be there after execution is completed)
+    Not resuable
+    It doesn't store any data 
 
 
 
