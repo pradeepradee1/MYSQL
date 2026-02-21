@@ -123,7 +123,7 @@
     *) Add proper indexes on correlated columns.
     *) Use window functions when possible.
     
-above used keyword
+above used keyword (keywork will be in learning flow)
     
     *) Reduce dataset before applying correlation.   
     *) Always check execution plan using EXPLAIN.
