@@ -1,16 +1,4 @@
-Note :
-Cor-relation subquery 			=	we should use Equi-Join.
-
-
-
-#Note :
-    Cor-related subqury can join with same table 
-    It can join with two different tables also ( based on the requirement )
-
-#Note :
-    CTE = We can go CTE in Subquery scenario and Inline Subqury
-          Not Cor-related subquery
-
+Note : Important
 
 #Note : Focus on join (good performance)
 1) Differences Between JOIN and Subquery ?
