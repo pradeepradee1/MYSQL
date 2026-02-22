@@ -16,7 +16,7 @@ FROM employees e;
 /*
 
 Note :
-        This is scalar subquery
+        This is scalar subquery ( Single Row Functions )
         No aggregatiion function used
         since it return the single columns
 
