@@ -13,17 +13,19 @@
 
 	SELECT sum(c.Cno) AS CustomerNumber FROM customer c ;
 	
-	
 
+	#Maths (tough)
+	SELECT EXP(1);
+	SELECT LOG(2);
+
+	#Maths (medium)
 	SELECT POWER(4, 2);
 	SELECT SQRT(64);
 	
 	
 	
-	SELECT EXP(1);
-	SELECT LOG(2);
 	
-
+	#Maths (easy)
 	SELECT GREATEST(3, 12, 34, 8, 25);
 	SELECT LEAST(3, 12, 34, 8, 25);
 	
