@@ -29,6 +29,20 @@ outer query---I/p---> Inner query--->I/p--->|
 
 
 # Note : No need to give group by dno , because it is join on dno
+
+Note :
+Cor-relation subquery 			=	we should use Equi-Join.
+
+
+
+#Note :
+    Cor-related subqury can join with same table 
+    It can join with two different tables also ( based on the requirement )
+
+#Note :
+    CTE = We can go CTE in Subquery scenario and Inline Subqury
+          Not Cor-related subquery
+
 */
 
 
