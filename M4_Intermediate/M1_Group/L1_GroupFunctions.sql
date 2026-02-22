@@ -1,6 +1,7 @@
-# Aggregation Functions :
-
-
+/*
+Aggregation Functions :
+						It perform a calculation on multiple rows and return a single result.
+*/
 --1) AVG
 
 			select avg(sal) as AvgCostOfProduct from emp
