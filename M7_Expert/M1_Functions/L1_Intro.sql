@@ -10,16 +10,15 @@ CATEGORES:
 
 1) Group or Aggregate Functions		:
 			
-			It Produces the single output value as per group of values 
-			Acts on Column level Or field level.
+			It perform a calculation on multiple rows and return a single result.
 
 			Ex: sum(), avg()
 
 
 2) Scalar OR Single Row Functions	:
 
-			It Produces a set of output values as per the input values
-			Acts on Record level Or row level.
+			It perform a calculation on multiple rows and return multiple result.
+
 
 			Ex:	lower(), length(), trim()
 
