@@ -17,7 +17,7 @@ CATEGORES:
 
 2) Scalar OR Single Row Functions	:
 
-			It perform a calculation on multiple rows and return multiple result.
+			It perform a calculation on each individual row and return one value per row
 
 
 			Ex:	lower(), length(), trim()
