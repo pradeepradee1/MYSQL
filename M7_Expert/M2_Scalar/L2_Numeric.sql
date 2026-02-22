@@ -43,13 +43,11 @@
 	SELECT FORMAT(250500.5634, 2); #250,500.56
 
 	SELECT RAND();
+	SELECT SIGN(255.5);	
 	# SIGN  = 
 	#		If number > 0, it returns 1
 	#		If number = 0, it returns 0
 	#		If number < 0, it returns -1
-	SELECT SIGN(255.5);	
-
-
 
 
 
