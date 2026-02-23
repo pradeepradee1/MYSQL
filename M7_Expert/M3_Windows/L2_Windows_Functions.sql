@@ -6,10 +6,10 @@
 
 /*
 
-LAG = 	Returns the value from a previous row in the window.
+LAG = 	gets the value from the previous row.
 		Compare the current row with a past value.
 
-LEAD = 	Returns the value from a following row in the window.
+LEAD = 	gets the value from the next row.
 		Compare the current row with a future value.
 
 */
