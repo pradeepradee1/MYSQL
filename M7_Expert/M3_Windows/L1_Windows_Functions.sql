@@ -19,8 +19,8 @@ Dense Rank
 	*) If two rows are tied at rank 2, the next rank will be 3
 
 Row Number
-	*) It is used to identify the unique record of a table
-	*) No Gaps in numbering
+	*) It is used to identify the unique integer record of a table
+	*) No Gaps in integer
 
 */
 
