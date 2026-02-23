@@ -40,15 +40,6 @@
     FROM employees
     GROUP BY department,salary;
 
-    *) Correct Query 
-
-    SELECT department, AVG(salary)
-    FROM employees
-    GROUP BY department;
-
-
-
-
 
 4) Diffference Between Where and Having ?
 
@@ -56,7 +47,7 @@ Where :
     Filter will be applied on Individual rows of table
     It will execute before grouping
 Having :
-    Filter will be applied on group records of table
+    Filter will be applied on Individual group  of table
     It will execute after grouping
 
 
