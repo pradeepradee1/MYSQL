@@ -17,17 +17,16 @@ Clone the table without data
 */
 
 #1.1)
-  
-CREATE or replace TABLE ClonedPersons LIKE Person;
-
-
-
-#1.2)
-
 CREATE TABLE new_table AS
 SELECT *
 FROM old_table
 WHERE 1 = 0;
+
+#1.2)
+CREATE or replace TABLE ClonedPersons LIKE Person;
+
+
+
 
 /* 
 
