@@ -1,4 +1,4 @@
-Note : This is similar to the GroupBy and Windows functions
+Note : This is similar to the GroupBy and Order by 
 
 1) DB GroupBy and Windows functions ?
 
