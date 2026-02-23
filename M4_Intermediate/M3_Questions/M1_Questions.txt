@@ -62,7 +62,7 @@ Group By :
     number of rows in output is reduced 
 
 Order BY :
-    Sorts the records
+    Sorts the records in ascending order (ASC) by default
     It doesn't required the aggregations functions
     It will treated NULLs as unknown / missing values
     It will be execute end of the query
