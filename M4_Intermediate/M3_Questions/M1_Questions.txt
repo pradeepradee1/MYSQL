@@ -57,7 +57,7 @@ Having :
 
 Group By :
     Groups the records for aggregation
-    It required the aggregations functions
+    It require aggregation function and functions are Avg, Count, Max, Min and Sum
     It will treat the all NULL values are equal
     It will be execute after WHERE and before aggregate functions
     number of rows in output is reduced 
