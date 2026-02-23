@@ -1,26 +1,42 @@
 /*
-DDL
+
+
+1) Clone the table without data
+
+2) Clone the table with data
+
+
 */
 
-/*
-Create a Table from another table
-Create Index
+
+/* 
+
+1)
+Clone the table without data 
+
 */
 
-use mydb;
-
-#Table STRUCTURE 
-
-#Options 1
-SHOW CREATE TABLE Account;
-#Options 2
-desc Account;
-
-
-#Cloning a Table
+#1.1)
+  
 CREATE or replace TABLE ClonedPersons LIKE Person;
 
-#Cloning a Table with records
+
+
+#1.2)
+
+CREATE TABLE new_table AS
+SELECT *
+FROM old_table
+WHERE 1 = 0;
+
+/* 
+
+2)
+Clone the table with data 
+
+*/
+
+
 CREATE or REPLACE TABLE ClonedPersons SELECT * FROM Person;
 
 CREATE or REPLACE TABLE ClonedPersons SELECT LastName , FirstName  FROM Person;
@@ -34,16 +50,3 @@ CREATE or replace TABLE stack2 SELECT * FROM second_db.stack;
 
 CREATE or replace TABLE stack3 SELECT username, password FROM second_db.stack;
 
-
-#Note :
-#Primary keys and indexes will not be preserved when creating tables from SELECT . You must redeclare them:
-CREATE or REPLACE TABLE ModifiedPersons (PRIMARY KEY (PersonID))
-SELECT PersonID, FirstName + LastName AS FullName FROM Person
-WHERE LastName IS NOT NULL;
-
-
-
-
-#Creating The Index
-
-create index idx_sal on emp(sal);
