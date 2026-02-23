@@ -70,9 +70,9 @@ Transactional DataBase Follows the ACID Properties :
 				
 		D   =  Durability 
 					
-				Recover the data from failure occurs
 				Changes are presistent
 				holding the data in the logs
+				Recover the data from failure occurs
 				It is also called as Recovery Manager
 				
 				
