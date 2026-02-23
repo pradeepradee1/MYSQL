@@ -91,4 +91,8 @@ OP
 | 20      | 1         |
 | NULL    | 2         |
 
+7) How the group function or aggregate functions handle the NULL values ?
+
+It will exclude the NULL values
+
 
