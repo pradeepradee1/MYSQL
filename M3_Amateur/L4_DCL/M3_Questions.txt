@@ -3,4 +3,4 @@ IT is used to give access or privileges on database objects (tables, views, proc
 
 
 2) What is purpose of revoke ?
-IT is used to remove  privileges or access which is previously granted
+IT is used to remove privileges on database objects (tables, views, procedures) to users or roles.
