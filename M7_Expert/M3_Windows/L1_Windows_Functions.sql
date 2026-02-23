@@ -19,7 +19,7 @@ Dense Rank
 	*) If two rows are tied at rank 2, the next rank will be 3
 
 Row Number
-	*) The unique interger to identify the each records of the table
+	*) It is used to identify the unique record of a table
 	*) No Gaps in numbering
 
 */
