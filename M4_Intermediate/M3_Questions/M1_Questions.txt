@@ -51,6 +51,7 @@ Having :
     It will execute after grouping
 
 
+#Note : This is similar to the GroupBy and windows functions 
 
 5) Difference between Group By and Order By ?
 
