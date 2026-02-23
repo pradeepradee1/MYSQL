@@ -4,7 +4,7 @@ Note : This is similar to the GroupBy and Order by
 
 GroupBy :
 Groups the records for aggregation
-aggregation function are Avg, Count, Max, Min and Sum
+It require aggregation function and functions are Avg, Count, Max, Min and Sum
 It will treat the all NULL values are equal
 It will be execute after WHERE and before aggregate functions
 Number of rows in output is reduced 
