@@ -1,16 +1,18 @@
-1) DB GroupBy and Windows
+Note : This is similar to the GroupBy and Windows functions
 
+1) DB GroupBy and Windows functions ?
 
 GroupBy :
-1) Operate on groups of rows and return one result per group
-2) Result will be less rows
-3) It will be using with GROUP BY Clause
-4) Group function are Avg, Count, Max, Min and Sum
-
+Groups the records for aggregation
+aggregation function are Avg, Count, Max, Min and Sum
+It will treat the all NULL values are equal
+It will be execute after WHERE and before aggregate functions
+Number of rows in output is reduced 
 
 
 Windows :
-1) Operate across a set of rows related to the current row, but do not collapse rows
-2) Result will be same as number of rows
-3) It will be using with OVER() cluase
-4) Windows functions are row_number, Rank, Dense_rank, lead , lag  etc
+It does not Groups the records and It creates a logical partition and But keeps all rows
+Windows functions are row_number, Rank, Dense_rank, lead , lag  etc
+It will treat the all NULL values are equal
+Window functions are executed after having clause
+Number of records in output is same as input
