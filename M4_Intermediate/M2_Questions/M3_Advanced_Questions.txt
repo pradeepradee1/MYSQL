@@ -2,7 +2,7 @@
 
 ROLLUP adds:
 
-*) Subtotal per department
+*) Sub total per department
 *) Grand total (all departments)
 
 
@@ -10,7 +10,7 @@ ROLLUP adds:
 
 CUBE gives:
 
-*) Every Possible total and All combinations 
+*) Every All combinations total 
    Ex :
     By department + gender
     By department only
