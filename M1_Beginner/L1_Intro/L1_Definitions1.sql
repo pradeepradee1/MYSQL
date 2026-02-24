@@ -71,7 +71,7 @@ Transactional DataBase Follows the ACID Properties :
 		D   =  Durability 
 					
 				Changes are presistent
-				holding the data in the logs
+				holding the data in the logs (delta logs )
 				Recover the data from failure occurs
 				It is also called as Recovery Manager
 				
