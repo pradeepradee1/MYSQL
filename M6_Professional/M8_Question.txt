@@ -84,7 +84,7 @@ CTE :
         It Will check the value exist
         It suit for work with Small set  ( list )
         Performance will be Slower if subquery returns a large number of rows	
-        It behave unexpectedly if subquery contains NULL values.
+        It behave unexpectedly if NULL values exist.
 
     Exist :
         It Will check If rows exist
