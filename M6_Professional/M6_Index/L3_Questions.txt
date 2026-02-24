@@ -1,4 +1,11 @@
-1) What is difference between clustered and non-clustered index?
+
+1) What is B-Tree index?
+        It is a type of index structure 
+        It locate records quickly without scanning the entire table (definition)
+		It organizes the data in a tree structure, 
+
+
+2) What is difference between clustered and non-clustered index?
 
 Clustered Index :
         *) It Store Physically data on disk and sorts the data in the table
@@ -15,11 +22,11 @@ Non-Clustered Index :
         *) It suit for filtering queries , search queries and  join queries
 
 
-2) Can a table have multiple clustered indexes?
+3) Can a table have multiple clustered indexes?
         No ,  a table cannot have multiple clustered indexes.
 
 
-3) What is index scan vs index seek ?
+4) What is index scan vs index seek ?
 
         Index Seek (Efficient)     :
                 It will find the matching rows by reading the specfic index page
@@ -35,10 +42,7 @@ Non-Clustered Index :
                 Works like reading the entire table of contents page by page
 
 
-4) What is B-Tree index?
-        It is a type of index structure 
-        It locate records quickly without scanning the entire table (definition)
-		It organizes the data in a tree structure, 
+
 		
 
 
