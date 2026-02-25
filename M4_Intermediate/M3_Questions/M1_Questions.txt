@@ -1,5 +1,6 @@
 1) Can we use GROUP BY without aggregate functions?    
 
+
     Yes, but it works like DISTINCT.
 
         SELECT dept
@@ -15,7 +16,8 @@
     
 
 2) Do we need to use same column used in group by and used in aggregate functions ?
-    
+
+
     Not exactly
 
     *) Correct Query 
@@ -26,6 +28,9 @@
 
 
 3) Can we use columns in SELECT that are not in GROUP BY?
+
+
+
     No
 
     *) Wrong Query 
