@@ -5,7 +5,7 @@ Clustered Index :
         Only One per table (because table rows can only be in one order)
         It automatically creates on Primary Key
         
-        It is Best for 
+        It is used for 
                 Range queries (BETWEEN)
                 Sorting queries (ORDER BY)
 */
