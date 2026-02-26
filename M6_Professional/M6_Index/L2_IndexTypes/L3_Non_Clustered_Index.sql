@@ -5,10 +5,11 @@ Definition:
             Separate data structure from table then the stores indexed column values along with row
             Multiple per table
 
-            It is Best for
-                WHERE conditions
+            It is Used for
+                filtering (WHERE conditions)
+                Joining (JOIN columns)
                 Frequently searched columns
-                JOIN columns
+                
 
 */
 
