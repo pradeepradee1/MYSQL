@@ -6,9 +6,9 @@ Definition:
             Multiple per table
 
             It is Used for
-                filtering (WHERE conditions)
+                filtering (WHERE clause)
                 Joining (JOIN columns)
-                Frequently searched columns
+                Frequently searched columns (select clause)
                 
 
 */
