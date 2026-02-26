@@ -19,7 +19,7 @@ Non-Clustered Index :
         *) It require Separate data structure from table then the stores indexed column values along with row
         *) Multiple allowed table
         *) Frequently used for foreign keys
-        *) It suit for filtering queries , search queries and  join queries
+        *) It suit for filtering queries (where) , join queries (JOIN) and search queries 
 
 
 3) Can a table have multiple clustered indexes?
