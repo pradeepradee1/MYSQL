@@ -6,7 +6,7 @@ Clustered Index :
         It automatically creates on Primary Key
         
         It is used for 
-                Range queries (BETWEEN)
+                Range queries (BETWEEN)  (becasue it is cluster)
                 Sorting queries (ORDER BY)
 */
 
