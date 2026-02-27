@@ -12,6 +12,8 @@ Materialized view :
                 It is Performance Optimization techniques
                 
                 Unlike a normal view (It doesn't store data and fetches  data from live table), 
+
+                It is used for performance
                 
 */
 
