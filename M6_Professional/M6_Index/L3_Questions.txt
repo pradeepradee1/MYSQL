@@ -74,6 +74,6 @@ This leads to poor selectivity and affecct the performance
 
 
 11) Why too many indexes are bad?
-        Each write operation (INSERT, UPDATE, DELETE) must update all indexes, 
+        All indexes will update whenever we do write operation (INSERT, UPDATE, DELETE) , 
 which slows down performance. 
 
