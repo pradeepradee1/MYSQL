@@ -105,8 +105,8 @@ Date Format Specifiers
 
 #Month
 %M		=	February
-%m		=	02
-%c		=	2
+%m		=	02		( Month (01–12) )
+%c		=	2		( Month (1–12) )
 
 %b		=	Feb
 
