@@ -56,17 +56,9 @@ CTE :
 
 
     
-
+Focus on Mview
 4) Difference between View and Mview ?
-    View :
-        Virtual Table 
-        Does not store data
-        Always fetches the data from live table
-(talks about storage)
-        It doesn't consume storage 
-        It is Slower 
-        It is used for Abstraction, security
-    
+
     MView :
         Physical table
         Stores data physically	as like table 
@@ -75,6 +67,15 @@ CTE :
         Consumes storage	
         Faster 
         It is used for Performance optimization
+
+    View :
+        Virtual Table 
+        Does not store data
+        Always fetches the data from live table
+(talks about storage)
+        It doesn't consume storage 
+        It is Slower 
+        It is used for Abstraction, security
 
         
 
