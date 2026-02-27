@@ -127,6 +127,7 @@ Time Format Specifiers
 %i		=	30      ( Minutes )
 
 %s		=	45		( Seconds )
+
 %p		=	PM		( AM / PM )
 
 */
