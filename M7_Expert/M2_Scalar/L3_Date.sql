@@ -121,10 +121,10 @@ Date Format Specifiers
 
 Time Format Specifiers
 
-%H		=	14
-%h		=	02
-%i		=	30 
-%s		=	45
-%p		=	PM
+%H		=	14  	( Hour (00–23) )
+%h		=	02		( Hour (01–12) )
+%i		=	30      ( Minutes )
+%s		=	45		( Seconds )
+%p		=	PM		( AM / PM )
 
 */
