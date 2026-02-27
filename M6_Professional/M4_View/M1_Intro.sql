@@ -9,7 +9,7 @@ View :
 		
 		It is Performance Optimization techniques
 
-		Main objective is for Abstraction and security
+		It is used for Abstraction and security
 
 		
 	
