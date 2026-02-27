@@ -61,11 +61,12 @@ select DATEDIFF(CURRENT_DATE(),ADDDATE(CURRENT_DATE(),INTERVAL 10 day))
 #Date Format
 SELECT DATE_FORMAT("2017-12-27", "%d-%m-%Y");
 
+/*
 #Note :
 #In DATE_FORMAT functions
 # date Format is not important
 #SELECT DATE_FORMAT("2017-12-27", "%d-%m/%Y");
-
+*/
 
 #STR_TO_DATE
 SELECT STR_TO_DATE("August 10 2017", "%M %d %Y");
@@ -76,6 +77,7 @@ SELECT STR_TO_DATE("12-27-2017", '%m-%d-%Y');
 SELECT STR_TO_DATE('12/31/2011', '%m/%d/%Y');
 select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
 
+/*
 #Note :
 # In STR_TO_DATE functions 
 # date Format is important
@@ -86,38 +88,36 @@ select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
 	#STR_TO_DATE("2017-12-27", "%d %m %Y");
 	#STR_TO_DATE("2017-12-27", "%d %m /%Y");
 
-# OP is constant format (2020-08-10)
-
-
-
-#MakeDate
-SELECT MAKEDATE(2017, 3);
+*/
 
 
 
 
+/*
 
-#Date Formats:
-YYYY 		=	2021
-RR-YY		=	96
-YEAR 		= 	TWENTY TWENTY FOUR
+Date Format Specifiers
 
-MM 		=	11
-MON 		=	APR
-MONTH 		=	APRIL
+%Y      =	2026     
+%y		=	26
+%m		=	02
+%c		=	2
+%M		=	February
+%b		=	Feb
+%d		=	26
+%e		=	6
+%W		=	Monday
+%a		=	Mon
 
-DD		=	12
-DY		=	SAT
-DAY		=	SATURDAY
+*/
 
-HH12 or HH24	=	two digit hour
-MI		=	two digit minute
-SS		=	two digit seconds
+/*
 
-DDTH		=	5th
-MMTH		=	12th
+Time Format Specifiers
 
-DDSP		=	TWENTY
-DDTHSP		=	TWENTYTH
+%H		=	14
+%h		=	02
+%i		=	30 
+%s		=	45
+%p		=	PM
 
-
+*/
