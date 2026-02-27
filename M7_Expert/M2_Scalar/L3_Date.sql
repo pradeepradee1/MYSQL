@@ -97,16 +97,23 @@ select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
 
 Date Format Specifiers
 
-%Y      =	2026     
-%y		=	26
-%m		=	02
-%c		=	2
-%M		=	February
-%b		=	Feb
-%d		=	26
-%e		=	6
+#Day
+%d		=	26   	( Day (01–31) )
+%e		=	6		( Day (1–31)) )
 %W		=	Monday
 %a		=	Mon
+
+#Month
+%M		=	February
+%m		=	02
+%c		=	2
+
+%b		=	Feb
+
+#Year
+%Y      =	2026     
+%y		=	26
+
 
 */
 
