@@ -123,7 +123,9 @@ Time Format Specifiers
 
 %H		=	14  	( Hour (00–23) )
 %h		=	02		( Hour (01–12) )
+
 %i		=	30      ( Minutes )
+
 %s		=	45		( Seconds )
 %p		=	PM		( AM / PM )
 
