@@ -34,9 +34,12 @@ VALUES ('Alice', 'Doctor'), ('Bob', 'Actor'), ('Charlie', 'Singer'), ('David', '
  
 */
 
-SELECT CONCAT(name, '(', SUBSTRING(occupation, 1, 1), ')') AS formatted_name
-FROM Temp
-ORDER BY name ASC;
+select 
+	name,
+	occupation,
+	concat(name,'(',Left(occupation,1),')')
+from 
+	Temp 
 
 
 /*
