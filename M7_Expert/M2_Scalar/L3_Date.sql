@@ -100,14 +100,16 @@ Date Format Specifiers
 #Day
 %d		=	26   	( Day (01–31) )
 %e		=	6		( Day (1–31)) )
-%W		=	Monday
+
+%W (Mon)=	Monday
 %a		=	Mon
 
+
 #Month
-%M		=	February
 %m		=	02		( Month (01–12) )
 %c		=	2		( Month (1–12) )
 
+%M		=	February
 %b		=	Feb
 
 #Year
