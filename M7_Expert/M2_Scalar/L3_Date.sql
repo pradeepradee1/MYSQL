@@ -98,19 +98,23 @@ select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
 Date Format Specifiers
 
 #Day
+(d is start)
 %d		=	26   	( Day (01–31) )
 %e		=	6		( Day (1–31)) )
 
 %W (Mon)=	Monday
 %a		=	Mon
+(a is ending and day has a)
 
 
 #Month
+(m is start)
 %m		=	02		( Month (01–12) )
 %c		=	2		( Month (1–12) )
 
 %M		=	February
 %b		=	Feb
+(b is end, compare with o in month)
 
 #Year
 %Y      =	2026     
