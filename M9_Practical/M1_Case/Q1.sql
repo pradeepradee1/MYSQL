@@ -34,7 +34,8 @@ CREATE or replace TABLE Temp (
 );
 
 
-INSERT INTO Temp (node, parent, classify) VALUES
+INSERT INTO Temp (node, parent) 
+VALUES
 (5, 8),
 (9, 8),
 (4, 5),
