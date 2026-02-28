@@ -16,7 +16,7 @@ Explanation : Click --> Views or Conversion (changes)
 
 
 Note : 
-DB Revenue and Profit ?
+DB Revenue and Profit and Net Income ?
 
 Revenue :
 Revenue is the total income a business generates from sales or services, also known as the "top line". 
