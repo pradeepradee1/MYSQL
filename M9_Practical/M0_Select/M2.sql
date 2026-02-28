@@ -2,8 +2,13 @@
 
 Query names in alphabetical order with the first letter of their profession in parentheses.
 
-Example: Alice(D), Bob(A).
+Example :
+                  Alice(D), 
+                  Bob(A).
+And
+
 Count the number of individuals in each profession and format the output as:
+
 There are a total of [count] [profession]s.
 
 */
