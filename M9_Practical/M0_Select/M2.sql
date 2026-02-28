@@ -11,6 +11,13 @@ Count the number of individuals in each profession and format the output as:
 
 There are a total of [count] [profession]s.
 
+Example : 
+
+          There are a total of 1 professors.
+          There are a total of 2 actors.
+          There are a total of 2 doctors.
+          There are a total of 2 singers.
+
 */
 
 -- 𝐂𝐫𝐞𝐚𝐭𝐞 𝐭𝐡𝐞 𝐎𝐂𝐂𝐔𝐏𝐀𝐓𝐈𝐎𝐍𝐒 𝐭𝐚𝐛𝐥𝐞 
