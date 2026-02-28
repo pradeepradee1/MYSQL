@@ -34,11 +34,11 @@ VALUES ('Alice', 'Doctor'), ('Bob', 'Actor'), ('Charlie', 'Singer'), ('David', '
  
 */
 
-select 
+SELECT  
 	name,
 	occupation,
 	concat(name,'(',Left(occupation,1),')')
-from 
+FROM 
 	Temp 
 
 
