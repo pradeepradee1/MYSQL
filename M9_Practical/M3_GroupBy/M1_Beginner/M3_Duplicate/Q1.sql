@@ -38,8 +38,14 @@ OP :
 select * from Temp
 
 
-delete from Temp
-where Id not in (select min(Id) from Temp group by Email)
+delete from Temp 
+where Id = 
+(select
+	max(Id) 
+from 
+	Temp 
+where Email in ( select Email from Temp group by Email having count(*) > 1)
+)
 
 select * from Temp
 
