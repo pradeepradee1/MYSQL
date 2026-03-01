@@ -2,3 +2,4 @@
 2) How will dump without data ?
 3) How will import the data into table ?
 4) How will export the data into table ?
+5) How will you compare the value and which one you choose == or = , <> or != ?
