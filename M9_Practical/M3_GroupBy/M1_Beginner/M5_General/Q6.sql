@@ -1,10 +1,6 @@
 /*
 
- How would you identify daily active users (logged in at least once)?
-
-Identifying Daily Active Users (DAU) ?
-(or)
-Remove duplicate same-day logins first
+Identifying Daily Active Users (DAU) and Remove duplicate same-day logins first
 
 */
 
