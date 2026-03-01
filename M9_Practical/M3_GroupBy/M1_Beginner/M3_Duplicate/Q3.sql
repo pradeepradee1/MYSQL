@@ -27,6 +27,20 @@ OP as
 
 */
 
+CREATE or replace TABLE Temp (
+    user_id INT,
+    log_date DATE
+);
+
+
+INSERT INTO Temp (user_id, log_date) VALUES
+(1, '2025-03-01'),
+(2, '2025-03-01'),
+(1, '2025-03-01'),
+(3, '2025-03-02'),
+(2, '2025-03-02'),
+(2, '2025-03-02');
+
 
 SELECT
     log_date,
