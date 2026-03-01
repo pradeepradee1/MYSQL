@@ -1,7 +1,7 @@
 /*
 
 #Questions:
-#Get the unique customers:
+calculating the number of unique customers per month.
 
 */
 
