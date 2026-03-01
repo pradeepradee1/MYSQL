@@ -1,5 +1,4 @@
 Create or replace table  Temp1 (name varchar(50), product_id int, units int);
-Create or replace table  Temp2 (product_id int, product_name varchar(50), Width int,Length int,Height int);
 
 insert into Temp1 (name, product_id, units) values ('LCHouse1', '1', '1');
 insert into Temp1 (name, product_id, units) values ('LCHouse1', '2', '10');
@@ -7,6 +6,8 @@ insert into Temp1 (name, product_id, units) values ('LCHouse1', '3', '5');
 insert into Temp1 (name, product_id, units) values ('LCHouse2', '1', '2');
 insert into Temp1 (name, product_id, units) values ('LCHouse2', '2', '2');
 insert into Temp1 (name, product_id, units) values ('LCHouse3', '4', '1');
+
+Create or replace table  Temp2 (product_id int, product_name varchar(50), Width int,Length int,Height int);
 
 insert into Temp2 (product_id, product_name, Width, Length, Height) values ('1', 'LC-TV', '5', '50', '40');
 insert into Temp2 (product_id, product_name, Width, Length, Height) values ('2', 'LC-KeyChain', '5', '5', '5');
