@@ -1,7 +1,7 @@
 Think Where we can apply the Conditions
 
 
-1) Group 
+1) Group By
 
 2) Having
 
@@ -9,3 +9,5 @@ Think Where we can apply the Conditions
 
 4) (nested group by) --->  max(if action = "in" , `time`,100)  or max(CASE when action = "in" then `time` END) 
 
+5) Order By
+      Ex : order by (count col) desc
