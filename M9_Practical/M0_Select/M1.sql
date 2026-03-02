@@ -1,35 +1,6 @@
 /* 
+
 Note : Please visit how to calulte the percentage in Data Science Repo.
-*/
-
-
-/*
-A company is running multiple online advertising campaigns and wants to measure the performance of each ad. 
-They need to determine key metrics suchas the Click Through Rate (CTR) 
-
-Note : 
-
-This is online
-Not a TV
-
-Explanation : Click --> Views or Conversion (changes)
-
-
-Note : 
-DB Revenue and Profit and Net Income ?
-
-Revenue :
-Revenue is the total income a business generates from sales or services, also known as the "top line". 
-
-Profit or Net Income : 
-Profit, or net income  is the money left over after all expenses (such as costs of goods, operating expenses, and taxes) 
-are subtracted from the revenue
-
-*/
-
-/*
-
-Example 1 :
 
 */
 
@@ -50,53 +21,98 @@ INSERT INTO Temp
 (4,     'Ad 4', 1800, 180,      25,         1250.00);
 
 
+
 /*
 
-Example 2
-
-
-The company wants to measure Click Through Rate (CTR) for each advertisement campaign.
-
-CTR (Click Through Rate) measures how often people click on an ad after seeing it.
-
-CTR = ( Number of Clicks / Number of Impressions ) × 100
-
-
-Impressions     →   How many times an ad/link was shown
-
-Clicks          →   How many times users clicked it
-
-
-
-| ad_id | campaign_id | impressions | clicks | date       |
-| ----- | ----------- | ----------- | ------ | ---------- |
-| 1     | C001        | 1000        | 50     | 2025-10-01 |
-| 2     | C001        | 2000        | 120    | 2025-10-02 |
-| 3     | C002        | 1500        | 30     | 2025-10-01 |
-| 4     | C002        | 2500        | 75     | 2025-10-02 |
-| 5     | C003        | 800         | 20     | 2025-10-01 |
-
+| Column      | Meaning                                             |
+| ----------- | --------------------------------------------------- |
+| Views       | How many people saw the ad                          |
+| Clicks      | How many people clicked                             |
+| Conversions | How many completed desired action (purchase/signup) |
+| Revenue     | Money earned from that ad                           |
 
 */
 
-SELECT
-    ad_id,
-    campaign_id,
-    impressions,
-    clicks,
-    (clicks / impressions * 100.0) AS ctr_percentage1
+/*
+
+Problem 1 :
+
+Click Through Rate (CTR) 
+
+Explanation : who saw the ad, how many clicked it
+
+CTR     =   (Clicks ÷ Views)  ×   100
+
+*/
+
+SELECT 
+    AdID,
+    AdName,
+    Views,
+    Clicks,
+    (Clicks / Views) * 100.0  AS CTR_Percentage
 FROM Temp;
 
 /*
 
-OP
+Problem 2 :
 
-| ad_id | campaign_id | impressions | clicks | ctr_percentage |
-| ----- | ----------- | ----------- | ------ | -------------- |
-| 1     | C001        | 1000        | 50     | 5.00           |
-| 2     | C001        | 2000        | 120    | 6.00           |
-| 3     | C002        | 1500        | 30     | 2.00           |
-| 4     | C002        | 2500        | 75     | 3.00           |
-| 5     | C003        | 800         | 20     | 2.50           |
+
+Conversion Rate 
+
+Explanation :
+                Out of people who clicked, how many actually converted?
+
+Formulae : 
+            ConversionRate = (Conversions ÷ Clicks) × 100
 
 */
+
+SELECT 
+    AdID,
+    AdName,
+    Clicks,
+    Conversions,
+    (Conversions / Clicks) * 100   AS Conversion_Rate
+FROM Temp;
+
+/*
+
+Problem 3 
+
+Revenue Per Click (RPC)
+
+How much money you earn per click.
+
+Formmule :
+            Revenue ÷   Clicks
+
+*/
+
+SELECT 
+    AdID,
+    AdName,
+    Revenue,
+    Clicks,
+    Revenue / Clicks  AS Revenue_Per_Click
+FROM Temp;
+
+
+/*
+
+Problem 4
+
+Revenue Per View (RPV)
+
+How much money you earn per click.
+
+Formmule :
+            Revenue ÷   Views
+
+*/
+
+SELECT 
+    AdID,
+    AdName,
+    Revenue / Views  AS Revenue_Per_View
+FROM Temp;
