@@ -1,8 +1,3 @@
-/* 
-
-Note : Please visit how to calulte the percentage in Data Science Repo.
-
-*/
 
 CREATE or replace TABLE Temp (
  AdID INT PRIMARY KEY,
