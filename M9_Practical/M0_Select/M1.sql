@@ -43,6 +43,8 @@ Explanation : who saw the ad, how many clicked it
 
 CTR     =   (Clicks ÷ Views)  ×   100
 
+Note : We need to find the click, that is reason clicks is first in the percentage
+
 */
 
 SELECT 
@@ -66,6 +68,8 @@ Explanation :
 Formulae : 
             ConversionRate = (Conversions ÷ Clicks) × 100
 
+Note : We need to find the Conversions, that is reason Conversions is first in the percentage
+
 */
 
 SELECT 
@@ -86,6 +90,9 @@ How much money you earn per click.
 
 Formmule :
             Revenue ÷   Clicks
+
+Note : We need to find the Revenue, that is reason Revenue is first in the percentage
+
 
 */
 
@@ -108,6 +115,8 @@ How much money you earn per click.
 
 Formmule :
             Revenue ÷   Views
+
+Note : We need to find the Revenue, that is reason Revenue is first in the percentage
 
 */
 
