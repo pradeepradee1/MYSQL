@@ -1,8 +1,8 @@
 /*
 
 Flattening Rows     →    Converting multiple rows into a single row (row-to-column aggregation)
-Unflattening Rows   →    Converting single row back into multiple rows
 
+Flattening Rows
 
 StudentID   StudentName     CourseName
 1           Alice           Math
@@ -51,6 +51,8 @@ ORDER BY
 
 
 /*
+
+Unflattening Rows   →    Converting single row back into multiple rows
 
 Input : (Reverse the Process)
 
