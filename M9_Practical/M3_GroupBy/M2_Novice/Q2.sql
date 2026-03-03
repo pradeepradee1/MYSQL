@@ -1,5 +1,7 @@
 /*
-    Flattening and Unflattening Rows
+
+Flattening Rows     →    Converting multiple rows into a single row (row-to-column aggregation)
+Unflattening Rows   →    Converting single row back into multiple rows
 
 
 StudentID   StudentName     CourseName
