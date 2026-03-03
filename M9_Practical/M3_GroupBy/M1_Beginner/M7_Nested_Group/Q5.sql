@@ -14,10 +14,9 @@ entity_id   | property  | value
 
 Expected Output:
 
-entity_id | name | age 
-----------|-------|----- 
-1 | Alice | 30 
-2 | Bob | 28 
+entity_id  name     age 
+1          Alice     30 
+2          Bob       28 
 
 */
 
