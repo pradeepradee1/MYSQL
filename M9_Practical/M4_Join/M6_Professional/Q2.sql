@@ -37,12 +37,30 @@ cid		fid  	origin	 Destination
 
 */
 
-
-SELECT
-    cid,
-    MIN(origin) AS start_city,
-    MAX(destination) AS end_city
-FROM flights
-WHERE origin NOT IN (SELECT destination FROM flights)
-   OR destination NOT IN (SELECT origin FROM flights)
-GROUP BY cid;
+SELECT 
+    s.cid,
+    s.origin,
+    e.destination
+FROM
+(
+    SELECT cid, origin
+    FROM flights f
+    WHERE NOT EXISTS (
+        SELECT 1 
+        FROM flights 
+        WHERE cid = f.cid
+        AND destination = f.origin
+    )
+) s
+JOIN
+(
+    SELECT cid, destination
+    FROM flights f
+    WHERE NOT EXISTS (
+        SELECT 1 
+        FROM flights 
+        WHERE cid = f.cid
+        AND origin = f.destination
+    )
+) e
+ON s.cid = e.cid;
