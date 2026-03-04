@@ -1,0 +1,5 @@
+1) Get the total in every Feb of year
+    Where mon = Feb 
+
+2) Get the total of every month of year 
+    group by month,year 
