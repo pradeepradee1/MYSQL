@@ -49,3 +49,8 @@ JOIN teams t2
   ON t1.col1 < t2.col1
 ORDER BY t1.col1, t2.col1;
 
+
+/*
+Note : This is working based on the alphabetacial order
+*/
+
