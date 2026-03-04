@@ -1,13 +1,13 @@
 /*
 Questions :
 
-INNER / LEFT / FULL OUTER join equivalents in MySQL ?
+What is Output in INNER / LEFT / FULL OUTER join ?
 
 
 */
 
 
-CREATE or replace TABLE temp1 (
+CREATE or REPLACE TABLE temp1 (
     colA TINYINT(4) DEFAULT NULL
 ) 
 
@@ -39,7 +39,7 @@ NULL
 
 */
 
-CREATE TABLE temp2 (
+CREATE or REPLACE TABLE temp2 (
     colB TINYINT(4) DEFAULT NULL
 ) 
 
