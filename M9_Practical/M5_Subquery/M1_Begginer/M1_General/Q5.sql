@@ -54,7 +54,10 @@ INSERT INTO Employees_2 (employee_id, name, manager_id, salary) VALUES
 
 SELECT e.employee_id
 FROM Employees_2 e
-LEFT JOIN Employees_2 m
-    ON e.manager_id = m.employee_id
-WHERE e.manager_id IS NOT NULL
-  AND m.employee_id IS NULL;
+WHERE e.salary < 30000
+  AND e.manager_id IS NOT NULL
+  AND NOT EXISTS (
+        SELECT 1
+        FROM Employees_2 m
+        WHERE m.employee_id = e.manager_id
+  );
