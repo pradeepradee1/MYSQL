@@ -29,6 +29,9 @@ SELECT DAYNAME("2022-12-27");
 
 SELECT WEEK("2022-12-27");
 SELECT DAYOFWEEK("2022-12-27");
+#Note: 1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday
+
+	
 
 #SELECT EXTRACT(WEEK FROM "2022-12-27");
 #Note: 0 = Monday, 1 = Tuesday, 2 = Wednesday, 3 = Thursday, 4 = Friday, 5 = Saturday, 6 = Sunday.
