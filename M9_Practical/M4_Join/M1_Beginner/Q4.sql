@@ -51,6 +51,13 @@ ORDER BY t1.col1, t2.col1;
 
 
 /*
-Note : This is working based on the alphabetacial order
+How is this working ?
+    Note : This is working based on the alphabetacial order
+
+CSK
+MI
+PBKS
+RCB
+
 */
 
