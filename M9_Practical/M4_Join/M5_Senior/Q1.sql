@@ -20,11 +20,11 @@ VALUES
 
 Input :
 
-cid fid  origin	 Destination
-1	  f1		Del			  Hyd
-1	  f2		Hyd			  Blr
-2	  f3		Mum			  Agra
-2	  f4		Agra		  Kol
+cid 	fid  	origin	 Destination
+1	  	f1		Del			  Hyd
+1	  	f2		Hyd			  Blr
+2	  	f3		Mum			  Agra
+2	  	f4		Agra		  Kol
 
 
 */
