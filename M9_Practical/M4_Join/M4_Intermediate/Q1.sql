@@ -67,28 +67,7 @@ where p2.a is not null
 #Approach2
 
 select 
-a,b
+	least(col1,col2),greatest(col1,col2)
 from 
-(select 
-	*,
-	 case 
-	 	when a < b and b > a then CONCAT(cast(a as char),cast(b as char))
-	 	when b < a and a > b then CONCAT(cast(b as char),cast(a as char))
-	 	else "both equal"
-	 end as logic
-from 
-	problemsolving1
-) a
-group by a.logic
-having count(*) >= 1
-
-
-#Approach3 ; Correlation Subquery
-
-select 
-*
-from problemsolving1 p1
-where not EXISTS 
-(select * from problemsolving1 p2 
-where p1.b = p2.a and p2.a = p1.b and p1.a > p2.a)
-
+	Temp a
+group by least(col1,col2),greatest(col1,col2)
