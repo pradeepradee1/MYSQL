@@ -1,6 +1,4 @@
 /*
-
-We are given 2 input tables with ID and Name columns in both input tables. 
 Our Task: Our task is to get the mismatched records from both tables and print them in the output.
 
 IP1
