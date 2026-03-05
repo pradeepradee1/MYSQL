@@ -3,6 +3,7 @@
 We are given 2 input tables with ID and Name columns in both input tables. 
 Our Task: Our task is to get the mismatched records from both tables and print them in the output.
 
+IP1
 
 | ID | Name    |
 | -- | ------- |
@@ -11,6 +12,7 @@ Our Task: Our task is to get the mismatched records from both tables and print t
 | 3  | Charlie |
 
 
+IP2
 
 | ID | Name  |
 | -- | ----- |
@@ -18,6 +20,13 @@ Our Task: Our task is to get the mismatched records from both tables and print t
 | 2  | Bobby |
 | 4  | David |
 
+Expected Output :
+
+| ID | Name_Table1 | Name_Table2 |
+| -- | ----------- | ----------- |
+| 2  | Bob         | Bobby       |
+| 3  | Charlie     | NULL        |
+| 4  | NULL        | David       |
 
 Note :
        You’re not allowed to use ANY kind of JOIN.
