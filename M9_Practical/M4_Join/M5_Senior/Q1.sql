@@ -43,7 +43,20 @@ cid 	fid  	origin	 Destination
 select * from flights a
 
 
-/* Note : This is CROSS Join */
+/* Inner Join */
+
+select 
+	a.origin,
+	b.Destination
+from 
+	flights a
+inner join flights b  ON a.cid = b.cid
+where a.origin not in (select Destination from flights)
+and b.Destination not in (select origin from flights) 
+
+
+
+/*  This is CROSS Join */
 
 SELECT
     f1.cid,
@@ -54,6 +67,8 @@ CROSS JOIN flights f2
   ON f1.cid = f2.cid
 WHERE f1.origin NOT IN (SELECT destination FROM flights)
   AND f2.destination NOT IN (SELECT origin FROM flights);
+
+
 
 
 /* Alternative Approach */
