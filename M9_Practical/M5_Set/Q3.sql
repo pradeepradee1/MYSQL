@@ -20,6 +20,8 @@ IP2
 | 2  | Bobby |
 | 4  | David |
 
+
+
 Expected Output :
 
 | ID | Name_Table1 | Name_Table2 |
