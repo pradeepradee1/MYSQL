@@ -1,4 +1,4 @@
-Create table If Not Exists Accountssp (account_id int, income int);
+create or replace table  Accountssp (account_id int, income int);
 
 insert into Accountssp (account_id, income) values ('3', '108939');
 insert into Accountssp (account_id, income) values ('2', '12747');
