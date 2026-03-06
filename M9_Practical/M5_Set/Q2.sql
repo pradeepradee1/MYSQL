@@ -8,6 +8,12 @@ insert into Accountssp (account_id, income) values ('6', '91796');
 select * from Accountssp
 
 /*
+
+Low = 20000
+Medium = 20000 and 50000
+High = 50000
+
+	
 OutPut:
 		LowSalary		1
 		AverageSalary	0
