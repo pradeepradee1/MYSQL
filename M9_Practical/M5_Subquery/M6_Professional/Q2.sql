@@ -1,6 +1,16 @@
 /*
 
-calculating the total sales value of each product based on the price valid at the time of the order
+Finding the correct product price at the time of the order and then calculating total sales value per product ?
+
+(or)
+
+Calculating the total sales value of each product based on the price valid at the time of the order ?
+
+Note : 
+
+For every order, we must find:
+The latest product price before or on the order date
+This is called price as of that date.
 
 */
 
