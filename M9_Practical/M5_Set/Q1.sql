@@ -1,6 +1,8 @@
 /*
+Questions : Full outer join in MySQL ?
 
-Full outer join in MySQL
+
+
 
 	Table A 			Table B
 		1 				  NULL					
