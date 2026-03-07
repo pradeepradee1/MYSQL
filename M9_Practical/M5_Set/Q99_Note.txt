@@ -1,0 +1,32 @@
+mismatched records 
+
+IP1
+
+| ID | Name    |
+| -- | ------- |
+| 1  | Alice   |
+| 2  | Bob     |
+| 3  | Charlie |
+
+
+IP2
+
+| ID | Name  |
+| -- | ----- |
+| 1  | Alice |
+| 2  | Bobby |
+| 4  | David |
+
+
+Expected Output :
+
+| ID | Name_Table1 | Name_Table2 |
+| -- | ----------- | ----------- |
+| 2  | Bob         | Bobby       |
+| 3  | Charlie     | NULL        |
+| 4  | NULL        | David       |
+
+
+Logic 
+Bob,Charlie from table1 shoud not be in table2
+Bobby,David shoud not be in table1 

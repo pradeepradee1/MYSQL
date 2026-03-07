@@ -38,7 +38,10 @@ cid 	fid  	origin	 Destination
 
 */
 
-
+--Note
+--This is kind of mismatch logic
+--Hyd from destination shoud not be in origin
+--Hyd from origin shoud not be in destination
 
 select * from flights a
 
