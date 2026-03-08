@@ -1,5 +1,10 @@
 /*
 
+Question : 
+
+            Find the latest product purchased by each customer
+
+
 
 | customer\_id | product  | purchase\_date |
 | ------------ | -------- | -------------- |
@@ -19,7 +24,7 @@ OP
 
 */
 
-CREATE TABLE purchases11 (
+CREATE or replace TABLE purchases11 (
     customer_id INT,
     product VARCHAR(50),
     purchase_date DATE

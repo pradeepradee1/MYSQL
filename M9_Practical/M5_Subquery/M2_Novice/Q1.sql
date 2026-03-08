@@ -1,13 +1,14 @@
 /*
 
-Find the employees who earn more than the average salary of their department and have at least two subordinates reporting 
+Find the employees who earn more than the average salary of their department and 
+have at least two subordinates reporting 
 directly to them.
 
 */
 
 /*
 
-CREATE TABLE Employees4 (
+CREATE or replace TABLE Employees4 (
  emp_id INT,
  emp_name VARCHAR(100),
  salary INT,
@@ -47,3 +48,26 @@ HAVING e.salary > (
     )
     AND COUNT(sub.emp_id) >= 2
 ORDER BY e.department_id, e.salary DESC;
+
+--(OR)
+
+WITH dept_avg AS (
+    SELECT department_id, AVG(salary) avg_salary
+    FROM Employees4
+    GROUP BY department_id
+)
+
+SELECT 
+    e.emp_id,
+    e.emp_name,
+    e.salary,
+    e.department_id,
+    COUNT(sub.emp_id) AS num_subordinates
+FROM Employees4 e
+LEFT JOIN Employees4 sub
+    ON sub.manager_id = e.emp_id
+JOIN dept_avg d
+    ON e.department_id = d.department_id
+GROUP BY e.emp_id, e.emp_name, e.salary, e.department_id, d.avg_salary
+HAVING e.salary > d.avg_salary
+   AND COUNT(sub.emp_id) >= 2;
