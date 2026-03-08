@@ -2,13 +2,15 @@
 
 Problem Statement
 
-From the orders table, find customers who placed at least one order in January but did not place any orders in February.
+From the orders table, find customers
+who placed at least one order in January 
+but did not place any orders in February.
 
 */
 
 /*
 
-CREATE TABLE orders_1 (
+CREATE or replace TABLE orders_1 (
  order_id INT,
  customer_id INT,
  order_date DATE
@@ -28,7 +30,8 @@ INSERT INTO orders_1 VALUES
 */
 
 
-SELECT DISTINCT customer_id
+SELECT 
+    DISTINCT customer_id
 FROM orders_1
-WHERE EXTRACT(MONTH FROM order_date) = 1
-AND customer_id NOT IN ( SELECT customer_id FROM orders WHERE EXTRACT(MONTH FROM order_date) = 2 );
+WHERE EXTRACT(MONTH FROM order_date) = 1 AND 
+customer_id NOT IN ( SELECT customer_id FROM orders WHERE EXTRACT(MONTH FROM order_date) = 2 );

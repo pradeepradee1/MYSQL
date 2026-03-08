@@ -3,13 +3,15 @@
 Identify Active Users Based on Video Uploads and Interactions
 
 
-You’re working as a data analyst at TikTok. Your task is to identify users who are "highly active" based on the following 
+You’re working as a data analyst at TikTok. Your task is to identify users 
+who are "highly active" based on the following 
 criteria:
 
 Users must have uploaded at least 5 videos.
 At least 3 of these videos must have more than 100 interactions (likes + comments).
 
-You need to return a list of user IDs and the count of their "highly interactive" videos, sorted by the count in descending order.
+You need to return a list of user IDs and the count of their "highly interactive" videos, 
+sorted by the count in descending order.
 
 */
 --------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,20 +1,25 @@
 /*
 
+Problem : 
+grouping consecutive rows with the same status and 
+finding the start and end date of each continuous period
 
-sensor_id | log_date | status 
-----------|------------|-------- 
-A | 2025-08-01 | OK 
-A | 2025-08-02 | OK 
-A | 2025-08-03 | FAIL 
-A | 2025-08-04 | FAIL 
-A | 2025-08-05 | OK 
 
-Expected Output:
-sensor_id | start_date | end_date | status 
-----------|------------|------------|-------- 
-A | 2025-08-01 | 2025-08-02 | OK 
-A | 2025-08-03 | 2025-08-04 | FAIL 
-A | 2025-08-05 | 2025-08-05 | OK 
+sensor_id   | log_date | status 
+----------  |------------|-------- 
+A           | 2025-08-01 | OK 
+A           | 2025-08-02 | OK 
+A           | 2025-08-03 | FAIL 
+A           | 2025-08-04 | FAIL 
+A           | 2025-08-05 | OK 
+
+Expected Output :
+
+sensor_id       | start_date | end_date | status 
+----------      |------------|------------|-------- 
+A               | 2025-08-01 | 2025-08-02 | OK 
+A               | 2025-08-03 | 2025-08-04 | FAIL 
+A               | 2025-08-05 | 2025-08-05 | OK 
 
 
 */

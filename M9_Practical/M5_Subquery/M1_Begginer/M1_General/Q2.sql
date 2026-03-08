@@ -1,9 +1,10 @@
 /*
 
 find employees who:
-Earn less than $30,000
-Report to a manager who has left the company
-When a manager leaves, their record is deleted — but their employee_id may still be referenced in manager_id.
+*) Earn less than $30,000
+*) Report to a manager who has left the company
+*) When a manager leaves, their record is deleted — but their employee_id may 
+still be referenced in manager_id.
 
 Find
 1) Earn less than 30000
@@ -12,7 +13,7 @@ Find
 */
 
 
-CREATE TABLE Employees2 (
+CREATE or replace TABLE Employees2 (
     employee_id INT PRIMARY KEY,
     name VARCHAR(50),
     manager_id INT,
@@ -72,5 +73,4 @@ FROM
     Employees2 e
 WHERE e.salary < 30000
     AND e.manager_id IS NOT NULL
-    AND NOT EXISTS (SELECT 1 FROM Employees2 m WHERE m.employee_id = e.manager_id
-  );
+    AND NOT EXISTS (SELECT * FROM Employees2 m WHERE m.employee_id = e.manager_id)
