@@ -1,78 +1,56 @@
-Create table If Not Exists cinema (seat_id SERIAL primary key, free bool);
-
-insert into cinema (seat_id, free) values ('1', '1');
-insert into cinema (seat_id, free) values ('2', '0');
-insert into cinema (seat_id, free) values ('3', '1');
-insert into cinema (seat_id, free) values ('4', '1');
-insert into cinema (seat_id, free) values ('6', '1');
-
-
-select * from cinema
-
 /*
-we need find consecutive available sets 
 
-Here 0 = Occupied
-	 1 = Free
-
-OutPut : 
-			seat_id
-				3
-				4
+Questions : 
+    users who logged in for 5 or more consecutive days.
 
 */
 
+/*
 
-select * from cinema
-
-#Approach
-select 
-	seat_id,
-	if( (seat_id+1 - IFNULL(lead(seat_id) over(order by seat_id),0) ) = 0 , seat_id , 0) as availseart,
-	if( (seat_id-1 - IFNULL(lag(seat_id) over(order by seat_id),0) ) = 0 , seat_id , 0) as availseart
-from 
-	cinema
-where `free` is TRUE 
-
-#Approach
-select 
--- 	*,
-	seat_id,
-	if( (seat_id+1 - IFNULL(lead(seat_id) over(order by seat_id),0) ) = 0 , concat_ws(",",seat_id , lead(seat_id) over(order by seat_id)) , null) as availseart
-from 
-	cinema
-where `free` is TRUE 
-
-#Approach
-select 
-	if(lag(seat_id) over(order by seat_id) is null , 0 , 
-	if (seat_id - lag(seat_id) over(order by seat_id) = 1 , CONCAT_WS(",",seat_id,lag(seat_id) over(order by seat_id)),"NotSequence"  )
-	) as sequences_check
-from 
-	cinema
-where free != 0
+CREATE or replace TABLE user_login (
+    user_id INT,
+    login_date DATE
+);
 
 
+INSERT INTO user_login (user_id, login_date) VALUES
+(1, '2025-09-01'),
+(1, '2025-09-02'),
+(1, '2025-09-03'),
+(1, '2025-09-04'),
+(1, '2025-09-05'),
+(1, '2025-09-06'),
+(2, '2025-09-01'),
+(2, '2025-09-02'),
+(2, '2025-09-03'),
+(3, '2025-09-01'),
+(3, '2025-09-02'),
+(3, '2025-09-03'),
+(3, '2025-09-04'),
+(3, '2025-09-06'),
+(3, '2025-09-07'),
+(3, '2025-09-08'),
+(3, '2025-09-09'),
+(3, '2025-09-10');
+
+*/
+
+WITH dedup AS (
+    SELECT DISTINCT user_id, CAST(login_date AS DATE) AS login_date
+    FROM user_login
+),
+grp AS (
+    SELECT user_id,login_date,
+        login_date - INTERVAL (ROW_NUMBER() OVER(PARTITION BY user_id ORDER BY login_date)) DAY AS grp_key
+    FROM dedup
+)
 SELECT 
-distinct a.seat_id
-from cinema a
-join cinema b on abs(a.seat_id - b.seat_id) = 1 and a.free = true and b.free = true
-order by a.seat_id;
+    user_id,
+    MIN(login_date) AS start_date,
+    MAX(login_date) AS end_date,
+    COUNT(*) AS consecutive_days
+FROM grp
+GROUP BY user_id, grp_key
+HAVING COUNT(*) >= 5
+ORDER BY user_id, start_date;
 
-
-#Correct Approach 
-
-SELECT seat_id
-FROM cinema c1
-WHERE free = 1
-  AND (
-        EXISTS (
-            SELECT 1 FROM cinema c2 
-            WHERE c2.seat_id = c1.seat_id - 1 AND c2.free = 1
-        )
-     OR EXISTS (
-            SELECT 1 FROM cinema c3 
-            WHERE c3.seat_id = c1.seat_id + 1 AND c3.free = 1
-        )
-  )
-ORDER BY seat_id;

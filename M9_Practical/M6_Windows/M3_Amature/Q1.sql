@@ -1,15 +1,7 @@
 /*
 
-You’re given two tables:
-
-posts
-post_id | user_name | post_text
-
-comments
-comment_id | post_id | user_name | comment_text | comment_date
-
-Goal:
-For each post, find the user who wrote the most comments — but exclude the post owner from counting.
+For each post, find the user who wrote the most comments — 
+but exclude the post owner from counting.
 If there’s a tie, return any one of the top commenters for that post.
 
 */
@@ -50,28 +42,18 @@ INSERT INTO comments1 (comment_id, post_id, user_name, comment_text, comment_dat
 
 */
 
-WITH comment_counts AS (
+SELECT post_id, user_name, comment_count
+FROM (
     SELECT 
         c.post_id,
         c.user_name,
-        COUNT(*) AS num_comments
+        COUNT(*) AS comment_count,
+        ROW_NUMBER() OVER (PARTITION BY c.post_id ORDER BY COUNT(*) DESC) AS rn
     FROM comments1 c
-    JOIN posts1 p ON c.post_id = p.post_id
-    WHERE c.user_name != p.user_name   -- exclude post owner
+    JOIN posts1 p
+        ON c.post_id = p.post_id
+    WHERE c.user_name <> p.user_name  
     GROUP BY c.post_id, c.user_name
-),
-ranked_comments AS (
-    SELECT
-        post_id,
-        user_name,
-        num_comments,
-        RANK() OVER (PARTITION BY post_id ORDER BY num_comments DESC) AS rnk
-    FROM comment_counts
-)
-SELECT
-    post_id,
-    user_name AS top_commenter,
-    num_comments
-FROM ranked_comments
-WHERE rnk = 1
+) t
+WHERE rn = 1
 ORDER BY post_id;

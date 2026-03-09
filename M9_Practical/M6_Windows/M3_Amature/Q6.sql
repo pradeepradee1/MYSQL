@@ -1,5 +1,9 @@
 /*
 
+Question :
+
+You need to return streaks of 5 or more consecutive login days per user
+
 IP as
 user_id | login_date
 --------|------------
@@ -24,7 +28,7 @@ OP as
 */
 
 /*
-CREATE TABLE user_logins1 (
+CREATE or replace TABLE user_logins1 (
     user_id INT,
     login_date DATE
 );

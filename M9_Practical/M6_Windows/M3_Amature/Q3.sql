@@ -1,13 +1,15 @@
 /*
 Track medicine sales across multiple regions.
 
-Track medicine sales across multiple regions. Each region has multiple sales representatives who sell different medicines. 
+Track medicine sales across multiple regions. Each region has multiple 
+sales representatives who sell different medicines. 
+
 Management wants answers to the following:
 Which sales representative has the highest total sales value in each region?
 
 */
 
-CREATE TABLE sales_data (
+CREATE or replace TABLE sales_data (
  sales_id INT,
  sales_rep_name VARCHAR(50),
  region VARCHAR(50),
@@ -46,3 +48,28 @@ FROM (
 WHERE rnk = 1
 ORDER BY region;
 
+
+
+/* OR */
+
+WITH rep_sales AS (
+    SELECT 
+        region,
+        sales_rep_name,
+        SUM(quantity_sold * price_per_unit) AS total_sales
+    FROM sales_data
+    GROUP BY region, sales_rep_name
+),
+ranked_reps AS (
+    SELECT 
+        region,sales_rep_name,total_sales,
+        RANK() OVER (PARTITION BY region ORDER BY total_sales DESC) AS rnk
+    FROM rep_sales
+)
+SELECT 
+    region,
+    sales_rep_name,
+    total_sales
+FROM ranked_reps
+WHERE rnk = 1
+ORDER BY region;

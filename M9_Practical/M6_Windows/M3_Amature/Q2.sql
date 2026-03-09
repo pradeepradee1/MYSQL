@@ -1,6 +1,7 @@
 /*
 
-Problem: Find the top 5 most frequent customers (by number of orders) for each month in the past year.
+Problem: 
+Find the top 5 most frequent customers (by number of orders) for each month in the past year.
 
 
 
@@ -55,22 +56,6 @@ INSERT INTO orders2 (order_id, customer_id, order_date) VALUES
 (63, 4, '2025-12-08'), (64, 5, '2025-12-10');
 
 */
-
-
-
-SELECT * FROM ( 
- SELECT c.name, COUNT(*) AS num_orders, MONTH(o.order_date) AS month 
- FROM customers2 c 
- INNER JOIN orders2 o ON c.customer_id = o.customer_id 
- WHERE o.order_date >= DATEADD(MONTH, -12, GETDATE()) 
- GROUP BY c.name, MONTH(o.order_date) 
- ORDER BY num_orders DESC 
-) AS t 
-WHERE num_orders <= 5;
-
-
-
-#Solution2
 
 WITH monthly_orders AS (
     SELECT 
