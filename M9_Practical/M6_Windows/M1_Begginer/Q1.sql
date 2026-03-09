@@ -1,14 +1,28 @@
+/*
 #Question 1:
 
 #Calculate the date wise rolling average of amazon sales
 
+*/
 
-select 
+CREATE or replace TABLE amazon_sales_data (
+    sales_date DATE,
+    sales_amount INT
+);
+
+INSERT INTO amazon_sales_data (sales_date, sales_amount) VALUES
+('2022-08-21', 500),
+('2022-08-22', 600),
+('2022-08-19', 300),
+('2022-08-18', 200),
+('2022-08-25', 800);
+
+
+SELECT 
        *,
-       avg(sales_amount) over(order by sales_data) as rolling_avg
-from 
+       AVG(sales_amount) OVER(ORDER BY sales_date) AS rolling_avg
+FROM 
        amazon_sales_data;
-
 
 /*
 
@@ -43,11 +57,34 @@ What is rolling Average ?
 
 */
 
+/*
 #Question 2 : 
 
 
 #Calculate the month wise of quarter rolling average of amazon sales
 
+*/
+
+CREATE or replace TABLE tmptable2 (
+    empid INT,
+    monthno INT,
+    salary INT
+);
+
+
+INSERT INTO tmptable2 (empid, monthno, salary) VALUES
+(101, 1, 1000),
+(101, 2, 1200),
+(101, 3, 1100),
+(101, 4, 1500),
+(101, 5, 1700),
+(101, 6, 1600),
+(102, 1, 900),
+(102, 2, 1000),
+(102, 3, 1200),
+(102, 4, 1300),
+(102, 5, 1400),
+(102, 6, 1500);
 
 
 select 
@@ -57,20 +94,13 @@ from
        tmptable2
 window w as (partition by empid order by monthno range between 3 PRECEDING and 0 FOLLOWING) 
 
-#(OR)
-
-select 
-       *,
-       sum(salary) over(partition by empid  order by monthno 
-       range between  3 PRECEDING  and 0 FOLLOWING  ) as running_total_salary
-from 
-       tmptable2
-
 
 
 
 
 /*
+
+
 Moving average is of two types
 
 1. Simple moving average 

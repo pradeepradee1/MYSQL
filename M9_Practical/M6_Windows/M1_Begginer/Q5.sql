@@ -1,8 +1,8 @@
 /*
 
-As a restaurant owner evaluating potential expansion, it’s essential to analyze customer spending trends over time. 
-Write an SQL query to calculate the 7-day moving average of customer payments, helping identify peak spending patterns 
-and low-demand days. 
+calculate the 7-day moving average of customer payments, 
+helping identify peak spending patterns and low-demand days. 
+
 The average, average_amount, should be rounded to two decimal places for clarity.
 
 */
@@ -28,9 +28,8 @@ You can refer to the query afterward.
 
 SELECT 
  sale_date,
- ROUND(AVG(amount_paid) OVER (
- ORDER BY sale_date 
- ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
- ), 2) AS average_amount
+ ROUND(
+    AVG(amount_paid) OVER (ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 
+2) AS average_amount
 FROM daily_sales
 ORDER BY sale_date;

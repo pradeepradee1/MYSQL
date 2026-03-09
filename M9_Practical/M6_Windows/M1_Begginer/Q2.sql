@@ -1,13 +1,14 @@
 /*
 
-Questions : Your task is to calculates the percentage contribution of each product's sales relative to the 
-total sales of that store
+Questions: 
+    Your task is to calculates the percentage contribution of each product's sales 
+relative to the total sales of that store
 
 */
 
 
 /*
-CREATE TABLE store_sales (
+CREATE or replace TABLE store_sales (
     store_id VARCHAR(10),
     product_id VARCHAR(10),
     sales_amount INT
