@@ -1,4 +1,9 @@
 /*
+Questions :
+
+            find the missing order IDs.
+
+
 
 | order\_id |
 | --------- |
@@ -19,7 +24,7 @@ OP :
 
 /*
 
-CREATE TABLE orders_5 (
+CREATE or replace TABLE orders_5 (
     order_id INT
 );
 

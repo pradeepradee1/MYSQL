@@ -1,62 +1,55 @@
 /*
 
-Questions : users who logged in for 5 or more consecutive days.
+How do you find users with 3+ logins per week consistently over 2 months?
+
+user_id | login_timestamp
+U1      | 2025-07-01 08:00:00
+U1      | 2025-07-02 09:00:00
+U1      | 2025-07-03 10:00:00
+U2      | 2025-07-01 11:00:00
+
 
 */
 
 /*
-
-CREATE TABLE user_login (
-    user_id INT,
-    login_date DATE
+CREATE or replace TABLE user_logins2 (
+    user_id VARCHAR(10),
+    login_timestamp DATETIME
 );
 
 
-INSERT INTO user_login (user_id, login_date) VALUES
--- user 1: 6 consecutive days (should appear in output)
-(1, '2025-09-01'),
-(1, '2025-09-02'),
-(1, '2025-09-03'),
-(1, '2025-09-04'),
-(1, '2025-09-05'),
-(1, '2025-09-06'),
-
--- user 2: only 3 consecutive days (won’t appear)
-(2, '2025-09-01'),
-(2, '2025-09-02'),
-(2, '2025-09-03'),
-
--- user 3: two separate streaks (4 days and 5 days)
-(3, '2025-09-01'),
-(3, '2025-09-02'),
-(3, '2025-09-03'),
-(3, '2025-09-04'),
-(3, '2025-09-06'),
-(3, '2025-09-07'),
-(3, '2025-09-08'),
-(3, '2025-09-09'),
-(3, '2025-09-10');
+INSERT INTO user_logins2 (user_id, login_timestamp) VALUES
+('U1', '2025-07-01 08:00:00'),
+('U1', '2025-07-02 09:00:00'),
+('U1', '2025-07-03 10:00:00'),
+('U1', '2025-07-08 11:00:00'),
+('U1', '2025-07-10 12:00:00'),
+('U1', '2025-07-15 08:00:00'),
+('U1', '2025-08-01 09:00:00'),
+('U1', '2025-08-02 10:00:00'),
+('U1', '2025-08-03 11:00:00'),
+('U2', '2025-07-01 11:00:00'),
+('U2', '2025-07-02 12:00:00');
 
 */
 
-WITH dedup AS (
-    SELECT DISTINCT user_id, CAST(login_date AS DATE) AS login_date
-    FROM user_login
-),
-grp AS (
-    SELECT
+WITH weekly_logins AS (
+    SELECT 
         user_id,
-        login_date,
-        login_date - INTERVAL (ROW_NUMBER() OVER(PARTITION BY user_id ORDER BY login_date)) DAY AS grp_key
-    FROM dedup
-)
-SELECT 
-    user_id,
-    MIN(login_date) AS start_date,
-    MAX(login_date) AS end_date,
-    COUNT(*) AS consecutive_days
-FROM grp
-GROUP BY user_id, grp_key
-HAVING COUNT(*) >= 5
-ORDER BY user_id, start_date;
+        YEAR(login_timestamp) AS login_year,
+        WEEK(login_timestamp) AS login_week,
+        COUNT(*) AS login_count
+    FROM user_logins2
+    GROUP BY user_id, YEAR(login_timestamp), WEEK(login_timestamp)
+),
 
+qualified_weeks AS (
+    SELECT *
+    FROM weekly_logins
+    WHERE login_count >= 3
+)
+
+SELECT user_id
+FROM qualified_weeks
+GROUP BY user_id
+HAVING COUNT(*) >= 8;
