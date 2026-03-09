@@ -1,12 +1,11 @@
 /*
 
-Write an SQL query to calculate the total revenue loss due 
-to discounts  applied to orders during a given promotional period, while keeping the query parameterized to allow flexible
-date ranges and discount thresholds.
+write an SQL query to calculate the total revenue loss caused by 
+discounts applied to orders during a promotional period
 
 */
 
-CREATE TABLE orders_2 (
+CREATE or replace TABLE orders_2 (
     order_id BIGINT,
     order_date DATE,
     product_id BIGINT,
@@ -25,30 +24,11 @@ INSERT INTO orders_2 VALUES
 (6, '2024-02-10', 101, 1, 500, 25);
 
 
-SET @start_date = '2024-01-01';
-SET @end_date = '2024-01-31';
-SET @discount_threshold = 10;
 
 
-WITH promo_period_orders AS (
-    SELECT 
-        order_id,
-        order_date,
-        quantity,
-        price_per_unit,
-        discount_percentage,
-        quantity * price_per_unit AS original_revenue,
-        quantity * price_per_unit * (discount_percentage / 100) AS discount_loss
-    FROM orders_2
-    WHERE 
-        order_date BETWEEN @start_date AND @end_date
-        AND discount_percentage >= @discount_threshold
-)
 SELECT 
-    COUNT(order_id) AS total_orders,
-    SUM(original_revenue) AS total_revenue,
-    SUM(discount_loss) AS total_discount_loss,
-    SUM(original_revenue) - SUM(discount_loss) AS adjusted_revenue
-FROM promo_period_orders;
-
+    SUM(quantity * price_per_unit * (discount_percentage / 100)) AS total_revenue_loss
+FROM orders_2
+WHERE order_date BETWEEN '2024-01-01' AND '2024-01-31'
+AND discount_percentage >= 10;
 

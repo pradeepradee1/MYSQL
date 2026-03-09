@@ -31,4 +31,4 @@ SecondMaxSalary
 SELECT salary
 FROM employee_salary
 ORDER BY salary DESC
-LIMIT 1 OFFSET 1;
+LIMIT 1,1;
