@@ -1,10 +1,12 @@
 /*
 
-Finding the correct product price at the time of the order and then calculating total sales value per product ?
+Finding the correct product price at the time of the order and then 
+calculating total sales value per product ?
 
 (or)
 
-Calculating the total sales value of each product based on the price valid at the time of the order ?
+Calculating the total sales value of each product based on the price valid 
+at the time of the order ?
 
 Note : 
 

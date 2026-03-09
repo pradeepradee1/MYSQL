@@ -5,7 +5,7 @@
 */
 
 
-CREATE TABLE sales_data2 (
+CREATE or replace TABLE sales_data2 (
     sale_id INT,
     amount DECIMAL(10,2)
 );
@@ -36,6 +36,8 @@ CROSS JOIN stats st
 WHERE ABS((s.value - st.mean_val) / st.stddev_val) > 3;  -- threshold
 
 
+
+
 /* 2️⃣ IQR Method (Interquartile Range) */
 
 WITH quartiles AS (
@@ -48,6 +50,9 @@ SELECT s.value
 FROM sales s, quartiles q
 WHERE s.value < q.Q1 - 1.5 * (q.Q3 - q.Q1)
    OR s.value > q.Q3 + 1.5 * (q.Q3 - q.Q1);
+
+
+
 
 /* 3️⃣ Percentile Thresholds */
 
