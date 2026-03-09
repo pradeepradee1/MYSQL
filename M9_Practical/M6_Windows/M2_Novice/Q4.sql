@@ -1,5 +1,8 @@
 /*
 
+Question :
+            We need to find numbers that appear at least 3 times consecutively.
+
 +----+-----+
 | id | num |
 +----+-----+
@@ -16,8 +19,10 @@ Expected Output:
 +-----------------+
 | ConsecutiveNums |
 +-----------------+
-| 1 |
+| 1               |
 +-----------------+ 
+
+
 */
 
 
@@ -37,7 +42,8 @@ INSERT INTO numbers (id, num) VALUES
 
 
 #Apprach 1
-SELECT DISTINCT num AS ConsecutiveNums
+SELECT 
+    DISTINCT num AS ConsecutiveNums
 FROM (
     SELECT id, num,
            LAG(num, 1) OVER (ORDER BY id) AS prev_num,

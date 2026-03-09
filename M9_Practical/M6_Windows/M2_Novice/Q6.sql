@@ -15,7 +15,7 @@ P2         | 2025-03   | 40
 
 */
 
-CREATE TABLE sales_data11 (
+CREATE or replace TABLE sales_data11 (
     product_id VARCHAR(10),
     month DATE,
     sales INT
@@ -31,16 +31,15 @@ INSERT INTO sales_data11 VALUES
 ('P2', '2025-03-01', 40);
 
 
-WITH sales_trend AS (
+SELECT DISTINCT product_id
+FROM (
     SELECT 
         product_id,
         month,
         sales,
-        LAG(sales, 1) OVER (PARTITION BY product_id ORDER BY month) AS prev_sales1,
-        LAG(sales, 2) OVER (PARTITION BY product_id ORDER BY month) AS prev_sales2
-    FROM sales_data11
-)
-SELECT DISTINCT product_id
-FROM sales_trend
-WHERE sales < prev_sales1
-  AND prev_sales1 < prev_sales2;
+        LAG(sales,1) OVER (PARTITION BY product_id ORDER BY month) AS prev1,
+        LAG(sales,2) OVER (PARTITION BY product_id ORDER BY month) AS prev2
+    FROM product_sales
+) t
+WHERE sales < prev1
+AND prev1 < prev2;

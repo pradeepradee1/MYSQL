@@ -2,6 +2,8 @@
 
 Remove duplicate rows based on multiple columns
 
+Input:
+
 
 | user\_id | product\_id | purchase\_date |
 | -------- | ----------- | -------------- |
@@ -12,7 +14,7 @@ Remove duplicate rows based on multiple columns
 | 3        | P3          | 2025-03-03     |
 
 
-OP as 
+Output: 
 
 +-------+----------+-------------+
 |user_id|product_id|purchase_date|
@@ -25,7 +27,7 @@ OP as
 */
 /*
 
-CREATE TABLE purchases12 (
+CREATE or replace TABLE purchases12 (
     user_id INT,
     product_id VARCHAR(10),
     purchase_date DATE
@@ -46,16 +48,23 @@ ORDER BY user_id;
 
 /* If you want to keep only unique combinations of (user_id, product_id, purchase_date): */
   
-SELECT DISTINCT user_id, product_id, purchase_date
-FROM purchases;
+SELECT 
+    DISTINCT user_id, 
+    product_id, 
+    purchase_date
+FROM 
+    purchases;
 
 
 /* Or if you want to remove duplicates but keep one row (all columns retained): */
 
-SELECT *
-FROM (
-   SELECT *,
+SELECT 
+    *
+FROM 
+    (SELECT *,
           ROW_NUMBER() OVER (PARTITION BY user_id, product_id, purchase_date ORDER BY purchase_date) AS rn
-   FROM purchases
-) t
+    FROM
+    purchases
+    ) 
+t
 WHERE rn = 1;
