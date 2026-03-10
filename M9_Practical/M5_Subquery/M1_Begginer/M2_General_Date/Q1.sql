@@ -2,7 +2,7 @@
 
 Problem Statement
 
-From the orders table, find customers
+find customers
 who placed at least one order in January 
 but did not place any orders in February.
 
@@ -27,6 +27,8 @@ INSERT INTO orders_1 VALUES
 (8, 102, '2024-02-10'),
 (9, 107, '2024-01-30'),
 (10, 108, '2024-03-01');
+
+
 */
 
 

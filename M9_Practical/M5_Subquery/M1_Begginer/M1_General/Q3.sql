@@ -14,6 +14,7 @@ Problem Statement :
 		Calculate unique user count for each day (Customer should not repeat in another day)
 		(for ex: user_id 1 should not repeat in another day)
 
+
 Output : 
 
 date       	user_id   
@@ -53,7 +54,7 @@ FROM (
     GROUP BY user_id
 ) t
 GROUP BY first_date
-ORDER BY first_date;;
+ORDER BY first_date
 
 
 

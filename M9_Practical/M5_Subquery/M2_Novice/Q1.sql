@@ -1,8 +1,8 @@
 /*
 
 Find the employees who earn more than the average salary of their department and 
-have at least two subordinates reporting 
-directly to them.
+have at least two subordinates reporting directly to them
+(Have at least two employees directly reporting to them)
 
 */
 
