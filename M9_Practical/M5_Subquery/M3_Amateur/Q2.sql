@@ -4,7 +4,8 @@ Calculate the year-over-year growth in total ad impressions
 
 𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐒𝐭𝐚𝐭𝐞𝐦𝐞𝐧𝐭
 Calculate the year-over-year growth in total ad impressions for each category,
-taking into account regional differences, and apply a threshold filter to only include categories that had more than 100,000 
+taking into account regional differences, and apply a threshold filter to 
+only include categories that had more than 100,000 
 total impressions in both years. 
 Also, include the percentage growth in impressions for each region.
 
