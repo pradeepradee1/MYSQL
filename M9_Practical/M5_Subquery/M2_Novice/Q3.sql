@@ -1,8 +1,8 @@
 /*
 
-cumulative distinct count
+cumulative distinct count based on product
 
-What is cumulative 
+What is cumulative ?
 
 | Date | Sales | Cumulative Sales |
 | ---- | ----- | ---------------- |
