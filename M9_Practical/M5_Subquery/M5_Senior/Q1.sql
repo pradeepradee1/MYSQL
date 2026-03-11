@@ -39,11 +39,9 @@ INSERT INTO orders_5 (order_id) VALUES
 */
 
 WITH RECURSIVE all_orders AS (
-    SELECT MIN(order_id) AS order_id, MAX(order_id) AS max_id
-    FROM orders_5
+    SELECT MIN(order_id) AS order_id, MAX(order_id) AS max_id FROM orders_5
     UNION ALL
-    SELECT order_id + 1, max_id
-    FROM all_orders
+    SELECT order_id + 1, max_id FROM all_orders
     WHERE order_id + 1 <= max_id
 )
 SELECT a.order_id

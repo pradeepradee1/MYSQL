@@ -19,8 +19,7 @@ VALUES (1), (2), (3), (5), (7), (8), (10);
 WITH RECURSIVE All_IDs AS (
     SELECT 1 AS customer_id
     UNION ALL
-    SELECT customer_id + 1
-    FROM All_IDs
+    SELECT customer_id + 1 FROM All_IDs
     WHERE customer_id + 1 <= (SELECT MAX(customer_id) FROM Customers)
 )
 SELECT customer_id
