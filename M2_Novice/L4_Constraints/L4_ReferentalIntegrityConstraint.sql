@@ -1,12 +1,9 @@
 /*
 REFERENTIAL INTEGRITY CONSTRAINTS :
-									implement relationship between the two tables by using primary key of one table
-									and we can have foriegn key in other table.
-									
-									Foriegn key contains duplicates and null values also.
-
-									--A table which contains primary key is considered as parent/Master/Base table.
-									--A table which contains foriegn key is known as child/Detailed/Derived table.
+									*)	implement relationship between the two tables by using primary key of one table
+										and we can have foriegn key in other table.
+									*)	A table which contains primary key is considered as parent/Master/Base table.
+									*)	A table which contains foriegn key is known as child/Detailed/Derived table.
 
 
 REFERENCES:
