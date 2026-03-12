@@ -1,11 +1,17 @@
+/*
+
 1)
 #Assignment operator
 
-Don't use  ==
-
 use = 
 
-2) 
+Don't use  ==
+
+
+*/
+
+/*
+2)
 Use condition properly 
 if and case are not same
 
@@ -18,3 +24,5 @@ Check Case
         When condition then ""
         else ""
     end
+
+*/

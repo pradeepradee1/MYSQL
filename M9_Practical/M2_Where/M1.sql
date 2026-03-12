@@ -1,10 +1,11 @@
 /*
-#Question:
-#			Get The Employee who has the diabetes 1 in condition attribute
+
+Question:
+			Get The Employee who has the diabetes 1 in condition attribute
 
 */
 
-CREATE TABLE Temp (
+CREATE or replace TABLE Temp (
     id INT,
     name VARCHAR(50),
     condition_codes VARCHAR(100)

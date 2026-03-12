@@ -86,7 +86,9 @@ How much money you earn per click.
 Formmule :
             Revenue ÷   Clicks
 
-Note : We need to find the Revenue, that is reason Revenue is first in the percentage
+Note : 
+        We need to find the Revenue, that is reason Revenue is first 
+        They aren't asking the percentage here
 
 
 */
@@ -111,7 +113,7 @@ How much money you earn per click.
 Formmule :
             Revenue ÷   Views
 
-Note : We need to find the Revenue, that is reason Revenue is first in the percentage
+Note : We need to find the Revenue, that is reason Revenue is first 
 
 */
 

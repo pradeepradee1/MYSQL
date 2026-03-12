@@ -1,8 +1,11 @@
 /*
 
-write an SQL query to calculate the total revenue loss caused by 
+Problem :
+            Write an SQL query to calculate the total revenue loss caused by 
 discounts applied to orders during a promotional period in the jan month
-and disccount percentage greater than 10 %
+            
+            Disccount percentage greater than 10 %
+
 */
 
 CREATE or replace TABLE orders_2 (

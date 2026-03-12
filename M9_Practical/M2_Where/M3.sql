@@ -6,6 +6,7 @@
 */
 
 /*
+
 CREATE or replace TABLE Temp (
     user_id INT PRIMARY KEY,
     user_name VARCHAR(50),
@@ -23,6 +24,10 @@ VALUES
 (5, 'Eva',    DATE '2025-10-05', DATE '2025-10-20');   -- 15 days -> NOT within 7
 
 */
+
+
+
+
 
 SELECT 
     user_id,

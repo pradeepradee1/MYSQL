@@ -1,9 +1,10 @@
 /*
 
- Swap Seats!
+Swap Seats
 
 Problem Summary:
-Swap the seat for every two consecutive students. If there’s an odd number of students, the last one stays put.
+                Swap the seat for every two consecutive students. 
+If there’s an odd number of students, the last one stays put.
 
 Input: 
 Seat table:
@@ -44,6 +45,9 @@ INSERT INTO Temp VALUES
 (3, 'Emerson'),
 (4, 'Green'),
 (5, 'Jeames');
+
+
+
 
 
 SELECT 
