@@ -1,3 +1,5 @@
+/*
+
 Think Where we can apply the Conditions
 
 
@@ -15,3 +17,5 @@ Think Where we can apply the Conditions
 6) (nested group by) in select clause
 
 7) (nested group by) in having clause
+
+*/
