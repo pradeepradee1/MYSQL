@@ -25,7 +25,7 @@ Foreign Key :
         Unique is keyword and constraint 
         Prevent the duplicate values from columns of table during the table creating 
         It focus in column of the table (link with 2nd steps)
-        It will be using in DDL statment (link with 2nd steps) 
+        It will be using in crate statment which come under DDL statement (link with 2nd steps) 
         If Column has multiple null's values It will  treat as unequal ( for ex : both null are not same )
         
         
@@ -34,7 +34,7 @@ Foreign Key :
         It is keyword
         Remove duplicate values from rows of table during the query result
         It focus in rows of table (link with 2nd steps)
-        It will be using select statemnt (link with 2nd steps)
+        It will be using select statemnt which comes under the DQL statement (link with 2nd steps)
         If Column has multiple null's values  It will treat as equal ( for ex: both null are same )
         
 
