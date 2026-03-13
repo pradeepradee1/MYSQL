@@ -49,17 +49,19 @@
 4) Diffference Between Where and Having ?
 
 Where :
-    Filter will be applied on Individual rows of table
-    filter raw data
+    Filter will be applied on Individual rows of table and filter raw data
     It doesn't require aggregate functions
-    It improves the performance because of reduces data before grouping (predicate pushdown)
+    It will treat null values as UNKNOWN with help of IS NULL operator
     It will execute before grouping
+    It improves the performance because of reduces data before grouping (predicate pushdown)
+    
 Having :
-    Filter will be applied on Individual group  of table
-    filter aggregated results
+    Filter will be applied on Individual group of table and filter aggregated results
     It require aggregate functions
-    It slow in the performance
+    It will treat the null values as equal in group by and null values ingonerd by aggregate 
     It will execute after grouping
+    It slow in the performance
+    
 
 
 #Note : This is similar to the GroupBy and windows functions 
@@ -102,6 +104,8 @@ OP
 | 10      | 2         |
 | 20      | 1         |
 | NULL    | 2         |
+
+
 
 7) How the group function or aggregate functions handle the NULL values ?
 
