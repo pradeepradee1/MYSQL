@@ -50,9 +50,15 @@
 
 Where :
     Filter will be applied on Individual rows of table
+    filter raw data
+    It doesn't require aggregate functions
+    It improves the performance because of reduces data before grouping (predicate pushdown)
     It will execute before grouping
 Having :
     Filter will be applied on Individual group  of table
+    filter aggregated results
+    It require aggregate functions
+    It slow in the performance
     It will execute after grouping
 
 
@@ -102,3 +108,11 @@ OP
 It will exclude the NULL values
 
 
+8) Can HAVING be used without GROUP BY?
+    Yes , It treats the entire table as a single group
+
+    SELECT 
+        COUNT(*)
+    FROM 
+        employees
+    HAVING COUNT(*) > 2;
