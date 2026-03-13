@@ -46,7 +46,27 @@
     GROUP BY department,salary;
 
 
-4) Diffference Between Where and Having ?
+
+#Note : This is similar to the GroupBy and windows functions 
+
+4) Difference between Group By and Order By ?
+
+Group By :
+    Groups the records for aggregation
+    It require aggregation function and functions are Avg, Count, Max, Min and Sum
+    It will treat the all NULL values are equal
+    It will be execute after WHERE and before aggregate functions
+    number of rows in output is reduced 
+
+Order BY :
+    Sorts the records in ascending order (ASC) by default
+    It doesn't required the aggregations functions
+    It will treated NULLs as unknown / missing values
+    It will be execute end of the query
+    number of rows in output is same as number of rows in input
+
+
+5) Diffference Between Where and Having ?
 
 Where :
     Filter will be applied on Individual rows of table and filter raw data
@@ -64,23 +84,6 @@ Having :
     
 
 
-#Note : This is similar to the GroupBy and windows functions 
-
-5) Difference between Group By and Order By ?
-
-Group By :
-    Groups the records for aggregation
-    It require aggregation function and functions are Avg, Count, Max, Min and Sum
-    It will treat the all NULL values are equal
-    It will be execute after WHERE and before aggregate functions
-    number of rows in output is reduced 
-
-Order BY :
-    Sorts the records in ascending order (ASC) by default
-    It doesn't required the aggregations functions
-    It will treated NULLs as unknown / missing values
-    It will be execute end of the query
-    number of rows in output is same as number of rows in input
 
 
 6) How the groupBy handle NULL values ?
@@ -113,6 +116,8 @@ It will exclude the NULL values
 
 
 8) Can HAVING be used without GROUP BY?
+
+
     Yes , It treats the entire table as a single group
 
     SELECT 
