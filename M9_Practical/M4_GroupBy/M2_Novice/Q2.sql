@@ -22,7 +22,7 @@ StudentId   StudentName     Courses
 
 */
 
-CREATE TABLE student_courses (
+CREATE or replace TABLE student_courses (
     StudentID INT,
     StudentName VARCHAR(50),
     CourseName VARCHAR(50)

@@ -1,8 +1,6 @@
 /*
 
 𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐒𝐭𝐚𝐭𝐞𝐦𝐞𝐧𝐭
-You’re given a database of call records for a telecom company. 
-Each record contains information on a call, including the caller, receiver, and call time. 
 
 Your task is to write a query that returns the number of calls between each unique pair of individuals 
 (both directions counted as one).
@@ -26,7 +24,7 @@ OP
 
 */
 
-CREATE TABLE calls (
+CREATE or replace TABLE calls (
  call_id INT PRIMARY KEY,
  caller_id INT,
  receiver_id INT,
