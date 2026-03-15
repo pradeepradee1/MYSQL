@@ -1,6 +1,6 @@
 /*
 
-#Questions:
+Questions:
 calculating the number of unique customers per month.
 
 */

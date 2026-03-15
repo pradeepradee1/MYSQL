@@ -17,7 +17,7 @@ Expected Output :
 
 */
 
-CREATE TABLE test_nulls (
+create or replace TABLE test_nulls (
     col1 VARCHAR(10),
     col2 VARCHAR(10),
     col3 VARCHAR(10),

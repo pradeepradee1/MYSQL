@@ -22,7 +22,7 @@ Clicks          →   How many times users clicked it
 | 5     | C003        | 800         | 20     | 2025-10-01 |
 
 
-OP
+OP :
 
 | campaign_id | total_clicks | total_impressions | ctr_percentage |
 | ----------- | ------------ | ----------------- | -------------- |
@@ -33,7 +33,7 @@ OP
 */
 
 
-CREATE TABLE Temp (
+CREATE or replace TABLE Temp (
     ad_id INT,
     campaign_id VARCHAR(10),
     impressions INT,

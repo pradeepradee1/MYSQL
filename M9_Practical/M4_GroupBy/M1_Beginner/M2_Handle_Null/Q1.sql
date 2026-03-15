@@ -60,18 +60,23 @@ INSERT INTO Temp (cid, month_name, total_balance) VALUES
 
 
 select 
-	cid,month_name,avg(total_balance)
+	cid,
+    month_name,
+    avg(total_balance)
 from 
 	Temp
 group by 
 	cid
 
-# Note :
-# Aggregate function will excllude the NULL values 
-# Here average is doing explict the NULL values 
+/*
 
-# For ex :
+Note :
+Aggregate function will excllude the NULL values 
+Here average is doing explict the NULL values 
 
-# 650 / 4 = 162.5
-# 2300 / 12 = 191.1
+For ex :
 
+650 / 4 = 162.5
+2300 / 12 = 191.1
+
+*/
