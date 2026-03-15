@@ -1,10 +1,11 @@
-#Question:
+/*
+Question:
 
-#Calculate the total amount recived in cash and recived in online for each merchant
+Calculate the total amount recived in cash and recived in online for each merchant
+*/
 
 
-
-CREATE TABLE `Temp` (
+CREATE or replace TABLE `Temp` (
   `trx_date` date DEFAULT NULL,
   `merchant_id` varchar(10) DEFAULT NULL,
   `amount` int(11) DEFAULT NULL,
@@ -83,9 +84,13 @@ group by
 
 
 
-#Question2:
+/*
+
+Question2:
 
 #Calculate the total amount recived in cash and recived in online for each merchant and each day
+
+*/
 
 select * from Temp;
 

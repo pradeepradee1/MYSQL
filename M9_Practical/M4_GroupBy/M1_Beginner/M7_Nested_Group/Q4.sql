@@ -1,3 +1,22 @@
+/*
+Q: 
+Find Difference Between no. of apples amd no. of orranges sold each day
+
+
+Sample Output:
+
+		2020-05-01	apples	2
+		2020-05-02	apples	0
+		2020-05-03	apples	20
+		2020-05-04	apples	-1
+
+
+
+*/
+
+
+
+
 CREATE or replace TABLE Temp (sale_date date,fruit ENUM ('apples','oranges')NULL, sold_num int);
 
 desc Temp
@@ -17,20 +36,6 @@ insert into Temp (sale_date, fruit, sold_num) values ('2020-05-04', 'apples', '1
 insert into Temp (sale_date, fruit, sold_num) values ('2020-05-04', 'oranges', '16');
 
 
-/*
-l
-Q: Find Difference Between no. of apples amd no. of orranges sold each day
-
-Sample Output:
-
-		2020-05-01	apples	2
-		2020-05-02	apples	0
-		2020-05-03	apples	20
-		2020-05-04	apples	-1
-
-
-
-*/
 
 select * from Temp
 
