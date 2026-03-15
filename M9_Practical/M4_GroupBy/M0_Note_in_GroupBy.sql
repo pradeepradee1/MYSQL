@@ -1,6 +1,6 @@
 /*
 
-Think Where we can apply the Conditions
+Think Where we can apply the Conditions (Important) 
 
 1) Where
 
@@ -16,8 +16,5 @@ Think Where we can apply the Conditions
 6) Order By
       Ex : order by (count col) desc
 
-7) (nested group by) in select clause
-
-8) (nested group by) in having clause
 
 */

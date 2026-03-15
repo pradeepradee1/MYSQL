@@ -1,44 +1,57 @@
 /*
 
-From a watch_history table, 
-find content where more than 50% of viewers watched less than 20% of the total content duration.
+Questins :
 
-*/  
+Identify Active Users Based on Video Uploads and Interactions
 
-/*
-Note : See the percentage cacluation in data science folder
+based on the following criteria:
+
+Users must have uploaded at least 5 videos.
+At least 3 of these videos must have more than 100 interactions (likes + comments).
+
+You need to return a list of user IDs and the count of their "highly interactive" videos, 
+sorted by the count in descending order.
+
 */
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
-CREATE or replace TABLE watch_history (
+
+CREATE or replace TABLE videos (
+    video_id INT,
     user_id INT,
-    content_id INT,
-    watch_time FLOAT,       -- in seconds or minutes watched
-    total_duration FLOAT    -- total length of the content
+    upload_date DATE,
+    likes INT,
+    comments INT
 );
 
-INSERT INTO watch_history (user_id, content_id, watch_time, total_duration) VALUES
-(1, 1, 10, 100),   -- 10% watched
-(2, 1, 15, 100),   -- 15% watched
-(3, 1, 18, 100),   -- 18% watched
-(4, 1, 90, 100),   -- 90% watched
-(1, 2, 90, 100),   -- 90%
-(2, 2, 80, 100),   -- 80%
-(3, 2, 70, 100),   -- 70%
-(4, 2, 10, 100),   -- 10%
-(1, 3, 5, 100),    -- 5%
-(2, 3, 10, 100),   -- 10%
-(3, 3, 15, 100);   -- 15%
+INSERT INTO videos (video_id, user_id, upload_date, likes, comments) VALUES
+(1, 1, '2025-01-01', 50, 20),
+(2, 1, '2025-01-02', 120, 30),
+(3, 1, '2025-01-03', 200, 50),
+(4, 1, '2025-01-04', 150, 60),
+(5, 1, '2025-01-05', 80, 10),
+(6, 1, '2025-01-06', 130, 40),
+(7, 2, '2025-01-01', 60, 20),
+(8, 2, '2025-01-02', 50, 10),
+(9, 2, '2025-01-03', 150, 30),
+(10, 2, '2025-01-04', 90, 15),
+(11, 2, '2025-01-05', 200, 40),
+(12, 3, '2025-01-01', 120, 50),
+(13, 3, '2025-01-02', 130, 60),
+(14, 3, '2025-01-03', 80, 20),
+(15, 3, '2025-01-04', 150, 40),
+(16, 3, '2025-01-05', 70, 10);
+
 
 */
 
-
-SELECT content_id
-FROM watch_history
-GROUP BY content_id
-HAVING AVG(CASE 
-              WHEN watch_time / total_duration < 0.2 
-              THEN 1 ELSE 0 
-          END) > 0.5;
-
-
+SELECT 
+    user_id,
+    COUNT(CASE WHEN likes + comments > 100 THEN 1 END) 
+        AS highly_interactive_videos
+FROM videos
+GROUP BY user_id
+HAVING 
+    COUNT(video_id) >= 5
+    AND COUNT(CASE WHEN likes + comments > 100 THEN 1 END) >= 3
+ORDER BY highly_interactive_videos DESC;
