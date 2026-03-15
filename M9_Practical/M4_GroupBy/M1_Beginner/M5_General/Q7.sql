@@ -12,7 +12,7 @@ id | origin | destination | cost
 
 */
 
-CREATE TABLE flights (
+CREATE or replace TABLE flights (
     id INT,
     origin VARCHAR(10),
     destination VARCHAR(10),

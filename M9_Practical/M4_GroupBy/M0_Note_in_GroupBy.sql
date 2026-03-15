@@ -2,20 +2,22 @@
 
 Think Where we can apply the Conditions
 
+1) Where
 
-1) Group By
+2) Group By
 
-2) Having
+3) Aggregate functions
 
-3) Where
+4) Nested Aggregate functions
+      Ex : max(if action = "in" , `time`,100)  or max(CASE when action = "in" then `time` END)
 
-4) (nested group by) --->  max(if action = "in" , `time`,100)  or max(CASE when action = "in" then `time` END) 
+5) Having
 
-5) Order By
+6) Order By
       Ex : order by (count col) desc
 
-6) (nested group by) in select clause
+7) (nested group by) in select clause
 
-7) (nested group by) in having clause
+8) (nested group by) in having clause
 
 */

@@ -1,3 +1,16 @@
+/*
+
+Questions : 
+			Get Customer id from customer table that bought all the product in the product table
+
+For Ex   :
+			1 and 3 bought all the prodycts
+			2 bought only the one products			
+*/
+
+
+
+
 Create or replace table Temp1 (customer_id int, product_key int);
 Create or replace table Temp2 (product_key int);
 
@@ -13,13 +26,6 @@ insert into Temp2 (product_key) values ('6');
 select * from Temp1
 select * from Temp2
 
-/*
-
-#Questions : Get Customer id from customer table that bought all the product in the product table
-# For Ex   :
-#				1 and 3 bought all the prodycts
-# 					2 bought only the one products			
-*/
 
 
 #Static defined

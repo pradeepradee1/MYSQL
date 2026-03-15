@@ -1,5 +1,5 @@
 /*
-#Question : Find the Mutual followers 
+Question : Find the Mutual followers 
 
 which means:
 A follower who follows more than one user

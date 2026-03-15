@@ -1,11 +1,10 @@
 /*
 
-Given a table "orders" with columns order_id, customer_id, order_date, and total_amount, 
 write a query to rank the top 5 customers 
 based on their total amount spent in the last 6 months.
 
 
-CREATE TABLE orders3 (
+CREATE or replace TABLE orders3 (
  order_id INT,
  customer_id INT,
  order_date DATE,

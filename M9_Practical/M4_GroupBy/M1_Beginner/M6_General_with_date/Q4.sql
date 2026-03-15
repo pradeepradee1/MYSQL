@@ -1,11 +1,12 @@
 /*
 
- How would you find a user’s first purchase date and calculate days since then?
+ How would you find a user’s first purchase date and 
+ calculate days since then ?
 
 */
 
 /*
-CREATE TABLE purchases1 (
+CREATE or replace TABLE purchases1 (
     user_id INT,
     purchase_id INT,
     purchase_date DATE,

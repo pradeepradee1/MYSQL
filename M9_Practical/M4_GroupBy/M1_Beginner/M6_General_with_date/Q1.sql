@@ -1,11 +1,14 @@
 /*
 
-You are given a table of customer orders with the following columns: order_id, customer_id, order_date, and order_amount. 
-Write a query to calculate the total order amount for each customer in the year 2020, including customers with no orders in 2020.
+You are given a table of customer orders with the following columns: 
+order_id, customer_id, order_date, and order_amount. 
+
+Write a query to calculate the total order amount for each customer in the year 2020, 
+including customers with no orders in 2020.
 
 */
 
-CREATE TABLE orders4 (
+CREATE or replace TABLE orders4 (
  order_id INT PRIMARY KEY,
  customer_id INT NOT NULL,
  order_date DATE NOT NULL,
@@ -22,7 +25,9 @@ VALUES
  (6, 789, '2020-09-15', 75.00);
 
 
-SELECT customer_id, SUM(order_amount) AS total_amount
+SELECT 
+    customer_id, 
+    SUM(order_amount) AS total_amount
 FROM orders4
 WHERE order_date BETWEEN '2020-01-01' AND '2020-12-31'
 GROUP BY customer_id

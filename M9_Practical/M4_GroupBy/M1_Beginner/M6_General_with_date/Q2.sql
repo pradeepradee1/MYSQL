@@ -1,8 +1,9 @@
 /*
-Given a table of customer transactions, find the top 5 customers with the highest total transaction amount in the past 6 months.
+Problem :
+        find the top 5 customers with the highest total transaction amount in the past 6 months.
 
 
-CREATE TABLE transactions1 (
+CREATE or replace TABLE transactions1 (
  customer_id INT,
  transaction_amount DECIMAL(10,2),
  transaction_date DATE
@@ -20,7 +21,8 @@ INSERT INTO transactions1 VALUES (6, 250.00, '2025-10-01');
 
 */
 
-SELECT customer_id, SUM(transaction_amount) AS total_transaction_amount
+SELECT 
+        customer_id, SUM(transaction_amount) AS total_transaction_amount
 FROM transactions2
 WHERE transaction_date >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
 GROUP BY customer_id

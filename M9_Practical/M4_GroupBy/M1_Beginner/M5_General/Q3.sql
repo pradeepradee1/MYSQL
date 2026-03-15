@@ -1,3 +1,19 @@
+/*
+
+Q : Biggest Single Number
+	find biggest number which appers only once?
+
+OP:	
+	num
+	 6
+
+*/
+
+
+
+
+
+
 create or replace table  Temp (num int);
 
 insert into Temp (num) values ('8');
@@ -13,16 +29,6 @@ insert into Temp (num) values ('6');
 select * from Temp
 
 
-/*
-
-Q : Biggest Single Number
-	find biggest number which appers only once?
-
-OP:	
-	num
-	 6
-
-*/
 
 select 
 	num 

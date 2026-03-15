@@ -1,12 +1,13 @@
 /*
-# Questions : 
+Questions : 
 
-# Find the user and number of the days between each user's first and last post.
+Find the user and number of the days between each user's first and last post.
+
 */
 
 
 
-CREATE TABLE user_posts (
+CREATE or replace TABLE user_posts (
     post_id INT,
     user_id INT,
     post_date DATE
