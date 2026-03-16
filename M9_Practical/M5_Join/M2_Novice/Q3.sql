@@ -8,12 +8,12 @@ for the month of January 2021.
 
 /*
 
-CREATE TABLE customers3 (
+CREATE or replace TABLE customers3 (
  id INT PRIMARY KEY,
  name VARCHAR(50)
 );
 
-CREATE TABLE orders5 (
+CREATE or replace TABLE orders5 (
  id INT PRIMARY KEY,
  customer_id INT,
  purchase_date DATE,
@@ -39,6 +39,41 @@ VALUES
 (8, 3, '2021-01-31', 75.50),
 (9, 4, '2021-01-31', 250.00),
 (10, 5, '2021-01-31', 175.00);
+
+
+Sample Input :
+
+| id | name    |
+| -- | ------- |
+| 1  | John    |
+| 2  | Sarah   |
+| 3  | David   |
+| 4  | Emily   |
+| 5  | Michael |
+
+
+| id | customer_id | purchase_date | purchase_amount |
+| -- | ----------- | ------------- | --------------- |
+| 1  | 1           | 2021-01-05    | 100.50          |
+| 2  | 2           | 2021-01-10    | 75.20           |
+| 3  | 3           | 2021-01-15    | 200.00          |
+| 4  | 4           | 2021-01-20    | 150.75          |
+| 5  | 5           | 2021-01-25    | 300.00          |
+| 6  | 1           | 2021-01-30    | 50.00           |
+| 7  | 2           | 2021-01-31    | 125.30          |
+| 8  | 3           | 2021-01-31    | 75.50           |
+| 9  | 4           | 2021-01-31    | 250.00          |
+| 10 | 5           | 2021-01-31    | 175.00          |
+
+Sample Output :
+
+| customer_name | total_purchase |
+| ------------- | -------------- |
+| Michael       | 475.00         |
+| Emily         | 400.75         |
+| David         | 275.50         |
+| Sarah         | 200.50         |
+| John          | 150.50         |
 
 
 */
