@@ -1,7 +1,7 @@
 /*
 Questions :
 
-What is Output in INNER / LEFT / FULL OUTER join ?
+What is Output in INNER / LEFT / RIGHT / FULL OUTER join ?
 
 
 */
