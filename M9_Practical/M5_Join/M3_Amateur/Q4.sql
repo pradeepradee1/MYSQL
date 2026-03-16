@@ -44,6 +44,35 @@ INSERT INTO sales VALUES
 (19, 4, 100.00, '2025-10-19'),
 (20, 1, 50.00, '2025-10-20');
 
+
+Sample Input :
+
+| product_id | product   | product_name |
+| ---------- | --------- | ------------ |
+| 1          | Product A | Electronics  |
+| 2          | Product B | Clothing     |
+| 3          | Product C | Home Goods   |
+| 4          | Product D | Beauty       |
+
+| id | product_id | amount | date       |
+| -- | ---------- | ------ | ---------- |
+| 14 | 4          | 200.00 | 2025-10-14 |
+| 15 | 3          | 50.00  | 2025-10-15 |
+| 16 | 1          | 125.00 | 2025-10-16 |
+| 17 | 2          | 150.00 | 2025-10-17 |
+| 18 | 3          | 75.00  | 2025-10-18 |
+| 19 | 4          | 100.00 | 2025-10-19 |
+| 20 | 1          | 50.00  | 2025-10-20 |
+
+Output :
+
+| product   | product_name | total_sales |
+| --------- | ------------ | ----------- |
+| Product D | Beauty       | 300         |
+| Product A | Electronics  | 175         |
+| Product B | Clothing     | 150         |
+
+
 */
 
 
