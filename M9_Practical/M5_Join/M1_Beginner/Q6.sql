@@ -33,6 +33,33 @@ INSERT INTO ps_orders (order_id, customer_id, amount, status) VALUES
 (104,3,660.0,'Delivered'),
 (105,3,300.0,'Delivered');
 
+Input :
+
+| customer_id | customer_name | customer_email                        |
+| ----------- | ------------- | ------------------------------------- |
+| 1           | Shashank      | [abc@gmail.com](mailto:abc@gmail.com) |
+| 2           | Rahul         | [aaa@gmail.com](mailto:aaa@gmail.com) |
+| 3           | Ajay          | [klm@gmail.com](mailto:klm@gmail.com) |
+| 4           | Nitin         | [poc@gmail.com](mailto:poc@gmail.com) |
+| 5           | Naveen        | [mnc@gmail.com](mailto:mnc@gmail.com) |
+
+| order_id | customer_id | amount | status    |
+| -------- | ----------- | ------ | --------- |
+| 101      | 1           | 550.00 | Delivered |
+| 102      | 2           | 350.00 | Delivered |
+| 103      | 1           | 220.00 | Cancelled |
+| 104      | 3           | 660.00 | Delivered |
+| 105      | 3           | 300.00 | Delivered |
+
+Output :
+
+| customer_id | customer_name | order_id | amount | status    |
+| ----------- | ------------- | -------- | ------ | --------- |
+| 1           | Shashank      | 101      | 550.00 | Delivered |
+| 1           | Shashank      | 103      | 220.00 | Cancelled |
+
+
+
 */
 
 
