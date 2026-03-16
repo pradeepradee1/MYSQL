@@ -92,13 +92,13 @@ OP :
 
 | a.col | b.col |
 | ----- | ----- |
-| NULL  | NULL  |
-| NULL  | NULL  |
-| 1     | NULL  |
-| 1     | NULL  |
 | 2     | 2     |
 | 5     | 5     |
 | 5     | 5     |
+| 1     | NULL  |
+| 1     | NULL  |
+| NULL  | NULL  |
+| NULL  | NULL  |
 
 
 
@@ -131,13 +131,14 @@ OP :
 
 | table1_col | table2_col |
 | ---------- | ---------- |
-| NULL       | NULL       |
-| NULL       | NULL       |
-| 1          | NULL       |
-| 1          | NULL       |
 | 2          | 2          |
 | 5          | 5          |
 | 5          | 5          |
+| 1          | NULL       |
+| 1          | NULL       |
+| NULL       | NULL       |
+| NULL       | NULL       |
+| NULL       | NULL       |
 
 
 */
