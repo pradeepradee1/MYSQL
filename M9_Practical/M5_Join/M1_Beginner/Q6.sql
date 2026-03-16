@@ -1,7 +1,7 @@
 /*
 
 Question :
-Customers who never placed an order
+Get the customer Shashank and its orders
 
 
 CREATE or replace TABLE ps_customers (
@@ -42,8 +42,19 @@ SELECT * from ps_customers
 SELECT * from ps_orders
 
 SELECT 
-    a.*
-FROM 
-    ps_customers a
-LEFT JOIN ps_orders b ON a.customer_id = b.customer_id
-WHERE b.customer_id IS NULL;	
+	a.* 
+from 
+	ps_customers a
+	left join ps_orders b on a.customer_id = b.customer_id 
+where 
+	b.customer_id is not NULL  and a.customer_name = "Shashank"
+
+
+SELECT 
+	a.* 
+from 
+	ps_customers a
+where 
+	EXISTS (select * from ps_orders b where a.customer_id = b.customer_id and a.customer_name = "Shashank" )
+
+	

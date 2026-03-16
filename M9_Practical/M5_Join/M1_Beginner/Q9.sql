@@ -1,7 +1,8 @@
 /*
 
 Question :
-Customers with only cancelled orders
+Customers who placed at least one order but never received a delivered order
+
 
 CREATE or replace TABLE ps_customers (
     customer_id INT,
@@ -42,7 +43,8 @@ SELECT * from ps_orders
 
 
 SELECT a.*
-FROM ps_customers a 
-JOIN ps_orders b ON a.customer_id = b.customer_id
+FROM ps_customers a
+JOIN ps_orders b 
+ON a.customer_id = b.customer_id
 GROUP BY a.customer_id, a.customer_name, a.customer_email
-HAVING COUNT(*) = SUM(CASE WHEN b.status = 'Cancelled' THEN 1 ELSE 0 END);
+HAVING SUM(CASE WHEN b.status = 'Delivered' THEN 1 ELSE 0 END) = 0;

@@ -31,7 +31,7 @@ MI      PBKS
 
 /*
 
-CREATE TABLE teams (
+CREATE or replace TABLE teams (
     col1 VARCHAR(10)
 );
 
