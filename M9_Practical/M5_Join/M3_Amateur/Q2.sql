@@ -20,7 +20,7 @@ Questions : Managers with at Least 5 Direct Reports
 
 /*
 
-CREATE TABLE employees5 (
+CREATE or replace TABLE employees5 (
     emp_id INT PRIMARY KEY,
     emp_name VARCHAR(50),
     manager_id INT
@@ -37,6 +37,25 @@ VALUES
 (6, 'Eva', 1),
 (7, 'Frank', 2),
 (8, 'Grace', 2);
+
+
+Sample Input :
+| emp_id | emp_name | manager_id |
+| ------ | -------- | ---------- |
+| 1      | John     | NULL       |
+| 2      | Alice    | 1          |
+| 3      | Bob      | 1          |
+| 4      | Charlie  | 1          |
+| 5      | David    | 1          |
+| 6      | Eva      | 1          |
+| 7      | Frank    | 2          |
+| 8      | Grace    | 2          |
+
+Sample Output :
+| manager_id | manager_name | num_reports
+| ---------- | ------------ |-----------
+| 1          | John         |  5
+
 
 */
 
