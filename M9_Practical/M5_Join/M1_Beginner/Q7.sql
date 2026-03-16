@@ -33,6 +33,33 @@ INSERT INTO ps_orders (order_id, customer_id, amount, status) VALUES
 (104,3,660.0,'Delivered'),
 (105,3,300.0,'Delivered');
 
+Input :
+
+| customer_id | customer_name | customer_email                        |
+| ----------- | ------------- | ------------------------------------- |
+| 1           | Shashank      | [abc@gmail.com](mailto:abc@gmail.com) |
+| 2           | Rahul         | [aaa@gmail.com](mailto:aaa@gmail.com) |
+| 3           | Ajay          | [klm@gmail.com](mailto:klm@gmail.com) |
+| 4           | Nitin         | [poc@gmail.com](mailto:poc@gmail.com) |
+| 5           | Naveen        | [mnc@gmail.com](mailto:mnc@gmail.com) |
+
+| order_id | customer_id | amount | status    |
+| -------- | ----------- | ------ | --------- |
+| 101      | 1           | 550    | Delivered |
+| 102      | 2           | 350    | Delivered |
+| 103      | 1           | 220    | Cancelled |
+| 104      | 3           | 660    | Delivered |
+| 105      | 3           | 300    | Delivered |
+
+
+Output :
+
+| customer_id | customer_name |
+| ----------- | ------------- |
+| 4           | Nitin         |
+| 5           | Naveen        |
+
+
 */
 
 
@@ -42,8 +69,10 @@ SELECT * from ps_customers
 SELECT * from ps_orders
 
 SELECT 
-    a.*
-FROM 
-    ps_customers a
-LEFT JOIN ps_orders b ON a.customer_id = b.customer_id
-WHERE b.customer_id IS NULL;	
+    *
+FROM ps_customers c
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM ps_orders o
+    WHERE o.customer_id = c.customer_id
+);
