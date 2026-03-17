@@ -28,6 +28,29 @@ INSERT INTO Employees4 VALUES
 (9, 'Ivan', 92000, 10, 3),
 (10, 'Judy', 88000, 10, 3);
 
+
+Sample Input :
+
+| emp_id | emp_name | salary | department_id | manager_id |
+| ------ | -------- | ------ | ------------- | ---------- |
+| 1      | Alice    | 120000 | 10            | NULL       |
+| 2      | Bob      | 90000  | 10            | 1          |
+| 3      | Charlie  | 95000  | 10            | 1          |
+| 4      | David    | 60000  | 20            | 2          |
+| 5      | Eve      | 70000  | 20            | 2          |
+| 6      | Frank    | 85000  | 10            | 1          |
+| 7      | Grace    | 105000 | 30            | NULL       |
+| 8      | Heidi    | 95000  | 30            | 7          |
+| 9      | Ivan     | 92000  | 10            | 3          |
+| 10     | Judy     | 88000  | 10            | 3          |
+
+
+Sample Output :
+
+emp_id     emp_name    salary   department_id   num_subordinates
+    1	    Alice	    120000	    10          	3
+
+
 */
 
 
