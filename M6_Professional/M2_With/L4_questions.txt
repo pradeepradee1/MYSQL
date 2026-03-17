@@ -16,8 +16,8 @@
 
         *) Improves Readability
         *) Modularity of complex sql Queries ( Better Logical Separation )
-        *) Reusability Within Same Query
         *) Supports Recursive Queries
+        *) Reusability Within Same Query
         *) Helps in Complex Transformations
         *) Works with SELECT,INSERT, UPDATE, DELETE
         
@@ -30,6 +30,7 @@
         Scope is Session or transaction
         
 
+#Note : Focus on Temporay table 
 
 4) Difference between CTE and Temporary Table ?
 

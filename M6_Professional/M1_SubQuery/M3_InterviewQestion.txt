@@ -112,7 +112,7 @@
         row-level comparison logic that depends on the outer query 
 
     *)  However, for large datasets or heavy aggregation, I prefer rewriting them 
-        as JOINs or CTEs for better performance
+        as JOINs for better performance
 
 
 

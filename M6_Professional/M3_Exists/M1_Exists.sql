@@ -3,8 +3,9 @@
 Exists :
 
         *) It is a conditional operator
-        *) It will be using in a subquery 
         *) check any records exists or not
+        *) It will be using in a subquery 
+        
 
 
 */
@@ -14,15 +15,16 @@ Exists :
 Find The Department who do not have any employees
 */
 
-
-
 SELECT 
 *
 from 
 dept d 
 where exists (select * from emp e)
 
-# Return the department who has employee
+/*
+Return the department who has employee
+*/
+
 SELECT 
 *
 from 
@@ -43,7 +45,10 @@ dept d
 where not exists (select * from emp e where e.dno=d.dno)
 
 
-# Return the employee who has  department
+/*
+Return the employee who has  department
+*/
+
 select 
 * 
 from emp e 

@@ -1,5 +1,3 @@
-
-
 /*
 
 What is With Clause or CTEs ?
@@ -26,10 +24,4 @@ Tow types
 
 */
 
-
-/*
-Differences Between CTE and Views
-		Views 	: if i excute Query many times as like computations will happen as many times Besacuse view is pointed to main table (it is like method or database object )
-		CTE     : if i excute Query many times as like computations will happen as single times
-*/
 
