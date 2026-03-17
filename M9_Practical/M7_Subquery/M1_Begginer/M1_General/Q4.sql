@@ -1,13 +1,49 @@
 /*
+Note : See the percentage cacluation in data science folder
+*/
 
-From a watch_history table, 
-find content where more than 50% of viewers watched and then
-find the less than 20% of the total content duration.
+
+
+
+/*
+
+*) Check how many users watched less than 20%
+*) If more than half of users did this , then return that content id
+
+(or)
+
+Find content (content_id) 
+where more than 50% of viewers watched less than 20% of the total duration
+
 
 */  
 
+
 /*
-Note : See the percentage cacluation in data science folder
+Sample Input
+
+| user_id | content_id | watch_time | total_duration |
+| ------- | ---------- | ---------- | -------------- |
+| 1       | 1          | 10         | 100            |
+| 2       | 1          | 15         | 100            |
+| 3       | 1          | 18         | 100            |
+| 4       | 1          | 90         | 100            |
+| 1       | 2          | 90         | 100            |
+| 2       | 2          | 80         | 100            |
+| 3       | 2          | 70         | 100            |
+| 4       | 2          | 10         | 100            |
+| 1       | 3          | 5          | 100            |
+| 2       | 3          | 10         | 100            |
+| 3       | 3          | 15         | 100            |
+
+Sample Output :
+
+| content_id |
+| ---------- |
+| 1          |
+| 3          |
+
+
 */
 
 /*
@@ -43,12 +79,20 @@ WITH watch_pct AS (
         watch_time / total_duration AS watch_pct
     FROM watch_history
 )
-
 SELECT 
-    content_id
+    *
 FROM watch_pct
 GROUP BY content_id
 HAVING 
-    SUM(CASE WHEN watch_pct < 0.2 THEN 1 ELSE 0 END) * 1.0 / COUNT(*) > 0.5;
+    SUM(CASE WHEN watch_pct < 0.2 THEN 1 ELSE 0 END) * 100 / COUNT(*) > 50;
 
 
+(OR)
+
+
+SELECT 
+    content_id
+FROM watch_history
+GROUP BY content_id
+HAVING 
+    SUM(CASE WHEN watch_time < 20 THEN 1 ELSE 0 END) * 100 / COUNT(*) > 50;

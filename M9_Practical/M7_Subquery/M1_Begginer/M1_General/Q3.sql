@@ -59,4 +59,13 @@ ORDER BY first_date
 
 
 
-	
+WITH all_dates AS (SELECT DISTINCT date FROM user_activity),
+first_users AS (SELECT user_id, MIN(date) AS first_date FROM user_activity GROUP BY user_id)
+SELECT 
+    d.date,
+    COUNT(f.user_id) AS user_count
+FROM all_dates d
+LEFT JOIN first_users f
+    ON d.date = f.first_date
+GROUP BY d.date
+ORDER BY d.date;

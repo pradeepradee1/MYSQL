@@ -1,7 +1,7 @@
 /*
 
 Question :
-what is maximum count of Payment_Mehtod ?
+what is maximum count of Payment_Method ?
 
 	(or)
 
@@ -15,11 +15,11 @@ find the dominant / consistent payment method ?
 CREATE or replace TABLE `Temp` (
   `CID` int(11) DEFAULT NULL,
   `Month` varchar(50) DEFAULT NULL,
-  `Payment_Mehtod` varchar(80) DEFAULT NULL
+  `Payment_Method` varchar(80) DEFAULT NULL
 ) 
 
 
-INSERT INTO Temp (CID, `Month`, Payment_Mehtod) VALUES
+INSERT INTO Temp (CID, `Month`, Payment_Method) VALUES
 (100, 'OCT_2024', 'Cash_method'),
 (100, 'NOV_2024', 'Cash_method'),
 (100, 'DEC_2024', 'Cash_method'),
@@ -69,10 +69,10 @@ Select Payment_Method_Clean,count(*) from
     CID,
     Month,
     CASE 
-        WHEN LOWER(Payment_Mehtod) LIKE '%cash%' THEN 'Cash'
-        WHEN LOWER(Payment_Mehtod) LIKE '%online%' THEN 'Online'
-        WHEN LOWER(Payment_Mehtod) LIKE '%digital%' THEN 'Digital'
-        WHEN LOWER(Payment_Mehtod) LIKE '%cheque%' THEN 'Cheque'
+        WHEN LOWER(Payment_Method) LIKE '%cash%' THEN 'Cash'
+        WHEN LOWER(Payment_Method) LIKE '%online%' THEN 'Online'
+        WHEN LOWER(Payment_Method) LIKE '%digital%' THEN 'Digital'
+        WHEN LOWER(Payment_Method) LIKE '%cheque%' THEN 'Cheque'
     END AS Payment_Method_Clean
 FROM Temp
 ) tmp 
