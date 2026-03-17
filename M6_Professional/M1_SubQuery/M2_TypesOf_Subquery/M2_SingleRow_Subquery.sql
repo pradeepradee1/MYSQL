@@ -1,7 +1,7 @@
 /*
 Single Row Subquery :
-                        Returns only one row
-                        Used with operators like =, >, <, >=, <= (relational operator)
+                    Returns only one row
+                    Used with operators like =, >, <, >=, <= (Assignment and Relational operator)
 */
 
 SELECT name 

@@ -1,6 +1,6 @@
 /*
 
-Count (*) vs Count (1) vs Count (Coulmn name) In SQL
+Count (*) vs Count (1) vs Count (Coulmn) vs Count (Distinct Coulmn) In SQL
 Note : This is aggregations functions it will same as rest of the functions
 
 */
@@ -8,9 +8,7 @@ Note : This is aggregations functions it will same as rest of the functions
 /*
 COUNT(*)
 
-It will count how many rows are in the table
-It does not care about columns, values, or nulls.
-
+It Counts all rows in the table, including NULL values.
 
 Example:
 If a table has 5 rows,
@@ -23,17 +21,23 @@ COUNT(*) = 5
 
 /*
 
-This is almost the same as COUNT(*).
-For every row, put a 1 and then count how many 1’s are there.
-
-Since every row gets a 1, the result is the same as COUNT(*).
+It Counts all rows, just like COUNT(*)
+put a 1 and then count how many 1’s are there.
 
 */
 
 /*
 COUNT(column_name)
 
-It will count how many rows are in the table and it focus on the not NULL values
+It Counts only non-NULL values in that column
+It will excluded the NULL 
+
+*/
+
+/*
+COUNT(distinct column_name)
+
+It Counts unique non-NULL values in the column
 It will excluded the NULL 
 
 */

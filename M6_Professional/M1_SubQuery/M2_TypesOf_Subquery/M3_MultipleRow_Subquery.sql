@@ -1,7 +1,7 @@
 /*
 Multiple Row Subquery :
                         Returns multiple row
-                        Used with IN, ANY, ALL, EXISTS  
+                        Used with IN, EXISTS , ALL, ANY 
 */
 
 /*
