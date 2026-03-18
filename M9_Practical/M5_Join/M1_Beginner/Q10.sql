@@ -1,7 +1,7 @@
 /*
 
 Question :
-Get the customer Shashank and its orders
+Customers who placed at least one order but never received a delivered order
 
 
 CREATE or replace TABLE ps_customers (
@@ -33,6 +33,7 @@ INSERT INTO ps_orders (order_id, customer_id, amount, status) VALUES
 (104,3,660.0,'Delivered'),
 (105,3,300.0,'Delivered');
 
+
 Input :
 
 | customer_id | customer_name | customer_email                        |
@@ -43,21 +44,22 @@ Input :
 | 4           | Nitin         | [poc@gmail.com](mailto:poc@gmail.com) |
 | 5           | Naveen        | [mnc@gmail.com](mailto:mnc@gmail.com) |
 
+
 | order_id | customer_id | amount | status    |
 | -------- | ----------- | ------ | --------- |
-| 101      | 1           | 550.00 | Delivered |
-| 102      | 2           | 350.00 | Delivered |
-| 103      | 1           | 220.00 | Cancelled |
-| 104      | 3           | 660.00 | Delivered |
-| 105      | 3           | 300.00 | Delivered |
+| 101      | 1           | 550    | Delivered |
+| 102      | 2           | 350    | Delivered |
+| 103      | 1           | 220    | Cancelled |
+| 104      | 3           | 660    | Delivered |
+| 105      | 3           | 300    | Delivered |
+| 106      | 4           | 200    | Cancelled |
+| 107      | 4           | 150    | Cancelled |
 
 Output :
 
-| customer_id | customer_name | order_id | amount | status    |
-| ----------- | ------------- | -------- | ------ | --------- |
-| 1           | Shashank      | 101      | 550.00 | Delivered |
-| 1           | Shashank      | 103      | 220.00 | Cancelled |
-
+| customer_id | customer_name |
+| ----------- | ------------- |
+| 4           | Nitin         |
 
 
 */
@@ -69,13 +71,10 @@ SELECT * from ps_customers
 SELECT * from ps_orders
 
 SELECT 
-	a.* 
-from 
-	ps_customers a
-	left join ps_orders b on a.customer_id = b.customer_id 
-where 
-	b.customer_id is not NULL  and a.customer_name = "Shashank"
-
-
-
-	
+c.customer_id,
+c.customer_name
+FROM 
+    ps_customers c 
+JOIN ps_orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.customer_name
+HAVING COUNT(*) = SUM(CASE WHEN status = 'Cancelled' THEN 1 ELSE 0 END);

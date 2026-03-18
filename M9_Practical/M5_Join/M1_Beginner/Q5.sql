@@ -1,7 +1,9 @@
+
+
 /*
 
-Questions : 
-            IPL match schedule with Home & Away, each team must play twice with every other team
+Questions : get all unique pairs of teams from a single-column table
+
 
 Input :
 
@@ -13,22 +15,16 @@ MI
 PBKS
 
 
-Expected Output :
+Expected Output:
 
-| home_team | away_team |
-| --------- | --------- |
-| CSK       | MI        |
-| CSK       | PBKS      |
-| CSK       | RCB       |
-| MI        | CSK       |
-| MI        | PBKS      |
-| MI        | RCB       |
-| PBKS      | CSK       |
-| PBKS      | MI        |
-| PBKS      | RCB       |
-| RCB       | CSK       |
-| RCB       | MI        |
-| RCB       | PBKS      |
+team1   team2
+
+RCB     CSK
+RCB     MI
+RCB     PBKS
+CSK     MI
+CSK     PBKS
+MI      PBKS
 
 */
 
@@ -50,8 +46,18 @@ INSERT INTO teams (col1) VALUES
 SELECT t1.col1 AS team1, t2.col1 AS team2
 FROM teams t1
 JOIN teams t2
-  ON t1.col1 <> t2.col1
+  ON t1.col1 < t2.col1
 ORDER BY t1.col1, t2.col1;
 
 
+/*
+How is this working ?
+    Note : This is working based on the alphabetacial order
+
+CSK
+MI
+PBKS
+RCB
+
+*/
 

@@ -1,88 +1,54 @@
-#Question 2
-
 /*
-	Null Safe Join
 
-	Table A 			Table B
-		1 				  NULL					
-		2  					2
-		1 					5
-		5 					5
-	   NULL
-	   NULL
+What is output of inner, left, right, full join ?
 
-
-	Output should be
-
-		2          2
-		5 		   5
-		5          5
-	   NULL       NULL
-	   NULL       NULL
-*/
-
-/*
-create table problemsolving2_table1
-(
-colA tinyint
-)
-
-insert into problemsolving2_table1
-values(1),(2),(1),(5),(Null),(Null)
+| col1 |
+| ---- |
+| A    |
+| B    |
+| A    |
+| C    |
+| B    |
 
 
-
-create table problemsolving2_table2
-(
-colB tinyint
-)
-
-insert into problemsolving2_table2
-values (Null),(2),(5),(5)
+| col2 |
+| ---- |
+| B    |
+| C    |
+| C    |
+| A    |
+| A    |
 
 */
 
-select * from problemsolving2_table1;
-select * from problemsolving2_table2;
+/* 
+Inner join :
 
 
-#Approach 1
-
-select 
-	*
-from 
-	problemsolving2_table1 pt1 
-inner join problemsolving2_table2 pt2 on pt1.colA <=> pt2.colB 
-
-#Note : <=> is Null Safe Operator
-
-
-
-#Approach 2
-
-/* FULL OUTER JOIN equivalent in MySQL */
-
-SELECT t1.colA AS TableA, t2.colB AS TableB
-FROM problemsolving2_table1 t1
-LEFT JOIN problemsolving2_table2 t2
-    ON t1.colA = t2.colB
-
-UNION ALL
-
-SELECT t1.colA AS TableA, t2.colB AS TableB
-FROM problemsolving2_table1 t1
-RIGHT JOIN problemsolving2_table2 t2
-    ON t1.colA = t2.colB
-WHERE t1.colA IS NULL;
+| col1 | col2 |
+| ---- | ---- |
+| A    | A    |
+| A    | A    |
+| B    | B    |
+| A    | A    |
+| A    | A    |
+| C    | C    |
+| C    | C    |
+| B    | B    |
 
 
+Left Join :
 
-#Approach 3
-
-select 
-	*
-from 
-	problemsolving2_table1 pt1 
-inner join problemsolving2_table2 pt2 on pt1.colA = pt2.colB or (pt1.colA is null and pt2.colB is null)
+    Output (same as INNER JOIN)
 
 
+Right Join :
+
+    Output (same as INNER JOIN)
+
+
+Full outer join :
+
+    Output (same as INNER JOIN)
+
+*/

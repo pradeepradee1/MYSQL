@@ -1,7 +1,8 @@
 /*
 
 Question :
-Customers with only cancelled orders
+Customers who never placed an order
+
 
 CREATE or replace TABLE ps_customers (
     customer_id INT,
@@ -25,14 +26,12 @@ CREATE or replace TABLE ps_orders (
     status VARCHAR(50)
 );
 
-INSERT INTO ps_orders VALUES
+INSERT INTO ps_orders (order_id, customer_id, amount, status) VALUES
 (101,1,550.0,'Delivered'),
 (102,2,350.0,'Delivered'),
 (103,1,220.0,'Cancelled'),
 (104,3,660.0,'Delivered'),
-(105,3,300.0,'Delivered'),
-(106,4,200.0,'Cancelled'),
-(107,4,150.0,'Cancelled');
+(105,3,300.0,'Delivered');
 
 Input :
 
@@ -44,7 +43,6 @@ Input :
 | 4           | Nitin         | [poc@gmail.com](mailto:poc@gmail.com) |
 | 5           | Naveen        | [mnc@gmail.com](mailto:mnc@gmail.com) |
 
-
 | order_id | customer_id | amount | status    |
 | -------- | ----------- | ------ | --------- |
 | 101      | 1           | 550    | Delivered |
@@ -52,14 +50,14 @@ Input :
 | 103      | 1           | 220    | Cancelled |
 | 104      | 3           | 660    | Delivered |
 | 105      | 3           | 300    | Delivered |
-| 106      | 4           | 200    | Cancelled |
-| 107      | 4           | 150    | Cancelled |
+
 
 Output :
 
 | customer_id | customer_name |
 | ----------- | ------------- |
 | 4           | Nitin         |
+| 5           | Naveen        |
 
 
 */
@@ -70,12 +68,11 @@ SELECT * from ps_customers
 
 SELECT * from ps_orders
 
-
 SELECT 
-c.customer_id,
-c.customer_name
-FROM 
-    ps_customers c 
-JOIN ps_orders o ON c.customer_id = o.customer_id
-GROUP BY c.customer_id, c.customer_name
-HAVING COUNT(*) = SUM(CASE WHEN status = 'Cancelled' THEN 1 ELSE 0 END);
+    *
+FROM ps_customers c
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM ps_orders o
+    WHERE o.customer_id = c.customer_id
+);

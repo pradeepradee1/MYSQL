@@ -1,81 +1,57 @@
 /*
 
-Question :
-Get the customer Shashank and its orders
-
-
-CREATE or replace TABLE ps_customers (
-    customer_id INT,
-    customer_name VARCHAR(100),
-    customer_email VARCHAR(100)
-);
-
-
-INSERT INTO ps_customers (customer_id, customer_name, customer_email) VALUES
-(1,'Shashank','abc@gmail.com'),
-(2,'Rahul','aaa@gmail.com'),
-(3,'Ajay','klm@gmail.com'),
-(4,'Nitin','poc@gmail.com'),
-(5,'Naveen','mnc@gmail.com');
-
-
-CREATE or replace TABLE ps_orders (
-    order_id INT,
-    customer_id INT,
-    amount DECIMAL(10,2),
-    status VARCHAR(50)
-);
-
-INSERT INTO ps_orders (order_id, customer_id, amount, status) VALUES
-(101,1,550.0,'Delivered'),
-(102,2,350.0,'Delivered'),
-(103,1,220.0,'Cancelled'),
-(104,3,660.0,'Delivered'),
-(105,3,300.0,'Delivered');
+Questions : 
+            IPL match schedule with Home & Away, each team must play twice with every other team
 
 Input :
 
-| customer_id | customer_name | customer_email                        |
-| ----------- | ------------- | ------------------------------------- |
-| 1           | Shashank      | [abc@gmail.com](mailto:abc@gmail.com) |
-| 2           | Rahul         | [aaa@gmail.com](mailto:aaa@gmail.com) |
-| 3           | Ajay          | [klm@gmail.com](mailto:klm@gmail.com) |
-| 4           | Nitin         | [poc@gmail.com](mailto:poc@gmail.com) |
-| 5           | Naveen        | [mnc@gmail.com](mailto:mnc@gmail.com) |
-
-| order_id | customer_id | amount | status    |
-| -------- | ----------- | ------ | --------- |
-| 101      | 1           | 550.00 | Delivered |
-| 102      | 2           | 350.00 | Delivered |
-| 103      | 1           | 220.00 | Cancelled |
-| 104      | 3           | 660.00 | Delivered |
-| 105      | 3           | 300.00 | Delivered |
-
-Output :
-
-| customer_id | customer_name | order_id | amount | status    |
-| ----------- | ------------- | -------- | ------ | --------- |
-| 1           | Shashank      | 101      | 550.00 | Delivered |
-| 1           | Shashank      | 103      | 220.00 | Cancelled |
+col1 
+----- 
+RCB 
+CSK 
+MI 
+PBKS
 
 
+Expected Output :
+
+| home_team | away_team |
+| --------- | --------- |
+| CSK       | MI        |
+| CSK       | PBKS      |
+| CSK       | RCB       |
+| MI        | CSK       |
+| MI        | PBKS      |
+| MI        | RCB       |
+| PBKS      | CSK       |
+| PBKS      | MI        |
+| PBKS      | RCB       |
+| RCB       | CSK       |
+| RCB       | MI        |
+| RCB       | PBKS      |
 
 */
 
 
+/*
 
-SELECT * from ps_customers
+CREATE or replace TABLE teams (
+    col1 VARCHAR(10)
+);
 
-SELECT * from ps_orders
+INSERT INTO teams (col1) VALUES
+('RCB'),
+('CSK'),
+('MI'),
+('PBKS');
 
-SELECT 
-	a.* 
-from 
-	ps_customers a
-	left join ps_orders b on a.customer_id = b.customer_id 
-where 
-	b.customer_id is not NULL  and a.customer_name = "Shashank"
+*/
+
+SELECT t1.col1 AS team1, t2.col1 AS team2
+FROM teams t1
+JOIN teams t2
+  ON t1.col1 <> t2.col1
+ORDER BY t1.col1, t2.col1;
 
 
 
-	

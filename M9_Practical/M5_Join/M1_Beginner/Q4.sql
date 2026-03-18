@@ -1,63 +1,60 @@
-
-
 /*
 
-Questions : get all unique pairs of teams from a single-column table
-
-
-Input :
-
-col1 
------ 
-RCB 
-CSK 
-MI 
-PBKS
-
-
-Expected Output:
-
-team1   team2
-
-RCB     CSK
-RCB     MI
-RCB     PBKS
-CSK     MI
-CSK     PBKS
-MI      PBKS
+ How do you safely join product & transaction tables while excluding null foreign keys?
 
 */
 
-
 /*
 
-CREATE or replace TABLE teams (
-    col1 VARCHAR(10)
+CREATE TABLE product3 (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(50)
 );
 
-INSERT INTO teams (col1) VALUES
-('RCB'),
-('CSK'),
-('MI'),
-('PBKS');
+CREATE TABLE transaction3 (
+    txn_id INT PRIMARY KEY,
+    product_id INT,  -- foreign key to product.product_id
+    amount DECIMAL(10,2)
+);
+
+INSERT INTO product3 (product_id, product_name) 
+VALUES
+(1, 'Laptop'),
+(2, 'Phone'),
+(3, 'Tablet'),
+(4, 'Headphones');
+
+INSERT INTO transaction3 (txn_id, product_id, amount) 
+VALUES
+(101, 1, 1200.00),
+(102, 2, 800.00),
+(103, NULL, 500.00),     -- Invalid transaction (no product_id)
+(104, 3, 600.00),
+(105, 99, 300.00);       -- Nonexistent product_id (no match)
+
+
+OP
+txn_id | product_id | product_name | amount
+--------------------------------------------
+101    | 1          | Laptop       | 1200.00
+102    | 2          | Phone        | 800.00
+104    | 3          | Tablet       | 600.00
+
+
 
 */
 
-SELECT t1.col1 AS team1, t2.col1 AS team2
-FROM teams t1
-JOIN teams t2
-  ON t1.col1 < t2.col1
-ORDER BY t1.col1, t2.col1;
+SELECT   
+	t.txn_id, t.amount, p.product_name
+FROM 
+	transaction3 t JOIN product3 p ON t.product_id = p.product_id
+WHERE t.product_id IS NOT NULL;
 
 
-/*
-How is this working ?
-    Note : This is working based on the alphabetacial order
+/* Alternative filter inside */
 
-CSK
-MI
-PBKS
-RCB
-
-*/
-
+SELECT t.transaction_id, t.amount, p.product_name
+FROM transactions t
+JOIN products p
+    ON t.product_id = p.product_id
+    AND t.product_id IS NOT NULL;

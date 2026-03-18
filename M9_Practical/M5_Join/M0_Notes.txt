@@ -2,22 +2,33 @@ Logic_1 :
         Think all types of joins while solving the problem
 
 
-Logic_2 : mismatch logic
+Logic_2 : 
+		mismatch logic
 
-Input :
+		Input :
 
-cid 	fid  	origin	 Destination
-1	  	f1		Del			  Hyd
-1	  	f2		Hyd			  Blr
-2	  	f3		Mum			  Agra
-2	  	f4		Agra		  Kol
+		cid 	fid  	origin	 Destination
+		1	  	f1		Del			  Hyd
+		1	  	f2		Hyd			  Blr
+		2	  	f3		Mum			  Agra
+		2	  	f4		Agra		  Kol
 
-# OP : 
+		OP : 
 
-	1		 Del		  Blr
-	2		 Mum	    Kol
+		1		 Del		  Blr
+		2		 Mum	      Kol
 
---Note
---This is kind of mismatch logic
---Hyd from destination shoud not be in origin
---Hyd from origin shoud not be in destination
+		--Note
+		--This is kind of mismatch logic
+		--Hyd from destination shoud not be in origin
+		--Hyd from origin shoud not be in destination
+
+Logic_3 :
+		All possible combinations
+
+		 origin  destination 
+			 A       B         
+			 B       C 
+			 A       C  
+		     C       A 
+			 B       A           

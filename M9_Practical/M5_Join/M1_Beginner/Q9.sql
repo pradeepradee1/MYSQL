@@ -1,8 +1,7 @@
 /*
 
 Question :
-Customers who placed at least one order but never received a delivered order
-
+Customers with only cancelled orders
 
 CREATE or replace TABLE ps_customers (
     customer_id INT,
@@ -26,13 +25,14 @@ CREATE or replace TABLE ps_orders (
     status VARCHAR(50)
 );
 
-INSERT INTO ps_orders (order_id, customer_id, amount, status) VALUES
+INSERT INTO ps_orders VALUES
 (101,1,550.0,'Delivered'),
 (102,2,350.0,'Delivered'),
 (103,1,220.0,'Cancelled'),
 (104,3,660.0,'Delivered'),
-(105,3,300.0,'Delivered');
-
+(105,3,300.0,'Delivered'),
+(106,4,200.0,'Cancelled'),
+(107,4,150.0,'Cancelled');
 
 Input :
 
@@ -69,6 +69,7 @@ Output :
 SELECT * from ps_customers
 
 SELECT * from ps_orders
+
 
 SELECT 
 c.customer_id,

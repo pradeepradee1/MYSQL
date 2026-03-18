@@ -1,6 +1,6 @@
 /*
 
-Identify customers who placed more than 5 orders 
+Identify customers who placed more than 5 orders  in the last 6 months
 but gave ratings for only one order in the last 6 months.
 
 

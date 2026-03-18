@@ -1,60 +1,88 @@
+#Question 2
+
 /*
+	Null Safe Join
 
- How do you safely join product & transaction tables while excluding null foreign keys?
+	Table A 			Table B
+		1 				  NULL					
+		2  					2
+		1 					5
+		5 					5
+	   NULL
+	   NULL
 
+
+	Output should be
+
+		2          2
+		5 		   5
+		5          5
+	   NULL       NULL
+	   NULL       NULL
 */
 
 /*
+create table problemsolving2_table1
+(
+colA tinyint
+)
 
-CREATE TABLE product3 (
-    product_id INT PRIMARY KEY,
-    product_name VARCHAR(50)
-);
-
-CREATE TABLE transaction3 (
-    txn_id INT PRIMARY KEY,
-    product_id INT,  -- foreign key to product.product_id
-    amount DECIMAL(10,2)
-);
-
-INSERT INTO product3 (product_id, product_name) 
-VALUES
-(1, 'Laptop'),
-(2, 'Phone'),
-(3, 'Tablet'),
-(4, 'Headphones');
-
-INSERT INTO transaction3 (txn_id, product_id, amount) 
-VALUES
-(101, 1, 1200.00),
-(102, 2, 800.00),
-(103, NULL, 500.00),     -- Invalid transaction (no product_id)
-(104, 3, 600.00),
-(105, 99, 300.00);       -- Nonexistent product_id (no match)
+insert into problemsolving2_table1
+values(1),(2),(1),(5),(Null),(Null)
 
 
-OP
-txn_id | product_id | product_name | amount
---------------------------------------------
-101    | 1          | Laptop       | 1200.00
-102    | 2          | Phone        | 800.00
-104    | 3          | Tablet       | 600.00
 
+create table problemsolving2_table2
+(
+colB tinyint
+)
 
+insert into problemsolving2_table2
+values (Null),(2),(5),(5)
 
 */
 
-SELECT   
-	t.txn_id, t.amount, p.product_name
-FROM 
-	transaction3 t JOIN product3 p ON t.product_id = p.product_id
-WHERE t.product_id IS NOT NULL;
+select * from problemsolving2_table1;
+select * from problemsolving2_table2;
 
 
-/* Alternative filter inside */
+#Approach 1
 
-SELECT t.transaction_id, t.amount, p.product_name
-FROM transactions t
-JOIN products p
-    ON t.product_id = p.product_id
-    AND t.product_id IS NOT NULL;
+select 
+	*
+from 
+	problemsolving2_table1 pt1 
+inner join problemsolving2_table2 pt2 on pt1.colA <=> pt2.colB 
+
+#Note : <=> is Null Safe Operator
+
+
+
+#Approach 2
+
+/* FULL OUTER JOIN equivalent in MySQL */
+
+SELECT t1.colA AS TableA, t2.colB AS TableB
+FROM problemsolving2_table1 t1
+LEFT JOIN problemsolving2_table2 t2
+    ON t1.colA = t2.colB
+
+UNION ALL
+
+SELECT t1.colA AS TableA, t2.colB AS TableB
+FROM problemsolving2_table1 t1
+RIGHT JOIN problemsolving2_table2 t2
+    ON t1.colA = t2.colB
+WHERE t1.colA IS NULL;
+
+
+
+#Approach 3
+
+select 
+	*
+from 
+	problemsolving2_table1 pt1 
+inner join problemsolving2_table2 pt2 on pt1.colA = pt2.colB or (pt1.colA is null and pt2.colB is null)
+
+
