@@ -1,44 +1,65 @@
 /*
 
-numbers: 1, 2, 3, 4, 5, 10.
-
-Find the missing numbers between the minimum and maximum. 
-
-The Challenge: Recursive CTEs are NOT allowed. You must use a non-recursive approach.
+⁠How would you detect anomalies or outliers in a dataset using SQL?
 
 */
 
 
-CREATE TABLE Numbers (
-    num INT
+CREATE or replace TABLE sales_data2 (
+    sale_id INT,
+    amount DECIMAL(10,2)
 );
 
-INSERT INTO Numbers (num) VALUES
-(1),
-(2),
-(3),
-(4),
-(5),
-(10);
+INSERT INTO sales_data2 (sale_id, amount) VALUES
+(1, 100),
+(2, 120),
+(3, 115),
+(4, 130),
+(5, 5000), -- outlier
+(6, 110),
+(7, 125);
 
 
-WITH bounds AS (
-    SELECT MIN(num) AS min_val, MAX(num) AS max_val
-    FROM numbers
-),
-seq AS (
-    SELECT min_val + n AS num
-    FROM bounds
-    CROSS JOIN (
-        SELECT 0 n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 
-        UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 
-        UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
-    ) t
-    WHERE min_val + n <= max_val
+/* 1️⃣ Z-Score Method (Standard Deviation Approach) */
+
+WITH stats AS (
+    SELECT 
+        AVG(value) AS mean_val,
+        STDDEV(value) AS stddev_val
+    FROM sales
 )
+SELECT 
+    s.value,
+    (s.value - st.mean_val) / st.stddev_val AS z_score
+FROM sales s
+CROSS JOIN stats st
+WHERE ABS((s.value - st.mean_val) / st.stddev_val) > 3;  -- threshold
 
-SELECT s.num AS missing_number
-FROM seq s
-LEFT JOIN numbers n
-ON s.num = n.num
-WHERE n.num IS NULL;
+
+
+
+/* 2️⃣ IQR Method (Interquartile Range) */
+
+WITH quartiles AS (
+    SELECT 
+        PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY value) AS Q1,
+        PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY value) AS Q3
+    FROM sales
+)
+SELECT s.value
+FROM sales s, quartiles q
+WHERE s.value < q.Q1 - 1.5 * (q.Q3 - q.Q1)
+   OR s.value > q.Q3 + 1.5 * (q.Q3 - q.Q1);
+
+
+
+
+/* 3️⃣ Percentile Thresholds */
+
+SELECT value
+FROM (
+    SELECT value,
+           NTILE(100) OVER (ORDER BY value) AS percentile_rank
+    FROM sales
+) ranked
+WHERE percentile_rank <= 5 OR percentile_rank >= 95;
