@@ -3,6 +3,26 @@
 find all missing customer IDs in the range between 1 and the maximum customer_id present 
 in the table.
 
+Input :
+
+customer_id
+-----------
+1
+2
+3
+5
+7
+8
+10
+
+
+Output :
+
+missing_customer_id
+--------------------
+4
+6
+9
 */
 
 CREATE or replace TABLE Customers 
