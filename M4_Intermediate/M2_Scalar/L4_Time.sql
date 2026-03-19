@@ -1,4 +1,25 @@
--- 1) Time
+/*
+Time
+
+
+Note : data type is DATETIME
+
+CREATE or replace TABLE hourly_data (
+    record_id INT,
+    record_time DATETIME,
+    value INT
+);
+
+
+INSERT INTO hourly_data (record_id, record_time, value) VALUES
+(1, '2025-10-20 00:00:00', 10),
+(2, '2025-10-20 01:00:00', 15),
+(3, '2025-10-20 03:00:00', 20),  -- missing 02:00
+(4, '2025-10-20 04:00:00', 25),
+(5, '2025-10-20 06:00:00', 30);  
+
+*/
+
 
 select DATE_ADD(hour_time, INTERVAL 1 HOUR)
 #SELECT ADDTIME("2017-06-15 09:34:21", "2");
