@@ -38,16 +38,17 @@ INSERT INTO orders_5 (order_id) VALUES
 
 */
 
-WITH RECURSIVE all_orders AS (
-    SELECT MIN(order_id) AS order_id, MAX(order_id) AS max_id FROM orders_5
-    UNION ALL
-    SELECT order_id + 1, max_id FROM all_orders
-    WHERE order_id + 1 <= max_id
+with recursive all_id as 
+(
+   select min(order_id) as min_id from orders_5
+   union all 
+   select min_id+1 from all_id where min_id < (select max(order_id) from orders_5)
 )
-SELECT a.order_id
-FROM all_orders a
-LEFT JOIN orders_5 o ON a.order_id = o.order_id
-WHERE o.order_id IS NULL
-ORDER BY a.order_id;
+select 
+ a.min_id
+from 
+all_id a left join orders_5 b on a.min_id = b.order_id 
+where b.order_id is null
+
 
 
