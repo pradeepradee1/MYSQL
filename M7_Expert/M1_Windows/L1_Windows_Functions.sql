@@ -6,6 +6,12 @@
 */
 
 /*
+
+
+Row Number
+	*) It is used to identify the unique integer record of a table
+	*) No Gaps in integer
+
 Rank 
 	*) if there are ties Tt will skips ranks
 	*) gaps will be in ranking
@@ -18,11 +24,33 @@ Dense Rank
 	*) For ex :
 	*) If two rows are tied at rank 2, the next rank will be 3
 
-Row Number
-	*) It is used to identify the unique integer record of a table
-	*) No Gaps in integer
 
 */
+
+/*
+
+CREATE or replace TABLE emp (
+    eid INT,
+    ename VARCHAR(10),
+    sal INT,
+    dno INT
+);
+
+INSERT INTO employee (eid, ename, sal, dno) VALUES
+(5, 'C', 1000, NULL),
+(6, 'S', 1300, NULL),
+(7, 'D', 2300, NULL),
+(8, 'X', 1200, NULL),
+(9, 'B', 2200, NULL),
+(1, 'A', 2000, 10),
+(2, 'X', 1400, 10),
+(3, 'A', 3500, 30),
+(4, 'Z', 500, 10),
+(10, 'a', 5000, 30),
+(11, 'b', 505, 30);
+
+*/
+
 
 select * from emp e 
 
@@ -30,7 +58,10 @@ select * from emp e
 select avg(sal) from emp e -- 3,192.8571
 
 
-#Note : Floating Average or Moving Average or Running Average (Running Water)
+/*
+Note : Floating Average or Moving Average or Running Average (Running Water)
+*/
+
 
 select 
 	e.*,
@@ -39,7 +70,9 @@ from
 	emp e
 
 
-#Note : Floating Average based on the dno order (lowest order)
+/*
+Note : Floating Average based on the dno order (lowest order)
+*/
 
 select 
 	e.* ,
@@ -48,7 +81,10 @@ from
 	emp e
 
 
-#Note : Group by dno
+/*
+Note : Group by dno
+*/
+
 select 
 	e.* ,
 	avg(sal) over(partition by e.dno) as avgsalary  
@@ -57,7 +93,10 @@ from
 
 
 
-# Note : Moving total and Running Total and Floating total 
+/*
+Note : Moving total and Running Total and Floating total 
+*/
+
 select 
 	gender,
 	day,
@@ -68,7 +107,11 @@ from pScores ps
 
 
 
--- row_number
+/*
+
+row_number
+
+*/
 
 select 
 	e.*,
@@ -83,7 +126,10 @@ select
 from 
 	emp e
 
--- Fetch the first 2 employees from each department to join the company
+/*
+Fetch the first 2 employees from each department to join the company
+*/
+
 select 
 	* 
 from 
@@ -111,24 +157,33 @@ where rn < 3
 
 */
 
+/*
 
--- rank
+Rank :
 
--- Fetch the top 3 employee in each department earning the max salary
+Fetch the top 3 employee in each department earning the max salary
+
+*/
 select 
 * 
 from 
 (
 	select 
-	e.*,rank() over(partition by e.dno order by e.sal desc) as rnk
+	e.*,
+	rank() over(partition by e.dno order by e.sal desc) as rnk
 	FROM emp e 
 ) x
 where x.rnk < 4
 
---Dense_rank
+/*
+
+Dense_rank
+
+*/
 
 select 
-	e.*,rank() over(partition by e.dno order by e.sal desc) as rnk,
+	e.*,
+	rank() over(partition by e.dno order by e.sal desc) as rnk,
 	dense_rank() over(partition by e.dno order by e.sal desc) as Dense_rnk
 FROM 
 	emp e
@@ -142,8 +197,13 @@ select
 FROM 
 	emp e
 
---Percent_Rank 
-#Percentile
+/*
+Percent_Rank 
+
+Percentile
+
+*/
+
 
 SELECT
 	*,

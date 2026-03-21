@@ -12,7 +12,11 @@ select
 from 
 	Product
 
-#Note : query will be Like rolling average 
+/*
+
+	Note : query will be Like rolling average 
+
+*/
 
 select 
 	productname,

@@ -6,26 +6,34 @@
 
 /*
 
-LAG = 	gets the value from the previous row.
-		Compare the current row with a past value.
+LAG  :
+		*) Gets the value from the previous row.
+		*) Compare the current row with a past value.
 
-LEAD = 	gets the value from the next row.
-		Compare the current row with a future value.
+LEAD :
+	 	*) Gets the value from the next row.
+		*) Compare the current row with a future value.
 
 */
 
--- Fetch a query to display if the salary of an employee is higher , lower or equal to the previous employee
-
+/*
+Questions :
+Fetch a query to display if the salary of an employee is higher , lower or equal to the previous employee
+*/
 
 select 
-	e.*,lag(sal) over (partition by e.dno order by e.eid) as previouse_employee_sal
+	e.*,
+	lag(sal) over (partition by e.dno order by e.eid) as previouse_employee_sal
 from	
 	emp e
 
-# Note : We can see the first eid null 
+/*
+Note : We can see the first eid null 
+*/
 
 select 
-	e.*,lag(sal,2) over (partition by e.dno order by e.eid) as previouse_employee_sal
+	e.*,
+	lag(sal,2) over (partition by e.dno order by e.eid) as previouse_employee_sal
 FROM 
 	emp e
 

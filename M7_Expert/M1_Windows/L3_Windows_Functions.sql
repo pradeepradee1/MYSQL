@@ -4,8 +4,44 @@
 9) nth_value()
 */
 
--
+
 select * from Product p 
+
+
+/*
+
+CREATE TABLE Product (
+    ProductCategory VARCHAR(50),
+    Brand VARCHAR(50),
+    productname VARCHAR(100),
+    price INT
+);
+
+INSERT INTO Product (ProductCategory, Brand, productname, price) VALUES
+('Phone', 'Apple', 'iphone', 1300),
+('Phone', 'Apple', 'iphone12pro', 1100),
+('Phone', 'Apple', 'iphone12', 1000),
+('Phone', 'Samsung', 'Galaxy1', 1800),
+('Phone', 'Samsung', 'Galaxyfold', 1000),
+('Phone', 'Samsung', 'Galaxy12', 1200),
+('Phone', 'Samsung', 'Galaxy3', 1000),
+('Phone', 'Oneplus', 'OneplusNord', 300),
+('Phone', 'Oneplus', 'Oneplus9', 800),
+('Phone', 'Google', 'Pixel5', 600),
+('Laptop', 'Apple', 'Pixel5', 600),
+('Phone', 'Google', 'MacBookPro13', 2000),
+('Laptop', 'Apple', 'iphone', 1300),
+('Laptop', 'Micrsoft', 'man', 2100),
+('Laptop', 'Dell', 'xps12', 2000),
+('Laptop', 'Dell', 'xps13', 2300),
+('Earphone', 'Samsung', 'buds32', 200),
+('Earphone', 'Aple', 'buds123', 300),
+('Earphone', 'Samsung', 'airduds', 200),
+('Headphone', 'Sony', 'WFX123', 200),
+('Headphone', 'Aple', 'WFX12', 300),
+('Headphone', 'Samsung', 'samhead123', 200);
+
+*/
 
 -- First Value
 -- Write Query to display the most expensive product under each category 
