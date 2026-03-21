@@ -36,7 +36,7 @@ CREATE or replace TABLE emp (
     dno INT
 );
 
-INSERT INTO employee (eid, ename, sal, dno) VALUES
+INSERT INTO emp (eid, ename, sal, dno) VALUES
 (5, 'C', 1000, NULL),
 (6, 'S', 1300, NULL),
 (7, 'D', 2300, NULL),
@@ -55,7 +55,12 @@ INSERT INTO employee (eid, ename, sal, dno) VALUES
 select * from emp e 
 
 
-select avg(sal) from emp e -- 3,192.8571
+select avg(sal) from emp e
+
+/*
+Output :
+			3,192.8571
+*/
 
 
 /*
@@ -68,7 +73,23 @@ select
 	avg(sal) over() as maxsalary  
 from 
 	emp e
+/*
+Output :
 
+eid  ename  sal    dno     maxsalary
+4		Z	500		10		1900.4545
+11		b	505		30		1900.4545
+5		C	1000	NULL	1900.4545
+8		X	1200	NULL	1900.4545
+6		S	1300	NULL	1900.4545
+2		X	1400	10		1900.4545
+1		A	2000	10		1900.4545
+9		B	2200    NULL	1900.4545
+7		D	2300    NULL	1900.4545
+3		A	3500	30		1900.4545
+10		a	5000	30		1900.4545
+
+*/
 
 /*
 Note : Floating Average based on the dno order (lowest order)

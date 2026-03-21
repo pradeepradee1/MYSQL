@@ -28,65 +28,45 @@ Frame Clause
 
 */
 
-select 
-	*,
-	sum(price) over(order by price rows between 1 preceding and 1 following) as prev_plus_next
-from 
-	Product
+/*
+when we should use the row between and range between in windows in SQL
 
-select 
-	*,
-	sum(price) over(order by price rows between 2 preceding and 1 following) as prev_plus_next
-from 
-	Product
+*/
 
-select 
-	*,
-	sum(price) over(order by price rows between 1 preceding and current row) as prev_plus_next
-from 
-	Product
+/*
+1) ROWS BETWEEN (position-based)
+*/
 
-select 
-	*,
-	sum(price) over(order by price rows between current row and 1 following) as prev_plus_next
-from 
-	Product
+SELECT 
+    sale_date,
+    amount,
+    AVG(amount) OVER (ORDER BY sale_date 
+        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS rolling_avg
+FROM sales;
 
-#Unbounded = include all
-select 
-	*,
-	sum(price) over(order by price rows between unbounded preceding and current row) as prev_plus_next
-from 
-	Product
+/*
 
-select 
-	*,
-	sum(price) over(order by price rows between unbounded preceding and unbounded following) as prev_plus_next
-from 
-	Product
-
-#Range :
-
-#Note:
-#Here look in price 200 diff with 2nd row with 200 (200-200)=0 , So it include with range between 100 and 200 
+*) 2 previous rows + Take current row 
+*) Always counts 3 rows max
 
 
-select 
-	*,
-	sum(price) over(order by price range between 100 preceding and 200 following) as prev_plus_next
-from 
-	Product
+*/
+
+
+/*
+2) RANGE BETWEEN (value-based)
+*/
 
 
 
+SELECT 
+    sale_date,
+    amount,
+    SUM(amount) OVER (ORDER BY sale_date 
+        RANGE BETWEEN INTERVAL '7 days' PRECEDING AND CURRENT ROW) AS rolling_sum
+FROM sales;
 
-#Questions:
-#calculate the rolling sum for a week
+/*
+*) Includes all rows within last 7 days
 
-
-select 
-	*,
-    sum(sales_amount) over(order by sales_date range between interval '6' day preceding and current row) as running_weekly_sum
-from 
-	daily_sales;
-
+*/
