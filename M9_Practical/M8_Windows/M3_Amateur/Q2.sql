@@ -4,6 +4,7 @@ How would you spot products with 3 months of consecutive sales decline?
 
 
 product_id | month     | sales
+-----------|-----------|------
 P1         | 2025-01   | 100
 P1         | 2025-02   | 90
 P1         | 2025-03   | 80
@@ -11,6 +12,16 @@ P1         | 2025-04   | 85
 P2         | 2025-01   | 50
 P2         | 2025-02   | 45
 P2         | 2025-03   | 40
+
+
+
+Output :
+
+product_id
+----------
+P1
+P2
+
 
 
 */

@@ -1,62 +1,64 @@
 /*
 
-Question :
-            We need to find numbers that appear at least 3 times consecutively.
+Rank users based on number of logins in the current quarter
+(OR)
+How would you rank users by login frequency this quarter?
 
-+----+-----+
-| id | num |
-+----+-----+
-| 1 | 1 |
-| 2 | 1 |
-| 3 | 1 |
-| 4 | 2 |
-| 5 | 1 |
-| 6 | 2 |
-| 7 | 2 |
-+----+-----+
 
-Expected Output:
-+-----------------+
-| ConsecutiveNums |
-+-----------------+
-| 1               |
-+-----------------+ 
+user_id | login_timestamp
+--------|-----------------
+U1      | 2025-07-01
+U1      | 2025-07-02
+U1      | 2025-08-15
+U2      | 2025-07-03
+U2      | 2025-09-10
+U3      | 2025-09-20
+U3      | 2025-09-21
+U3      | 2025-09-22
+U4      | 2025-07-05
+
+Output:
+
+user_id | login_count | rank
+--------|-------------|------
+U1      | 3           | 1
+U3      | 3           | 1
+U2      | 2           | 3
+U4      | 1           | 4
+
 
 
 */
 
-
-CREATE TABLE numbers (
-    id INT,
-    num INT
+/*
+CREATE or replace TABLE user_logins123 (
+    user_id VARCHAR(10),
+    login_timestamp DATE
 );
 
-INSERT INTO numbers (id, num) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 2),
-(5, 1),
-(6, 2),
-(7, 2);
+INSERT INTO user_logins123 VALUES
+('U1', '2025-07-01'),
+('U1', '2025-07-02'),
+('U1', '2025-08-15'),
+('U2', '2025-07-03'),
+('U2', '2025-09-10'),
+('U3', '2025-09-20'),
+('U3', '2025-09-21'),
+('U3', '2025-09-22'),
+('U4', '2025-07-05');
+*/
 
-
-#Apprach 1
+WITH cte AS (
+    SELECT 
+        user_id,
+        COUNT(*) AS login_count
+    FROM user_logins123
+    WHERE login_timestamp BETWEEN '2025-07-01' AND '2025-09-30'
+    GROUP BY user_id
+)
 SELECT 
-    DISTINCT num AS ConsecutiveNums
-FROM (
-    SELECT id, num,
-           LAG(num, 1) OVER (ORDER BY id) AS prev_num,
-           LEAD(num, 1) OVER (ORDER BY id) AS next_num
-    FROM Numbers
-) t
-WHERE num = prev_num AND num = next_num;
-
-
-#Apprach 2
-SELECT DISTINCT n1.num AS ConsecutiveNums
-FROM numbers n1
-JOIN numbers n2 ON n1.id = n2.id - 1
-JOIN numbers n3 ON n1.id = n3.id - 2
-WHERE n1.num = n2.num 
-  AND n2.num = n3.num;
+    user_id,
+    login_count,
+    RANK() OVER (ORDER BY login_count DESC) AS rank
+FROM cte
+ORDER BY rank;

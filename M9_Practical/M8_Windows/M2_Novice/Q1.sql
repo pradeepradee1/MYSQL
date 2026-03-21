@@ -1,70 +1,58 @@
 /*
-
-Remove duplicate rows based on multiple columns
-
-Input:
+Finding the Second Highest Salary
 
 
-| user\_id | product\_id | purchase\_date |
-| -------- | ----------- | -------------- |
-| 1        | P1          | 2025-03-01     |
-| 1        | P1          | 2025-03-01     |
-| 2        | P2          | 2025-03-02     |
-| 2        | P2          | 2025-03-02     |
-| 3        | P3          | 2025-03-03     |
+Employee
++----+--------+
+| id | salary |
++----+--------+
+| 1 | 100     |
+| 2 | 200     |
+| 3 | 300     |
++----+--------+
 
-
-Output: 
-
-+-------+----------+-------------+
-|user_id|product_id|purchase_date|
-+-------+----------+-------------+
-|      1|       P1 |   2025-03-01|
-|      2|       P2 |   2025-03-02|
-|      3|       P3 |   2025-03-03|
-+-------+----------+-------------+
+The task: Return 200 — the second highest distinct salary.
 
 */
+
+/* 
+Solution 1
+    Using DENSE_RANK() – Great for handling duplicates 
+*/
+
+
+SELECT salary
+FROM (
+    SELECT 
+        salary,
+        DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM Employee
+) t
+WHERE rnk = 2;
+
+
+
 /*
-
-CREATE or replace TABLE purchases12 (
-    user_id INT,
-    product_id VARCHAR(10),
-    purchase_date DATE
-);
-
-INSERT INTO purchases12 (user_id, product_id, purchase_date) VALUES
-(1, 'P1', '2025-03-01'),
-(1, 'P1', '2025-03-01'),
-(2, 'P2', '2025-03-02'),
-(2, 'P2', '2025-03-02'),
-(3, 'P3', '2025-03-03');
-
-
-SELECT DISTINCT user_id, product_id, purchase_date
-FROM purchases12
-ORDER BY user_id;
+Solution 2: Using LIMIT + OFFSET – Short, sweet, efficient 
 */
 
-/* If you want to keep only unique combinations of (user_id, product_id, purchase_date): */
-  
 SELECT 
-    DISTINCT user_id, 
-    product_id, 
-    purchase_date
-FROM 
-    purchases;
+ (SELECT DISTINCT salary 
+ FROM Employee
+ ORDER BY salary DESC
+ LIMIT 1 OFFSET 1) AS SecondHighestSalary;
 
 
-/* Or if you want to remove duplicates but keep one row (all columns retained): */
+
+/* 
+
+Solution 3 :
+Subquery with MAX() – Portable and performant 
+
+*/
 
 SELECT 
-    *
+    MAX(salary) AS SecondHighestSalary
 FROM 
-    (SELECT *,
-          ROW_NUMBER() OVER (PARTITION BY user_id, product_id, purchase_date ORDER BY purchase_date) AS rn
-    FROM
-    purchases
-    ) 
-t
-WHERE rn = 1;
+    Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);

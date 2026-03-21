@@ -1,11 +1,10 @@
 /*
 Frame Clause
 	
-	1)	Rows = define upper bound and lower bound of row to be covered
-			ex: from upper value to lower value
+	1)	Rows = position-based (row count)
 
-	2)	Range = define upper and lower range of value for a column to be covered
-			ex: between upper value to lower value			
+	2)	Range = value-based (ORDER BY column)
+			
 
 
 							partition 
