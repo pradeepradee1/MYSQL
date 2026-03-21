@@ -1,92 +1,109 @@
 /*
 
-Find the top 3 best-selling products
+For each post, find the user who wrote the most comments — 
+but exclude the post owner from counting.
+If there’s a tie, return any one of the top commenters for that post.
 
-Find the top 3 best-selling products in each category with their total sales and percentage contribution
+
+Sample Input :
+
+| post_id | user_name | post_text               |
+| ------- | --------- | ----------------------- |
+| 1       | Alice     | Post about SQL          |
+| 2       | Bob       | Post about Python       |
+| 3       | Charlie   | Post about Data Science |
+
+
+Sample Input :
+
+| comment_id | post_id | user_name | comment_text | comment_date           |
+| ---------- | ------- | --------- | ------------ | ---------------------- |
+| 1          | 1       | Bob       | Nice post!   | 2025-01-01             |
+| 2          | 1       | Charlie   | Thanks       | 2025-01-02             |
+| 3          | 1       | Bob       | Helpful      | 2025-01-03             |
+| 4          | 1       | Alice     | Reply        | 2025-01-04 ❌ (exclude) |
+| 5          | 2       | Alice     | Great        | 2025-01-05             |
+| 6          | 2       | Charlie   | Love Python  | 2025-01-06             |
+| 7          | 2       | Charlie   | Another      | 2025-01-07             |
+| 8          | 3       | Alice     | Nice         | 2025-01-08             |
+| 9          | 3       | Bob       | Thanks       | 2025-01-09             |
+| 10         | 3       | Alice     | Another      | 2025-01-10             |
+
+
+
+Sample Output :
+
+| post_id | top_user | comment_count |
+| ------- | -------- | ------------- |
+| 1       | Bob      | 2             |
+| 2       | Charlie  | 2             |
+| 3       | Alice    | 2             |
+
 
 
 */
 
-CREATE TABLE products_123 (
-    product_id INT,
-    product_name VARCHAR(50),
-    category VARCHAR(50)
+/*
+CREATE or replace TABLE posts1 (
+    post_id INT,
+    user_name VARCHAR(50),
+    post_text VARCHAR(255)
 );
 
-INSERT INTO products_123 VALUES
-(101, 'Laptop', 'Electronics'),
-(102, 'Phone', 'Electronics'),
-(103, 'Desk', 'Furniture'),
-(104, 'Chair', 'Furniture'),
-(105, 'Book', 'Books');
-
-CREATE TABLE transactions_123 (
-    transaction_id INT,
-    product_id INT,
-    quantity INT,
-    price_per_unit DECIMAL(10,2)
+CREATE or replace TABLE comments1 (
+    comment_id INT,
+    post_id INT,
+    user_name VARCHAR(50),
+    comment_text VARCHAR(255),
+    comment_date DATE
 );
 
-INSERT INTO transactions_123 VALUES
-(1, 101, 10, 1000),
-(2, 102, 20, 500),
-(3, 103, 5, 200),
-(4, 104, 15, 150),
-(5, 105, 50, 20),
-(6, 102, 10, 500),
-(7, 101, 5, 1000),
-(8, 103, 10, 200),
-(9, 104, 20, 150),
-(10, 105, 30, 20);
+-- Posts
+INSERT INTO posts1 (post_id, user_name, post_text) VALUES
+(1, 'Alice', 'Post about SQL'),
+(2, 'Bob', 'Post about Python'),
+(3, 'Charlie', 'Post about Data Science');
+
+-- Comments
+INSERT INTO comments1 (comment_id, post_id, user_name, comment_text, comment_date) VALUES
+(1, 1, 'Bob', 'Nice post!', '2025-01-01'),
+(2, 1, 'Charlie', 'Thanks for sharing', '2025-01-02'),
+(3, 1, 'Bob', 'Very helpful', '2025-01-03'),
+(4, 1, 'Alice', 'Glad you liked it', '2025-01-04'),   -- post owner, should be excluded
+(5, 2, 'Alice', 'Great Python tips', '2025-01-05'),
+(6, 2, 'Charlie', 'I love Python', '2025-01-06'),
+(7, 2, 'Charlie', 'Another comment', '2025-01-07'),
+(8, 3, 'Alice', 'Nice insights', '2025-01-08'),
+(9, 3, 'Bob', 'Thanks for sharing', '2025-01-09'),
+(10, 3, 'Alice', 'Another comment', '2025-01-10');
+
+*/
 
 
-
-WITH product_sales AS (
+WITH filtered_comments AS (
     SELECT 
-        p.category,
-        p.product_name,
-        SUM(t.quantity * t.price_per_unit) AS total_sales
-    FROM 
-        products_123 p
-    JOIN 
-        transactions_123 t 
-    ON 
-        p.product_id = t.product_id
-    GROUP BY 
-        p.category, p.product_name
+        c.post_id,
+        c.user_name,
+        COUNT(*) AS comment_count
+    FROM comments1 c
+    JOIN posts1 p
+        ON c.post_id = p.post_id
+    WHERE c.user_name <> p.user_name   -- exclude post owner
+    GROUP BY c.post_id, c.user_name
 ),
-category_totals AS (
-    SELECT 
-        category,
-        SUM(total_sales) AS category_total
-    FROM 
-        product_sales
-    GROUP BY 
-        category
-),
-ranked AS (
-    SELECT 
-        ps.category,
-        ps.product_name,
-        ps.total_sales,
-        ROUND((ps.total_sales / ct.category_total) * 100, 2) AS percentage_contribution,
-        RANK() OVER (PARTITION BY ps.category ORDER BY ps.total_sales DESC) AS rnk
-    FROM 
-        product_sales ps
-    JOIN 
-        category_totals ct 
-    ON 
-        ps.category = ct.category
+
+ranked_comments AS (
+    SELECT *,
+        ROW_NUMBER() OVER (
+            PARTITION BY post_id
+            ORDER BY comment_count DESC
+        ) AS rn
+    FROM filtered_comments
 )
-SELECT 
-    category,
-    product_name,
-    total_sales,
-    percentage_contribution
-FROM 
-    ranked
-WHERE 
-    rnk <= 3
-ORDER BY 
-    category, total_sales DESC;
 
+SELECT 
+    post_id,
+    user_name AS top_user,
+    comment_count
+FROM ranked_comments
+WHERE rn = 1;

@@ -1,75 +1,61 @@
 /*
-Track medicine sales across multiple regions.
+Questions : Merge continuous date rows with same ID
 
-Track medicine sales across multiple regions. Each region has multiple 
-sales representatives who sell different medicines. 
 
-Management wants answers to the following:
-Which sales representative has the highest total sales value in each region?
+Sample IP :
+
+| id | start\_date | end\_date  |
+| -- | ----------- | ---------- |
+| 1  | 2024-01-01  | 2024-01-10 |
+| 1  | 2024-01-11  | 2024-01-15 |
+| 2  | 2024-02-01  | 2024-02-05 |
+| 2  | 2024-02-10  | 2024-02-15 |
+
+
+Sample OP :
+
+| id | start\_date | end\_date  |
+| -- | ----------- | ---------- |
+| 1  | 2024-01-01  | 2024-01-15 |
+| 2  | 2024-02-01  | 2024-02-05 |
+| 2  | 2024-02-10  | 2024-02-15 |
+
 
 */
 
-CREATE or replace TABLE sales_data (
- sales_id INT,
- sales_rep_name VARCHAR(50),
- region VARCHAR(50),
- medicine_name VARCHAR(50),
- quantity_sold INT,
- price_per_unit DECIMAL(10, 2),
- sale_date DATE
+/*
+
+CREATE or replace TABLE date_ranges (
+    id INT,
+    start_date DATE,
+    end_date DATE
 );
 
-INSERT INTO sales_data VALUES
-(1, 'Alice', 'North', 'PainRelief', 200, 10.50, '2024-01-15'),
-(2, 'Bob', 'North', 'VitaBoost', 150, 15.00, '2024-01-20'),
-(3, 'Charlie', 'South', 'PainRelief', 300, 10.50, '2024-01-22'),
-(4, 'Diana', 'East', 'ColdCare', 100, 8.00, '2024-02-01'),
-(5, 'Alice', 'North', 'VitaBoost', 180, 15.00, '2024-02-10'),
-(6, 'Eve', 'West', 'PainRelief', 250, 10.50, '2024-02-12'),
-(7, 'Frank', 'West', 'ColdCare', 300, 8.00, '2024-02-14'),
-(8, 'Bob', 'North', 'PainRelief', 120, 10.50, '2024-03-01'),
-(9, 'Charlie', 'South', 'VitaBoost', 200, 15.00, '2024-03-05'),
-(10, 'Diana', 'East', 'PainRelief', 150, 10.50, '2024-03-10');
+INSERT INTO date_ranges (id, start_date, end_date) VALUES
+(1, '2024-01-01', '2024-01-10'),
+(1, '2024-01-11', '2024-01-15'),
+(2, '2024-02-01', '2024-02-05'),
+(2, '2024-02-10', '2024-02-15');
+
+*/
 
 
-SELECT
-    region,
-    sales_rep_name,
-    total_sales_value
-FROM (
-    SELECT
-        region,
-        sales_rep_name,
-        SUM(quantity_sold * price_per_unit) AS total_sales_value,
-        RANK() OVER (PARTITION BY region ORDER BY SUM(quantity_sold * price_per_unit) DESC) AS rnk
-    FROM sales_data1
-    GROUP BY region, sales_rep_name
-) AS ranked_sales
-WHERE rnk = 1
-ORDER BY region;
-
-
-
-/* OR */
-
-WITH rep_sales AS (
-    SELECT 
-        region,
-        sales_rep_name,
-        SUM(quantity_sold * price_per_unit) AS total_sales
-    FROM sales_data
-    GROUP BY region, sales_rep_name
+WITH ordered_ranges AS (
+    SELECT id,start_date,end_date,
+    LAG(end_date) OVER (PARTITION BY id ORDER BY start_date) AS prev_end
+    FROM date_ranges
 ),
-ranked_reps AS (
-    SELECT 
-        region,sales_rep_name,total_sales,
-        RANK() OVER (PARTITION BY region ORDER BY total_sales DESC) AS rnk
-    FROM rep_sales
+grouped AS (
+    SELECT id,start_date,end_date,
+        SUM(CASE WHEN DATEDIFF(start_date, prev_end) > 1 OR prev_end IS NULL THEN 1 ELSE 0 END)
+            OVER (PARTITION BY id ORDER BY start_date) AS grp
+    FROM ordered_ranges
 )
-SELECT 
-    region,
-    sales_rep_name,
-    total_sales
-FROM ranked_reps
-WHERE rnk = 1
-ORDER BY region;
+SELECT
+    id,
+    MIN(start_date) AS start_date,
+    MAX(end_date) AS end_date
+FROM grouped
+GROUP BY id, grp
+ORDER BY id, start_date;
+
