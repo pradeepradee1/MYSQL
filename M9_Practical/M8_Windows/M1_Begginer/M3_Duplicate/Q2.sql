@@ -53,7 +53,7 @@ SELECT
     product_id, 
     purchase_date
 FROM 
-    purchases;
+    purchases12;
 
 
 /* 
@@ -67,7 +67,7 @@ FROM
     (SELECT *,
           ROW_NUMBER() OVER (PARTITION BY user_id, product_id, purchase_date ORDER BY purchase_date) AS rn
     FROM
-    purchases
+    purchases12
     ) 
 t
 WHERE rn = 1;
