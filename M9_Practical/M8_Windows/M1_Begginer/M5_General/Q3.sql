@@ -1,6 +1,7 @@
 /*
 
-Last 3 days transactions per user
+Total amount spent by that user in the last 3 calendar days (including current day)
+
 
 Sample Input :
 
