@@ -8,8 +8,8 @@ create or replace table Temp  (Id int, Email varchar(255));
 
 insert into Temp (Id, Email) 
 values 
-('1', 'john@example.com')
-('2', 'bob@example.com')
+('1', 'john@example.com'),
+('2', 'bob@example.com'),
 ('3', 'john@example.com');
 
 select * from Temp 
