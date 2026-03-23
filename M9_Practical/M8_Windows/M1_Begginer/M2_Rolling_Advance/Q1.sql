@@ -1,7 +1,7 @@
 /*
 
 Problem : 
-Calculating the 3-month (quarter) rolling average
+Calculating the 3-month (quarter) rolling average for each employee
 
 
 empid | monthno | salary
