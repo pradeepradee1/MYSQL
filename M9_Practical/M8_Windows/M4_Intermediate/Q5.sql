@@ -72,13 +72,9 @@ WITH ranked AS (
     SELECT 
         user_id,
         login_date,
-        ROW_NUMBER() OVER (
-            PARTITION BY user_id 
-            ORDER BY login_date
-        ) AS rn
+        ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY login_date) AS rn
     FROM user_login
 ),
-
 grouped AS (
     SELECT 
         user_id,
@@ -86,7 +82,6 @@ grouped AS (
         login_date - INTERVAL '1 day' * rn AS grp
     FROM ranked
 ),
-
 streaks AS (
     SELECT 
         user_id,

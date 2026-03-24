@@ -59,13 +59,9 @@ WITH base AS (
         user_id,
         login_time,
         DATE(login_time) AS login_date,
-        ROW_NUMBER() OVER (
-            PARTITION BY user_id, DATE(login_time)
-            ORDER BY login_time
-        ) AS rn
+        ROW_NUMBER() OVER (PARTITION BY user_id, DATE(login_time) ORDER BY login_time) AS rn
     FROM user_logins
 ),
-
 grouped AS (
     SELECT 
         user_id,
