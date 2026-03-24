@@ -1,63 +1,67 @@
 /*
-
-Problem : 
-group consecutive rows with same status and get start/end dates.
-
-
-sensor_id   | log_date   | status 
-----------  |------------|-------- 
-A           | 2025-08-01 | OK 
-A           | 2025-08-02 | OK 
-A           | 2025-08-03 | FAIL 
-A           | 2025-08-04 | FAIL 
-A           | 2025-08-05 | OK 
+Questions :
+                Identify continuous date gaps in billing logs for each customer 
+between their first and last billing date.
 
 
-Expected Output :
+Input:
 
-sensor_id       | start_date | end_date   | status 
-----------      |------------|------------|-------- 
-A               | 2025-08-01 | 2025-08-02 | OK 
-A               | 2025-08-03 | 2025-08-04 | FAIL 
-A               | 2025-08-05 | 2025-08-05 | OK 
+customer_id | billing_date
+------------|--------------
+C001        | 2024-01-01
+C001        | 2024-01-02
+C001        | 2024-01-04
+C001        | 2024-01-06
+
+C002        | 2024-01-03
+C002        | 2024-01-05
 
 
+
+Output : 
++------------+------------+------------+
+|customer_id |missing_from|missing_to |
++------------+------------+------------+
+|C001        |2024-01-03  |2024-01-03 |
+|C001        |2024-01-05  |2024-01-05 |
+|C002        |2024-01-04  |2024-01-04 |
++------------+------------+------------+
 */
+
+
 
 /*
 
-CREATE or replace TABLE sensor_logs (
-    sensor_id VARCHAR(10),
-    log_date DATE,
-    status VARCHAR(10)
+CREATE or replace TABLE billing_logs (
+    customer_id VARCHAR(10),
+    billing_date DATE
 );
 
 
-INSERT INTO sensor_logs (sensor_id, log_date, status) VALUES
-('A', '2025-08-01', 'OK'),
-('A', '2025-08-02', 'OK'),
-('A', '2025-08-03', 'FAIL'),
-('A', '2025-08-04', 'FAIL'),
-('A', '2025-08-05', 'OK');
+INSERT INTO billing_logs (customer_id, billing_date) VALUES
+('C001', '2024-01-01'),
+('C001', '2024-01-02'),
+('C001', '2024-01-04'),
+('C001', '2024-01-06'),
+('C002', '2024-01-03'),
+('C002', '2024-01-05');
 
 */
 
-
-
-WITH status_groups AS (
-    SELECT
-        sensor_id,
-        log_date,
-        status,
-        ROW_NUMBER() OVER (PARTITION BY sensor_id ORDER BY log_date) -
-        ROW_NUMBER() OVER (PARTITION BY sensor_id, status ORDER BY log_date) AS grp
-    FROM sensor_logs
+WITH ordered_logs AS (
+    SELECT 
+        customer_id,
+        billing_date,
+        LAG(billing_date) OVER (
+            PARTITION BY customer_id 
+            ORDER BY billing_date
+        ) AS prev_date
+    FROM billing_logs
 )
+
 SELECT
-    sensor_id,
-    MIN(log_date) AS start_date,
-    MAX(log_date) AS end_date,
-    status
-FROM status_groups
-GROUP BY sensor_id, grp, status
-ORDER BY start_date;
+    customer_id,
+    DATE_ADD(prev_date, INTERVAL 1 DAY) AS missing_from,
+    DATE_SUB(billing_date, INTERVAL 1 DAY) AS missing_to
+FROM ordered_logs
+WHERE DATEDIFF(billing_date, prev_date) > 1;
