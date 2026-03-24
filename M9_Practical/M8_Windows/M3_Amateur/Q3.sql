@@ -52,10 +52,7 @@ WITH ordered_logs AS (
     SELECT 
         customer_id,
         billing_date,
-        LAG(billing_date) OVER (
-            PARTITION BY customer_id 
-            ORDER BY billing_date
-        ) AS prev_date
+        LAG(billing_date) OVER (PARTITION BY customer_id ORDER BY billing_date) AS prev_date
     FROM billing_logs
 )
 
