@@ -3,6 +3,9 @@
 find 3 consecutive free seats only” (very common twist)
 
 
+1 = free 
+0 = occupied
+
 | seat_id | free |
 | ------- | ---- |
 | 1       | 1    |
@@ -28,7 +31,7 @@ Output :
 
 CREATE or replace TABLE cinema (
     seat_id INT PRIMARY KEY,
-    free INT   -- 1 = free, 0 = occupied
+    free INT   
 );
 
 
