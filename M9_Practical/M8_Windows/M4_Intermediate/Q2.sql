@@ -5,6 +5,7 @@ Question :
 You need to return streaks of 5 or more consecutive login days per user
 
 IP as
+
 user_id | login_date
 --------|------------
 1       | 2025-03-01
@@ -18,16 +19,16 @@ OP as
 +-------+----------+----------+----------------+
 |user_id|start_date|end_date  |consecutive_days|
 +-------+----------+----------+----------------+
-|1      |2025-03-10|2025-03-14|5               |
-|1      |2025-03-25|2025-03-30|6               |
-|3      |2025-03-01|2025-03-05|5               |
+|1      |2025-03-10|2025-03-14|    5           |
+|1      |2025-03-25|2025-03-30|    6           |
+|3      |2025-03-01|2025-03-05|    5           |
 +-------+----------+----------+----------------+
 
 
 
 */
 
-/*
+
 CREATE or replace TABLE user_logins1 (
     user_id INT,
     login_date DATE
@@ -52,7 +53,6 @@ INSERT INTO user_logins1 (user_id, login_date) VALUES
 (3, '2025-03-04'),
 (3, '2025-03-05');
 
-*/
 
 WITH numbered AS (
     SELECT

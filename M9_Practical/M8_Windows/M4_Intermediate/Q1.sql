@@ -2,6 +2,9 @@
 
 we need find consecutive available sets 
 
+free = 1 → available
+free = 0 → not available
+
 
 Sample Input :
 
@@ -28,13 +31,15 @@ Excepted Output :
 
 
 
-Create table If Not Exists cinema (seat_id SERIAL primary key, free bool);
+create or replace table cinema 
+(seat_id SERIAL primary key, free bool);
 
-insert into cinema (seat_id, free) values ('1', '1');
-insert into cinema (seat_id, free) values ('2', '0');
-insert into cinema (seat_id, free) values ('3', '1');
-insert into cinema (seat_id, free) values ('4', '1');
-insert into cinema (seat_id, free) values ('6', '1');
+insert into cinema (seat_id, free) values 
+('1', '1'),
+('2', '0'),
+('3', '1'),
+('4', '1'),
+('6', '1');
 
 
 select * from cinema

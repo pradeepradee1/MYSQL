@@ -23,7 +23,7 @@ Sample OP :
 
 */
 
-/*
+
 
 CREATE or replace TABLE date_ranges (
     id INT,
@@ -37,25 +37,24 @@ INSERT INTO date_ranges (id, start_date, end_date) VALUES
 (2, '2024-02-01', '2024-02-05'),
 (2, '2024-02-10', '2024-02-15');
 
-*/
 
 
-WITH ordered_ranges AS (
-    SELECT id,start_date,end_date,
-    LAG(end_date) OVER (PARTITION BY id ORDER BY start_date) AS prev_end
+WITH ordered AS (
+    SELECT *,
+           ROW_NUMBER() OVER (PARTITION BY id ORDER BY start_date) AS rn1,
+           ROW_NUMBER() OVER (PARTITION BY id ORDER BY end_date) AS rn2
     FROM date_ranges
 ),
-grouped AS (
-    SELECT id,start_date,end_date,
-        SUM(CASE WHEN DATEDIFF(start_date, prev_end) > 1 OR prev_end IS NULL THEN 1 ELSE 0 END)
-            OVER (PARTITION BY id ORDER BY start_date) AS grp
-    FROM ordered_ranges
+grp_data AS (
+    SELECT *,
+           DATE_SUB(start_date, INTERVAL rn1 DAY) AS grp
+    FROM ordered
 )
-SELECT
+SELECT 
     id,
     MIN(start_date) AS start_date,
     MAX(end_date) AS end_date
-FROM grouped
+FROM grp_data
 GROUP BY id, grp
 ORDER BY id, start_date;
 
