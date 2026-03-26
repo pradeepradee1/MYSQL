@@ -6,6 +6,8 @@ Find the top 5 most frequent customers (by number of orders) for each month in t
 
 Sample Input :
 
+Customers :
+
 | customer_id | name  |
 | ----------- | ----- |
 | 1           | John  |
@@ -14,6 +16,8 @@ Sample Input :
 | 4           | Alice |
 | 5           | Mike  |
 
+
+Orders :
 
 | order_id | customer_id | order_date |
 | -------- | ----------- | ---------- |
@@ -26,6 +30,7 @@ Sample Input :
 | 7        | 1           | 2025-01-30 |
 
 Sample Output :
+
 | order_month | customer_id | name  | order_count |
 | ----------- | ----------- | ----- | ----------- |
 | 2025-01-01  | 1           | John  | 3           |
@@ -33,12 +38,14 @@ Sample Output :
 | 2025-01-01  | 3           | Bob   | 1           |
 | 2025-01-01  | 4           | Alice | 1           |
 | 2025-01-01  | 5           | Mike  | 1           |
+
 | order_month | customer_id | name  | order_count |
 | ----------- | ----------- | ----- | ----------- |
 | 2025-02-01  | 1           | John  | 2           |
 | 2025-02-01  | 2           | Jane  | 2           |
 | 2025-02-01  | 3           | Bob   | 1           |
 | 2025-02-01  | 4           | Alice | 1           |
+
 | order_month | customer_id | name  | order_count |
 | ----------- | ----------- | ----- | ----------- |
 | 2025-03-01  | 3           | Bob   | 2           |
@@ -59,6 +66,8 @@ CREATE or replace TABLE orders2 (
  customer_id INT, 
  order_date DATE, 
 );
+
+
 
 INSERT INTO customers2 (customer_id, name) 
 VALUES 

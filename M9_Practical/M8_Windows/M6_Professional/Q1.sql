@@ -1,5 +1,17 @@
 /*
 
+For each post, you need to:
+
+*) Find which user (NOT the post owner) commented the most
+*) And return:
+
+post_id
+that top commenter
+their number of comments
+
+
+(OR)
+
 For each post, find the user who wrote the most comments — 
 but exclude the post owner from counting.
 If there’s a tie, return any one of the top commenters for that post.
@@ -21,7 +33,7 @@ Sample Input :
 | 1          | 1       | Bob       | Nice post!   | 2025-01-01             |
 | 2          | 1       | Charlie   | Thanks       | 2025-01-02             |
 | 3          | 1       | Bob       | Helpful      | 2025-01-03             |
-| 4          | 1       | Alice     | Reply        | 2025-01-04 ❌ (exclude) |
+| 4          | 1       | Alice     | Reply        | 2025-01-04             |
 | 5          | 2       | Alice     | Great        | 2025-01-05             |
 | 6          | 2       | Charlie   | Love Python  | 2025-01-06             |
 | 7          | 2       | Charlie   | Another      | 2025-01-07             |
@@ -86,18 +98,15 @@ WITH filtered_comments AS (
         c.user_name,
         COUNT(*) AS comment_count
     FROM comments1 c
-    JOIN posts1 p
-        ON c.post_id = p.post_id
+    JOIN posts1 p ON c.post_id = p.post_id
     WHERE c.user_name <> p.user_name   -- exclude post owner
     GROUP BY c.post_id, c.user_name
 ),
 
 ranked_comments AS (
-    SELECT *,
-        ROW_NUMBER() OVER (
-            PARTITION BY post_id
-            ORDER BY comment_count DESC
-        ) AS rn
+    SELECT 
+        *,
+        ROW_NUMBER() OVER (PARTITION BY post_id ORDER BY comment_count DESC) AS rn
     FROM filtered_comments
 )
 
