@@ -1,56 +1,102 @@
-create or replace table  Accountssp (account_id int, income int);
-
-insert into Accountssp (account_id, income) values ('3', '108939');
-insert into Accountssp (account_id, income) values ('2', '12747');
-insert into Accountssp (account_id, income) values ('8', '87709');
-insert into Accountssp (account_id, income) values ('6', '91796');
-
-select * from Accountssp
-
 /*
+Our Task: Our task is to get the mismatched records from both tables and print them in the output.
 
-Low = 20000
-Medium = 20000 and 50000
-High = 50000
+IP1
 
-	
-OutPut:
-		LowSalary		1
-		AverageSalary	0
-		HighSalary		3
+| ID | Name    |
+| -- | ------- |
+| 1  | Alice   |
+| 2  | Bob     |
+| 3  | Charlie |
+
+
+IP2
+
+| ID | Name  |
+| -- | ----- |
+| 1  | Alice |
+| 2  | Bobby |
+| 4  | David |
+
+
+
+Expected Output :
+
+| ID | Name_Table1 | Name_Table2 |
+| -- | ----------- | ----------- |
+| 2  | Bob         | Bobby       |
+| 3  | Charlie     | NULL        |
+| 4  | NULL        | David       |
+
+Note :
+       You’re not allowed to use ANY kind of JOIN.
 
 */
 
 
-#Approach 1:
+-- Create first table
+CREATE TABLE TableA (
+    ID INT,
+    Name VARCHAR(50)
+);
 
-select 'LowSalary' as category , count(*) as Accountssp from Accountssp where income < 20000
-union 
-select 'AverageSalary' as category , count(*) as Accountssp from Accountssp where income > 20000 and income <=50000
-union
-select 'HighSalary' as category , count(*) as Accountssp from Accountssp where income >=50000
+-- Insert data into TableA
+INSERT INTO TableA (ID, Name) VALUES
+(1, 'Alice'),
+(2, 'Bob'),
+(3, 'Charlie');
 
 
-#Approach 2 :
-#				Here Query failed becasue AverageSalary sal is not in core table (a)
+-- Create second table
+CREATE TABLE TableB (
+    ID INT,
+    Name VARCHAR(50)
+);
 
-
-select
-*
-from 
-(select 
-	*,
-	CASE 
-		when income between 0 and 20000 THEN "LowSal"
-		when income between 20000 and 50000 THEN "AverageSalary"
-		else "HighSal"
-	END as Salarydesc
-from 
-	Accountssp
-) a
-group by a.Salarydesc
+-- Insert data into TableB
+INSERT INTO TableB (ID, Name) VALUES
+(1, 'Alice'),
+(2, 'Bobby'),
+(4, 'David');
 
 
 
 
+#Approach1
 
+SELECT ID, Name
+FROM TableA
+WHERE (ID, Name) NOT IN (SELECT ID, Name FROM TableB)
+
+UNION
+
+SELECT ID, Name
+FROM TableB
+WHERE (ID, Name) NOT IN (SELECT ID, Name FROM TableA);
+
+
+
+#Approach2
+
+(
+    SELECT ID, Name FROM TableA
+    EXCEPT
+    SELECT ID, Name FROM TableB
+)
+UNION
+(
+    SELECT ID, Name FROM TableB
+    EXCEPT
+    SELECT ID, Name FROM TableA
+);
+
+
+
+/* Using join */
+
+SELECT t1.ID, t1.Name, t2.ID AS ID2, t2.Name AS Name2
+FROM TableA t1
+FULL OUTER JOIN TableB t2
+    ON t1.ID = t2.ID AND t1.Name = t2.Name
+WHERE t1.ID IS NULL 
+   OR t2.ID IS NULL;
