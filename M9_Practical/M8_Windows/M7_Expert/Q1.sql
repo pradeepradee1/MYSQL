@@ -86,17 +86,11 @@ WITH product_sales AS (
         ON t.product_id = p.product_id
     GROUP BY p.category, p.product_name
 ),
-
 ranked AS (
     SELECT 
         *,
-        ROW_NUMBER() OVER (
-            PARTITION BY category
-            ORDER BY total_sales DESC
-        ) AS rn,
-        SUM(total_sales) OVER (
-            PARTITION BY category
-        ) AS category_total
+        ROW_NUMBER() OVER (PARTITION BY category ORDER BY total_sales DESC) AS rn,
+        SUM(total_sales) OVER (PARTITION BY category) AS category_total
     FROM product_sales
 )
 

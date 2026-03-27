@@ -60,13 +60,9 @@ WITH base AS (
         user_id,
         login_date,
         DATE_TRUNC('month', login_date) AS month,
-        ROW_NUMBER() OVER (
-            PARTITION BY user_id, DATE_TRUNC('month', login_date)
-            ORDER BY login_date
-        ) AS rn
+        ROW_NUMBER() OVER (PARTITION BY user_id, DATE_TRUNC('month', login_date) ORDER BY login_date) AS rn
     FROM logins
 ),
-
 grouped AS (
     SELECT 
         user_id,
@@ -75,7 +71,6 @@ grouped AS (
         login_date - INTERVAL '1 day' * rn AS grp
     FROM base
 ),
-
 streaks AS (
     SELECT 
         user_id,
@@ -86,7 +81,6 @@ streaks AS (
     FROM grouped
     GROUP BY user_id, month, grp
 )
-
 SELECT 
     user_id,
     start_date,
