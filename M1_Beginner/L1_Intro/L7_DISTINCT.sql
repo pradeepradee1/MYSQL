@@ -17,14 +17,13 @@ Distinct for two attributes
 	
 SELECT DISTINCT name , price FROM car 
 
+SELECT DISTINCT * FROM tablename;
 
 /*
-
 # Note : We can't do like this 
-
-select 
-	*,
-	DISTINCT parent 
-from tree
-
 */
+
+
+select *,DISTINCT parent from tree
+
+SELECT name DISTINCT FROM tablename
