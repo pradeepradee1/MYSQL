@@ -60,7 +60,7 @@ Types DBMS :
 				It Store the structure data
 				It is suitable for handling the small volume of data
 				It is optimized for the quick access
-				Data is frequently used for insert, update, and delete (DML)
+				Data is frequently used for DML operation (insert, update, and delete)
 				Data will be normalized form
 				It will care the ACID properties
 
@@ -69,7 +69,7 @@ Types DBMS :
 				It Store the structure data
 				It is suitable for handling the large volume of data
 				It Optimized for analysis the complex queries on historical data
-				Data is frequently used for retrieval (DQL)
+				Data is frequently used for DQL (data retrieval) 
 				Data will be De-normalized form
 				It will not care about the ACID properties
 */
