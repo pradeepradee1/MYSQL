@@ -51,8 +51,8 @@ Types DBMS :
 */
 
 
-# OLTP represents the database 
-# OLAP represents the DataWareHouse
+# OLTP represents the database's behaviour
+# OLAP represents the DataWareHouse's behaviour
 
 /*
 1) OLTP (RDBMS)	: Online Transactions Processing
