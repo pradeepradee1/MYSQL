@@ -7,12 +7,12 @@
 	WHERE 1 = 0;
 
 	*) It Copies the Column names, Data types
-	*) It doesn't copy the Data,Indexes,Constraints
+	*) It doesn't copy the Data,Constraints,Indexes
 
 *)
 	CREATE TABLE new_table LIKE old_table;
 
-	*) It Copies the Column names, Data types, Indexes, Constraints
+	*) It Copies the Column names, Data types,Constraints,Indexes
 	*) It doesn't copy the Data, Foreign key relationships
 
 #Note :
