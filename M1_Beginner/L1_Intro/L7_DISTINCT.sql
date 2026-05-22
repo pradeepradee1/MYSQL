@@ -23,7 +23,7 @@ SELECT DISTINCT * FROM tablename;
 # Note : We can't do like this 
 */
 
-
+SELECT name DISTINCT FROM tablename
+	
 select *,DISTINCT parent from tree
 
-SELECT name DISTINCT FROM tablename
