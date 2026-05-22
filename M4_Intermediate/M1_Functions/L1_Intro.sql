@@ -1,6 +1,7 @@
 /*
 Functions:
-			These functions are predefined and used to perform user required operations.
+			Functions are predefined
+			It is used to perform user required operations.
 
 
 CATEGORES:	
