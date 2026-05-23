@@ -15,7 +15,7 @@
 
     
 
-2) Do we need to use same column used in group by and used inside the aggregate functions ?
+2) Do we need to use same column used in group by and same column used inside the aggregate functions ?
 
 
     Not exactly
