@@ -1,7 +1,7 @@
 /*
 GroupBy Clause:
 				It is used to group related data
-				On each group the oracle engine executes the aggregate function.
+				On each group the engine executes the aggregate function.
 */
 
 
@@ -11,7 +11,7 @@ findout max sal under each deptno?
 */
 
 select 
-	eid,dno,max(sal) 
+	dno,max(sal) 
 from emp
 where dno is not null
 group by dno
