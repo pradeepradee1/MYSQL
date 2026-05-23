@@ -1,8 +1,12 @@
 /*
 	Having : 
-				It is used to perform conditions on each group
+    			Filter will be applied on Individual group of table 
 				
 
+*/
+
+
+/*
 
 find out number of emps working under each dept on order of deptno if a dept
 contains at least 10 emps?
