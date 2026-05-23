@@ -68,6 +68,14 @@ Order BY :
 
 5) Diffference Between Where and Having ?
 
+
+Having :
+    Filter will be applied on Individual group of table and filter aggregated results
+    It require aggregate functions
+    It will treat the null values as equal in group by and null values ingonerd by aggregate 
+    It will execute after grouping
+    It slow in the performance
+
 Where :
     Filter will be applied on Individual rows of table and filter raw data
     It doesn't require aggregate functions
@@ -75,12 +83,6 @@ Where :
     It will execute before grouping
     It improves the performance because of reduces data before grouping (predicate pushdown)
     
-Having :
-    Filter will be applied on Individual group of table and filter aggregated results
-    It require aggregate functions
-    It will treat the null values as equal in group by and null values ingonerd by aggregate 
-    It will execute after grouping
-    It slow in the performance
     
 
 
