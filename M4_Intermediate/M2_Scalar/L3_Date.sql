@@ -68,41 +68,6 @@ SELECT DAYOFYEAR("2022-12-27");
 
 
 
-#Date Format
-SELECT DATE_FORMAT("2017-12-27", "%d-%m-%Y");
-
-/*
-#Note :
-#In DATE_FORMAT functions
-# date Format is not important
-#SELECT DATE_FORMAT("2017-12-27", "%d-%m/%Y");
-*/
-
-#STR_TO_DATE
-SELECT STR_TO_DATE("August 10 2017", "%M %d %Y");
-SELECT STR_TO_DATE("August/10/2017", "%M/%d/%Y");
-SELECT STR_TO_DATE("August 5 2017", "%M %e %Y");
-SELECT STR_TO_DATE("Monday  August 14 2017", "%W %M %e %Y");
-SELECT STR_TO_DATE("12-27-2017", '%m-%d-%Y');
-SELECT STR_TO_DATE('12/31/2011', '%m/%d/%Y');
-select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
-
-/*
-#Note :
-# In STR_TO_DATE functions 
-# date Format is important
-# IP and OP should be same format
-	# Ex: STR_TO_DATE("2024 APR 15","%Y %M %d")
-
-	# We can't do like this
-	#STR_TO_DATE("2017-12-27", "%d %m %Y");
-	#STR_TO_DATE("2017-12-27", "%d %m /%Y");
-
-*/
-
-
-
-
 /*
 
 Date Format Specifiers
@@ -147,3 +112,41 @@ Time Format Specifiers
 %p		=	PM		( AM / PM )
 
 */
+
+
+
+#Date Format
+SELECT DATE_FORMAT("2017-12-27", "%d-%m-%Y");
+
+/*
+#Note :
+#In DATE_FORMAT functions
+# date Format is not important
+#SELECT DATE_FORMAT("2017-12-27", "%d-%m/%Y");
+*/
+
+#STR_TO_DATE
+SELECT STR_TO_DATE("August 10 2017", "%M %d %Y");
+SELECT STR_TO_DATE("August/10/2017", "%M/%d/%Y");
+SELECT STR_TO_DATE("August 5 2017", "%M %e %Y");
+SELECT STR_TO_DATE("Monday  August 14 2017", "%W %M %e %Y");
+SELECT STR_TO_DATE("12-27-2017", '%m-%d-%Y');
+SELECT STR_TO_DATE('12/31/2011', '%m/%d/%Y');
+select STR_TO_DATE('12/27/2022', '%m/%d/%Y')
+
+/*
+#Note :
+# In STR_TO_DATE functions 
+# date Format is important
+# IP and OP should be same format
+	# Ex: STR_TO_DATE("2024 APR 15","%Y %M %d")
+
+	# We can't do like this
+	#STR_TO_DATE("2017-12-27", "%d %m %Y");
+	#STR_TO_DATE("2017-12-27", "%d %m /%Y");
+
+*/
+
+
+
+
