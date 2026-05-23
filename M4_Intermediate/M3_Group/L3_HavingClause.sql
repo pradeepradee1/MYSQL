@@ -1,6 +1,6 @@
 /*
 	Having : 
-				It is used to specify conditions on group by output.
+				It is used to specify conditions on each group
 				
 
 
