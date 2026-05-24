@@ -2,6 +2,7 @@
 
 Write an SQL query to find the cheapest flight cost for each origin–destination pair.
 
+IP :
 id | origin | destination | cost
 ---+--------+-------------+------
 1  | A     | B            | 100
@@ -9,6 +10,17 @@ id | origin | destination | cost
 3  | A     | C            | 300
 4  | C     | A            | 200
 5  | B     | A            | 120
+
+OP :
+
+| origin | destination | cheapest_cost |
+| ------ | ----------- | ------------- |
+| A      | B           | 100           |
+| A      | C           | 300           |
+| B      | A           | 120           |
+| B      | C           | 150           |
+| C      | A           | 200           |
+
 
 */
 
