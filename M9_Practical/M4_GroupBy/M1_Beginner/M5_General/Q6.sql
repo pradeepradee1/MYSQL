@@ -4,6 +4,39 @@ Question : Find the Mutual followers
 which means:
 A follower who follows more than one user
 
+Sample IP :
+
+| user_id | follower_id |
+| ------- | ----------- |
+| 1       | 3           |
+| 2       | 3           |
+| 7       | 3           |
+| 1       | 4           |
+| 2       | 4           |
+| 7       | 4           |
+| 1       | 5           |
+| 2       | 6           |
+| 7       | 5           |
+| 8       | 4           |
+| 8       | 3           |
+| 8       | 6           |
+| 1       | 9           |
+| 7       | 9           |
+
+
+OP:
+| follower_id |
+| ----------- |
+| 3           |
+| 4           |
+| 5           |
+| 6           |
+| 9           |
+
+
+
+*/
+
 CREATE or REPLACE TABLE followers (
     user_id INT,
     follower_id INT
@@ -28,7 +61,6 @@ VALUES
 
 
 
-*/
 
 
 SELECT 
