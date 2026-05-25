@@ -53,7 +53,7 @@ group by
 # Right Approach
 select 
 	*,
-	sum(if(fruit="apples",sold_num,0))  - sum(if(fruit="oranges",sold_num,0)) as orangesum
+	sum(if(fruit="apples",sold_num,0))  - sum(if(fruit="oranges",sold_num,0)) as difference
 from 
 	Temp
 group by sale_date
