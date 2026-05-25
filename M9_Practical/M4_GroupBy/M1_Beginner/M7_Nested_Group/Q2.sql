@@ -8,6 +8,26 @@ Impressions     →   How many times an ad/link was shown
 Clicks          →   How many times users clicked it
 
 
+Input :
+
+| ad_id | user_id | event_type | event_date |
+| ----- | ------- | ---------- | ---------- |
+| 101   | 1       | impression | 2026-01-01 |
+| 101   | 1       | click      | 2026-01-01 |
+| 101   | 2       | impression | 2026-01-01 |
+| 101   | 3       | impression | 2026-01-01 |
+| 102   | 4       | impression | 2026-01-01 |
+| 102   | 4       | click      | 2026-01-01 |
+
+
+| ad_id | impressions | clicks | ctr_percentage |
+| ----- | ----------- | ------ | -------------- |
+| 101   | 3           | 1      | 33.33          |
+| 102   | 1           | 1      | 100.00         |
+
+
+
+
 */
 
 CREATE or replace TABLE Temp (
