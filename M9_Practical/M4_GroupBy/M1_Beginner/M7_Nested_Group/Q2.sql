@@ -48,22 +48,15 @@ INSERT INTO Temp VALUES
 
 SELECT
     ad_id,
-    SUM(CASE WHEN event_type = 'click' THEN 1 ELSE 0 END) * 100.0 /
-    SUM(CASE WHEN event_type = 'impression' THEN 1 ELSE 0 END) AS ctr_percentage
+    SUM(CASE WHEN event_type = 'impression' THEN 1 ELSE 0 END) AS impressions,
+    SUM(CASE WHEN event_type = 'click' THEN 1 ELSE 0 END) AS clicks,
+    (
+    SUM(CASE WHEN event_type = 'click' THEN 1 ELSE 0 END) / SUM(CASE WHEN event_type = 'impression' THEN 1 ELSE 0 END) * 100
+    )
+    AS ctr_percentage
 FROM Temp
 GROUP BY ad_id;
 
-
-
-SELECT
-    ad_id,
-    ROUND(
-        SUM(CASE WHEN event_type = 'click' THEN 1 ELSE 0 END) * 100.0 /
-        NULLIF(SUM(CASE WHEN event_type = 'impression' THEN 1 ELSE 0 END), 0),
-        2
-    ) AS ctr_percentage
-FROM Temp
-GROUP BY ad_id;
 
 
 /* CTR Per Day (Common in Projects) */
