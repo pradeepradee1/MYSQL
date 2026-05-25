@@ -43,6 +43,15 @@ INSERT INTO videos (video_id, user_id, upload_date, likes, comments) VALUES
 (16, 3, '2025-01-05', 70, 10);
 
 
+Output : 
+
+| user_id | highly_interactive_videos |
+| ------- | ------------------------- |
+| 1       | 4                         |
+| 3       | 3                         |
+
+
+
 */
 
 SELECT 
