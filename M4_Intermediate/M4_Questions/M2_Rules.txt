@@ -1,0 +1,91 @@
+1) Can we use GROUP BY without aggregate functions?    
+
+
+    Yes, but it works like DISTINCT.
+
+        SELECT dept
+        FROM emp
+        GROUP BY dept;
+
+    *)  Proper Query
+    
+        SELECT dept, COUNT(*) AS total_employees
+        FROM emp
+        GROUP BY dept;
+
+    
+
+2) Do we need to use same column used in group by and same column used inside the aggregate functions ?
+
+
+    Not exactly
+
+    *) Correct Query 
+    
+    SELECT region, SUM(amount)
+    FROM sales
+    GROUP BY region;
+
+
+3) Can we use columns in SELECT that are not in GROUP BY?
+
+
+
+    No
+
+    *) Wrong Query 
+
+    SELECT department, salary
+    FROM employees
+    GROUP BY department;
+
+    *) Correct Query 
+
+    SELECT department, salary , count(*)
+    FROM employees
+    GROUP BY department,salary;
+
+
+
+
+4) How the groupBy handle NULL values ?
+
+It will treat the all NULL values are equal
+
+IP 
+
+| dept_id | salary |
+| ------- | ------ |
+| 10      | 5000   |
+| 20      | 6000   |
+| NULL    | 4000   |
+| NULL    | 4500   |
+| 10      | 5500   |
+
+OP 
+
+| dept_id | emp_count |
+| ------- | --------- |
+| 10      | 2         |
+| 20      | 1         |
+| NULL    | 2         |
+
+
+
+
+5) How the group function or aggregate functions handle the NULL values ?
+
+It will exclude the NULL values
+
+
+
+6) Can HAVING be used without GROUP BY?
+
+
+    Yes , It treats the entire table as a single group
+
+    SELECT 
+        COUNT(*)
+    FROM 
+        employees
+    HAVING COUNT(*) > 2;
