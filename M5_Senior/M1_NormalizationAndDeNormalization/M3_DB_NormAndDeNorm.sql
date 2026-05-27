@@ -21,8 +21,13 @@ Difference Between Normalization and DeNormalization
 	
 	Memory is not optimized in denormalized table because the same data is stored in different places
 
-6) 	It is suit for OLTP and It is optimized for the quick access and Data is frequently used for insert, update, and delete
+6) 	It is suit for OLTP
+			It is optimized for the quick access
+			Data is frequently used for insert, update, and delete which comes under the DML operation
 	
-	It is suit for OLAP and It Optimized for analysis the complex  queries on historical data and Data is frequently used for retrieval 
+	It is suit for OLAP 
+			It Optimized for analysis the complex  queries on historical data 
+			Data is frequently used for retrieval 
+
 
 */
