@@ -23,11 +23,11 @@ Difference Between Normalization and DeNormalization
 
 6) 	It is suit for OLTP
 			It is optimized for the quick access
-			Data is frequently used for insert, update, and delete which comes under the DML operation
+			Data is frequently used for insert, update, and delete which comes under the DML statement
 	
 	It is suit for OLAP 
 			It Optimized for analysis the complex  queries on historical data 
-			Data is frequently used for retrieval 
+			Data is frequently used for retrieval which comes under the DQL statement
 
 
 */
