@@ -1,5 +1,21 @@
-1) Get the total in every Feb of year
-    Where mon = Feb 
+Note : 
+    In GroupBy , 
+                When we should go for where and group by
 
-2) Get the total of every month of year 
-    group by month,year 
+        Where :
+        
+                Ex1:
+                    Get the total in every Feb of year
+                        Where mon = Feb 
+                Ex2:
+                    Find the top 3 products with the highest sales in the past week
+                        where s.date >= CURDATE() - INTERVAL 7 DAY 
+        
+        Group By :
+
+                Ex1:
+                    Get the total of every month of year 
+                        group by year,month
+                Ex2:
+                    Find all customers who have placed orders in at least 3 different product categories in the same calendar month.
+                        group by year,month
