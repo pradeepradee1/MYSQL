@@ -19,3 +19,6 @@ Note :
                 Ex2:
                     Find all customers who have placed orders in at least 3 different product categories in the same calendar month.
                         group by year,month
+
+        Where   ---> Specificatoions (Feb , past week , last 6 months)
+        GroupBy ---> UnSpecificatoions (every month of year, same calendar month)
