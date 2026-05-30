@@ -1,2 +1,2 @@
 Note :
-       Mostly avoid  Don't group by the foreign key columns
+       Mostly avoid  the foreign key columns in group By
