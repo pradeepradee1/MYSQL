@@ -69,12 +69,11 @@ SELECT * from ps_customers
 SELECT * from ps_orders
 
 SELECT 
-	a.* 
+	a.customer_name,
+	b.*
 from 
-	ps_customers a
-	left join ps_orders b on a.customer_id = b.customer_id 
-where 
-	b.customer_id is not NULL  and a.customer_name = "Shashank"
+	ps_customers a inner join  ps_orders b on a.customer_id = b.customer_id 
+where customer_name = "Shashank"
 
 
 
