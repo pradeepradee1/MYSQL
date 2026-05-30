@@ -77,5 +77,5 @@ c.customer_name
 FROM 
     ps_customers c 
 JOIN ps_orders o ON c.customer_id = o.customer_id
-GROUP BY c.customer_id, c.customer_name
+GROUP BY c.customer_name
 HAVING COUNT(*) = SUM(CASE WHEN status = 'Cancelled' THEN 1 ELSE 0 END);

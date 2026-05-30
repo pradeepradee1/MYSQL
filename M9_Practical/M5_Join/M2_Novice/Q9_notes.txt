@@ -1,0 +1,2 @@
+Note :
+        Don't group by the foreign key columns
