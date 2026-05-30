@@ -31,4 +31,10 @@ Logic_3 :
 			 B       C 
 			 A       C  
 		     C       A 
-			 B       A           
+			 B       A        
+Logic_4 :
+	Question :
+		Get all employess records ?
+		Tab1 (Employess) has 3 employess (A,B,C)
+		Tab2 (Salary) has 2 employess (A,B)
+	
