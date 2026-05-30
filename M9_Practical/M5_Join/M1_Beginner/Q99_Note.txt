@@ -1,3 +1,5 @@
 1) 
     Inner join           ---> Null will not come
     Left,right,full join ---> Null will be there
+
+2) Try idenrify the types of join from problem
