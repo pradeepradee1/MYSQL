@@ -1,5 +1,5 @@
 1) 
-    Inner join           ---> Null will not come
-    Left,right,full join ---> Null will be there
+    Inner join           ---> matching records , not unmatching, Null values
+    Left,right,full join ---> matching records , unmatching, Null values
 
 2) Try idenrify the types of join from problem
