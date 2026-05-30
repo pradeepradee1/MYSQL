@@ -3,8 +3,8 @@
 #Get the year salary for each & every employee  and if salary is null add 100 and return all the employee ?
 
 
-select * from tmptable1;
-select * from tmptable2;
+select * from temp1;
+select * from temp2;
 
 /*
 
