@@ -3,3 +3,10 @@
     Left,right,full join ---> matching records , unmatching, Null values
 
 2) Try idenrify the types of join from problem
+        Cross join
+        Inner join
+        Left join
+        right join
+        full join
+        semi join
+        anti join
