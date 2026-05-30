@@ -68,13 +68,10 @@ Output
 */
 
 select
-	t1.empid ,
-	sum(t2.salary) as totalsum1 ,
-	if (t2.salary is null , 100 , sum(t2.salary)) as totalsum2 ,
+	t1.name ,
 	sum(if (t2.salary is null , 100 , t2.salary)) as totalsum3
 from 
-	tmptable1 t1 left join tmptable2 t2 on t1.empid = t2.empid 
-group by t1.empid
-order by a.empid
-
+	temp1 t1 left join temp2 t2 on t1.empid = t2.empid 
+group by t1.name
+order by t1.empid
 
