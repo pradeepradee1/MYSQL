@@ -51,3 +51,32 @@ LEFT JOIN transactions t2 ON t1.col1 = t2.col2 AND t1.col2 = t2.col1
 WHERE t1.col1 <= t1.col2
    OR t1.col2 IS NULL
    OR t1.col1 IS NULL;
+
+
+/* Alternative Approach */
+
+
+SELECT
+    CASE
+        WHEN col1 IS NULL OR col2 IS NULL THEN col1
+        ELSE LEAST(col1, col2)
+    END AS col1,
+ 
+    CASE
+        WHEN col1 IS NULL OR col2 IS NULL THEN col2
+        ELSE GREATEST(col1, col2)
+    END AS col2,
+ 
+    SUM(amount) AS total_amount
+FROM your_table
+ 
+GROUP BY
+    CASE
+        WHEN col1 IS NULL OR col2 IS NULL THEN col1
+        ELSE LEAST(col1, col2)
+    END,
+
+    CASE
+        WHEN col1 IS NULL OR col2 IS NULL THEN col2
+        ELSE GREATEST(col1, col2)
+    END;
