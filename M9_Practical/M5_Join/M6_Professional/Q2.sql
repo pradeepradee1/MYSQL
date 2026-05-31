@@ -42,15 +42,12 @@ INSERT INTO transactions (Col1, Col2, Amount) VALUES
 ('C', 'A', 15);
 
 
-SELECT 
-    t1.Col1,
-    t1.Col2,
-    t1.Amount + COALESCE(t2.Amount,0) AS Total_Amount
+select
+    t1.col1,
+    t1.col2,
+    t1.amount + COALESCE(t2.amount, 0) AS total_amount
 FROM transactions t1
-LEFT JOIN transactions t2
-ON t1.Col1 = t2.Col2
-AND t1.Col2 = t2.Col1
-AND t1.Col1 IS NOT NULL
-AND t1.Col2 IS NOT NULL
-AND t1.Col1 < t1.Col2;
-
+LEFT JOIN transactions t2 ON t1.col1 = t2.col2 AND t1.col2 = t2.col1 
+WHERE t1.col1 <= t1.col2
+   OR t1.col2 IS NULL
+   OR t1.col1 IS NULL;
