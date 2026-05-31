@@ -10,6 +10,7 @@
 		query plan
 
 
+
 2) How to optimize JOIN queries?
 
 	Use indexes on join columns
