@@ -1,0 +1,27 @@
+Note :
+    Join is kind group the records
+
+Ex :
+
+# Join Technique
+
+select 
+	a.origin,
+	b.Destination
+from 
+	flights a
+inner join flights b  ON a.cid = b.cid
+where a.origin not in (select Destination from flights)
+and b.Destination not in (select origin from flights) 
+
+
+# Group By
+
+SELECT
+    cid,
+    MIN(origin) AS start_city,
+    MAX(destination) AS end_city
+FROM flights
+WHERE origin NOT IN (SELECT destination FROM flights)
+   OR destination NOT IN (SELECT origin FROM flights)
+GROUP BY cid;
