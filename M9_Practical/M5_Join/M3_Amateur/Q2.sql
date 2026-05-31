@@ -1,71 +1,97 @@
 /*
 
-
-Questions : Managers with at Least 5 Direct Reports
-
-
-| emp\_id | emp\_name | manager\_id |
-| ------- | --------- | ----------- |
-| 1       | John      | NULL        |
-| 2       | Alice     | 1           |
-| 3       | Bob       | 1           |
-| 4       | Charlie   | 1           |
-| 5       | David     | 1           |
-| 6       | Eva       | 1           |
-| 7       | Frank     | 2           |
-| 8       | Grace     | 2           |
-
-*/
+Problem: Find the top 3 products with the highest sales in the past week, including the total sales for each product.
 
 
-/*
-
-CREATE or replace TABLE employees5 (
-    emp_id INT PRIMARY KEY,
-    emp_name VARCHAR(50),
-    manager_id INT
+CREATE TABLE sales_1 (
+ id INT,
+ product_id INT,
+ amount DECIMAL(10,2),
+ date DATE
 );
 
+CREATE TABLE products_1 (
+product_id INT,
+product VARCHAR(30),
+product_name VARCHAR(30)
+);
 
-INSERT INTO employees5 (emp_id, emp_name, manager_id) 
-VALUES
-(1, 'John', NULL),
-(2, 'Alice', 1),
-(3, 'Bob', 1),
-(4, 'Charlie', 1),
-(5, 'David', 1),
-(6, 'Eva', 1),
-(7, 'Frank', 2),
-(8, 'Grace', 2);
+INSERT INTO products_1 VALUES
+(1, 'Product A', 'Electronics'),
+(2, 'Product B', 'Clothing'),
+(3, 'Product C', 'Home Goods'),
+(4, 'Product D', 'Beauty');
+
+INSERT INTO sales VALUES
+(1, 1, 100.00, '2025-10-01'),
+(2, 2, 50.00, '2025-10-02'),
+(3, 3, 75.00, '2025-10-03'),
+(4, 1, 150.00, '2025-10-04'),
+(5, 4, 25.00, '2025-10-05'),
+(6, 1, 200.00, '2025-10-06'),
+(7, 3, 100.00, '2025-10-07'),
+(8, 2, 75.00, '2025-10-08'),
+(9, 4, 50.00, '2025-10-09'),
+(10, 2, 125.00, '2025-10-10'),
+(11, 3, 150.00, '2025-10-11'),
+(12, 1, 75.00, '2025-10-12'),
+(13, 2, 100.00, '2025-10-13'),
+(14, 4, 200.00, '2025-10-14'),
+(15, 3, 50.00, '2025-10-15'),
+(16, 1, 125.00, '2025-10-16'),
+(17, 2, 150.00, '2025-10-17'),
+(18, 3, 75.00, '2025-10-18'),
+(19, 4, 100.00, '2025-10-19'),
+(20, 1, 50.00, '2025-10-20');
 
 
 Sample Input :
-| emp_id | emp_name | manager_id |
-| ------ | -------- | ---------- |
-| 1      | John     | NULL       |
-| 2      | Alice    | 1          |
-| 3      | Bob      | 1          |
-| 4      | Charlie  | 1          |
-| 5      | David    | 1          |
-| 6      | Eva      | 1          |
-| 7      | Frank    | 2          |
-| 8      | Grace    | 2          |
 
-Sample Output :
-| manager_id | manager_name | num_reports
-| ---------- | ------------ |-----------
-| 1          | John         |  5
+| product_id | product   | product_name |
+| ---------- | --------- | ------------ |
+| 1          | Product A | Electronics  |
+| 2          | Product B | Clothing     |
+| 3          | Product C | Home Goods   |
+| 4          | Product D | Beauty       |
+
+| id | product_id | amount | date       |
+| -- | ---------- | ------ | ---------- |
+| 14 | 4          | 200.00 | 2025-10-14 |
+| 15 | 3          | 50.00  | 2025-10-15 |
+| 16 | 1          | 125.00 | 2025-10-16 |
+| 17 | 2          | 150.00 | 2025-10-17 |
+| 18 | 3          | 75.00  | 2025-10-18 |
+| 19 | 4          | 100.00 | 2025-10-19 |
+| 20 | 1          | 50.00  | 2025-10-20 |
+
+Output :
+
+| product   | product_name | total_sales |
+| --------- | ------------ | ----------- |
+| Product D | Beauty       | 300         |
+| Product A | Electronics  | 175         |
+| Product B | Clothing     | 150         |
 
 
 */
 
+
+
 SELECT 
-    m.emp_id AS manager_id,
-    m.emp_name AS manager_name,
-    COUNT(e.emp_id) AS num_reports
-FROM employees5 e
-JOIN employees5 m
-    ON e.manager_id = m.emp_id
-GROUP BY m.emp_id, m.emp_name
-HAVING COUNT(e.emp_id) >= 5;
+    p.product_id,
+    p.product,
+    p.product_name,
+    SUM(s.amount) AS total_sales
+FROM 
+    products_1 p
+JOIN 
+    sales_1 s ON p.product_id = s.product_id
+WHERE 
+    s.date >= CURDATE() - INTERVAL 7 DAY
+GROUP BY 
+    p.product_id, p.product, p.product_name
+ORDER BY 
+    total_sales DESC
+LIMIT 3;
+
 

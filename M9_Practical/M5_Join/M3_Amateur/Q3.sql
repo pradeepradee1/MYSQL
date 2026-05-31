@@ -1,85 +1,61 @@
 /*
 
-Find all customers who have placed orders in at least 3 different product categories in the same calendar month.
-
-
-
+Problem: Find the top 5 customers with the highest total purchase amount in the past 3 months.
 
 */
 
-/*
-
-CREATE or replace TABLE customers6 (
- customer_id INT,
- customer_name VARCHAR(100)
+CREATE TABLE customers_1 (
+ id INT,
+ name VARCHAR(50),
+ state VARCHAR(2),
+ country VARCHAR(50)
 );
 
-CREATE or replace TABLE orders6 (
- order_id INT,
+INSERT INTO customers_1 (id, name, state, country)
+VALUES (1, 'John Smith', 'CA', 'USA'),
+ (2, 'Jane Doe', 'NY', 'USA'),
+ (3, 'Bob Johnson', 'TX', 'USA'),
+ (4, 'Samantha Lee', 'CA', 'USA'),
+ (5, 'Mike Brown', 'NY', 'USA');
+
+CREATE TABLE orders_1 (
+ id INT,
  customer_id INT,
- order_date DATE,
- category VARCHAR(50)
+ purchase_amount DECIMAL(10,2),
+ purchase_date DATE
 );
 
-INSERT INTO customers6 VALUES
-(1, 'Gowtham'), 
-(2, 'Sneha'), 
-(3, 'Arjun');
+INSERT INTO orders_11 (id, customer_id, purchase_amount, purchase_date)
+VALUES (1, 1, 100.00, '2021-05-01'),
+ (2, 2, 50.00, '2021-05-02'),
+ (3, 3, 200.00, '2021-05-03'),
+ (4, 4, 300.00, '2021-05-04'),
+ (5, 5, 150.00, '2021-05-05'),
+ (6, 1, 250.00, '2021-06-01'),
+ (7, 2, 75.00, '2021-06-02'),
+ (8, 3, 350.00, '2021-06-03'),
+ (9, 4, 400.00, '2021-06-04'),
+ (10, 5, 200.00, '2021-06-05'),
+ (11, 1, 150.00, '2021-07-01'),
+ (12, 2, 100.00, '2021-07-02'),
+ (13, 3, 500.00, '2021-07-03'),
+ (14, 4, 200.00, '2021-07-04'),
+ (15, 5, 100.00, '2021-07-05');
 
-INSERT INTO orders6 VALUES
-(101, 1, '2024-04-05', 'Shirts'),
-(102, 1, '2024-04-15', 'Shoes'),
-(103, 1, '2024-04-22', 'Watches'),
-(104, 2, '2024-04-10', 'Shirts'),
-(105, 2, '2024-05-11', 'Shirts'),
-(106, 3, '2024-04-03', 'Shoes'),
-(107, 3, '2024-04-14', 'Shoes'),
-(108, 3, '2024-04-29', 'Shoes');
-
-
-Sample Input :
-
-| customer_id | customer_name |
-| ----------- | ------------- |
-| 1           | Gowtham       |
-| 2           | Sneha         |
-| 3           | Arjun         |
-
-
-| order_id | customer_id | order_date | category |
-| -------- | ----------- | ---------- | -------- |
-| 101      | 1           | 2024-04-05 | Shirts   |
-| 102      | 1           | 2024-04-15 | Shoes    |
-| 103      | 1           | 2024-04-22 | Watches  |
-| 104      | 2           | 2024-04-10 | Shirts   |
-| 105      | 2           | 2024-05-11 | Shirts   |
-| 106      | 3           | 2024-04-03 | Shoes    |
-| 107      | 3           | 2024-04-14 | Shoes    |
-| 108      | 3           | 2024-04-29 | Shoes    |
-
-
-Expected Output :
-
-| customer_id | customer_name | year | month | category_count |
-| ----------- | ------------- | ---- | ----- | -------------- |
-| 1           | Gowtham       | 2024 | 4     | 3              |
-
-
-*/
 
 SELECT 
-    c.customer_id,
-    c.customer_name,
-    YEAR(o.order_date)  AS order_year,
-    MONTH(o.order_date) AS order_month,
-    COUNT(DISTINCT o.category) AS category_count
-FROM orders6 o
-JOIN customers6 c
-  ON o.customer_id = c.customer_id
+    c.id AS customer_id,
+    c.name,
+    SUM(o.purchase_amount) AS total_purchase
+FROM 
+    customers_1 c
+JOIN 
+    orders_11 o ON c.id = o.customer_id
+WHERE 
+    o.purchase_date >= CURDATE() - INTERVAL 3 MONTH
 GROUP BY 
-    c.customer_id,
-    c.customer_name,
-    YEAR(o.order_date),
-    MONTH(o.order_date)
-HAVING COUNT(DISTINCT o.category) >= 3;
+    c.id, c.name
+ORDER BY 
+    total_purchase DESC
+LIMIT 5;
 

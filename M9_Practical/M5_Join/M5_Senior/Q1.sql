@@ -1,86 +1,73 @@
-
 /*
-Questions : Get the orgin and destination of customers
+Questions: Remove The Duplicate Entry in mirror side
 
 
-CREATE TABLE `flights` (
-  `cid` varchar(512) DEFAULT NULL,
-  `fid` varchar(512) DEFAULT NULL,
-  `origin` varchar(512) DEFAULT NULL,
-  `Destination` varchar(512) DEFAULT NULL
-) 
+			1	2
+			3	2
+			2	4
+			2	1
+			5	6
+			4	2
 
-INSERT INTO flights (cid, fid, origin, Destination) 
+
+Output :
+
+			1	2
+			3	2
+			2	4
+			5	6
+
+
+
+*/
+
+CREATE or replace TABLE Temp (
+    col1 INT,
+    col2 INT
+);
+
+
+INSERT INTO Temp (col1, col2) 
 VALUES
-(1, 'f1', 'Del',  'Hyd'),
-(1, 'f2', 'Hyd',  'Blr'),
-(2, 'f3', 'Mum',  'Agra'),
-(2, 'f4', 'Agra', 'Kol');
+(1, 2),
+(3, 2),
+(2, 4),
+(2, 1),
+(5, 6),
+(4, 2);
 
 
-Input :
 
-cid 	fid  	origin	 Destination
-1	  	f1		Del			  Hyd
-1	  	f2		Hyd			  Blr
-2	  	f3		Mum			  Agra
-2	  	f4		Agra		  Kol
+select * from Temp
 
-
-*/
-
-
-/*
-# OP : 
-
-	1		 Del		  Blr
-	2		 Mum	    Kol
-
-*/
-
---Note
---This is kind of mismatch logic
---Hyd from destination shoud not be in origin
---Hyd from origin shoud not be in destination
-
-select * from flights a
-
-
-/* Inner Join */
+#Approach1
 
 select 
-	a.origin,
-	b.Destination
+*
 from 
-	flights a
-inner join flights b  ON a.cid = b.cid
-where a.origin not in (select Destination from flights)
-and b.Destination not in (select origin from flights) 
+Temp p1 
+left join Temp p2
+on p1.a = p2.b and  p1.b = p2.a
 
+select 
+p1.a,
+p1.b
+from 
+problemsolving1 p1 
+left join problemsolving1 p2
+on p1.b = p2.a and p1.a = p2.b 
+where p2.a is null or p1.a > p2.a
 
-
-/*  This is CROSS Join */
-
-SELECT
-    f1.cid,
-    f1.origin AS start_city,
-    f2.destination AS end_city
-FROM flights f1
-CROSS JOIN flights f2
-  ON f1.cid = f2.cid
-WHERE f1.origin NOT IN (SELECT destination FROM flights)
-  AND f2.destination NOT IN (SELECT origin FROM flights);
+#OR
+where p2.a is not null
 
 
 
 
-/* Alternative Approach */
+#Approach2
 
-SELECT
-    cid,
-    MIN(origin) AS start_city,
-    MAX(destination) AS end_city
-FROM flights
-WHERE origin NOT IN (SELECT destination FROM flights)
-   OR destination NOT IN (SELECT origin FROM flights)
-GROUP BY cid;
+select 
+	least(col1,col2),greatest(col1,col2)
+from 
+	Temp a
+group by least(col1,col2),greatest(col1,col2)
