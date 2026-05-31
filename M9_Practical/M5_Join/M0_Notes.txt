@@ -1,42 +1,53 @@
-Logic_1 :
-        Think all types of joins while solving the problem
+1) What type of joins ?
+		Think all types of joins while solving the problem
 
+	Logic_1 :
+		Question : What type of join will apply below logic
+				Get all employess records ?
+				Tab1 (Employess) has 3 employess (A,B,C)
+				Tab2 (Salary) has 2 employess (A,B)
 
-Logic_2 : 
-		mismatch logic
+	Logic_2 :
 
-		Input :
-
-		cid 	fid  	origin	 Destination
-		1	  	f1		Del			  Hyd
-		1	  	f2		Hyd			  Blr
-		2	  	f3		Mum			  Agra
-		2	  	f4		Agra		  Kol
-
-		OP : 
-
-		1		 Del		  Blr
-		2		 Mum	      Kol
-
-		--Note
-		--This is kind of mismatch logic
-		--Hyd from destination shoud not be in origin
-		--Hyd from origin shoud not be in destination
-
-Logic_3 :
 		All possible combinations
-
 		 origin  destination 
 			 A       B         
 			 B       C 
 			 A       C  
 		     C       A 
 			 B       A        
-Logic_4 :
-	Question : What type of join will apply below logic
-		Get all employess records ?
-		Tab1 (Employess) has 3 employess (A,B,C)
-		Tab2 (Salary) has 2 employess (A,B)
+	
 
-Note :
-    Join is kind group the records
+	Logic_3 : 
+		mismatch logic
+
+		| customer_id | customer_name | customer_email                        |
+		| ----------- | ------------- | ------------------------------------- |
+		| 1           | Shashank      | [abc@gmail.com](mailto:abc@gmail.com) |
+		| 2           | Rahul         | [aaa@gmail.com](mailto:aaa@gmail.com) |
+		| 3           | Ajay          | [klm@gmail.com](mailto:klm@gmail.com) |
+		| 4           | Nitin         | [poc@gmail.com](mailto:poc@gmail.com) |
+		| 5           | Naveen        | [mnc@gmail.com](mailto:mnc@gmail.com) |
+
+		| order_id | customer_id | amount | status    |
+		| -------- | ----------- | ------ | --------- |
+		| 101      | 1           | 550    | Delivered |
+		| 102      | 2           | 350    | Delivered |
+		| 103      | 1           | 220    | Cancelled |
+		| 104      | 3           | 660    | Delivered |
+		| 105      | 3           | 300    | Delivered |
+
+
+	Output :
+
+		| customer_id | customer_name |
+		| ----------- | ------------- |
+		| 4           | Nitin         |
+		| 5           | Naveen        |
+
+
+	
+	
+
+2) 
+	Join is kind group the records
