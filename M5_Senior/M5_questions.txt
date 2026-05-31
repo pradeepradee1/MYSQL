@@ -12,3 +12,7 @@ For Ex:                                             For Ex:
 		select dno from emp 								(inner join on a.dno = b.dno) 
 		union 
 		select dno from dept
+
+
+2) What happens if ON condition is missing ?
+	It becomes a cross join 
