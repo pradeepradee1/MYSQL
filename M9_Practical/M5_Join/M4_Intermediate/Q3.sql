@@ -1,6 +1,5 @@
 /*
-#Question : Find the user who has more follower
-
+#Question : 
 find all the pairs of users with maximum number of common folowers
 
 
