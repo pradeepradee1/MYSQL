@@ -1,7 +1,12 @@
 /*
-Single Row Subquery :
+Single value Subquery :
                     Returns single values
                     Used with operators like =, >, <, >=, <= (Assignment and Relational operator)
+*/
+
+
+/*
+    Find employees earning more than average salary
 */
 
 SELECT name 

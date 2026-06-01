@@ -1,5 +1,5 @@
 /*
-Multiple Row Subquery :
+Multiple value Subquery :
                         Returns multiple row
                         Used with IN, EXISTS , ALL, ANY 
 */
