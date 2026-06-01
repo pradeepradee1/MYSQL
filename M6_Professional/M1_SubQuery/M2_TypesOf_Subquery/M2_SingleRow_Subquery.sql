@@ -1,6 +1,6 @@
 /*
 Single Row Subquery :
-                    Returns only one row
+                    Returns single values
                     Used with operators like =, >, <, >=, <= (Assignment and Relational operator)
 */
 
