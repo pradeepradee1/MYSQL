@@ -1,6 +1,11 @@
 /*
+<<<<<<< HEAD
 Multiple value Subquery :
                         Returns multiple row
+=======
+Multiple Row Subquery :
+                        Returns multiple values
+>>>>>>> 165d0e6991187b6dee59699da38e29843c24ef6d
                         Used with IN, EXISTS , ALL, ANY 
 */
 
