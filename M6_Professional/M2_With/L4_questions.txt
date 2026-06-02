@@ -17,8 +17,8 @@
         *) Improves Readability
         *) Modularity of complex sql Queries ( Better Logical Separation )
         *) Supports Recursive Queries
-        *) Reusability Within Same Query
         *) Helps in Complex Transformations
+        *) Reusability Within Same Query
         *) Works with SELECT,INSERT, UPDATE, DELETE
         
 
