@@ -18,4 +18,9 @@ UPDATE emp_info parenttable join emp_info_child childtable ON parenttable.eid = 
 SET parenttable.sal = childtable.sal,childtable.ename = parenttable.ename;
 
 
+UPDATE employees JOIN dept_avg ON employees.department_id = dept_avg.department_id
+SET employees.salary = dept_avg.avg_salary
+WHERE employees.salary < dept_avg.avg_salary;
+
+
 
