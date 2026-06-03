@@ -4,8 +4,8 @@ Exists :
 
         *) It is a conditional operator
         *) check any records exists or not
-        *) It will be using in a subquery 
-        
+        *) It will be using in a subquery and correlation subquery 
+         
 
 
 */
