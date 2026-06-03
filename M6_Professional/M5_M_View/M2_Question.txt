@@ -6,12 +6,10 @@
     1.3) Force Refresh
 
     1.1) Complete Refresh (Full Refresh) :
-        Refresh everything from scratch
-        Re-executes the entire query from scratch
-    
+        Refresh everything
+
     1.2) Fast Refresh (Incremental Refresh) :
         Refreshes only the changed data
-        executes only affected query
 
     1.3) Force Refresh :
         Attempts Fast Refresh
