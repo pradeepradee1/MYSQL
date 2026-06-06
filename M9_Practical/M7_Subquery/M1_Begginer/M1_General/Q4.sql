@@ -7,8 +7,9 @@ Note : See the percentage cacluation in data science folder
 
 /*
 
+then return that content id
 *) Check how many users watched less than 20%
-*) If more than half of users did this , then return that content id
+*) If more than half of users did this , 
 
 
 */  
