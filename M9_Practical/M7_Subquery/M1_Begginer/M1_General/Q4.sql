@@ -70,6 +70,19 @@ INSERT INTO watch_history
 
 */
 
+
+
+SELECT 
+    content_id
+FROM watch_history
+GROUP BY content_id
+HAVING 
+    SUM(CASE WHEN watch_time < 20 THEN 1 ELSE 0 END) * 100 / COUNT(*) > 50;
+
+
+
+(OR)
+
 WITH watch_pct AS (
     SELECT 
         user_id,
@@ -87,12 +100,3 @@ HAVING
     SUM(CASE WHEN watch_pct < 0.2 THEN 1 ELSE 0 END) * 100 / COUNT(*) > 50;
 
 
-(OR)
-
-
-SELECT 
-    content_id
-FROM watch_history
-GROUP BY content_id
-HAVING 
-    SUM(CASE WHEN watch_time < 20 THEN 1 ELSE 0 END) * 100 / COUNT(*) > 50;
