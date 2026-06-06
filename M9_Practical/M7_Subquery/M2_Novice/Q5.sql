@@ -1,77 +1,56 @@
 /*
 
-Questions:
-			Write a SQL query to find the total number of people present inside the hospital.
+Calculate the cumulative count of distinct products purchased by each customer over time.
 
+What is cumulative ?
+
+| Date | Sales | Cumulative Sales |
+| ---- | ----- | ---------------- |
+| Day1 | 10    | 10               |
+| Day2 | 20    | 30               |
+| Day3 | 15    | 45               |
+| Day4 | 25    | 70               |
 
 
 */
-
-
-CREATE or replace TABLE hospital (
-    emp_id INT,
-    action VARCHAR(10),
-    time TIMESTAMP
-);
-
-INSERT INTO hospital (emp_id, action, time) VALUES
-(1, 'in',  '2019-12-22 09:00:00'),
-(1, 'out', '2019-12-22 09:15:00'),
-(2, 'in',  '2019-12-22 09:00:00'),
-(2, 'out', '2019-12-22 09:15:00'),
-(2, 'in',  '2019-12-22 09:30:00'),
-(3, 'out', '2019-12-22 09:00:00'),
-(3, 'in',  '2019-12-22 09:15:00'),
-(3, 'out', '2019-12-22 09:30:00'),
-(3, 'in',  '2019-12-22 09:45:00'),
-(4, 'in',  '2019-12-22 09:45:00'),
-(5, 'out', '2019-12-22 09:40:00');
-
-select * from hospital
-
-
-
-
 
 /*
-Sample Input :
 
-| emp_id | action | time                |
-| ------ | ------ | ------------------- |
-| 1      | in     | 2019-12-22 09:00:00 |
-| 1      | out    | 2019-12-22 09:15:00 |
-| 2      | in     | 2019-12-22 09:00:00 |
-| 2      | out    | 2019-12-22 09:15:00 |
-| 2      | in     | 2019-12-22 09:30:00 |
-| 3      | out    | 2019-12-22 09:00:00 |
-| 3      | in     | 2019-12-22 09:15:00 |
-| 3      | out    | 2019-12-22 09:30:00 |
-| 3      | in     | 2019-12-22 09:45:00 |
-| 4      | in     | 2019-12-22 09:45:00 |
-| 5      | out    | 2019-12-22 09:40:00 |
+CREATE or replace TABLE purchases (
+    customer_id INT,
+    purchase_date DATE,
+    product_id VARCHAR(10)
+);
+
+INSERT INTO purchases (customer_id, purchase_date, product_id) VALUES
+(1, '2025-09-01', 'P1'),
+(1, '2025-09-02', 'P2'),
+(1, '2025-09-03', 'P1'),
+(2, '2025-09-01', 'P2'),
+(2, '2025-09-02', 'P3');
 
 
+Excepted Output :
 
-Sample OP :
-
-		2	2019-12-22 09:30:00.000		2019-12-22 09:15:00.000
-		
-		3	2019-12-22 09:45:00.000		2019-12-22 09:30:00.000
-		
-		4	2019-12-22 09:45:00.000	
-
+| customer_id | purchase_date | product_id | cumulative_distinct_products |
+| ----------- | ------------- | ---------- | ---------------------------- |
+| 1           | 2025-09-01    | P1         | 1                            |
+| 1           | 2025-09-02    | P2         | 2                            |
+| 1           | 2025-09-03    | P1         | 2                            |
+| 2           | 2025-09-01    | P2         | 1                            |
+| 2           | 2025-09-02    | P3         | 2                            |
 
 
 */
 
+SELECT p1.customer_id,
+       p1.purchase_date,
+       p1.product_id,
+       (
+       	 SELECT COUNT(DISTINCT p2.product_id) FROM purchases p2
+         WHERE p2.customer_id = p1.customer_id AND 
+         p2.purchase_date <= p1.purchase_date
+       ) AS cumulative_distinct_count
+FROM purchases p1
+ORDER BY p1.customer_id, p1.purchase_date;
 
-
-
-with cte as  
-( select emp_id,
-max(CASE when action = "in" then `time` END) as Intime,
-max(CASE when action = "out" then `time` END) as Outtime
-from hospital
-group by emp_id )
-select * from cte
-where Intime > Outtime or Outtime is null

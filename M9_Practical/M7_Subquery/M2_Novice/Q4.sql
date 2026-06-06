@@ -1,49 +1,77 @@
 /*
 
-Question : 
+Questions:
+			Write a SQL query to find the total number of people present inside the hospital.
 
-            Find the latest product purchased by each customer
-
-
-
-| customer\_id | product  | purchase\_date |
-| ------------ | -------- | -------------- |
-| 1            | Laptop   | 2024-08-01     |
-| 1            | Mouse    | 2024-08-05     |
-| 2            | Keyboard | 2024-08-02     |
-| 2            | Monitor  | 2024-08-03     |
-
-
-OP 
-
-| customer\_id | product | purchase\_date |
-| ------------ | ------- | -------------- |
-| 1            | Mouse   | 2024-08-05     |
-| 2            | Monitor | 2024-08-03     |
 
 
 */
 
-CREATE or replace TABLE purchases11 (
-    customer_id INT,
-    product VARCHAR(50),
-    purchase_date DATE
+
+CREATE or replace TABLE hospital (
+    emp_id INT,
+    action VARCHAR(10),
+    time TIMESTAMP
 );
 
-INSERT INTO purchases11 (customer_id, product, purchase_date) VALUES
-(1, 'Laptop', '2024-08-01'),
-(1, 'Mouse', '2024-08-05'),
-(2, 'Keyboard', '2024-08-02'),
-(2, 'Monitor', '2024-08-03');
+INSERT INTO hospital (emp_id, action, time) VALUES
+(1, 'in',  '2019-12-22 09:00:00'),
+(1, 'out', '2019-12-22 09:15:00'),
+(2, 'in',  '2019-12-22 09:00:00'),
+(2, 'out', '2019-12-22 09:15:00'),
+(2, 'in',  '2019-12-22 09:30:00'),
+(3, 'out', '2019-12-22 09:00:00'),
+(3, 'in',  '2019-12-22 09:15:00'),
+(3, 'out', '2019-12-22 09:30:00'),
+(3, 'in',  '2019-12-22 09:45:00'),
+(4, 'in',  '2019-12-22 09:45:00'),
+(5, 'out', '2019-12-22 09:40:00');
+
+select * from hospital
 
 
-SELECT p.customer_id, p.product, p.purchase_date
-FROM purchases11 p
-JOIN (
-    SELECT customer_id, MAX(purchase_date) AS latest_date
-    FROM purchases11
-    GROUP BY customer_id
-) latest
-ON p.customer_id = latest.customer_id
-AND p.purchase_date = latest.latest_date
-ORDER BY p.customer_id;
+
+
+
+/*
+Sample Input :
+
+| emp_id | action | time                |
+| ------ | ------ | ------------------- |
+| 1      | in     | 2019-12-22 09:00:00 |
+| 1      | out    | 2019-12-22 09:15:00 |
+| 2      | in     | 2019-12-22 09:00:00 |
+| 2      | out    | 2019-12-22 09:15:00 |
+| 2      | in     | 2019-12-22 09:30:00 |
+| 3      | out    | 2019-12-22 09:00:00 |
+| 3      | in     | 2019-12-22 09:15:00 |
+| 3      | out    | 2019-12-22 09:30:00 |
+| 3      | in     | 2019-12-22 09:45:00 |
+| 4      | in     | 2019-12-22 09:45:00 |
+| 5      | out    | 2019-12-22 09:40:00 |
+
+
+
+Sample OP :
+
+		2	2019-12-22 09:30:00.000		2019-12-22 09:15:00.000
+		
+		3	2019-12-22 09:45:00.000		2019-12-22 09:30:00.000
+		
+		4	2019-12-22 09:45:00.000	
+
+
+
+*/
+
+
+
+
+with cte as  
+( select emp_id,
+max(CASE when action = "in" then `time` END) as Intime,
+max(CASE when action = "out" then `time` END) as Outtime
+from hospital
+group by emp_id )
+select * from cte
+where Intime > Outtime or Outtime is null

@@ -1,56 +1,49 @@
 /*
 
-Calculate the cumulative count of distinct products purchased by each customer over time.
+Question : 
 
-What is cumulative ?
+            Find the latest product purchased by each customer
 
-| Date | Sales | Cumulative Sales |
-| ---- | ----- | ---------------- |
-| Day1 | 10    | 10               |
-| Day2 | 20    | 30               |
-| Day3 | 15    | 45               |
-| Day4 | 25    | 70               |
+
+
+| customer\_id | product  | purchase\_date |
+| ------------ | -------- | -------------- |
+| 1            | Laptop   | 2024-08-01     |
+| 1            | Mouse    | 2024-08-05     |
+| 2            | Keyboard | 2024-08-02     |
+| 2            | Monitor  | 2024-08-03     |
+
+
+OP 
+
+| customer\_id | product | purchase\_date |
+| ------------ | ------- | -------------- |
+| 1            | Mouse   | 2024-08-05     |
+| 2            | Monitor | 2024-08-03     |
 
 
 */
 
-/*
-
-CREATE or replace TABLE purchases (
+CREATE or replace TABLE purchases11 (
     customer_id INT,
-    purchase_date DATE,
-    product_id VARCHAR(10)
+    product VARCHAR(50),
+    purchase_date DATE
 );
 
-INSERT INTO purchases (customer_id, purchase_date, product_id) VALUES
-(1, '2025-09-01', 'P1'),
-(1, '2025-09-02', 'P2'),
-(1, '2025-09-03', 'P1'),
-(2, '2025-09-01', 'P2'),
-(2, '2025-09-02', 'P3');
+INSERT INTO purchases11 (customer_id, product, purchase_date) VALUES
+(1, 'Laptop', '2024-08-01'),
+(1, 'Mouse', '2024-08-05'),
+(2, 'Keyboard', '2024-08-02'),
+(2, 'Monitor', '2024-08-03');
 
 
-Excepted Output :
-
-| customer_id | purchase_date | product_id | cumulative_distinct_products |
-| ----------- | ------------- | ---------- | ---------------------------- |
-| 1           | 2025-09-01    | P1         | 1                            |
-| 1           | 2025-09-02    | P2         | 2                            |
-| 1           | 2025-09-03    | P1         | 2                            |
-| 2           | 2025-09-01    | P2         | 1                            |
-| 2           | 2025-09-02    | P3         | 2                            |
-
-
-*/
-
-SELECT p1.customer_id,
-       p1.purchase_date,
-       p1.product_id,
-       (
-       	 SELECT COUNT(DISTINCT p2.product_id) FROM purchases p2
-         WHERE p2.customer_id = p1.customer_id AND 
-         p2.purchase_date <= p1.purchase_date
-       ) AS cumulative_distinct_count
-FROM purchases p1
-ORDER BY p1.customer_id, p1.purchase_date;
-
+SELECT p.customer_id, p.product, p.purchase_date
+FROM purchases11 p
+JOIN (
+    SELECT customer_id, MAX(purchase_date) AS latest_date
+    FROM purchases11
+    GROUP BY customer_id
+) latest
+ON p.customer_id = latest.customer_id
+AND p.purchase_date = latest.latest_date
+ORDER BY p.customer_id;
