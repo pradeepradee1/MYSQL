@@ -1,6 +1,6 @@
 /*
 
-cumulative distinct count based on product
+Calculate the cumulative count of distinct products purchased by each customer over time.
 
 What is cumulative ?
 
