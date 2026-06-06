@@ -10,11 +10,6 @@ Note : See the percentage cacluation in data science folder
 *) Check how many users watched less than 20%
 *) If more than half of users did this , then return that content id
 
-(or)
-
-Find content (content_id) 
-where more than 50% of viewers watched less than 20% of the total duration
-
 
 */  
 
