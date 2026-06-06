@@ -1,5 +1,5 @@
 Note :
-        Try to indentify which type of subquery
+        Try to indentify where we should apply the logic
 
             1) Where
             2) Select
