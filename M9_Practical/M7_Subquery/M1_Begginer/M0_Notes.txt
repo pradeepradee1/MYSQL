@@ -1,0 +1,7 @@
+Note :
+        Try to indentify which type of subquery
+
+            1) Where
+            2) Select
+            3) From
+            4) Having
