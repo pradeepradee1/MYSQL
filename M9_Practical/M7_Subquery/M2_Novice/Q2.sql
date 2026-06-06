@@ -7,7 +7,6 @@ The Problem:
 Find the percentage of customers whose first order was immediate.
 
 What is immediate order ?
-    Immediate order → order_date = customer_pref_delivery_date
     The customer wanted the order delivered on the same day they placed the order.
 
 
