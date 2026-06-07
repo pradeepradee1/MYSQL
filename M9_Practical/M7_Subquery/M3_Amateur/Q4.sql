@@ -1,5 +1,6 @@
 /*
 
+Questions :
 For each customer, calculate the running (cumulative) number of distinct products purchased up to each purchase date.
 
 
