@@ -31,6 +31,17 @@ INSERT INTO purchases (customer_id, purchase_date, product_id) VALUES
 (2, '2025-09-01', 'P2'),
 (2, '2025-09-02', 'P3');
 
+Sample Input :
+
+| customer_id | purchase_date | product_id |
+| ----------- | ------------- | ---------- |
+| 1           | 2025-09-01    | P1         |
+| 1           | 2025-09-02    | P2         |
+| 1           | 2025-09-03    | P1         |
+| 2           | 2025-09-01    | P2         |
+| 2           | 2025-09-02    | P3         |
+
+
 
 Excepted Output :
 
