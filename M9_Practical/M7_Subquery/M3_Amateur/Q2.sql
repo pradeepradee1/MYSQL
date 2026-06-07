@@ -5,7 +5,9 @@ considering both direct flights and two-leg connections.
 
 Note : consider a is chennai , b is delhi , c is kashmir
 
-*) Direct flight
+*) Direct flight :
+    A → C = 300
+
 *) Two leg :
     You go from A → B → C instead of directly A → C (direct flight)
     First flight: A → B
