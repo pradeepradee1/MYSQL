@@ -4,6 +4,10 @@ Questions :
 For each customer, calculate the running (cumulative) number of distinct products purchased up to each purchase date.
 
 
+Note : 
+        Join is kind of group by
+
+
 What is cumulative ?
 
 | Date | Sales | Cumulative Sales |
