@@ -65,7 +65,17 @@ Sample OP :
 */
 
 
+select * from
+(select 
+	emp_id,
+	max(case when action = "in" then time end) as max_in_time,
+	max(case when action = "out" then time end) as max_out_time
+from 
+	hospital
+group by emp_id) as tmp
+where tmp.max_in_time > tmp.max_out_time or tmp.max_out_time is null
 
+(OR)
 
 with cte as  
 ( select emp_id,
