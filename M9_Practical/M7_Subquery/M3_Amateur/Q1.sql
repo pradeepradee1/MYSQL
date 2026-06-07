@@ -6,19 +6,20 @@ but gave ratings for only one order in the last 6 months.
 
 
 Input 
-| order_id | order_date |
-| -------- | ---------- |
-| 1        | 2025-01-01 |
-| 2        | 2025-01-10 |
-| 3        | 2025-01-20 |
-| 4        | 2025-02-01 |
-| 5        | 2025-02-15 |
-| 6        | 2025-02-25 |
+| order_id | customer_id | customer_name | order_date |
+| -------- | ----------- | ------------- | ---------- |
+| 1        | 1001        | Gowtham       | 2025-01-01 |
+| 2        | 1001        | Gowtham       | 2025-01-10 |
+| 3        | 1001        | Gowtham       | 2025-01-20 |
+| 4        | 1001        | Gowtham       | 2025-02-01 |
+| 5        | 1001        | Gowtham       | 2025-02-15 |
+| 6        | 1001        | Gowtham       | 2025-02-25 |
 
 Input:
-| rating_id | customer_id | rating |
-| --------- | ----------- | ------ |
-| 1         | 1001        | 4      |
+
+| rating_id | customer_id | rating | rating_date |
+| --------- | ----------- | ------ | ----------- |
+| 1         | 1001        | 4      | 2025-01-10  |
 
 
 Output:
