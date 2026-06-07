@@ -2,6 +2,9 @@
 
 Give me the prime numbers 
 
+
+Note : this is Comparing row level logic (correlation subquery)
+
 Input :
 
 | num |
