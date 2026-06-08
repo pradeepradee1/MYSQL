@@ -1,83 +1,65 @@
 /*
 
-Finding the correct product price at the time of the order and then 
-calculating total sales value per product ?
-
-(or)
-
-Calculating the total sales value of each product based on the price valid 
-at the time of the order ?
-
-Note : 
-
-For every order, we must find:
-The latest product price before or on the order date
-This is called price as of that date.
-
-*/
-
-/*
-
-
-CREATE or replace TABLE products5 (
-    product_id INT,
-    price INT,
-    price_date DATE
-);
-
-CREATE or replace TABLE orders7 (
-    order_id INT,
-    order_date DATE,
-    product_id INT
-);
-
--- Product price history
-INSERT INTO products5 
-(product_id, price, price_date) 
-VALUES
-(1, 100, DATE '2025-01-01'),
-(1, 120, DATE '2025-02-01'),
-(1, 150, DATE '2025-03-01'),
-(2, 200, DATE '2025-01-15'),
-(2, 250, DATE '2025-02-10'),
-(3, 300, DATE '2025-01-01');
-
--- Orders placed on different dates
-INSERT INTO orders7 
-(order_id, order_date, product_id) 
-VALUES
-(101, DATE '2025-01-10', 1),   -- price = 100
-(102, DATE '2025-02-15', 1),   -- price = 120
-(103, DATE '2025-03-05', 1),   -- price = 150
-(104, DATE '2025-02-05', 2),   -- price = 200
-(105, DATE '2025-03-01', 2),   -- price = 250
-(106, DATE '2025-01-20', 3);   -- price = 300
-
-
-Expected Output :
-
-| product_id | total_sales_value |
-| ---------- | ----------------- |
-| 1          | 370               |
-| 2          | 450               |
-| 3          | 300               |
-
-
+⁠How would you detect anomalies or outliers in a dataset using SQL?
 
 */
 
 
+CREATE or replace TABLE sales_data2 (
+    sale_id INT,
+    amount DECIMAL(10,2)
+);
+
+INSERT INTO sales_data2 (sale_id, amount) VALUES
+(1, 100),
+(2, 120),
+(3, 115),
+(4, 130),
+(5, 5000), -- outlier
+(6, 110),
+(7, 125);
+
+
+/* 1️⃣ Z-Score Method (Standard Deviation Approach) */
+
+WITH stats AS (
+    SELECT 
+        AVG(value) AS mean_val,
+        STDDEV(value) AS stddev_val
+    FROM sales
+)
 SELECT 
-    o.product_id,
-    SUM(p.price) AS total_sales_value
-FROM 
-orders7 o JOIN products5 p ON p.product_id = o.product_id
-AND p.price_date = (
-    SELECT MAX(p2.price_date)
-    FROM products5 p2
-    WHERE p2.product_id = o.product_id
-    AND p2.price_date <= o.order_date
-     )
-GROUP BY o.product_id
-ORDER BY o.product_id;
+    s.value,
+    (s.value - st.mean_val) / st.stddev_val AS z_score
+FROM sales s
+CROSS JOIN stats st
+WHERE ABS((s.value - st.mean_val) / st.stddev_val) > 3;  -- threshold
 
+
+
+
+/* 2️⃣ IQR Method (Interquartile Range) */
+
+WITH quartiles AS (
+    SELECT 
+        PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY value) AS Q1,
+        PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY value) AS Q3
+    FROM sales
+)
+SELECT s.value
+FROM sales s, quartiles q
+WHERE s.value < q.Q1 - 1.5 * (q.Q3 - q.Q1)
+   OR s.value > q.Q3 + 1.5 * (q.Q3 - q.Q1);
+
+
+
+
+/* 3️⃣ Percentile Thresholds */
+
+SELECT value
+FROM (
+    SELECT value,
+           NTILE(100) OVER (ORDER BY value) AS percentile_rank
+    FROM sales
+) ranked
+WHERE percentile_rank <= 5 OR percentile_rank >= 95;
