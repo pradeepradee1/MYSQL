@@ -17,82 +17,88 @@
 #4)CONCAT_WS
 	SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!") AS ConcatenatedString;
 
-#5)FORMAT 
+#5) SUBSTRING_INDEX
+	SELECT SUBSTRING_INDEX('Bhavani kumarasamy raghavan', ' ', 1);
+	
+	#OP
+		Bhavani
+
+#6)FORMAT 
 	SELECT FORMAT(250500.5634, 2);
 	
-#6)FIELD
+#7)FIELD
 	SELECT FIELD("q", "s", "q", "l");
 
-#7)FIND_IN_SET
+#8)FIND_IN_SET
 	SELECT FIND_IN_SET("q", "s,q,l");
 
-#8)LOCATE 
+#9)LOCATE 
 	SELECT LOCATE("3", "W3Schools.com") AS MatchPosition;
 
-#9)POSITION	
+#10)POSITION	
 	SELECT POSITION("3" IN "W3Schools.com") AS MatchPosition;
 
-#10)INSTR (Always prefer the INSTR because ( Source String is coming first & Target is second) for ex: ("W3Schools.com", "3")) 
+#11)INSTR (Always prefer the INSTR because ( Source String is coming first & Target is second) for ex: ("W3Schools.com", "3")) 
 
 	SELECT INSTR("W3Schools.com", "3") AS MatchPosition;
 
-#11)INSERT = Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:
+#12)INSERT = Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:
 	SELECT INSERT("W3Schools.com", 1, 0, "Example");
 
-#12)REPLACE
+#13)REPLACE
 	SELECT REPLACE("SQL Tutorial", "SQL", "HTML");
 
-#13)REPEAT
+#14)REPEAT
 	SELECT REPEAT("SQL Tutorial", 3);
 
-#14)REVERSE
+#15)REVERSE
 	SELECT REVERSE("SQL Tutorial");
 	
 
 	
-#15)LOWER
+#16)LOWER
 	SELECT LOWER("SQL Tutorial is FUN!");
 
-#16)LCASE
+#17)LCASE
 	SELECT LCASE("SQL Tutorial is FUN!");
 
-#17)UCASE
+#18)UCASE
 	SELECT UPPER("SQL Tutorial is FUN!");
 
-#18)UPPER
+#19)UPPER
 	SELECT UCASE("SQL Tutorial is FUN!");
 
-#19)LEFT = Extract 3 characters from a string (starting from left):
+#20)LEFT = Extract 3 characters from a string (starting from left):
 	SELECT LEFT("SQL Tutorial", 3) AS ExtractString;
 
-#20)MID
+#21)MID
 	SELECT MID("SQL Tutorial", 5, 3) AS ExtractString;
 
-#21)RIGHT = Extract 4 characters from a string (starting from right):
+#22)RIGHT = Extract 4 characters from a string (starting from right):
 	SELECT RIGHT("SQL Tutorial is cool", 4) AS ExtractString;
 '''
 #Note : TRIM (trimmer we have) and Pad (writing pad) are vintage ---> It suit for SQL
 #Note : Strip and just are new ----> It suit for Python
 '''
-#22)TRIM
+#23)TRIM
 	SELECT TRIM('    SQL Tutorial    ') AS TrimmedString;
 
-#23)LTRIM
+#24)LTRIM
 	SELECT LTRIM("     SQL Tutorial") AS LeftTrimmedString;
 
-#24)RTRIM
+#25)RTRIM
 	SELECT RTRIM("SQL Tutorial     ") AS RightTrimmedString;
 
 
-#25)RPAD
+#26)RPAD
 	SELECT RPAD("SQL Tutorial", 20, "ABC");
 	
-#26)LPAD = Left-pad the string with "ABC", to a total length of 20
+#27)LPAD = Left-pad the string with "ABC", to a total length of 20
 	SELECT LPAD("SQL Tutorial", 20, "ABC");
 
 
 
-#27)String Compare
+#28)String Compare
 	SELECT STRCMP("SQL", "SQL"); 	-- 	0
 	SELECT STRCMP("SQL12", "SQL"); 	-- 	1
 	SELECT STRCMP("SQL", "SQL12"); 	-- -1
