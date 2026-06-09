@@ -23,22 +23,29 @@ INSERT INTO Numbers (num) VALUES
 
 
 
-WITH digits AS (
-    SELECT 0 d UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4
-    UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
-),
-bounds AS (
-    SELECT MIN(num) AS min_val, MAX(num) AS max_val FROM Numbers
+WITH nums AS (
+    SELECT 1 AS num
+    UNION ALL SELECT 2
+    UNION ALL SELECT 3
+    UNION ALL SELECT 4
+    UNION ALL SELECT 5
+    UNION ALL SELECT 6
+    UNION ALL SELECT 7
+    UNION ALL SELECT 8
+    UNION ALL SELECT 9
+    UNION ALL SELECT 10
 )
-SELECT a.*
-FROM digits a
-CROSS JOIN bounds b
-LEFT JOIN Numbers n 
-    ON a.d = n.num
+
+SELECT 
+    nums.num AS missing_number
+FROM nums
+LEFT JOIN Numbers n
+    ON nums.num = n.num
 WHERE n.num IS NULL
-  AND a.d BETWEEN b.min_val AND b.max_val;
-
-
+AND nums.num BETWEEN
+    (SELECT MIN(num) FROM Numbers)
+    AND
+    (SELECT MAX(num) FROM Numbers);
 
 (OR)
 
