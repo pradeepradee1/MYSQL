@@ -29,32 +29,8 @@ Requirements:
 
 */
 
+
 /*
-
-create or replace TABLE ad_impressions (
-    ad_id INT,
-    category VARCHAR(50),
-    region VARCHAR(50),
-    impressions INT,
-    impression_date DATE
-);
-
-
-INSERT INTO ad_impressions (ad_id, category, region, impressions, impression_date) VALUES
-(1, 'Electronics', 'North', 60000, '2024-01-10'),
-(2, 'Electronics', 'North', 70000, '2025-01-15'),
-(3, 'Electronics', 'South', 50000, '2024-02-01'),
-(4, 'Electronics', 'South', 60000, '2025-02-10'),
-(5, 'Fashion', 'North', 40000, '2024-03-05'),
-(6, 'Fashion', 'North', 45000, '2025-03-10'),
-(7, 'Fashion', 'South', 30000, '2024-04-01'),
-(8, 'Fashion', 'South', 35000, '2025-04-15'),
-(9, 'Food', 'North', 120000, '2024-05-10'),
-(10, 'Food', 'North', 130000, '2025-05-15'),
-(11, 'Food', 'South', 110000, '2024-06-01'),
-(12, 'Food', 'South', 125000, '2025-06-10');
-
-
 
 Sample Input :
 
@@ -82,6 +58,37 @@ Sample Output :
 | Electronics | South  | 50000            | 60000            | 20.00                 |
 | Food        | North  | 120000           | 130000           | 8.33                  |
 | Food        | South  | 110000           | 125000           | 13.64                 |
+
+
+
+*/
+
+/*
+
+create or replace TABLE ad_impressions (
+    ad_id INT,
+    category VARCHAR(50),
+    region VARCHAR(50),
+    impressions INT,
+    impression_date DATE
+);
+
+
+INSERT INTO ad_impressions (ad_id, category, region, impressions, impression_date) VALUES
+(1, 'Electronics', 'North', 60000, '2024-01-10'),
+(2, 'Electronics', 'North', 70000, '2025-01-15'),
+(3, 'Electronics', 'South', 50000, '2024-02-01'),
+(4, 'Electronics', 'South', 60000, '2025-02-10'),
+(5, 'Fashion', 'North', 40000, '2024-03-05'),
+(6, 'Fashion', 'North', 45000, '2025-03-10'),
+(7, 'Fashion', 'South', 30000, '2024-04-01'),
+(8, 'Fashion', 'South', 35000, '2025-04-15'),
+(9, 'Food', 'North', 120000, '2024-05-10'),
+(10, 'Food', 'North', 130000, '2025-05-15'),
+(11, 'Food', 'South', 110000, '2024-06-01'),
+(12, 'Food', 'South', 125000, '2025-06-10');
+
+
 
 
 */
