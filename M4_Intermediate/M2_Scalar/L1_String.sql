@@ -18,6 +18,14 @@
 	SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!") AS ConcatenatedString;
 
 #5) SUBSTRING_INDEX
+	
+	SUBSTRING_INDEX(string, delimiter, count)
+			
+		string → input text
+		delimiter → character to split by count
+		positive → returns from left side
+		negative → returns from right side
+	
 	SELECT SUBSTRING_INDEX('Bhavani kumarasamy raghavan', ' ', 1);
 	
 	#OP
