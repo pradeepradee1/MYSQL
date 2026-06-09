@@ -21,10 +21,10 @@
 	
 	SUBSTRING_INDEX(string, delimiter, count)
 			
-		string → input text
-		delimiter → character to split by count
-		positive → returns from left side
-		negative → returns from right side
+		# string → input text
+		# delimiter → character to split by count
+		# positive → returns from left side
+		# negative → returns from right side
 	
 	SELECT SUBSTRING_INDEX('Bhavani kumarasamy raghavan', ' ', 1);
 	
