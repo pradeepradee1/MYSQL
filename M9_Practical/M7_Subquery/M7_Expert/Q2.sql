@@ -1,18 +1,63 @@
 /*
 
-Finding the correct product price at the time of the order and then 
-calculating total sales value per product ?
+You are given two tables:
 
-(or)
+1. products5
+   - Stores product price history.
+   - A product price can change over time.
 
-Calculating the total sales value of each product based on the price valid 
-at the time of the order ?
+2. orders7
+   - Stores customer orders with order dates.
 
-Note : 
+For every order, determine the product price that was valid
+on the order date.
 
-For every order, we must find:
-The latest product price before or on the order date
-This is called price as of that date.
+Rules:
+- Use the latest price where:
+      price_date <= order_date
+- If multiple prices exist before the order date,
+  choose the most recent one.
+
+After finding the valid price for each order:
+- Calculate the total sales value for each product.
+
+Return:
+- product_id
+- total_sales_value
+
+Sort the output by product_id.
+
+*/
+
+
+/*
+| product_id | price | price_date |
+| ---------- | ----- | ---------- |
+| 1          | 100   | 2025-01-01 |
+| 1          | 120   | 2025-02-01 |
+| 1          | 150   | 2025-03-01 |
+| 2          | 200   | 2025-01-15 |
+| 2          | 250   | 2025-02-10 |
+| 3          | 300   | 2025-01-01 |
+
+| order_id | order_date | product_id |
+| -------- | ---------- | ---------- |
+| 101      | 2025-01-10 | 1          |
+| 102      | 2025-02-15 | 1          |
+| 103      | 2025-03-05 | 1          |
+| 104      | 2025-02-05 | 2          |
+| 105      | 2025-03-01 | 2          |
+| 106      | 2025-01-20 | 3          |
+
+
+Expected Output
+
+| product_id | total_sales_value |
+| ---------- | ----------------- |
+| 1          | 370               |
+| 2          | 450               |
+| 3          | 300               |
+
 
 */
 
@@ -31,7 +76,6 @@ CREATE or replace TABLE orders7 (
     product_id INT
 );
 
--- Product price history
 INSERT INTO products5 
 (product_id, price, price_date) 
 VALUES
@@ -42,7 +86,6 @@ VALUES
 (2, 250, DATE '2025-02-10'),
 (3, 300, DATE '2025-01-01');
 
--- Orders placed on different dates
 INSERT INTO orders7 
 (order_id, order_date, product_id) 
 VALUES
@@ -54,30 +97,30 @@ VALUES
 (106, DATE '2025-01-20', 3);   -- price = 300
 
 
-Expected Output :
-
-| product_id | total_sales_value |
-| ---------- | ----------------- |
-| 1          | 370               |
-| 2          | 450               |
-| 3          | 300               |
 
 
 
 */
 
 
-SELECT 
-    o.product_id,
-    SUM(p.price) AS total_sales_value
-FROM 
-orders7 o JOIN products5 p ON p.product_id = o.product_id
-AND p.price_date = (
-    SELECT MAX(p2.price_date)
-    FROM products5 p2
-    WHERE p2.product_id = o.product_id
-    AND p2.price_date <= o.order_date
-     )
-GROUP BY o.product_id
-ORDER BY o.product_id;
+WITH latest_price AS (
+    SELECT 
+        o.order_id,
+        o.order_date,
+        o.product_id,
+        p.price,
+        p.price_date,
+        ROW_NUMBER() OVER (PARTITION BY o.order_id ORDER BY p.price_date DESC) AS rn
+    FROM orders7 o
+    JOIN products5 p
+        ON o.product_id = p.product_id
+       AND p.price_date <= o.order_date
+)
 
+SELECT 
+    product_id,
+    SUM(price) AS total_sales_value
+FROM latest_price
+WHERE rn = 1
+GROUP BY product_id
+ORDER BY product_id;
