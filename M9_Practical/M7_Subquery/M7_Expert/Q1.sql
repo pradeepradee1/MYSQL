@@ -1,14 +1,31 @@
 /*
 
 
-𝐏𝐫𝐨𝐛𝐥𝐞𝐦 :
-            Calculate the year-over-year (YoY) growth in total ad impressions for each category,
-taking into account regional differences, and 
-apply a threshold filter to 
-only include categories that had more than 100,000 
-total impressions in both years. 
-Also, include the percentage growth in impressions for each region.
+Problem Statement:
 
+You are given an ad_impressions table containing advertisement impression data
+across multiple categories and regions for different years.
+
+Write a SQL query to calculate the Year-over-Year (YoY) growth in total ad impressions
+for each category and region.
+
+Requirements:
+1. Calculate total impressions separately for 2024 and 2025.
+2. Compute the YoY growth percentage using:
+
+   ((Impressions_2025 - Impressions_2024) / Impressions_2024) * 100
+
+3. Consider regional differences while calculating the growth.
+4. Include only those categories where the total impressions across all regions
+   exceeded 100,000 in BOTH years (2024 and 2025).
+5. Return:
+   - category
+   - region
+   - impressions_2024
+   - impressions_2025
+   - yoy_growth_percentage
+
+6. Sort the final output by category and region.
 
 */
 
@@ -36,6 +53,35 @@ INSERT INTO ad_impressions (ad_id, category, region, impressions, impression_dat
 (10, 'Food', 'North', 130000, '2025-05-15'),
 (11, 'Food', 'South', 110000, '2024-06-01'),
 (12, 'Food', 'South', 125000, '2025-06-10');
+
+
+
+Sample Input :
+
+| ad_id | category    | region | impressions | impression_date |
+| ----- | ----------- | ------ | ----------- | --------------- |
+| 1     | Electronics | North  | 60000       | 2024-01-10      |
+| 2     | Electronics | North  | 70000       | 2025-01-15      |
+| 3     | Electronics | South  | 50000       | 2024-02-01      |
+| 4     | Electronics | South  | 60000       | 2025-02-10      |
+| 5     | Fashion     | North  | 40000       | 2024-03-05      |
+| 6     | Fashion     | North  | 45000       | 2025-03-10      |
+| 7     | Fashion     | South  | 30000       | 2024-04-01      |
+| 8     | Fashion     | South  | 35000       | 2025-04-15      |
+| 9     | Food        | North  | 120000      | 2024-05-10      |
+| 10    | Food        | North  | 130000      | 2025-05-15      |
+| 11    | Food        | South  | 110000      | 2024-06-01      |
+| 12    | Food        | South  | 125000      | 2025-06-10      |
+
+
+Sample Output :
+
+| category    | region | impressions_2024 | impressions_2025 | yoy_growth_percentage |
+| ----------- | ------ | ---------------- | ---------------- | --------------------- |
+| Electronics | North  | 60000            | 70000            | 16.67                 |
+| Electronics | South  | 50000            | 60000            | 20.00                 |
+| Food        | North  | 120000           | 130000           | 8.33                  |
+| Food        | South  | 110000           | 125000           | 13.64                 |
 
 
 */
