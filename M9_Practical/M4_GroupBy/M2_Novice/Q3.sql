@@ -1,117 +1,135 @@
 /*
-What is ROLLUP ? (Advanced)
+
+Flattening Rows     →    Converting multiple rows into a single row (row-to-column aggregation)
+
+Flattening Rows
+
+StudentID   StudentName     CourseName
+1           Alice           Math
+1           Alice           Science
+1           Alice           English
+2           Bob             Math
+2           Bob             History
+3           Charlie         Science
+
+Output :
+
+StudentId   StudentName     Courses
+1           Alice           Math, Science, English
+2           Bob             Math, History
+3           Charlie         Science
+
+
 */
 
-
-CREATE or replace TABLE employees (
-    emp_id INT,
-    emp_name VARCHAR(50),
-    department VARCHAR(50),
-    gender VARCHAR(10),
-    salary INT
+CREATE or replace TABLE student_courses (
+    StudentID INT,
+    StudentName VARCHAR(50),
+    CourseName VARCHAR(50)
 );
 
 
-INSERT INTO employees VALUES
-(1, 'Alice',   'IT',    'Female', 50000),
-(2, 'Bob',     'IT',    'Male',   60000),
-(3, 'Charlie', 'HR',    'Male',   40000),
-(4, 'Diana',   'HR',    'Female', 45000),
-(5, 'Evan',    'Sales', 'Male',   55000),
-(6, 'Fiona',   'Sales', 'Female', 52000);
+INSERT INTO student_courses (StudentID, StudentName, CourseName) VALUES
+(1, 'Alice', 'Math'),
+(1, 'Alice', 'Science'),
+(1, 'Alice', 'English'),
+(2, 'Bob', 'Math'),
+(2, 'Bob', 'History'),
+(3, 'Charlie', 'Science');
 
-
-/*
-
-Input
-
-| emp_id | emp_name | department | gender | salary |
-| ------ | -------- | ---------- | ------ | ------ |
-| 1      | Alice    | IT         | Female | 50000  |
-| 2      | Bob      | IT         | Male   | 60000  |
-| 3      | Charlie  | HR         | Male   | 40000  |
-| 4      | Diana    | HR         | Female | 45000  |
-| 5      | Evan     | Sales      | Male   | 55000  |
-| 6      | Fiona    | Sales      | Female | 52000  |
-
-
-*/
-
-
-
-
-/* 
-
-ROLLUP → Subtotals 
-
-What ROLLUP Does ?
-
-ROLLUP adds:
-
-✔ Subtotal per department
-✔ Grand total (all departments)
-
-*/
 
 SELECT
-    department, 
-    SUM(salary)
-FROM 
-    employees
-GROUP BY ROLLUP(department);
-
+    StudentID,
+    StudentName,
+    GROUP_CONCAT(CourseName ORDER BY CourseName SEPARATOR ', ') AS Courses
+FROM
+    student_courses
+GROUP BY
+    StudentID, StudentName
+ORDER BY
+    StudentID;
 
 
 /*
 
-Output
+Unflattening Rows   →    Converting single row back into multiple rows
 
-| department | total_salary |
-| ---------- | ------------ |
-| HR         | 85000        |
-| IT         | 110000       |
-| Sales      | 107000       |
-| NULL       | 302000       |
+Input : (Reverse the Process)
+
+StudentId   StudentName Courses
+3           Charlie     Science
+1           Alice       Math, Science, English
+2           Bob         Math, History
 
 
-Meaning
+Output  :
 
-| Row   | Meaning               |
-| ----- | --------------------- |
-| HR    | HR total              |
-| IT    | IT total              |
-| Sales | Sales total           |
-| NULL  | All departments total |
-
+StudentID   StudentName     CourseName
+1           Alice           Math
+1           Alice           Science
+1           Alice           English
+2           Bob             Math
+2           Bob             History
+3           Charlie         Science
 
 
 */
+CREATE TABLE student_courses_combined (
+    StudentID INT,
+    StudentName VARCHAR(50),
+    Courses VARCHAR(255)
+);
 
-/* ROLLUP With Multiple Columns */
+
+
+INSERT INTO student_courses_combined (StudentID, StudentName, Courses) VALUES
+(3, 'Charlie', 'Science'),
+(1, 'Alice', 'Math, Science, English'),
+(2, 'Bob', 'Math, History');
+
 
 
 SELECT 
-    department,
-    gender,
-    SUM(salary) AS total_salary
-FROM employees
-GROUP BY ROLLUP(department, gender);
+    StudentID,
+    StudentName,
+    TRIM(course) AS CourseName
+FROM 
+    student_courses_combined,
+    JSON_TABLE(CONCAT('["', REPLACE(Courses, ', ' , '","'), '"]'),"$[*]" COLUMNS (course VARCHAR(50) PATH "$")) AS jt
+ORDER BY 
+    StudentID;
 
 /*
 
-| department | gender | total_salary |
-| ---------- | ------ | ------------ |
-| HR         | Female | 45000        |
-| HR         | Male   | 40000        |
-| HR         | NULL   | 85000        |
-| IT         | Female | 50000        |
-| IT         | Male   | 60000        |
-| IT         | NULL   | 110000       |
-| Sales      | Female | 52000        |
-| Sales      | Male   | 55000        |
-| Sales      | NULL   | 107000       |
-| NULL       | NULL   | 302000       |
+Explanation : 
+
+"$[*]" COLUMNS (course VARCHAR(50) PATH "$") 
+
+It is inside:
+
+JSON_TABLE(json_data, json_path COLUMNS (...))
+
+How to read JSON and convert it into rows and columns.
+
+"$[*]" 
+
+This is a JSON Path expression. “Go to the root $ and take all elements inside the array.”
+
+| Symbol | Meaning               |
+| ------ | --------------------- |
+| `$`    | Root of JSON document |
+| `[*]`  | All elements in array |
+
+
+COLUMNS (course VARCHAR(50) PATH "$")
+
+Means:
+
+Create a column named course
+
+Data type: VARCHAR(50)
+
+Take its value from JSON path $
+
 
 */
-
-
