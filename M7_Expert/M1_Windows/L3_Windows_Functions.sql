@@ -100,7 +100,7 @@ select
 	*,
 	first_value(productname) over (partition by ProductCategory order by price desc ) as  most_exp_product,
 	last_value(productname) over (partition by ProductCategory order by price desc 
-	range between unbounded preceding and unbounded following) as  less_exp_product
+	rows between unbounded preceding and unbounded following) as  less_exp_product
 from 
 	Product
 
@@ -113,7 +113,7 @@ select *,
 from 
 	Product 
 	window w as (partition by ProductCategory order by price desc 
-	range between unbounded preceding and unbounded following);
+	rows between unbounded preceding and unbounded following);
 
 
 -- Nth Value
@@ -129,7 +129,7 @@ select
 from 
 	Product 
 	window w as (partition by ProductCategory order by price desc 
-	range between unbounded preceding and unbounded following);
+	rows between unbounded preceding and unbounded following);
 
 
 
