@@ -63,7 +63,7 @@ select avg(sal) from emp e
 
 /*
 Output :
-			3,192.8571
+			1900.4545
 */
 
 
