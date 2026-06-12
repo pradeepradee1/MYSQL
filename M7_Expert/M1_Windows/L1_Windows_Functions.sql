@@ -25,6 +25,10 @@ Dense Rank
 	*) If two rows are tied at rank 2, the next rank will be 3
 
 
+Note : 
+		Dense = Density
+
+
 */
 
 /*
