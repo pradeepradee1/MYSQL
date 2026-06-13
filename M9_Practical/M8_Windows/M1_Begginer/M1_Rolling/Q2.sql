@@ -72,8 +72,7 @@ SELECT
     gender,
     day,
     score_points,
-    SUM(score_points) OVER (PARTITION BY gender ORDER BY day
-    ) AS running_total
+    SUM(score_points) OVER (PARTITION BY gender ORDER BY day) AS running_total
 FROM pScores
 ORDER BY gender, day;
 
@@ -85,8 +84,6 @@ SELECT
     gender,
     day,
     score_points,
-    SUM(score_points) OVER (PARTITION BY gender ORDER BY day
-    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
-    ) AS running_total
+    SUM(score_points) OVER (PARTITION BY gender ORDER BY day ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_total
 FROM pScores
 ORDER BY gender, day;
