@@ -1,0 +1,7 @@
+Note    :
+        
+        1) Identify the Rows or Range 
+            1) Rows = Rows 
+            2) RAnge = Date
+        
+        2) Windows is advance group by
