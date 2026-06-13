@@ -53,9 +53,9 @@ INSERT INTO tmptable2 (empid, monthno, salary) VALUES
 SELECT 
     *,
     AVG(salary) OVER w AS avg_sal
-FROM tmptable2
-WINDOW w AS (PARTITION BY empid ORDER BY monthno 
-             ROWS BETWEEN 2 PRECEDING AND CURRENT ROW);
+FROM 
+    tmptable2
+    WINDOW w AS (PARTITION BY empid ORDER BY monthno ROWS BETWEEN 2 PRECEDING AND CURRENT ROW);
 
 
 
