@@ -74,8 +74,7 @@ SELECT
     p.product_id,
     p.product_name,
     pt.total_sales,
-    pt.total_sales * 100.0 / SUM(pt.total_sales) OVER () AS sales_percentage,
-    ROUND(pt.total_sales * 100.0 / SUM(pt.total_sales) OVER (),2) AS sales_percentage
+    pt.total_sales * 100.0 / SUM(pt.total_sales) OVER () AS sales_percentage
 FROM product_totals pt
 JOIN products1 p 
     ON pt.product_id = p.product_id
