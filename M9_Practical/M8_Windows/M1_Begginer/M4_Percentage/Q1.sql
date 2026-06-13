@@ -1,80 +1,83 @@
 /*
 
-Questions: 
-Calculates the percentage contribution of each product's sales 
-
-
-store_id | product_id | sales_amount
----------|------------|--------------
-S1       | P1         | 100
-S1       | P2         | 200
-S1       | P3         | 300
-S2       | P1         | 400
-S2       | P2         | 100
-S2       | P3         | 500
-
-
-Sample Output :
-
-store_id | product_id | sales_amount | percentage
----------|------------|--------------|------------
-S1       | P1         | 100          | 16.67
-S1       | P2         | 200          | 33.33
-S1       | P3         | 300          | 50.00
-
-S2       | P1         | 400          | 40.00
-S2       | P2         | 100          | 10.00
-S2       | P3         | 500          | 50.00
+Problem: 
+Out of all sales, how much does this product contribute
+For each product.
 
 */
 
-
 /*
+Input :
 
-CREATE or replace TABLE store_sales (
-    store_id VARCHAR(10),
-    product_id VARCHAR(10),
-    sales_amount INT
+products1
+
+product_id | product_name
+-----------+-------------
+1          | Shirt
+2          | Pants
+3          | Shoes
+
+sales1 
+
+sale_id | product_id | sale_amount
+--------+------------+-------------
+1       | 1          | 100.00
+2       | 1          | 150.00
+3       | 2          | 200.00
+4       | 2          | 300.00
+5       | 3          | 250.00
+6       | 3          | 350.00
+
+
+Expected Output :
+
+product_id | product_name | total_sales | sales_percentage
+-----------|--------------|-------------|------------------
+3          | Shoes        | 600.00      | 44.44
+2          | Pants        | 500.00      | 37.04
+1          | Shirt        | 250.00      | 18.52
+
+*/
+
+CREATE or replace TABLE products1 (
+ product_id INT,
+ product_name VARCHAR(50)
 );
 
+INSERT INTO products1 VALUES (1, 'Shirt');
+INSERT INTO products1 VALUES (2, 'Pants');
+INSERT INTO products1 VALUES (3, 'Shoes');
 
-INSERT INTO store_sales (store_id, product_id, sales_amount) VALUES
-('S1', 'P1', 100), 
-('S1', 'P2', 200),
-('S1', 'P3', 300), 
-('S2', 'P1', 400),
-('S2', 'P2', 100), 
-('S2', 'P3', 500);
+CREATE or replace TABLE sales1 (
+ sale_id INT,
+ product_id INT,
+ sale_amount DECIMAL(10,2)
+);
 
-*/
+INSERT INTO sales1 VALUES (1, 1, 100.00);
+INSERT INTO sales1 VALUES (2, 1, 150.00);
+INSERT INTO sales1 VALUES (3, 2, 200.00);
+INSERT INTO sales1 VALUES (4, 2, 300.00);
+INSERT INTO sales1 VALUES (5, 3, 250.00);
+INSERT INTO sales1 VALUES (6, 3, 350.00);
 
+
+
+WITH product_totals AS (
+    SELECT 
+        product_id,
+        SUM(sale_amount) AS total_sales
+    FROM sales1
+    GROUP BY product_id
+)
 SELECT 
-    store_id,
-    product_id,
-    sales_amount,
-    ROUND((sales_amount * 100.0 / SUM(sales_amount) OVER (PARTITION BY store_id)), 2) AS percentage_contribution
-FROM 
-    store_sales
-ORDER BY 
-    store_id, product_id;
-
-
-/*
-Using group by approach
-*/
-
-
-SELECT 
-    s.store_id,
-    s.product_id,
-    s.sales_amount,
-    ROUND(s.sales_amount * 100.0 / t.total_sales,2) AS percentage
-FROM store_sales s
-JOIN (SELECT 
-    store_id,SUM(sales_amount) AS total_sales
-    FROM store_sales
-    GROUP BY store_id
-) t
-ON s.store_id = t.store_id
-ORDER BY s.store_id, s.product_id;
+    p.product_id,
+    p.product_name,
+    pt.total_sales,
+    pt.total_sales * 100.0 / SUM(pt.total_sales) OVER () AS sales_percentage,
+    ROUND(pt.total_sales * 100.0 / SUM(pt.total_sales) OVER (),2) AS sales_percentage
+FROM product_totals pt
+JOIN products1 p 
+    ON pt.product_id = p.product_id
+ORDER BY pt.total_sales DESC;
 
