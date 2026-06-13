@@ -49,8 +49,6 @@ INSERT INTO daily_sales (sale_date, amount_paid) VALUES
 
 SELECT 
  sale_date,
- ROUND(
-    AVG(amount_paid) OVER (ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 
- 2) AS average_amount
+ ROUND(AVG(amount_paid) OVER (ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 2) AS average_amount
 FROM daily_sales
 ORDER BY sale_date;
