@@ -66,7 +66,7 @@ SELECT
     transaction_date,
     amount,
     SUM(amount) OVER (PARTITION BY user_id ORDER BY transaction_date
-        RANGE BETWEEN INTERVAL '3' DAY PRECEDING AND CURRENT ROW
+        RANGE BETWEEN INTERVAL '2' DAY PRECEDING AND CURRENT ROW
     ) AS last_3_days_sum
 FROM transactions
 
