@@ -1,0 +1,10 @@
+Note    :
+        
+1) Identify the Rows or Range
+        
+    *) Rows  
+                *) Rows = Rows (records)
+                *) ROWS → last 7 records.
+    *) Range     
+                *) Range = Date (days)
+                *) RANGE → last 7 calendar days.

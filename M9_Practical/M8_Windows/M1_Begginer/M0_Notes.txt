@@ -1,7 +1,13 @@
 Note    :
         
-        1) Identify the Rows or Range 
-            1) Rows = Rows 
-            2) RAnge = Date
+        1) Identify the Rows or Range
         
-        2) Windows is advance group by
+            *) Rows  
+                *) Rows = Rows 
+                *) ROWS → last 7 records.
+            *) Range     
+                *) Range = Date 
+                *) RANGE → last 7 calendar days.
+        
+        2) Windows is advance group by 
+    
