@@ -37,11 +37,11 @@ Solution 2: Using LIMIT + OFFSET – Short, sweet, efficient
 */
 
 SELECT 
- (SELECT DISTINCT salary 
- FROM Employee
- ORDER BY salary DESC
- LIMIT 1 OFFSET 1) AS SecondHighestSalary;
-
+    DISTINCT salary 
+FROM
+    Employee
+ORDER BY salary DESC
+LIMIT 1,1
 
 
 /* 
