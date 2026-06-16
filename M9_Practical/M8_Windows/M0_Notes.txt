@@ -1,0 +1,18 @@
+Note    :
+
+        1) Identify the windows operations
+
+        2) Identify the Rows or Range
+        
+            *) Rows  
+                *) Rows = Rows 
+                *) ROWS → last 7 records.
+            *) Range     
+                *) Range = Date 
+                *) RANGE → last 7 calendar days.
+        
+        3) Windows is advance group by 
+
+            *) over()
+            *) same structure as group by
+    
