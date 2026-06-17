@@ -1,6 +1,6 @@
 /*
 
-we need find consecutive available sets 
+We need find consecutive available sets ?
 
 free = 1 → available
 free = 0 → not available
