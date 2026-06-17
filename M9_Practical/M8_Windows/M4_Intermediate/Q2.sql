@@ -2,7 +2,11 @@
 
 Question :
 
-You need to return streaks of 5 or more consecutive login days per user
+find the more consecutive login days per user ?
+
+(OR)
+
+You need to return streaks of 5 ?
 
 IP as
 
