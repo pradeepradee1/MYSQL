@@ -15,8 +15,10 @@ Note    :
                 *) Range = Date 
                 *) RANGE → last 7 calendar days.
         
-        3) Windows is advance group by 
+        3) Windows is alternative for basic and advance group by 
 
             *) over()
             *) same structure as group by
+        
+        4) Find the consecutive or streak
     
