@@ -1,0 +1,14 @@
+Note :
+
+1) How would you optimize queries when tables grow from thousands to billions of records?
+        
+        When tables grow from thousands to billions of rows, 
+        I focus on 
+
+            Avoid SELECT * (minimizing data scanned)
+            filtering early,             
+            optimizing joins (Join on indexed columns),
+            indexing, 
+            partitioning, 
+            analyzing execution plans using EXPLAIN
+            

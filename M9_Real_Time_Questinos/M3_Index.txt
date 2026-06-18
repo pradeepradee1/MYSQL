@@ -1,0 +1,33 @@
+1) Index startegy for large tables ?
+    
+    1) For large tables, I first analyze query patterns
+            create indexes on frequently filtered, joined, and sorted columns. 
+
+    2) I prefer composite indexes  and follow the leftmost-prefix rule. 
+
+    3) I avoid indexing low-cardinality columns  unless the bitmap index 
+    
+    4) I combine Partition + Index Strategy For very large tables
+        
+    5) To ensure the B-Tree Index
+        
+    6) periodically remove unused indexes to balance read performance and write overhead.
+
+
+Note :
+
+*) What is leftmost-prefix rule ?
+
+Leftmost Prefix Rule
+This index can be used for:
+WHERE customer_id = 100
+
+(Or)
+
+WHERE customer_id = 100
+AND order_date = '2026-01-01'
+
+But not efficiently for:
+WHERE order_date = '2026-01-01'
+because customer_id is the leading column.
+

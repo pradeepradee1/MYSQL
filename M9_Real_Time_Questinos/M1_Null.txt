@@ -1,0 +1,5 @@
+1) How will you handle the NULL values ?
+
+        In SQL, 
+            I use IS NULL and IS NOT NULL for filtering.
+            COALESCE() or IFNULL() to replace missing values.

@@ -1,0 +1,18 @@
+1) Which is faster JOIN or GROUP BY?
+	*) Depends on use case.
+			JOIN → combine tables
+			GROUP BY → aggregation
+
+	*) Performance depends more on Table  Size, indexing, query structure, and execution plan.
+
+
+
+2) How to optimize JOIN queries?
+
+	Avoid SELECT *
+	Filter early
+	Use proper join type
+    optimizing joins (Join on indexed columns),
+    indexing, 
+    partitioning the large table
+    analyzing execution plans using EXPLAIN 
