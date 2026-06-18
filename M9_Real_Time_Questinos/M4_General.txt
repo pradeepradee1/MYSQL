@@ -12,3 +12,10 @@ Note :
             partitioning, 
             analyzing execution plans using EXPLAIN
             
+2) what is query plan analysis ?
+
+    To understand how a query is executed
+    By using explain identify expensive operations like inefficient joins, full table scans , large sorts, and missing index usage 
+    we optimize the query through indexing, partitioning, query rewrites, statistics updates, or join strategy improvements
+    Query plan analysis is one of the most effective techniques for diagnosing and resolving SQL performance issues 
+
