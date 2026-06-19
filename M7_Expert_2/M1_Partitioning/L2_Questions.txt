@@ -15,3 +15,5 @@
     2) List Partitioning
     3) Hash Partitioning
 
+
+Note : This is same as definition in Pyspark

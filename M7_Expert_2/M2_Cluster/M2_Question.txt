@@ -2,3 +2,5 @@ What is cluster by ?
     It is process of organize rows with same value of specified column close together within output files
     it helps query performance for filter and aggregation.
 
+
+Note : This is same as definition in Pyspark
