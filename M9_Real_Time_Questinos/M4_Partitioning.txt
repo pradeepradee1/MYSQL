@@ -1,0 +1,6 @@
+1) Partition by large tables how to partition by 100 gb data ?
+
+For a 100 GB table, I first analyze query patterns. If most queries filter by date, 
+I use range partitioning on a date column, typically monthly or daily depending on data volume. 
+The goal is to enable partition pruning so the database scans only relevant partitions instead of the entire table. 
+I combine partitioning with local indexes, maintain partition statistics, and avoid over-partitioning. 

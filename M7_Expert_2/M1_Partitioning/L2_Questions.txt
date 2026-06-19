@@ -1,0 +1,17 @@
+1) What is Partitioning ?
+    It is process of structure the data in the underlying file system in the efficient manner
+    Whenever the query is fired instead of searching entire file it will search only subset of data
+    it is also know as partition purning and it is performane optimization techniques
+
+    When do i go for Partitioning ?
+        when i want to break large table into small table 
+        if attribute has less no. of  uniques
+        the attribute which we apply the filter frequently
+        it is performance optimization techniques
+
+2) Types of Partitioning
+
+    1) Range Partitioning
+    2) List Partitioning
+    3) Hash Partitioning
+
