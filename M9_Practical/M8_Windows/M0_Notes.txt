@@ -19,7 +19,7 @@ Note    :
 
             *) over()
             *) same structure as group by
-            *) rank as same group
+            *) multiple group by rank 
         
         4) Find the consecutive or streak
     
