@@ -1,2 +1,3 @@
 Note :
         1) Find the consecutive or streak
+        2) Group by rank
