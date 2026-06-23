@@ -1,36 +1,12 @@
 /*
-
-You are given two tables:
-
-1. products5
-   - Stores product price history.
-   - A product price can change over time.
-
-2. orders7
-   - Stores customer orders with order dates.
-
-For every order, determine the product price that was valid
-on the order date.
-
-Rules:
-- Use the latest price where:
-      price_date <= order_date
-- If multiple prices exist before the order date,
-  choose the most recent one.
-
-After finding the valid price for each order:
-- Calculate the total sales value for each product.
-
-Return:
-- product_id
-- total_sales_value
-
-Sort the output by product_id.
+Problem:
+        calculate the total sales value for each product based on the price that was effective on the date of each order.
 
 */
 
 
 /*
+
 | product_id | price | price_date |
 | ---------- | ----- | ---------- |
 | 1          | 100   | 2025-01-01 |
@@ -39,6 +15,7 @@ Sort the output by product_id.
 | 2          | 200   | 2025-01-15 |
 | 2          | 250   | 2025-02-10 |
 | 3          | 300   | 2025-01-01 |
+
 
 | order_id | order_date | product_id |
 | -------- | ---------- | ---------- |

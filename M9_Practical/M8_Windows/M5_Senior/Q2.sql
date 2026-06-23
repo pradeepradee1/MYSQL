@@ -5,6 +5,18 @@
 */
 
 /*
+What is median ?
+    
+    12, 5, 8, 20, 15
+
+    Ordered: 5, 8, 12, 15, 20
+
+    Median = 12
+
+
+*/
+
+/*
 
 CREATE TABLE sales2 (
     sale_id INT,
