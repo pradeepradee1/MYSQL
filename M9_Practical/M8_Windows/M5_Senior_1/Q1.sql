@@ -2,7 +2,16 @@
 Problem:
         calculate the total sales value for each product based on the price that was effective on the date of each order.
 
+
+Note:
+
+Real-world scenario
+
+This is a Slowly Changing Dimension (SCD Type 2) or effective-dated lookup problem.
+
 */
+
+
 
 
 /*
