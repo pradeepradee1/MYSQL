@@ -18,8 +18,8 @@ Note    :
         3) Windows is alternative for basic and advance group by 
 
             *) over()
-            *) same structure as group by
-            *) multiple group by rank 
+            *) same structure as group by and apply the rank 
+            *) 
         
         4) Find the consecutive or streak
     
