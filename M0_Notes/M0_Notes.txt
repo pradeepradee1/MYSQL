@@ -6,3 +6,5 @@ Note :
         2) Join
         3) Subquery
         4) Windows
+
+    2) Please go to action after the group by
