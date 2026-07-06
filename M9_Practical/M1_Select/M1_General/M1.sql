@@ -19,6 +19,8 @@ INSERT INTO Temp
 
 /*
 
+Ex : Youtube ---> View ---> Click ---> Conversion ----> Revenue
+
 | Column      | Meaning                                             |
 | ----------- | --------------------------------------------------- |
 | Views       | How many people saw the ad                          |
