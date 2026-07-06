@@ -2,6 +2,17 @@
 
 1) Query names in alphabetical order with the first letter of their profession in parentheses.
 
+
+Sampe Input :
+			    name	 Occupation
+				Alice		Doctor
+				Bob			Actor
+				Charlie		Singer
+				David		Actor
+				Eve			Professor
+				Frank		Singer
+				Grace		Doctor
+
 Sample Output1 :
                   Alice(D), 
                   Bob(A).
