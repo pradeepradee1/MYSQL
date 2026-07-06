@@ -1,0 +1,8 @@
+Note :
+
+    1) For Query identify which concepts
+
+        1) Group By
+        2) Join
+        3) Subquery
+        4) Windows
