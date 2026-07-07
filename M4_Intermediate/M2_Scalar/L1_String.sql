@@ -17,96 +17,110 @@
 #4)CONCAT_WS
 	SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!") AS ConcatenatedString;
 
-#5) SUBSTRING_INDEX
-	
-	SUBSTRING_INDEX(string, delimiter, count)
-			
-		# string → input text
-		# delimiter → character to split by count
-		# positive → returns from left side
-		# negative → returns from right side
-	
-	SELECT SUBSTRING_INDEX('Bhavani kumarasamy raghavan', ' ', 1);
-	
-	#OP
-		Bhavani
-
-#6)FORMAT 
+#5)FORMAT 
 	SELECT FORMAT(250500.5634, 2);
 	
-#7)FIELD
+#6)FIELD
 	SELECT FIELD("q", "s", "q", "l");
 
-#8)FIND_IN_SET
+#7)FIND_IN_SET
 	SELECT FIND_IN_SET("q", "s,q,l");
 
-#9)LOCATE 
+#8)LOCATE 
 	SELECT LOCATE("3", "W3Schools.com") AS MatchPosition;
 
-#10)POSITION	
+#9)POSITION	
 	SELECT POSITION("3" IN "W3Schools.com") AS MatchPosition;
 
-#11)INSTR (Always prefer the INSTR because ( Source String is coming first & Target is second) for ex: ("W3Schools.com", "3")) 
+#10)INSTR (Always prefer the INSTR because ( Source String is coming first & Target is second) for ex: ("W3Schools.com", "3")) 
 
 	SELECT INSTR("W3Schools.com", "3") AS MatchPosition;
 
-#12)INSERT = Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:
+#11)INSERT = Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:
 	SELECT INSERT("W3Schools.com", 1, 0, "Example");
 
-#13)REPLACE
+#12)REPLACE
 	SELECT REPLACE("SQL Tutorial", "SQL", "HTML");
 
-#14)REPEAT
+#13)REPEAT
 	SELECT REPEAT("SQL Tutorial", 3);
 
-#15)REVERSE
+#14)REVERSE
 	SELECT REVERSE("SQL Tutorial");
 	
 
 	
-#16)LOWER
+#15)LOWER
 	SELECT LOWER("SQL Tutorial is FUN!");
 
-#17)LCASE
+#16)LCASE
 	SELECT LCASE("SQL Tutorial is FUN!");
 
-#18)UCASE
+#17)UCASE
 	SELECT UPPER("SQL Tutorial is FUN!");
 
-#19)UPPER
+#18)UPPER
 	SELECT UCASE("SQL Tutorial is FUN!");
 
-#20)LEFT = Extract 3 characters from a string (starting from left):
+#19)LEFT = Extract 3 characters from a string (starting from left):
 	SELECT LEFT("SQL Tutorial", 3) AS ExtractString;
 
-#21)MID
+#20)MID
 	SELECT MID("SQL Tutorial", 5, 3) AS ExtractString;
 
-#22)RIGHT = Extract 4 characters from a string (starting from right):
+#21)RIGHT = Extract 4 characters from a string (starting from right):
 	SELECT RIGHT("SQL Tutorial is cool", 4) AS ExtractString;
+
+#22) SUBSTRING_INDEX(string, delimiter, count)
+/*
+	string – The original string.
+	delimiter – The character or string used to split the string.
+	count
+		Positive value: Returns everything to the left of the delimiter.
+		Negative value: Returns everything to the right of the delimiter.
+		0: Returns an empty string ('').
+*/
+SELECT SUBSTRING_INDEX('apple,banana,orange', ',', 1);
+# OP : apple
+SELECT SUBSTRING_INDEX('apple,banana,orange', ',', 2);
+# OP : apple,banana
+SELECT SUBSTRING_INDEX('apple,banana,orange', ',', -1);
+# OP : orange
+SELECT SUBSTRING_INDEX('john@gmail.com', '@', -1);
+# OP : gmail.com
+SELECT SUBSTRING_INDEX('report.pdf', '.', -1);
+# OP : pdf
+SELECT SUBSTRING_INDEX('apple,banana,orange', ',', -2);
+# OP : banana,orange
+SELECT SUBSTRING_INDEX('192.168.10.20', '.', 2);
+# OP : 192.168
+SELECT SUBSTRING_INDEX('192.168.10.20', '.', -2);
+# OP : 10.20
+
+
 '''
 #Note : TRIM (trimmer we have) and Pad (writing pad) are vintage ---> It suit for SQL
 #Note : Strip and just are new ----> It suit for Python
 '''
-#23)TRIM
+#22)TRIM
 	SELECT TRIM('    SQL Tutorial    ') AS TrimmedString;
 
-#24)LTRIM
+#23)LTRIM
 	SELECT LTRIM("     SQL Tutorial") AS LeftTrimmedString;
 
-#25)RTRIM
+#24)RTRIM
 	SELECT RTRIM("SQL Tutorial     ") AS RightTrimmedString;
 
 
-#26)RPAD
+#25)RPAD
 	SELECT RPAD("SQL Tutorial", 20, "ABC");
 	
-#27)LPAD = Left-pad the string with "ABC", to a total length of 20
+#26)LPAD = Left-pad the string with "ABC", to a total length of 20
 	SELECT LPAD("SQL Tutorial", 20, "ABC");
 
 
 
-#28)String Compare
+#27)String Compare
 	SELECT STRCMP("SQL", "SQL"); 	-- 	0
 	SELECT STRCMP("SQL12", "SQL"); 	-- 	1
 	SELECT STRCMP("SQL", "SQL12"); 	-- -1
