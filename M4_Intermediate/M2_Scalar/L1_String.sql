@@ -44,6 +44,7 @@
 #10)INSTR (Always prefer the INSTR because ( Source String is coming first & Target is second) for ex: ("W3Schools.com", "3")) 
 
 	SELECT INSTR("W3Schools.com", "3") AS MatchPosition;
+	# OP : 2
 
 #11)INSERT = Insert the string "Example" into the string "W3Schools.com". Replace the first nine characters:
 	SELECT INSERT("W3Schools.com", 1, 0, "Example");
