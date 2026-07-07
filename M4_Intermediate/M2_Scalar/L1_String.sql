@@ -12,10 +12,13 @@
 
 #3)CONCAT
 	SELECT CONCAT("SQL ", "Tutorial ", "is ", "fun!") AS ConcatenatedString;
+	#OP : SQL Tutorial is fun!
 	SELECT CONCAT(4, "Tutorial ", "is ", "fun!") AS ConcatenatedString;
+	#OP : 4Tutorial is fun!
 
 #4)CONCAT_WS
 	SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!") AS ConcatenatedString;
+	#OP : SQL-Tutorial-is-fun!
 
 #5)FORMAT 
 	SELECT FORMAT(250500.5634, 2);
