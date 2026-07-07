@@ -75,13 +75,18 @@
 #19)LEFT = Extract 3 characters from a string (starting from left):
 	SELECT LEFT("SQL Tutorial", 3) AS ExtractString;
 
-#20)MID
-	SELECT MID("SQL Tutorial", 5, 3) AS ExtractString;
-
-#21)RIGHT = Extract 4 characters from a string (starting from right):
+#20)RIGHT = Extract 4 characters from a string (starting from right):
 	SELECT RIGHT("SQL Tutorial is cool", 4) AS ExtractString;
 
-#22) SUBSTRING_INDEX(string, delimiter, count)
+#21)MID
+	SELECT MID("SQL Tutorial", 5, 3) AS ExtractString;
+
+
+#22) substring 
+	SELECT SUBSTRING('Database', 1, 4);
+
+
+#23) SUBSTRING_INDEX(string, delimiter, count)
 /*
 	string – The original string.
 	delimiter – The character or string used to split the string.
@@ -112,25 +117,25 @@ SELECT SUBSTRING_INDEX('192.168.10.20', '.', -2);
 #Note : TRIM (trimmer we have) and Pad (writing pad) are vintage ---> It suit for SQL
 #Note : Strip and just are new ----> It suit for Python
 '''
-#22)TRIM
+#24)TRIM
 	SELECT TRIM('    SQL Tutorial    ') AS TrimmedString;
 
-#23)LTRIM
+#25)LTRIM
 	SELECT LTRIM("     SQL Tutorial") AS LeftTrimmedString;
 
-#24)RTRIM
+#26)RTRIM
 	SELECT RTRIM("SQL Tutorial     ") AS RightTrimmedString;
 
 
-#25)RPAD
+#27)RPAD
 	SELECT RPAD("SQL Tutorial", 20, "ABC");
 	
-#26)LPAD = Left-pad the string with "ABC", to a total length of 20
+#28)LPAD = Left-pad the string with "ABC", to a total length of 20
 	SELECT LPAD("SQL Tutorial", 20, "ABC");
 
 
 
-#27)String Compare
+#29)String Compare
 	SELECT STRCMP("SQL", "SQL"); 	-- 	0
 	SELECT STRCMP("SQL12", "SQL"); 	-- 	1
 	SELECT STRCMP("SQL", "SQL12"); 	-- -1
