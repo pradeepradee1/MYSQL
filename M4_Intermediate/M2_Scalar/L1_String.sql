@@ -22,19 +22,25 @@
 
 #5)FORMAT 
 	SELECT FORMAT(250500.5634, 2);
-	
+
+# Find the position
+
 #6)FIELD
 	SELECT FIELD("q", "s", "q", "l");
+    #OP : 2
 
 #7)FIND_IN_SET
 	SELECT FIND_IN_SET("q", "s,q,l");
+	#OP : 2
 
 #8)LOCATE 
 	SELECT LOCATE("3", "W3Schools.com") AS MatchPosition;
-
+	#OP : 2
+		
 #9)POSITION	
 	SELECT POSITION("3" IN "W3Schools.com") AS MatchPosition;
-
+	#OP : 2
+		
 #10)INSTR (Always prefer the INSTR because ( Source String is coming first & Target is second) for ex: ("W3Schools.com", "3")) 
 
 	SELECT INSTR("W3Schools.com", "3") AS MatchPosition;
