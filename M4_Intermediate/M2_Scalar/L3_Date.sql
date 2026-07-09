@@ -1,72 +1,82 @@
 -- 1) DATE
 
 SELECT ADDDATE("2017-06-15", INTERVAL 10 DAY);
-#SELECT DATE_ADD("2017-06-15", INTERVAL 10 DAY);
+/*#SELECT DATE_ADD("2017-06-15", INTERVAL 10 DAY);*/
 SELECT ADDDATE("2017-06-15", INTERVAL 10 MONTH);
 SELECT ADDDATE("2017-06-15", INTERVAL 1 YEAR);
 
 
 SELECT SUBDATE("2017-06-15", INTERVAL 10 DAY);
-#SELECT DATE_SUB("2017-06-15", INTERVAL 10 DAY);
+/*#SELECT DATE_SUB("2017-06-15", INTERVAL 10 DAY);*/
 SELECT SUBDATE("2017-06-15", INTERVAL 10 MONTH);
 SELECT SUBDATE("2017-06-15", INTERVAL 1 year);
 
 
 SELECT CURRENT_DATE();
-#SELECT CURDATE();
+/*#SELECT CURDATE();*/
 
 SELECT DATE("2022-12-27");
 
 
 
-#Date Different
+/*#Date Different*/
 SELECT DATEDIFF("2022-12-27", "2022-11-1");
 select DATEDIFF(CURRENT_DATE(),ADDDATE(CURRENT_DATE(),INTERVAL 10 day)) 
 
 
 #EXTRACT
 
-#DAY
+/*#DAY*/
 SELECT DAY("2022-12-27");
+/*#OP : 27*/
 SELECT DAYNAME("2022-12-27");
+/*#OP : Tuesday*/
 
 
-
-#WEEK
+/*#WEEK*/
 
 SELECT WEEK("2022-12-27");
+/*#OP : 52*/
 SELECT DAYOFWEEK("2022-12-27");
-#Note: 1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday
+/*#Note: 1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday*/
 
 	
-
+/*
 #SELECT EXTRACT(WEEK FROM "2022-12-27");
 #Note: 0 = Monday, 1 = Tuesday, 2 = Wednesday, 3 = Thursday, 4 = Friday, 5 = Saturday, 6 = Sunday.
 #SELECT WEEKDAY("2022-12-27");
 #Note: 1=Sunday, 2=Monday, 3=Tuesday, 4=Wednesday, 5=Thursday, 6=Friday, 7=Saturday.
+*/
 
 
-
-
-#MONTH
+/* #MONTH */
 SELECT MONTH("2022-12-27");
-SELECT DAYOFMONTH("2022-12-27");
+/* # OP : 12 */
 SELECT MONTHNAME("2022-12-27");
+/* #OP	:	December */
+SELECT DAYOFMONTH("2022-12-27");
+/* # OP : 27 */
+
+/*
 #SELECT EXTRACT(MONTH FROM "2022-12-27");
+*/
 
 
 
-#QUARTER
+/* #QUARTER */
 SELECT QUARTER("2022-12-27");
 
 
 
-#YEAR
+/* #YEAR */
 SELECT YEAR("2022-12-27");
+/* OP : 2022 */
 SELECT DAYOFYEAR("2022-12-27");
+/* OP : 361 */
 
 
 
+/* Data Convert */
 
 /*
 

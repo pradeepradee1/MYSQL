@@ -1,10 +1,15 @@
 Note :
 
-    1) For Query identify which concepts
+    1) String
+        *) Basic   --> Scalar Function
+        *) Pattern --> Regular Expression 
+
+    2) For Query identify which concepts
 
         1) Group By
         2) Join
         3) Subquery
         4) Windows
 
-    2) Please go to action after the group by
+    3) Please go to action after the group by
+
