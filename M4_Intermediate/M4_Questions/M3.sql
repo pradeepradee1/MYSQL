@@ -8,7 +8,8 @@ Note : This is aggregations functions it will same as rest of the functions
 /*
 COUNT(*)
 
-It Counts all rows in the table, including NULL values.
+It Counts all rows in the table
+including NULL values.
 
 Example:
 If a table has 5 rows,
@@ -28,7 +29,7 @@ Same like COUNT(*)
 /*
 COUNT(column_name)
 
-It Counts only non-NULL values in that column
+It Counts only not-NULL values in that column
 It will excluded the NULL 
 
 */
