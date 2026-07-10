@@ -1,7 +1,7 @@
 /*
 GroupBy Clause:
 				It is used to group related data
-				applies the aggregate function on each group 
+				applies the aggregate function (avg,count,max,min.sum) on each group to produce the summarize result
 */
 
 
