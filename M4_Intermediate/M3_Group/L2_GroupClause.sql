@@ -1,7 +1,7 @@
 /*
 GroupBy Clause:
 				It is used to group related data
-				the engine executes the aggregate function On each group 
+				applies the aggregate function on each group 
 */
 
 
