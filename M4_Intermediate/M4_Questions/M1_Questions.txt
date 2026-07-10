@@ -4,7 +4,7 @@
 
 2) what is GroupBy Clause ?
 	It is used to group related data
-	the engine executes the aggregate function On each group 
+	applies the aggregate function (avg,count,max,min.sum) on each group to produce the summarize result
 
 
 3) What is Having clause ? 
