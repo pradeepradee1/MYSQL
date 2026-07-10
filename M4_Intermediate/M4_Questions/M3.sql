@@ -21,8 +21,7 @@ COUNT(*) = 5
 
 /*
 
-It Counts all rows, just like COUNT(*)
-put a 1 and then count how many 1’s are there.
+Same like COUNT(*)
 
 */
 
