@@ -34,7 +34,7 @@ Order BY :
 Having :
     Filter will be applied on Individual group of table and filter aggregated results
     It require aggregate functions
-    It will treat the null values as equal in group by and null values ingonerd by aggregate 
+    It will treat the null values as equal in group by and null values excluded by aggregate 
     It will execute after grouping
     It slow in the performance
 
