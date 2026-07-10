@@ -14,7 +14,7 @@
 4) Difference between Group By and Order By ?
 
 Group By :
-    Groups the related data and execute the aggregation function on each group 
+    Groups the related data and applies the aggregate function on each group to produce the summarize result
     It require aggregation function and functions are Avg, Count, Max, Min and Sum
     It will treat the all NULL values are equal
     It will be execute after WHERE and before aggregate functions
