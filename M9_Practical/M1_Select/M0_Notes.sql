@@ -1,5 +1,18 @@
 /*
 
+1)
+#Assignment operator
+
+use = 
+
+Don't use  ==
+
+
+*/
+
+
+/*
+
 Note : 
 DB Revenue and Profit and Net Income ?
 

@@ -19,6 +19,19 @@ INSERT INTO Temp
 
 /*
 
+
+Sample Input :
+
+| AdID | AdName | Views | Clicks | Conversions | Revenue |
+| ---: | ------ | ----: | -----: | ----------: | ------: |
+|    1 | Ad 1   |  1000 |    100 |          10 |  500.00 |
+|    2 | Ad 2   |  2000 |    150 |          20 | 1000.00 |
+|    3 | Ad 3   |  1500 |    120 |          15 |  750.00 |
+|    4 | Ad 4   |  1800 |    180 |          25 | 1250.00 |
+
+
+
+
 Ex : Youtube ---> View ---> Click ---> Conversion ----> Revenue
 
 | Column      | Meaning                                             |

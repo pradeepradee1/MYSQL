@@ -1,5 +1,7 @@
 Note :
 
+    1) First think logic and write query 
+
     1) String
         *) Basic   --> Scalar Function
         *) Pattern --> Regular Expression 

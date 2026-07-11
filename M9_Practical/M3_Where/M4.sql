@@ -6,6 +6,27 @@ discounts applied to orders during a promotional period in the jan month
             
             Disccount percentage greater than 10 %
 
+
+Sample Input :
+
+| order_id | order_date | product_id | quantity | price_per_unit | discount_percentage |
+| -------: | ---------- | ---------: | -------: | -------------: | ------------------: |
+|        1 | 2024-01-10 |        101 |        2 |            500 |                  10 |
+|        2 | 2024-01-15 |        102 |        1 |           1000 |                  20 |
+|        3 | 2024-01-18 |        103 |        3 |            200 |                   0 |
+|        4 | 2024-01-20 |        104 |        5 |            150 |                  15 |
+|        5 | 2024-02-01 |        105 |        2 |            300 |                   5 |
+|        6 | 2024-02-10 |        101 |        1 |            500 |                  25 |
+
+
+Sample Output :
+
++--------------------+
+| total_revenue_loss |
++--------------------+
+| 412.50             |
++--------------------+
+
 */
 
 CREATE or replace TABLE orders_2 (

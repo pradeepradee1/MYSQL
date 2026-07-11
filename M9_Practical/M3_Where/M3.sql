@@ -3,6 +3,27 @@
  How would you identify users who upgraded to premium within 7 days of signup?
 
 
+Sample Input :
+
+| user_id | user_name | signup_date | premium_upgrade_date |
+| ------: | --------- | ----------- | -------------------- |
+|       1 | Alice     | 2025-10-01  | 2025-10-05           |
+|       2 | Bob       | 2025-10-01  | 2025-10-10           |
+|       3 | Charlie   | 2025-10-03  | NULL                 |
+|       4 | David     | 2025-10-02  | 2025-10-06           |
+|       5 | Eva       | 2025-10-05  | 2025-10-20           |
+
+
+Sample Output :
+
++---------+-----------+-------------+------------------------+
+| user_id | user_name | signup_date | premium_upgrade_date   |
++---------+-----------+-------------+------------------------+
+| 1       | Alice     | 2025-10-01  | 2025-10-05             |
+| 4       | David     | 2025-10-02  | 2025-10-06             |
++---------+-----------+-------------+------------------------+
+
+
 */
 
 /*

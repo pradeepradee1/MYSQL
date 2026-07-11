@@ -1,3 +1,6 @@
+/*
+
+2)
 select 
     merchant_id,
     sum(case when payment_mode = 'CASH' then amount else 0 end) as cash_amount,
@@ -26,3 +29,5 @@ transactions3
 Ex :
 
 select net_balance from tab
+
+*/
