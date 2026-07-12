@@ -1,5 +1,5 @@
 /*
-
+(Daily Active Users - DAU)
 1) Remove duplicate logins by the same user on the same day
 2) Count the number of unique users who logged in each day (Daily Active Users - DAU)
 
