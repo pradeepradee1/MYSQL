@@ -1,7 +1,10 @@
 /*
 
-Identifying Daily Active Users (DAU) Per Day and Per hour
+Identifying Daily Active Users (DAU) :
 
+Count the number of unique active users for every date and hour.
+(OR)
+If a user logs in multiple times during the same hour on the same day, count them only once for that hour
 
 
 Excepeted OP
