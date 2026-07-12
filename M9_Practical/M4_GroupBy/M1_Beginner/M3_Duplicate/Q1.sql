@@ -5,7 +5,7 @@ insert into Temp (Id, Email) values ('3', 'john@example.com');
 
 /*
 
-Find the Duplicate records
+Find the Duplicate email id
 
 */
 
