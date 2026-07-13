@@ -1,4 +1,4 @@
-Note :
+Note : For this is only practical
 
     1) First think logic and write query 
 
