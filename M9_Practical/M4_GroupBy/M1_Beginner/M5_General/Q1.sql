@@ -8,10 +8,21 @@ Write an sql query to find the customer number for customer who has most number 
 	for ex : 1 and 2 are placed each order
 			   3 is placed two orders which is larger no. of orders than it
 
+
+Input:
+
+| order_number | customer_number |
+| ------------ | --------------- |
+| 1            | 1               |
+| 2            | 2               |
+| 3            | 3               |
+| 4            | 3               |
+
+
 	
-	Output:
-			Customer_number
-				3
+Output:
+Customer_number
+	3
 
 
 */
