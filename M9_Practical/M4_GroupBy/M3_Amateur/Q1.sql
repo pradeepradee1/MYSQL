@@ -81,6 +81,5 @@ SELECT
 FROM videos
 GROUP BY user_id
 HAVING 
-    COUNT(video_id) >= 5
-    AND COUNT(CASE WHEN likes + comments > 100 THEN 1 END) >= 3
+    COUNT(video_id) >= 5 AND COUNT(CASE WHEN likes + comments > 100 THEN 1 END) >= 3
 ORDER BY highly_interactive_videos DESC;
