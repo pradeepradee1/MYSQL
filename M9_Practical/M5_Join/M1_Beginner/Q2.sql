@@ -21,6 +21,15 @@ What is output of inner, left, right, full join ?
 
 */
 
+
+
+
+
+
+
+
+
+
 /* 
 Inner join :
 

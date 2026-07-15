@@ -2,7 +2,7 @@
 
 Question :
 
-        What is output of joins ?
+        What is output for inner joins ?
 
 
 

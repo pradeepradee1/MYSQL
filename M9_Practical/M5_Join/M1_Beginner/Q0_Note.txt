@@ -1,5 +1,5 @@
 1) 
-    Inner join           ---> matching records , not unmatching, Null values
+    Inner join           ---> matching records , Not unmatching, Not Null values
     Left,right,full join ---> matching records , unmatching, Null values
 
 2) Try idenrify the types of join from problem
