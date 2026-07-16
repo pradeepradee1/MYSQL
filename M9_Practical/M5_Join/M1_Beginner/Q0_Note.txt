@@ -1,8 +1,6 @@
-1) 
-    Inner join           ---> matching records , Not unmatching, Not Null values
-    Left,right,full join ---> matching records , unmatching, Null values
+Note :
 
-2) Try idenrify the types of join from problem
+1) Try idenrify the types of join from problem
         Cross join
         Inner join
         Left join
@@ -10,3 +8,9 @@
         full join
         semi join
         anti join
+
+
+2) 
+    Inner join           ---> matching records , Not unmatching, Not Null values
+    Left,right,full join ---> matching records , unmatching, Null values
+

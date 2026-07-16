@@ -14,7 +14,6 @@ CREATE TABLE Items1 (
  item_category VARCHAR(50)
 );
 
-#Create the Orders1 table
 CREATE TABLE Orders (
  order_id INT,
  item_id INT,
@@ -22,13 +21,11 @@ CREATE TABLE Orders (
  quantity INT
 );
 
--- Insert sample data into the Items table
 INSERT INTO Items1 (item_id, item_category) VALUES 
 (1, 'Electronics'),
 (2, 'Clothing'),
 (3, 'Books');
 
--- Insert sample data into the Orders table
 INSERT INTO Orders1 (order_id, item_id, order_date, quantity) VALUES 
 (1, 1, '2024-10-01', 10),
 (2, 1, '2024-10-02', 15),
