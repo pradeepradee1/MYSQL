@@ -59,13 +59,14 @@ Sample Output :
 
 */
 
-SELECT 
-    m.emp_id AS manager_id,
+SELECT
+    e.manager_id,
     m.emp_name AS manager_name,
-    COUNT(e.emp_id) AS num_reports
+    COUNT(*) AS num_reports
 FROM employees5 e
 JOIN employees5 m
     ON e.manager_id = m.emp_id
-GROUP BY m.emp_id, m.emp_name
-HAVING COUNT(e.emp_id) >= 5;
-
+GROUP BY
+    e.manager_id,
+    m.emp_name
+HAVING COUNT(*) >= 5;
