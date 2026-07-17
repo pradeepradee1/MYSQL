@@ -65,12 +65,24 @@ Output :
 */
 
 
-SELECT 
-    a.user_id AS user1,
-    b.user_id AS user2,
-    COUNT(*) AS common_followers
-FROM followers a
-	JOIN followers b ON a.follower_id = b.follower_id AND a.user_id < b.user_id
-GROUP BY a.user_id, b.user_id
-ORDER BY common_followers DESC
-LIMIT 1;
+WITH common_followers AS
+(
+    SELECT
+        f1.user_id AS user1,
+        f2.user_id AS user2,
+        COUNT(*) AS common_followers
+    FROM followers f1 JOIN followers f2 ON f1.follower_id = f2.follower_id AND f1.user_id < f2.user_id
+    GROUP BY f1.user_id,f2.user_id
+),
+max_common AS
+(
+    SELECT MAX(common_followers) AS max_cnt
+    FROM common_followers
+)
+SELECT
+    c.user1,
+    c.user2,
+    c.common_followers
+FROM common_followers c
+JOIN max_common m
+ON c.common_followers = m.max_cnt;
