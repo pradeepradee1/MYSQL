@@ -125,7 +125,7 @@
     
 above used keyword (keywork will be in learning flow)
     
-    *) Reduce dataset before applying correlation.   
+    *) applying predicate psuhdown before correlation.   
     *) Always check execution plan using EXPLAIN.
 
 
