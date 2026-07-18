@@ -1,6 +1,6 @@
 /*
 Multiple value Subquery :
-                        Returns multiple row
+                        Returns multiple row (multiple record )
                         Used with IN, EXISTS , ALL, ANY 
 */
 
