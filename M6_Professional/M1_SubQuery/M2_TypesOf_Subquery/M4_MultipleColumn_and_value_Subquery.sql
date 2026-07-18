@@ -1,6 +1,6 @@
 /*
-Multiple Column Subquery :
-                        Returns more than one column with multiple values 
+Multiple Column and multiple values Subquery :
+                        It Returns Multiple Column and multiple values 
                         Used with tuple comparison and  IN, EXISTS , ALL, ANY
 */
 
