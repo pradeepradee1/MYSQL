@@ -1,6 +1,6 @@
 /*
-Single value Subquery :
-                    Returns single values ( single record )
+Single Column and Single value Subquery :
+                    It Returns the Single Column and Single value ( single record )
                     Used with operators like =, >, <, >=, <= (Assignment and Relational operator)
 */
 
