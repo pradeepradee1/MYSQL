@@ -1,9 +1,8 @@
 /*
 Subquery in SELECT Clause (Scalar Subquery) :
 
-                        *) Returns a single value (one row, one column)
-
-                        *) It used in SELECT clause
+                        *) It is also called as scalar subquery
+                        *) It Returns a Single Column and multiple Value
 
 */
 

@@ -1,7 +1,7 @@
 /*
 Subquery in FROM Clause (Inline View / Derived Table) :
 
-*) Subquery acts like a temporary table.
+                    *) It is also called as temporary table or Derived table
 
 */
 
