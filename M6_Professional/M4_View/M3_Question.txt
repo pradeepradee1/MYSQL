@@ -5,16 +5,15 @@
 
 2) When is a View Updatable ? 
         *) It is based on one single table.
-        *) It does NOT use DISTINCT, GROUP BY, Aggregate functions, Complex joins, UNION
-and Subqueries
+        *) It does NOT use DISTINCT, Aggregate functions, GROUP BY,  Complex joins, UNION and Subqueries
 
 
 3) What are limitations of views? 
         
         *) Cannot Store Data Permanently
         *) No Indexes
-        *) All Views Are Not Updatable (View Updatable)
         *) Performance Issues
+        *) All Views Are Not Updatable (View Updatable)
         *) Security Is Limited 
                 Users may still access base tables if granted permission.
 
