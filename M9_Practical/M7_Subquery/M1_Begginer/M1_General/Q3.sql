@@ -19,7 +19,7 @@ date       	user_id   activity
 
 Output : 
 
-date       	user_id   
+date       	 user_count   
 2022-02-20		2
 2022-02-22		1	
 2022-02-24		0	
