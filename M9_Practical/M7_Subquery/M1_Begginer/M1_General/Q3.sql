@@ -1,5 +1,10 @@
 /*
 
+Problem Statement : 
+		Calculate unique user count for each day (Customer should not repeat in another day)
+		(for ex: user_id 1 should not repeat in another day)
+
+Sample Input
 date       	user_id   activity	
 2022-02-20		1		abc
 2022-02-20		2		xyz
@@ -10,9 +15,6 @@ date       	user_id   activity
 2022-02-24		3		abc
 
 
-Problem Statement : 
-		Calculate unique user count for each day (Customer should not repeat in another day)
-		(for ex: user_id 1 should not repeat in another day)
 
 
 Output : 
