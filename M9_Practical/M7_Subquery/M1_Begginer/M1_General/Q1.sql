@@ -53,6 +53,24 @@ INSERT INTO Temp (CID, `Month`, Payment_Method) VALUES
 
 /*
 
+Sample Input :
+
+| CID | Month    | Payment_Method |
+| --: | -------- | -------------- |
+| 100 | OCT_2024 | Cash_method    |
+| 100 | NOV_2024 | Cash_method    |
+| 100 | DEC_2024 | Cash_method    |
+| 100 | JAN_2025 | Cash           |
+| 100 | FEB_2025 | cash           |
+| 101 | OCT_2024 | Digital        |
+| 101 | NOV_2024 | Cash           |
+| 101 | DEC_2024 | Cash           |
+| 101 | JAN_2025 | Cash           |
+| 101 | FEB_2025 | online         |
+| 102 | OCT_2024 | Online         |
+| ... | ...      | ...            |
+
+
 Expected Output :
 
 	Payment_Mehtod		count
