@@ -1,87 +1,67 @@
 /*
 
-Questions:
-			Write a SQL query to find the total number of people present inside the hospital.
+Who Wants Their Food Fast?
+
+The Problem:
+
+Find the percentage of customers whose first order was immediate.
+
+What is immediate order ?
+    The customer wanted the order delivered on the same day they placed the order.
 
 
++-------------+-------------+------------+-----------------------------+
+| delivery_id | customer_id | order_date | customer_pref_delivery_date |
++-------------+-------------+------------+-----------------------------+
+| 1           | 1           | 2019-08-01 |                  2019-08-02 |
+| 2           | 2           | 2019-08-02 |                  2019-08-02 |
+| 3           | 1           | 2019-08-11 |                  2019-08-12 |
+| 4           | 3           | 2019-08-24 |                  2019-08-24 |
+| 5           | 3           | 2019-08-21 |                  2019-08-22 |
+| 6           | 2           | 2019-08-11 |                  2019-08-13 |
+| 7           | 4           | 2019-08-09 |                  2019-08-09 |
++-------------+-------------+------------+-----------------------------+
+
+
+
+Output:
++----------------------+
+| immediate_percentage |
++----------------------+
+| 50.00                |
 
 */
+/*
 
-
-CREATE or replace TABLE hospital (
-    emp_id INT,
-    action VARCHAR(10),
-    time TIMESTAMP
+CREATE or replace TABLE Delivery (
+    delivery_id INT,
+    customer_id INT,
+    order_date DATE,
+    customer_pref_delivery_date DATE
 );
 
-INSERT INTO hospital (emp_id, action, time) VALUES
-(1, 'in',  '2019-12-22 09:00:00'),
-(1, 'out', '2019-12-22 09:15:00'),
-(2, 'in',  '2019-12-22 09:00:00'),
-(2, 'out', '2019-12-22 09:15:00'),
-(2, 'in',  '2019-12-22 09:30:00'),
-(3, 'out', '2019-12-22 09:00:00'),
-(3, 'in',  '2019-12-22 09:15:00'),
-(3, 'out', '2019-12-22 09:30:00'),
-(3, 'in',  '2019-12-22 09:45:00'),
-(4, 'in',  '2019-12-22 09:45:00'),
-(5, 'out', '2019-12-22 09:40:00');
 
-select * from hospital
-
-
-
-
-
-/*
-Sample Input :
-
-| emp_id | action | time                |
-| ------ | ------ | ------------------- |
-| 1      | in     | 2019-12-22 09:00:00 |
-| 1      | out    | 2019-12-22 09:15:00 |
-| 2      | in     | 2019-12-22 09:00:00 |
-| 2      | out    | 2019-12-22 09:15:00 |
-| 2      | in     | 2019-12-22 09:30:00 |
-| 3      | out    | 2019-12-22 09:00:00 |
-| 3      | in     | 2019-12-22 09:15:00 |
-| 3      | out    | 2019-12-22 09:30:00 |
-| 3      | in     | 2019-12-22 09:45:00 |
-| 4      | in     | 2019-12-22 09:45:00 |
-| 5      | out    | 2019-12-22 09:40:00 |
-
-
-
-Sample OP :
-
-		2	2019-12-22 09:30:00.000		2019-12-22 09:15:00.000
-		
-		3	2019-12-22 09:45:00.000		2019-12-22 09:30:00.000
-		
-		4	2019-12-22 09:45:00.000	
-
-
+INSERT INTO Delivery (delivery_id, customer_id, order_date, customer_pref_delivery_date) VALUES
+(1, 1, '2019-08-01', '2019-08-02'),
+(2, 2, '2019-08-02', '2019-08-02'),
+(3, 1, '2019-08-11', '2019-08-12'),
+(4, 3, '2019-08-24', '2019-08-24'),
+(5, 3, '2019-08-21', '2019-08-22'),
+(6, 2, '2019-08-11', '2019-08-13'),
+(7, 4, '2019-08-09', '2019-08-09');
 
 */
 
 
-select * from
-(select 
-	emp_id,
-	max(case when action = "in" then time end) as max_in_time,
-	max(case when action = "out" then time end) as max_out_time
-from 
-	hospital
-group by emp_id) as tmp
-where tmp.max_in_time > tmp.max_out_time or tmp.max_out_time is null
-
-(OR)
-
-with cte as  
-( select emp_id,
-max(CASE when action = "in" then `time` END) as Intime,
-max(CASE when action = "out" then `time` END) as Outtime
-from hospital
-group by emp_id )
-select * from cte
-where Intime > Outtime or Outtime is null
+SELECT 
+	(SUM(CASE WHEN order_date = customer_pref_delivery_date THEN 1 ELSE 0 END) / COUNT(*) ) * 100 AS immediate_percentag1,
+    ROUND(100 * SUM(CASE WHEN order_date = customer_pref_delivery_date THEN 1 ELSE 0 END) / COUNT(*), 2) AS immediate_percentage
+FROM 
+(
+    SELECT customer_id, MIN(order_date) AS first_order_date
+    FROM Delivery
+    GROUP BY customer_id
+) first_orders
+JOIN Delivery d
+   ON d.customer_id = first_orders.customer_id 
+   AND d.order_date = first_orders.first_order_date;

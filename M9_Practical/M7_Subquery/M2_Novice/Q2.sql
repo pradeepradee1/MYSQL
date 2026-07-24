@@ -1,67 +1,73 @@
 /*
 
-Who Wants Their Food Fast?
+Problem Statement : 
+		Calculate unique user count for each day (Customer should not repeat in another day)
+		(for ex: user_id 1 should not repeat in another day)
 
-The Problem:
-
-Find the percentage of customers whose first order was immediate.
-
-What is immediate order ?
-    The customer wanted the order delivered on the same day they placed the order.
-
-
-+-------------+-------------+------------+-----------------------------+
-| delivery_id | customer_id | order_date | customer_pref_delivery_date |
-+-------------+-------------+------------+-----------------------------+
-| 1           | 1           | 2019-08-01 |                  2019-08-02 |
-| 2           | 2           | 2019-08-02 |                  2019-08-02 |
-| 3           | 1           | 2019-08-11 |                  2019-08-12 |
-| 4           | 3           | 2019-08-24 |                  2019-08-24 |
-| 5           | 3           | 2019-08-21 |                  2019-08-22 |
-| 6           | 2           | 2019-08-11 |                  2019-08-13 |
-| 7           | 4           | 2019-08-09 |                  2019-08-09 |
-+-------------+-------------+------------+-----------------------------+
+Sample Input
+date       	user_id   activity	
+2022-02-20		1		abc
+2022-02-20		2		xyz
+2022-02-22		1		xyz
+2022-02-22		3		klm
+2022-02-24		1		abc
+2022-02-24		2		abc
+2022-02-24		3		abc
 
 
 
-Output:
-+----------------------+
-| immediate_percentage |
-+----------------------+
-| 50.00                |
+
+Output : 
+
+date       	 user_count   
+2022-02-20		2
+2022-02-22		1	
+2022-02-24		0	
+
+
+
 
 */
-/*
-
-CREATE or replace TABLE Delivery (
-    delivery_id INT,
-    customer_id INT,
-    order_date DATE,
-    customer_pref_delivery_date DATE
-);
 
 
-INSERT INTO Delivery (delivery_id, customer_id, order_date, customer_pref_delivery_date) VALUES
-(1, 1, '2019-08-01', '2019-08-02'),
-(2, 2, '2019-08-02', '2019-08-02'),
-(3, 1, '2019-08-11', '2019-08-12'),
-(4, 3, '2019-08-24', '2019-08-24'),
-(5, 3, '2019-08-21', '2019-08-22'),
-(6, 2, '2019-08-11', '2019-08-13'),
-(7, 4, '2019-08-09', '2019-08-09');
 
-*/
+create or replace table user_activity(date date,user_id int,activity varchar(50));
+
+insert into user_activity values('2022-02-20',1,"abc");
+insert into user_activity values('2022-02-20',2,"xyz");
+insert into user_activity values('2022-02-22',1,"xyz");
+insert into user_activity values('2022-02-22',3,"klm");
+insert into user_activity values('2022-02-24',1,"abc");
+insert into user_activity values('2022-02-24',2,"abc");
+insert into user_activity values('2022-02-24',3,"abc");
+
+
+select * from user_activity;
 
 
 SELECT 
-	(SUM(CASE WHEN order_date = customer_pref_delivery_date THEN 1 ELSE 0 END) / COUNT(*) ) * 100 AS immediate_percentag1,
-    ROUND(100 * SUM(CASE WHEN order_date = customer_pref_delivery_date THEN 1 ELSE 0 END) / COUNT(*), 2) AS immediate_percentage
-FROM 
-(
-    SELECT customer_id, MIN(order_date) AS first_order_date
-    FROM Delivery
-    GROUP BY customer_id
-) first_orders
-JOIN Delivery d
-   ON d.customer_id = first_orders.customer_id 
-   AND d.order_date = first_orders.first_order_date;
+    first_date AS date,
+    COUNT(user_id) AS user_count
+FROM (
+    SELECT 
+        user_id,
+        MIN(date) AS first_date
+    FROM user_activity
+    GROUP BY user_id
+) t
+GROUP BY first_date
+ORDER BY first_date
+
+
+
+
+WITH all_dates AS (SELECT DISTINCT date FROM user_activity),
+first_users AS (SELECT user_id, MIN(date) AS first_date FROM user_activity GROUP BY user_id)
+SELECT 
+    d.date,
+    COUNT(f.user_id) AS user_count
+FROM all_dates d
+LEFT JOIN first_users f
+    ON d.date = f.first_date
+GROUP BY d.date
+ORDER BY d.date;

@@ -1,7 +1,10 @@
 Note :
-        Try to indentify where we should apply the logic
+        1) Try to indentify the type of subquery (where we should apply the logic)
 
-            1) Where
-            2) Select
-            3) From
-            4) Having
+            *) Where
+            *) Select
+            *) From
+            *) Having
+
+        2) CTE:
+            1) Modularity logics

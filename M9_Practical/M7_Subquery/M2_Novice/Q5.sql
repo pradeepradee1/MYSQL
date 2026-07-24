@@ -1,108 +1,87 @@
 /*
 
-Questions: 
-Calculates the percentage contribution of each product's sales 
+Questions:
+			Write a SQL query to find the total number of people present inside the hospital.
 
 
-store_id | product_id | sales_amount
----------|------------|--------------
-S1       | P1         | 100
-S1       | P2         | 200
-S1       | P3         | 300
-S2       | P1         | 400
-S2       | P2         | 100
-S2       | P3         | 500
-
-
-Sample Output :
-
-store_id | product_id | sales_amount | percentage
----------|------------|--------------|------------
-S1       | P1         | 100          | 16.67
-S1       | P2         | 200          | 33.33
-S1       | P3         | 300          | 50.00
-
-S2       | P1         | 400          | 40.00
-S2       | P2         | 100          | 10.00
-S2       | P3         | 500          | 50.00
 
 */
 
 
-/*
-
-CREATE or replace TABLE store_sales (
-    store_id VARCHAR(10),
-    product_id VARCHAR(10),
-    sales_amount INT
+CREATE or replace TABLE hospital (
+    emp_id INT,
+    action VARCHAR(10),
+    time TIMESTAMP
 );
 
+INSERT INTO hospital (emp_id, action, time) VALUES
+(1, 'in',  '2019-12-22 09:00:00'),
+(1, 'out', '2019-12-22 09:15:00'),
+(2, 'in',  '2019-12-22 09:00:00'),
+(2, 'out', '2019-12-22 09:15:00'),
+(2, 'in',  '2019-12-22 09:30:00'),
+(3, 'out', '2019-12-22 09:00:00'),
+(3, 'in',  '2019-12-22 09:15:00'),
+(3, 'out', '2019-12-22 09:30:00'),
+(3, 'in',  '2019-12-22 09:45:00'),
+(4, 'in',  '2019-12-22 09:45:00'),
+(5, 'out', '2019-12-22 09:40:00');
 
-INSERT INTO store_sales (store_id, product_id, sales_amount) VALUES
-('S1', 'P1', 100), 
-('S1', 'P2', 200),
-('S1', 'P3', 300), 
-('S2', 'P1', 400),
-('S2', 'P2', 100), 
-('S2', 'P3', 500);
-
-*/
-
-
-/*
-using Group By
-*/
-
+select * from hospital
 
 
-WITH sum_sales AS (
-    SELECT
-        store_id,
-        SUM(sales_amount) AS total_sales
-    FROM store_sales
-    GROUP BY store_id
-)
-SELECT
-    s.store_id,
-    s.product_id,
-    s.sales_amount,
-    ROUND((s.sales_amount * 100.0) / ss.total_sales, 2) AS percentage
-FROM store_sales s
-JOIN sum_sales ss ON s.store_id = ss.store_id;
+
 
 
 /*
-using over method
+Sample Input :
+
+| emp_id | action | time                |
+| ------ | ------ | ------------------- |
+| 1      | in     | 2019-12-22 09:00:00 |
+| 1      | out    | 2019-12-22 09:15:00 |
+| 2      | in     | 2019-12-22 09:00:00 |
+| 2      | out    | 2019-12-22 09:15:00 |
+| 2      | in     | 2019-12-22 09:30:00 |
+| 3      | out    | 2019-12-22 09:00:00 |
+| 3      | in     | 2019-12-22 09:15:00 |
+| 3      | out    | 2019-12-22 09:30:00 |
+| 3      | in     | 2019-12-22 09:45:00 |
+| 4      | in     | 2019-12-22 09:45:00 |
+| 5      | out    | 2019-12-22 09:40:00 |
+
+
+
+Sample OP :
+
+		2	2019-12-22 09:30:00.000		2019-12-22 09:15:00.000
+		
+		3	2019-12-22 09:45:00.000		2019-12-22 09:30:00.000
+		
+		4	2019-12-22 09:45:00.000	
+
+
+
 */
 
 
-SELECT 
-    store_id,
-    product_id,
-    sales_amount,
-    ROUND((sales_amount * 100.0 / SUM(sales_amount) OVER (PARTITION BY store_id)), 2) AS percentage_contribution
-FROM 
-    store_sales
-ORDER BY 
-    store_id, product_id;
+select * from
+(select 
+	emp_id,
+	max(case when action = "in" then time end) as max_in_time,
+	max(case when action = "out" then time end) as max_out_time
+from 
+	hospital
+group by emp_id) as tmp
+where tmp.max_in_time > tmp.max_out_time or tmp.max_out_time is null
 
+(OR)
 
-/*
-Using group by approach
-*/
-
-
-SELECT 
-    s.store_id,
-    s.product_id,
-    s.sales_amount,
-    ROUND(s.sales_amount * 100.0 / t.total_sales,2) AS percentage
-FROM store_sales s
-JOIN (SELECT 
-    store_id,SUM(sales_amount) AS total_sales
-    FROM store_sales
-    GROUP BY store_id
-) t
-ON s.store_id = t.store_id
-ORDER BY s.store_id, s.product_id;
-
+with cte as  
+( select emp_id,
+max(CASE when action = "in" then `time` END) as Intime,
+max(CASE when action = "out" then `time` END) as Outtime
+from hospital
+group by emp_id )
+select * from cte
+where Intime > Outtime or Outtime is null
