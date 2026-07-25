@@ -1,69 +1,73 @@
 /*
 
-Give me the prime numbers 
-
-
-Note : this is Comparing row level logic (correlation subquery)
-
-Input :
-
-| num |
-| --- |
-| 1   |
-| 2   |
-| 3   |
-| 4   |
-| 5   |
-| 6   |
-| 7   |
-| 8   |
-| 9   |
-| 10  |
-
-Output :
-
-| num |
-| --- |
-| 2   |
-| 3   |
-| 5   |
-| 7   |
+Questions :
+For each customer, calculate the running (cumulative) number of distinct products purchased up to each purchase date.
 
 
 Note : 
-        num % 2     ---> This is for finding the moduls or quatient
-        num % num   ---> This is for finding divisible by its own number
+        Join is kind of group by
+
+
+What is cumulative ?
+
+| Date | Sales | Cumulative Sales |
+| ---- | ----- | ---------------- |
+| Day1 | 10    | 10               |
+| Day2 | 20    | 30               |
+| Day3 | 15    | 45               |
+| Day4 | 25    | 70               |
+
 
 */
 
+/*
 
-CREATE or replace TABLE Numbers (
-    num INT
-);  
+CREATE or replace TABLE purchases (
+    customer_id INT,
+    purchase_date DATE,
+    product_id VARCHAR(10)
+);
+
+INSERT INTO purchases (customer_id, purchase_date, product_id) VALUES
+(1, '2025-09-01', 'P1'),
+(1, '2025-09-02', 'P2'),
+(1, '2025-09-03', 'P1'),
+(2, '2025-09-01', 'P2'),
+(2, '2025-09-02', 'P3');
+
+Sample Input :
+
+| customer_id | purchase_date | product_id |
+| ----------- | ------------- | ---------- |
+| 1           | 2025-09-01    | P1         |
+| 1           | 2025-09-02    | P2         |
+| 1           | 2025-09-03    | P1         |
+| 2           | 2025-09-01    | P2         |
+| 2           | 2025-09-02    | P3         |
 
 
-INSERT INTO Numbers (num) VALUES
-(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8),
-(9),
-(10);
+
+Excepted Output :
+
+| customer_id | purchase_date | product_id | cumulative_distinct_products |
+| ----------- | ------------- | ---------- | ---------------------------- |
+| 1           | 2025-09-01    | P1         | 1                            |
+| 1           | 2025-09-02    | P2         | 2                            |
+| 1           | 2025-09-03    | P1         | 2                            |
+| 2           | 2025-09-01    | P2         | 1                            |
+| 2           | 2025-09-02    | P3         | 2                            |
 
 
+*/
 
-SELECT a.num
-FROM Numbers a
-WHERE a.num > 1
-AND NOT EXISTS (
-    SELECT 1
-    FROM Numbers b
-    WHERE b.num > 1
-    AND b.num < a.num
-    AND a.num % b.num = 0
-)
-ORDER BY a.num;
+SELECT p1.customer_id,
+       p1.purchase_date,
+       p1.product_id,
+       (
+       	 SELECT COUNT(DISTINCT p2.product_id) FROM purchases p2
+         WHERE p2.customer_id = p1.customer_id AND 
+         p2.purchase_date <= p1.purchase_date
+       ) AS cumulative_distinct_count
+FROM purchases p1
+ORDER BY p1.customer_id, p1.purchase_date;
+
