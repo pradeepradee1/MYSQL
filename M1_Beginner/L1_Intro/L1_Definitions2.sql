@@ -4,10 +4,11 @@
 #Difference between SQL and PL/SQL
 SQL :
 	It Interact with RDBMS
-	Which allows us to do Restrive, Insert, Update, Delete the data
+	Which allows us to do operations like DDL, DML , DQL operations.
+
 PL/SQL :
 	PL/SQL is Oracle procedural extension to SQL
-	Which allows us to do procedure, functions, loops, conditions and erro handling
+	Which allows us to do conditions, loops, functions, procedure and erro handling
 
 
 
