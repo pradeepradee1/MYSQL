@@ -72,7 +72,7 @@ Types DBMS :
 				It Optimized for analysis the complex queries on historical data
 				Data is frequently used in select statement for data retriveal which comes under the DQL statement 
 				Data will be De-normalized form
-				It will not care about the ACID properties
+				It will care about the ACID properties
 */
 
 
