@@ -8,7 +8,7 @@ SQL :
 
 PL/SQL :
 	PL/SQL is Oracle procedural extension to SQL
-	Which allows us to do conditions, loops, functions, procedure and erro handling
+	Which allows us to do conditions, loops, functions, procedure and error handling
 
 
 
