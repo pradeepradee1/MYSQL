@@ -73,6 +73,8 @@ Types DBMS :
 				Data is frequently used in select statement for data retriveal which comes under the DQL statement 
 				Data will be De-normalized form
 				It will care about the ACID properties
+
+Note : Modern data warehouse take care about the ACID Proerties EX : Azure synapse anlytics , Snowflake , Redshift
 */
 
 
