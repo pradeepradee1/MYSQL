@@ -110,7 +110,7 @@ Entity And Its Attributes :
 										Eg : (Birth_date)
 		 				
 
-		Derived	Attributes			:	Attributes which are derived from the real entities are known as derived attributes 
+		Derived	Attributes			:	Attributes which we can create new from the existing attributes 
 										Eg : (Age)
 
 
