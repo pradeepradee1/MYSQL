@@ -35,6 +35,15 @@ Foreign Key :
         Remove duplicate values from rows of table during the query result
         It focus in rows of table (link with 2nd steps)
         It will be using select statemnt which comes under the DQL statement (link with 2nd steps)
-        If Column has multiple null's values  It will treat as equal ( for ex: both null are same )
+        If Column has multiple null's values  It will treat as equal ( for ex: both null are same 
+
+
+3) What is Distinct keyword ?
+        It is keyword
+        Remove duplicate values from rows of table during the query result
+        It focus in rows of table (link with 2nd steps)
+        It will be using select statemnt which comes under the DQL statement (link with 2nd steps)
+        If Column has multiple null's values  It will treat as equal ( for ex: both null are same 
+
         
 
