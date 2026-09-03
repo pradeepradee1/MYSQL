@@ -85,9 +85,11 @@
 #OP : Tut
 
 
-#22) substring 
+#22) Substring 
 	SELECT SUBSTRING('Database', 1, 4);
 #OP : Data
+
+SUBSTRING(string, starting_position, number_of_characters)
 
 
 #23) SUBSTRING_INDEX(string, delimiter, count)
