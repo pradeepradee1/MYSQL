@@ -74,16 +74,20 @@
 
 #19)LEFT = Extract 3 characters from a string (starting from left):
 	SELECT LEFT("SQL Tutorial", 3) AS ExtractString;
+#OP : SQL
 
 #20)RIGHT = Extract 4 characters from a string (starting from right):
 	SELECT RIGHT("SQL Tutorial is cool", 4) AS ExtractString;
+#OP : cool
 
 #21)MID
 	SELECT MID("SQL Tutorial", 5, 3) AS ExtractString;
+#OP : Tut
 
 
 #22) substring 
 	SELECT SUBSTRING('Database', 1, 4);
+#OP : Data
 
 
 #23) SUBSTRING_INDEX(string, delimiter, count)
