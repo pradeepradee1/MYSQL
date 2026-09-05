@@ -128,6 +128,9 @@ Time Format Specifiers
 #Date Format
 SELECT DATE_FORMAT("2017-12-27", "%d-%m-%Y");
 
+SELECT DATE_FORMAT("2017-12-27", "%d-%m/%Y");
+
+
 /*
 #Note :
 #In DATE_FORMAT functions
