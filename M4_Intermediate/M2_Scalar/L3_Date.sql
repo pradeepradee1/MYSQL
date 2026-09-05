@@ -99,7 +99,7 @@ Date Format Specifiers
 
 %M		=	February
 %b		=	Feb
-(b is end, compare with o in month)
+(b is end in month and a is end in day)
 
 #Year
 %Y      =	2026     
