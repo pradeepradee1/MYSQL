@@ -4,7 +4,7 @@ Questions:
 
 # Real time in CUB
 
-#Task : Take average of balance that only the active cusotmer of contributed in month of year
+#Task : Take average of balance that only the active cusotmer of contributed in every month of year
 
 select *  from Temp 
 
