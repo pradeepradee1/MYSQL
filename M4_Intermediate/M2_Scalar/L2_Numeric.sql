@@ -29,6 +29,10 @@
 	SELECT GREATEST(3, 12, 34, 8, 25);
 	SELECT LEAST(3, 12, 34, 8, 25);
 	
+	#Note : This is also possible
+		select greatest("a","b","c","d")
+		select least("a","b","c","d")		
+	
 
 	
 	SELECT FLOOR(25.95); # flooring
