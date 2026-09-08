@@ -15,3 +15,12 @@ Note : For this is only practical
 
     3) Please go to action after the group by
 
+----------------------------------------------------------------------------
+
+
+Note : For Theory
+    1) First Module      = (Basic + GroupBy) 
+    2) Second Module     = Join
+    3) Third Module      = Subquery   
+    4) Fourth Module     = Windows Operations
+
