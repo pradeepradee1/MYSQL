@@ -19,8 +19,9 @@ Note : For this is only practical
 
 
 Note : For Theory
-    1) First Module      = (Basic + GroupBy) 
-    2) Second Module     = Join
-    3) Third Module      = Subquery   
-    4) Fourth Module     = Windows Operations
+    1) First Module      = Basic  
+    2) Second Module     = GroupBy
+    3) Third Module      = Join   
+    4) Fourth Module     = Subquery
+    5) Fivth Module      = Windows Operations
 
