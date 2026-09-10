@@ -21,6 +21,7 @@ Notes :
 	
 
 	Logic_3 : 
+
 		mismatch logic
 
 		| customer_id | customer_name | customer_email                        |
@@ -47,6 +48,10 @@ Notes :
 		| 4           | Nitin         |
 		| 5           | Naveen        |
 
+
+	Logic 4 :
+		    Inner join           ---> matching records , Not unmatching, Not Null values
+	        Left,right,full join ---> matching records , unmatching, Null values
 
 	
 	
