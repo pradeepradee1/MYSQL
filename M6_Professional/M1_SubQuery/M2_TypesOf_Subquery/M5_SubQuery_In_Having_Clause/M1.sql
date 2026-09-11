@@ -5,4 +5,4 @@ SELECT
 FROM 
     employees
 GROUP BY department_id
-HAVING AVG(salary) > (SELECT AVG(salary) FROM employees);
+HAVING salary > (SELECT AVG(salary) FROM employees);
