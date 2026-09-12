@@ -1,4 +1,15 @@
-1) What are types of refresh in materialized view?
+
+
+1) On Demand vs On Commit (Refresh Timing)
+
+    On Demand :
+                Refresh by manually or scheduled
+
+    On Commit :        
+                Refresh by automatically when base table commits
+
+
+2) What are types of refresh in materialized view?
     There are mainly three types of refresh:
 
     1.1) Complete Refresh
@@ -16,13 +27,7 @@
         If not possible → falls back to Complete Refresh
 
 
-2) On Demand vs On Commit (Refresh Timing)
 
-    On Demand :
-                Refresh by manually or scheduled
-
-    On Commit :        
-                Refresh by automatically when base table commits
 
 
 
