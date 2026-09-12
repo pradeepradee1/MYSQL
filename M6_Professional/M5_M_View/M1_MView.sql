@@ -11,7 +11,7 @@ Materialized view :
                 
                 It is Performance Optimization techniques
                 
-                It is used for performance
+                It improves performance for complex aggregations and reporting queries.
                 
 */
 
