@@ -18,9 +18,4 @@
                 Users may still access base tables if granted permission.
 
 
-4) What is indexed view?
-        It has a clustered index
-        It store Physically data on disk 
-        Once indexed then the view behaves like a materialized view
-        It improves performance for complex aggregations and reporting queries.
         
