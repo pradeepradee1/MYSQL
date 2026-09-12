@@ -28,3 +28,7 @@
 
 3) Can materialized view have index?
     Yes 
+
+
+4) What is indexed view?
+        indexed view = materialized view
