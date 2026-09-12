@@ -7,7 +7,7 @@ Materialized view :
                 It is stored result of a query
 
           How data is getting  refresh?
-                Needs manual intervention to refresh the data  from table
+                Refreshes the data based on the database's refresh mechanism
                 
                 It is Performance Optimization techniques
                 
