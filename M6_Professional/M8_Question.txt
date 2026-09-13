@@ -47,7 +47,7 @@ View :
     It Store the metadata of data
     
 CTE :
-    define a temporary result set that can be referenced in the main query
+    define a temporary result set using with clause (definition)
 (talks about storage)
     Not persistence ( temporary result will not be there after execution is completed)
     Not resuable
