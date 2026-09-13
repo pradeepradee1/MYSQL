@@ -62,7 +62,7 @@ Focus on Mview
     MView :
         Physical table
         Stores data physically	as like table 
-        Needs manual intervention to refresh the data  from table
+        Refreshes the data based on the database's refresh mechanism
 (talks about storage)
         Consumes storage	
         Faster 
