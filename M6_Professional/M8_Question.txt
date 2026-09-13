@@ -23,7 +23,7 @@ CTE :
     It is Used to define a temporary result set using with clause (definition)
     Improves readability and modularity of complex queries
     It support Recursive 
-    *) temporary result can be referenced multiple times in same query
+    temporary result can be referenced multiple times in same query
 
 Subquery :
     A query inside another query (definition)
