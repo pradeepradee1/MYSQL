@@ -57,6 +57,14 @@ Sample Output :
 
 */
 
+select 
+	* 
+from 
+	orders_1 
+where customer_id not in (select customer_id from orders_1 where order_date >= '2024-02-01' and order_date <= '2024-02-30' )
+and order_date >= '2024-01-01' and order_date <= '2024-01-30'
+
+/* OR */
 
 SELECT 
     DISTINCT customer_id
