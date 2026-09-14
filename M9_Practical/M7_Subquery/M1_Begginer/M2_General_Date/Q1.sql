@@ -58,7 +58,7 @@ Sample Output :
 */
 
 select 
-	* 
+	DISTINCT customer_id
 from 
 	orders_1 
 where customer_id not in (select customer_id from orders_1 where order_date >= '2024-02-01' and order_date <= '2024-02-30' )
