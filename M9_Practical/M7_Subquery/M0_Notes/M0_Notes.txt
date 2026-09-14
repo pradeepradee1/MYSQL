@@ -7,7 +7,7 @@ Note :
             *) Having
 
         2)  SubQuery : 
-                Compare the row level Logic_1
+                Compare the row level Logic_1 and user existence
     
                     Ex:
                         1
@@ -26,5 +26,5 @@ Note :
 
 
         4) CTE (Recursive) :
-            1) To Process the hierarchical use recursive 
+            1) To Process the hierarchical and tree based structure
 
