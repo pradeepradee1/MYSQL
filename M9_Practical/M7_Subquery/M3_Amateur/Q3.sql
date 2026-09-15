@@ -71,3 +71,16 @@ SELECT p1.customer_id,
 FROM purchases p1
 ORDER BY p1.customer_id, p1.purchase_date;
 
+
+/* OR
+Note : This will not support in mariDB
+*/
+
+SELECT
+    customer_id,
+    purchase_date,
+    product_id,
+    COUNT(DISTINCT product_id) OVER (PARTITION BY customer_id ORDER BY purchase_date 
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_distinct_products
+FROM purchases;
+
