@@ -1,109 +1,88 @@
 /*
+#Question : 
+find all the pairs of users with maximum number of common folowers
 
-Write an SQL query to find the cheapest cost between each origin–destination pair, 
-considering both direct flights and two-leg connections.
 
-Note : consider a is chennai , b is delhi , c is kashmir
+CREATE or REPLACE TABLE followers (
+    user_id INT,
+    follower_id INT
+);
 
-*) Direct flight :
-    A → C = 300
+INSERT INTO followers (user_id, follower_id) 
+VALUES
+(1,3),
+(2,3),
+(7,3),
+(1,4),
+(2,4),
+(7,4),
+(1,5),
+(2,6),
+(7,5),
+(8,4),
+(8,3),
+(8,6),
+(1,9),
+(7,9);
 
-*) Two leg :
-    You go from A → B → C instead of directly A → C (direct flight)
-    First flight: A → B
-    Second flight: B → C
-    Tow leg : A → B + B → C = A → C
 
-*) All possible combinations
 
-From A :
+for ex : 
+		 1 and 2 user have two common (3 and 4)
 
-        A → B + B → C = A → C (100 + 150 = 250)
+		 1 and 7 user have three common (3,4,5)
 
-        A → B + B → A = A → A (100 + 120 = 220)
+		 2 and 7 user have two common (3,4)
 
-        A → C + C → A = A → A (300 + 200 = 500)
+So , Ans is 1 and 7
 
-From B :
+Sample Input :
 
-        B → C + C → A = B → A (150 + 200 = 350)
-
-        B → A + A → B = B → B (120 + 100 = 220)
-
-        B → A + A → C = B → C (120 + 300 = 420)
-
-From C
-
-        C → A + A → B = C → B (200 + 100 = 300)
-
-        C → A + A → C = C → C (200 + 300 = 500)
-
-Input :
-
-id | origin | destination | cost
----+--------+-------------+------
-1  | A      | B           | 100
-2  | B      | C           | 150
-3  | A      | C           | 300
-4  | C      | A           | 200
-5  | B      | A           | 120
-
+| user_id | follower_id |
+| ------- | ----------- |
+| 1       | 3           |
+| 2       | 3           |
+| 7       | 3           |
+| 1       | 4           |
+| 2       | 4           |
+| 7       | 4           |
+| 1       | 5           |
+| 2       | 6           |
+| 7       | 5           |
+| 8       | 4           |
+| 8       | 3           |
+| 8       | 6           |
+| 1       | 9           |
+| 7       | 9           |
 
 Output :
 
-| origin | destination | min_cost |
-| ------ | ----------- | -------- | 
-    A	        A	        220
-    A	        B	        100
-    A	        C	        300
-    B	        A	        120
-    B	        B	        220
-    B	        C	        150
-    C	        A	        200
-    C	        C	        350
-
+| user1 | user2 | common_count |
+| ----- | ----- | ------------ |
+| 1     | 7     | 3            |
 
 
 */
-CREATE or replace TABLE flights (
-    id INT,
-    origin VARCHAR(5),
-    destination VARCHAR(5),
-    cost INT
-);
-
-INSERT INTO flights VALUES
-(1,'A','B',100),
-(2,'B','C',150),
-(3,'A','C',300),
-(4,'C','A',200),
-(5,'B','A',120);
 
 
-
-WITH direct_flights AS (
-    SELECT origin, destination, cost
-    FROM flights
+WITH common_followers AS
+(
+    SELECT
+        f1.user_id AS user1,
+        f2.user_id AS user2,
+        COUNT(*) AS common_followers
+    FROM followers f1 JOIN followers f2 ON f1.follower_id = f2.follower_id AND f1.user_id < f2.user_id
+    GROUP BY f1.user_id,f2.user_id
 ),
-
-two_leg_flights AS (
-    SELECT 
-        f1.origin,
-        f2.destination,
-        f1.cost + f2.cost AS cost
-    FROM flights f1
-    JOIN flights f2
-        ON f1.destination = f2.origin
+max_common AS
+(
+    SELECT MAX(common_followers) AS max_cnt
+    FROM common_followers
 )
-SELECT 
-    origin,
-    destination,
-    MIN(cost) AS cheapest_cost
-FROM (
-    SELECT * FROM direct_flights
-    UNION ALL
-    SELECT * FROM two_leg_flights
-) all_routes
-GROUP BY origin, destination
-ORDER BY origin, destination;
-
+SELECT
+    c.user1,
+    c.user2,
+    c.common_followers
+FROM common_followers c
+JOIN max_common m
+ON c.common_followers = m.max_cnt;
