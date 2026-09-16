@@ -42,24 +42,11 @@ INSERT INTO employee VALUES (6, 'Bob', 4);
 
 
 
-WITH RECURSIVE emp_hierarchy AS
-(
-    SELECT emp_id,
-           emp_name,
-           manager_id,
-           1 AS lvl
-    FROM employee
-    WHERE manager_id IS NULL
+SELECT
+    e.emp_name AS employee,
+    m.emp_name AS manager
+FROM employee e
+LEFT JOIN employee m
+    ON e.manager_id = m.emp_id
+ORDER BY e.emp_id;
 
-    UNION ALL
-
-    SELECT e.emp_id,
-           e.emp_name,
-           e.manager_id,
-           h.lvl + 1
-    FROM employee e
-    JOIN emp_hierarchy h
-      ON e.manager_id = h.emp_id
-)
-SELECT *
-FROM emp_hierarchy;
