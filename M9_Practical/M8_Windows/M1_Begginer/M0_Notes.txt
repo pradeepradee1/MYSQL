@@ -5,11 +5,23 @@ Note    :
         2) Identify the Rows or Range
         
             *) Rows  
-                *) Rows = Rows 
+                *) Rows = Rows (records)
                 *) ROWS → last 7 records.
+                *) Ex :
+                        Previous 3 rows
+                        Previous 5 records
+                        Last 10 transactions
+                        7-row moving average
+                        Current row + previous 6 rows
+
             *) Range     
-                *) Range = Date 
+                *) Range = Date (days)
                 *) RANGE → last 7 calendar days.
+                *) Ex :
+                        Last 3 days
+                        Previous 7 days
+                        Within the last 30 days
+                *) Note : Last , Previous , Within
         
         3) Windows is alternative for basic and advance group by 
 
