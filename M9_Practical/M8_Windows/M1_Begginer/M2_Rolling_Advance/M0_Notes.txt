@@ -19,3 +19,4 @@ Note    :
                         Last 3 days
                         Previous 7 days
                         Within the last 30 days
+                *) Note : Last , Previous , Within
