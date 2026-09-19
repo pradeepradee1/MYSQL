@@ -2,6 +2,8 @@
 
 Total amount spent by that user in the last 3 calendar days (including current day)
 
+#Note :total amount of Last 3 days
+
 
 Sample Input :
 
