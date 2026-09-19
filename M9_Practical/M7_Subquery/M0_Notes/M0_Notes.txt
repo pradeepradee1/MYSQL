@@ -9,7 +9,7 @@ Note :
             *) From
             *) Having
 
-        1.2)  SubQuery : 
+        1.2)  SubQuery :      ------------> (Find prime number logics)
                 Compare the row level Logic_1 
     
                     Ex:
@@ -32,7 +32,7 @@ Note :
 
 
         2.2) CTE (Recursive) :
-            1) To Process the hierarchical 
+            1) To Process the hierarchical  ---> (Find missing numbers logic)
         
         2.3) CTE (Recursive)
              1)   tree based structure
