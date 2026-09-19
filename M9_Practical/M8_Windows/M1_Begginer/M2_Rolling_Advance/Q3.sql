@@ -56,10 +56,10 @@ INSERT INTO sales321 VALUES
 (10, '2025-08-10', 170.00);
 
 
-SELECT 
+SELECT
+    sale_id,
     sale_date,
     amount,
-    ROUND(AVG(amount) OVER (ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 2) AS rolling_7_day_avg
-FROM 
-    sales321
-ORDER BY sale_date;
+    AVG(amount) OVER w AS rolling_7_day_avg
+FROM sales
+WINDOW w AS (ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW);
