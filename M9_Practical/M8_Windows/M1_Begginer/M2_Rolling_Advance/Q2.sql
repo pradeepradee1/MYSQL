@@ -50,7 +50,10 @@ INSERT INTO daily_sales (sale_date, amount_paid) VALUES
 
 
 SELECT 
- sale_date,
- ROUND(AVG(amount_paid) OVER (ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 2) AS average_amount
-FROM daily_sales
-ORDER BY sale_date;
+    empid,
+    monthno,
+    salary,
+    AVG(salary) OVER w AS rolling_3_month_avg
+FROM tmptable2
+WINDOW w AS (PARTITION BY empid ORDER BY monthno ROWS BETWEEN 2 PRECEDING AND CURRENT ROW);
+
