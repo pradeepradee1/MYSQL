@@ -1,6 +1,8 @@
 /*
 
-calculate the 7-day moving average of customer payments, 
+calculate the 7-day moving average of customer payments
+
+#Note : rolling average of Last 7 day records
 
 
 sale_date   | amount_paid
