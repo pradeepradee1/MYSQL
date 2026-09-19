@@ -37,7 +37,30 @@ SELECT CURRENT_TIMESTAMP();
 /* #OP : 2026-07-12 10:43:02.000 */
 
 #Time Different
-SELECT TIMEDIFF("13:10:11", "13:10:10");
+SELECT TIMEDIFF('2026-03-01 12:00:00','2026-03-01 09:00:00') AS duration;
+/*
+#OP : 03:00:00
+*/
+
+
+#Time Stamp
+/*
+TIMESTAMPDIFF(unit, start_time, end_time)
+
+unit :
+SECOND
+MINUTE
+HOUR
+DAY
+MONTH
+YEAR
+*/
+
+SELECT TIMESTAMPDIFF(MINUTE,'2026-03-01 09:00:00','2026-03-01 12:00:00') AS duration;
+
+/*
+#OP : 180
+*/
 
 
 #EXTRACT
