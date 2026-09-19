@@ -62,3 +62,22 @@ SELECT
     DATE_SUB(billing_date, INTERVAL 1 DAY) AS missing_to
 FROM ordered_logs
 WHERE DATEDIFF(billing_date, prev_date) > 1;
+
+/*
+
+CREATE or replace TABLE billing_logs_1 (
+    customer_id VARCHAR(10),
+    billing_date DATE
+);
+
+
+INSERT INTO billing_logs_1 (customer_id, billing_date) VALUES
+('C001', '2024-01-01'),
+('C001', '2024-01-02'),
+('C001', '2024-01-04'),
+('C001', '2024-01-07'),
+('C002', '2024-01-03'),
+('C002', '2024-01-05');
+
+
+*/
