@@ -2,6 +2,8 @@
 
 Rolling 7-Day Average
 
+#Note : rolling average of Last 7 day records
+
 
 Input:
 
