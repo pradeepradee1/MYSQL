@@ -64,6 +64,11 @@ INSERT INTO user_sessions (user_id, session_time, state) VALUES
 | 101     | 2026-03-03 07:15:00 | 0     |
 
 
+Note :
+state = 1 → login
+state = 0 → logout
+
+
 Output :
 
 | user_id | session_date | total_hours |
