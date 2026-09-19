@@ -36,5 +36,5 @@ Note    :
             *) 
 
         
-        4) Find the consecutive or streak
+        4) Find the consecutive or streak (Eg : Undertaker)
     
