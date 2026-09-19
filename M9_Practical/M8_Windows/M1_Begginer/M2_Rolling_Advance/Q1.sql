@@ -3,6 +3,8 @@
 Problem : 
 Calculating the 3-month (quarter) rolling average for each employee
 
+#Note : rolling average of Last 3 month  records
+
 
 empid | monthno | salary
 ------|---------|--------
