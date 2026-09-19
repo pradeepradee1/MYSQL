@@ -63,12 +63,12 @@ INSERT INTO transactions (transaction_id, user_id, transaction_date, amount) VAL
 
 
 
-SELECT 
+SELECT
+    transaction_id,
     user_id,
     transaction_date,
     amount,
-    SUM(amount) OVER (PARTITION BY user_id ORDER BY transaction_date
-        RANGE BETWEEN INTERVAL '2' DAY PRECEDING AND CURRENT ROW
-    ) AS last_3_days_sum
+    SUM(amount) OVER w AS last_3_days_total
 FROM transactions
+WINDOW w AS (PARTITION BY user_id ORDER BY transaction_date RANGE BETWEEN INTERVAL '2' DAY PRECEDING AND CURRENT ROW);
 
