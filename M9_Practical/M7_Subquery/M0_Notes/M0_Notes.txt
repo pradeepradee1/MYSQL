@@ -33,6 +33,9 @@ Note :
 
         2.2) CTE (Recursive) :
             1) To Process the hierarchical  ---> (Find missing numbers logic)
+
+                        EX : 101, 102 , 103 ,105 ,107 
+                        Ans --> 104 , 106
         
         2.3) CTE (Recursive)
              1)   tree based structure
