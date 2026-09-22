@@ -49,11 +49,12 @@ INSERT INTO daily_sales (sale_date, amount_paid) VALUES
 
 
 
-SELECT 
-    empid,
-    monthno,
-    salary,
-    AVG(salary) OVER w AS rolling_3_month_avg
-FROM tmptable2
-WINDOW w AS (PARTITION BY empid ORDER BY monthno ROWS BETWEEN 2 PRECEDING AND CURRENT ROW);
-
+SELECT
+    sale_date,
+    amount_paid,
+    AVG(amount_paid) OVER w AS rolling_7_day_avg
+FROM payments
+WINDOW w AS (
+    ORDER BY sale_date
+    ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+);
