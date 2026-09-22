@@ -54,7 +54,4 @@ SELECT
     amount_paid,
     AVG(amount_paid) OVER w AS rolling_7_day_avg
 FROM payments
-WINDOW w AS (
-    ORDER BY sale_date
-    ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
-);
+WINDOW w AS ( ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW);
