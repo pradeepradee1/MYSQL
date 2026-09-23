@@ -13,12 +13,28 @@ Note :
             Join on indexed columns 
             partitioning the large table
 
+Note: 
+Execution time : 
+
+SELECT ...
+FROM orders
+WHERE customer_id = 101;
+
+
+
+2) A query that used to take 2 seconds now takes 5 minutes. How would you troubleshoot it?
+
+	*) I would confirm whether the slowdown is caused by the query itself or by the database environment
+	*) I identify queries with high execution time
+	*) Analyzing execution plans using EXPLAIN and compare the previous execution plan 
+	*) I look for 
+	        Avoid SELECT *
+	        Filter early (predicate pushdown)
+            Join on indexed columns 
+            partitioning the large table
             
 
-
-
-
-1) How would you optimize queries when tables grow from thousands to billions of records?
+3) How would you optimize queries when tables grow from thousands to billions of records?
         
         When tables grow from thousands to billions of rows, 
         I focus on 
