@@ -7,9 +7,8 @@ Note :
 
             Avoid SELECT * (minimizing data scanned)
             filtering early,             
-            optimizing joins (Join on indexed columns),
-            indexing, 
-            partitioning, 
+            Join on indexed columns
+            partitioning
             analyzing execution plans using EXPLAIN
             
 2) what is query plan analysis ?
