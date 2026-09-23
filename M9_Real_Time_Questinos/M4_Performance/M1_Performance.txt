@@ -44,3 +44,16 @@ WHERE customer_id = 101;
             Join on indexed columns 
             partitioning the large table
             analyzing execution plans using EXPLAIN 
+
+
+
+4) What would you check in an execution plan? 
+
+	I would check the execution plan for 
+		1) expensive operators
+		2) table or index scans 
+		3) join strategies, 
+		4) missing indexes
+		4) estimated versus actual row counts, key lookups, sorts, spills and warnings
+
+
