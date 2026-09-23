@@ -5,11 +5,11 @@ Note :
         When tables grow from thousands to billions of rows, 
         I focus on 
 
-            Avoid SELECT * (minimizing data scanned)
-            filtering early,             
-            Join on indexed columns
-            partitioning
-            analyzing execution plans using EXPLAIN
+	        Avoid SELECT *
+	        Filter early (predicate pushdown)
+                Join on indexed columns 
+                partitioning the large table
+                analyzing execution plans using EXPLAIN 
             
 2) what is query plan analysis ?
 
