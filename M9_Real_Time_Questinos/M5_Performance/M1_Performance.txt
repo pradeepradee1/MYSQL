@@ -25,7 +25,7 @@ WHERE customer_id = 101;
 2) A query that used to take 2 seconds now takes 5 minutes. How would you troubleshoot it?
 
 	*) I would confirm whether the slowdown is caused by the query itself or by the database environment
-	*) I identify queries with high execution time
+	*) I identify  with high execution time
 	*) Analyzing execution plans using EXPLAIN and compare the previous execution plan 
 	*) I look for 
 	        Avoid SELECT *
