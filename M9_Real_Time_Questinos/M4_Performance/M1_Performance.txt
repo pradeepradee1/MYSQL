@@ -10,6 +10,18 @@ Note :
             Join on indexed columns 
             partitioning the large table
             analyzing execution plans using EXPLAIN 
+
+
+2) How do you identify a slow query?
+
+	*) I identify queries with high execution time,
+	*) Analyzing execution plans using EXPLAIN  to understand where the query is spending most of its time
+	*) I look for 
+	        Avoid SELECT *
+	        Filter early (predicate pushdown)
+            Join on indexed columns 
+            partitioning the large table
+
             
 2) what is query plan analysis ?
 
