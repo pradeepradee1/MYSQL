@@ -13,4 +13,4 @@
 	Filter early (predicate pushdown)
 	Inefficient sorts
     Join on indexed columns 
-    partitioning the large table
+    partition pruning the large table
