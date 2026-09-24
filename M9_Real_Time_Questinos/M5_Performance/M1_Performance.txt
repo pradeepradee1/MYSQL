@@ -11,8 +11,10 @@ Note :
 	*) I look for 
 	        Avoid SELECT *
 	        Filter early (predicate pushdown)
+			Inefficient sorts
             Join on indexed columns 
             partitioning the large table
+	*) I also look for transaction block and dead lock and live lock  
 
 Note: 
 Execution time : 
@@ -31,8 +33,10 @@ WHERE customer_id = 101;
 	*) I look for 
 	        Avoid SELECT *
 	        Filter early (predicate pushdown)
+			Inefficient sorts
             Join on indexed columns 
             partitioning the large table
+	*) I also look for transaction block and dead lock and live lock  
             
 
 3) How would you optimize queries when tables grow from thousands to billions of records?
@@ -42,9 +46,9 @@ WHERE customer_id = 101;
 
 	        Avoid SELECT *
 	        Filter early (predicate pushdown)
+			Inefficient sorts
             Join on indexed columns 
             partitioning the large table
-            analyzing execution plans using EXPLAIN 
 
 
 
