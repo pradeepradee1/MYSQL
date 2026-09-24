@@ -13,7 +13,7 @@ Note :
 	        Filter early (predicate pushdown)
 			Inefficient sorts
             Join on indexed columns 
-            partitioning the large table
+            partition pruning the large table
 	*) I also look for transaction block and dead lock and live lock  
 
 Note: 
@@ -35,7 +35,7 @@ WHERE customer_id = 101;
 	        Filter early (predicate pushdown)
 			Inefficient sorts
             Join on indexed columns 
-            partitioning the large table
+            partition pruning the large table
 	*) I also look for transaction block and dead lock and live lock  
             
 
@@ -48,7 +48,7 @@ WHERE customer_id = 101;
 	        Filter early (predicate pushdown)
 			Inefficient sorts
             Join on indexed columns 
-            partitioning the large table
+            partition pruning the large table
 
 
 
