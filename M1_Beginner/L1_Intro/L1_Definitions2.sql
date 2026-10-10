@@ -7,7 +7,7 @@ SQL :
 	Which allows us to do operations like DDL, DML , DQL operations.
 
 PL/SQL :
-	It is procedural extension to SQL
+	It is procedural extension
 	Which allows us to do conditions, loops, functions, procedure and error handling
 
 
@@ -69,10 +69,10 @@ Types DBMS :
 
 				It Store the structure data
 				It is suitable for handling the large volume of data
-				It Optimized for analysis the complex queries on historical data
+				It Optimized for data analysis 
 				Data is frequently used in select statement for data retriveal which comes under the DQL statement 
 				Data will be De-normalized form
-				It will care about the ACID properties
+				It will care about the ACID properties by modern warehouse
 
 Note : Modern data warehouse take care about the ACID Proerties EX : Azure synapse anlytics , Snowflake , Redshift
 */
