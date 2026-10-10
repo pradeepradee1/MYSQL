@@ -7,7 +7,7 @@ SQL :
 	Which allows us to do operations like DDL, DML , DQL operations.
 
 PL/SQL :
-	PL/SQL is Oracle procedural extension to SQL
+	It is procedural extension to SQL
 	Which allows us to do conditions, loops, functions, procedure and error handling
 
 
