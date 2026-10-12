@@ -8,7 +8,7 @@ SQL :
 
 PL/SQL :
 	It is procedural extension
-	Which allows us to do conditions, loops, functions, procedure and error handling
+	Which allows us to do variable , conditions, loops, functions, procedure and error handling
 
 
 
