@@ -3,14 +3,14 @@ Question :
     Classify the node values
 
 
-Node   Parnet    Classify
-5	    8	        inner
-9	    8	        inner
-4    	5	        Leaf
-2	    9	        Leaf
-1	    5	        Leaf
-3	    9	        Leaf
-8	  NULL	        Root
+Node   Parnet    
+5	    8	        
+9	    8	        
+4    	5	        
+2	    9	        
+1	    5	        
+3	    9	        
+8	  NULL	        
 
 OP 
 
