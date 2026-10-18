@@ -5,13 +5,13 @@ Note : Important
     
     Join :
         combines two or more tables. (definition)
-        Show data from multiple relations tables (another table)
+        Show data from multiple relations with another table
         Performance Can be faster if working with large data        
         It is used for data Retrieving
 
     Subquery :
         A query inside another query. (definition)
-        Show data based on some condition from another table. (another table)
+        Show data based on some condition with another table
         Performance Can be slow if working with large data
         It is used for Filtering, aggregation
 
