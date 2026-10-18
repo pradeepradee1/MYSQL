@@ -61,7 +61,7 @@ Focus on Mview
 
     MView :
         Physical table
-        Stores data physically as like table 
+        It physically stores the result of a SQL query. 
         Refreshes the data based on the database's refresh mechanism
 (talks about storage)
         Consumes storage	
