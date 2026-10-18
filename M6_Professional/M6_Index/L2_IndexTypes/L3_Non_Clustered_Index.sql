@@ -9,6 +9,9 @@ Definition:
                 filtering (WHERE clause)
                 Joining (JOIN columns)
                 searching columns (select clause)
+
+
+Note : index structure = B-tree structure 
                 
 
 */
