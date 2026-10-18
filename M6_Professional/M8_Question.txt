@@ -21,15 +21,16 @@ Note : Important
 
 CTE :
     It is Used to define a temporary result set using with clause (definition)
+    temporary result can be referenced multiple times in same query
     Improves readability and modularity of complex queries
     It support Recursive 
-    temporary result can be referenced multiple times in same query
 
 Subquery :
     A query inside another query (definition)
+    Can't be referenced multiple times    
     Not Improves readability and modularity of complex queries
     It doesn't support Recursive
-    Can't be referenced multiple times
+    
     
 
 
