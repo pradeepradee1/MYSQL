@@ -100,6 +100,9 @@ Focus on Mview
         It behave unexpectedly if subquery contains NULL values.
 
 
+6) Difference between Index view (M view ) and clustered index ?
+    Definitions 
+
 
 
 
