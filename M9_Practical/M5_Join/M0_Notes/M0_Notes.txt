@@ -3,6 +3,10 @@ Notes :
 1) What type of joins ?
 		Think all types of joins while solving the problem
 
+	Logic 0 :
+		    Inner join           ---> matching records , Not unmatching, Not Null values
+	        Left,right,full join ---> matching records , unmatching, Null values
+
 	Logic_1 :
 		Question : What type of join will apply below logic
 				Get all employess records ?
@@ -49,9 +53,7 @@ Notes :
 		| 5           | Naveen        |
 
 
-	Logic 4 :
-		    Inner join           ---> matching records , Not unmatching, Not Null values
-	        Left,right,full join ---> matching records , unmatching, Null values
+
 
 	
 	

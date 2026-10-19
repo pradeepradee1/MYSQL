@@ -16,8 +16,11 @@ WHERE YEAR(order_date) = 2025;
 
 SELECT *
 FROM orders
-WHERE order_date >= '2025-01-01'
-  AND order_date < '2026-01-01';
+WHERE order_date >= '2025-01-01' AND order_date < '2026-01-01';
+
+(OR)
+
+order_date BETWEEN '2020-01-01' AND '2020-12-31'
 
 *) Uses indexes efficiently.
 *) Enables partition pruning if the table is partitioned by order_date.

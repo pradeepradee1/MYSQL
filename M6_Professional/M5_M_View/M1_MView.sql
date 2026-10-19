@@ -4,8 +4,8 @@ Materialized view :
 
                 IT is a database object
                 It is a physically table
-                It is stored result of a query
-
+                It physically stores the result of a SQL query.
+          
           How data is getting  refresh?
                 Refreshes the data based on the database's refresh mechanism
                 

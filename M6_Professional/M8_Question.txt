@@ -5,13 +5,13 @@ Note : Important
     
     Join :
         combines two or more tables. (definition)
-        Show data from multiple relations tables (another table)
+        Show data from multiple relations with another table
         Performance Can be faster if working with large data        
         It is used for data Retrieving
 
     Subquery :
         A query inside another query. (definition)
-        Show data based on some condition from another table. (another table)
+        Show data based on some condition with another table
         Performance Can be slow if working with large data
         It is used for Filtering, aggregation
 
@@ -21,15 +21,16 @@ Note : Important
 
 CTE :
     It is Used to define a temporary result set using with clause (definition)
+    temporary result can be referenced multiple times in same query
     Improves readability and modularity of complex queries
     It support Recursive 
-    temporary result can be referenced multiple times in same query
 
 Subquery :
     A query inside another query (definition)
+    Can't be referenced multiple times    
     Not Improves readability and modularity of complex queries
     It doesn't support Recursive
-    Can't be referenced multiple times
+    
     
 
 
@@ -61,7 +62,7 @@ Focus on Mview
 
     MView :
         Physical table
-        Stores data physically	as like table 
+        It physically stores the result of a SQL query. 
         Refreshes the data based on the database's refresh mechanism
 (talks about storage)
         Consumes storage	
@@ -99,6 +100,9 @@ Focus on Mview
         Performance will be Slower with large result sets
         It behave unexpectedly if subquery contains NULL values.
 
+
+6) Difference between Index view (M view ) and clustered index ?
+    Definitions 
 
 
 

@@ -71,8 +71,14 @@ SELECT REGEXP_SUBSTR('abc123xyz','[0-9]+');
 
 # This is like operator in special operator
 #3) REGEXP_LIKE
-SELECT REGEXP_LIKE('user@example.com','^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
+
+SELECT 
+	* 
+FROM 
+	employees
+WHERE REGEXP_LIKE(name, '^A');
+
 /*
     OP
-    1
+    Arun, Anand, and Ajay.
 */

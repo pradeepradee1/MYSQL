@@ -14,11 +14,12 @@
 
 2) What are advantages of CTE?
 
+        *) temporary result can be referenced multiple times in same query
         *) Improves Readability
         *) Modularity of complex sql Queries ( Better Logical Separation )
         *) Supports Recursive Queries
-        *) temporary result can be referenced multiple times in same query
         *) Helps in Complex Transformations
+
         *) Works with SELECT,INSERT, UPDATE, DELETE
         
 

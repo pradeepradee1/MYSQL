@@ -1,0 +1,22 @@
+Database Architecture
+
+1) User Interface : 
+                      To interact with database by using CLI and JDBC/ODBC client
+
+2) Database server :  
+                      It is A service, that enable the client to execute the queries aganinst database
+
+3) Complier :
+                  It check the syntax of SQL query and convert into the execution plan 
+
+4) Optimizer :
+                It perform query optimizations (predicate pushdown, join  optimizations )
+
+5) Execution engine :
+                Execute the Execution plan 
+
+6) Storage layer :
+        The storage engine manages how data is physically stored and accessed.
+
+
+Note : Database Architecture = Hive Architecture

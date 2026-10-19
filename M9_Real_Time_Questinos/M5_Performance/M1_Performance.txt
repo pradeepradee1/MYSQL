@@ -6,8 +6,8 @@ Note :
 1) How do you identify a slow query?
 
 	*) I would confirm whether the slowdown is caused by the query itself or by the database environment
-	*) I identify queries with high execution time,
-	*) Analyzing execution plans using EXPLAIN  to understand where the query is spending most of its time
+	*) I identify queries with high "execution" time,
+	*) Analyzing "execution" plans using EXPLAIN  to understand where the query is spending most of its time
 	*) I look for 
 	        Avoid SELECT *
 	        Filter early (predicate pushdown)
@@ -23,7 +23,9 @@ SELECT ...
 FROM orders
 WHERE customer_id = 101;
 
-
+Note :
+*) Execution time in second line
+*) Execution plan in third line
 
 2) A query that used to take 2 seconds now takes 5 minutes. How would you troubleshoot it?
 

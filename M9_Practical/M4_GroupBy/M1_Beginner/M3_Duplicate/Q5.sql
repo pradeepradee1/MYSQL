@@ -50,15 +50,14 @@ INSERT INTO user_activity1 (user_id, login_time) VALUES
 (4, '2025-10-12 15:20:00');
 
 
-
-SELECT 
+SELECT
     DATE(login_time) AS login_date,
-    EXTRACT(HOUR FROM login_time) AS login_hour,
-    COUNT(DISTINCT user_id) AS hourly_active_users
+    HOUR(login_time) AS login_hour,
+    COUNT(DISTINCT user_id) AS distinct_users
 FROM user_activity1
-GROUP BY 
+GROUP BY
     DATE(login_time),
-    EXTRACT(HOUR FROM login_time)
-ORDER BY 
+    HOUR(login_time)
+ORDER BY
     login_date,
     login_hour;

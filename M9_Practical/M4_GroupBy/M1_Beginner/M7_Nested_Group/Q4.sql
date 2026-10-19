@@ -2,6 +2,19 @@
 Q: 
 Find Difference Between no. of apples amd no. of orranges sold each day
 
+Sample Input :
+
+
+sale_date	fruit	sold_num
+2020-05-01	apples		10
+2020-05-01	oranges		8
+2020-05-02	apples		15
+2020-05-02	oranges		15
+2020-05-03	apples		20
+2020-05-03	oranges		0
+2020-05-04	apples		15
+2020-05-04	oranges		16
+
 
 Sample Output:
 
