@@ -12,3 +12,6 @@ Note:
     7
     8
     9
+
+
+2) With clause --> Modularity of logics (join, group)
