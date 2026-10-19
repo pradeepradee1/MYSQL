@@ -1,2 +1,0 @@
-CTE:
-    1) Modularity logics

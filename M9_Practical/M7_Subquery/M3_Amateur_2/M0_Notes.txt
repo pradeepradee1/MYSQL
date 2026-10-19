@@ -1,0 +1,4 @@
+Note:
+
+
+1) With clause --> Modularity of logics (join, group)
