@@ -28,7 +28,7 @@ Note :
 
 2) CTE:
             
-        2.1) Modularity logics ----> GroupBy concept , Joins  
+        2.1) Modularity logics ----> GroupBy , Joins (Comnination of mutiple logic )  
 
 
         2.2) CTE (Recursive) :
