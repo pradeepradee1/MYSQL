@@ -9,7 +9,7 @@ Note :
             *) From
             *) Having
 
-        1.2)  SubQuery :      ------------> (Find prime number logics)
+        1.2)  Co-relation SubQuery :      ------------> (Find prime number logics)
                 Compare the row level Logic_1 
     
                     Ex:
