@@ -1,7 +1,8 @@
 /*
 
 
-Group Logic ---->  group team , group by sal etc
+*) First find Group Logic  
+          group team , group by sal etc
 
 
 1) Think Where we can apply the Conditions (Important) 
