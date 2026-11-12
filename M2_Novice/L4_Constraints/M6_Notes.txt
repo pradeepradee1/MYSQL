@@ -1,0 +1,28 @@
+Note :
+
+A table can have only one PRIMARY KEY constraint
+
+primary key can consist of multiple columns. This is called a Composite Primary Key.
+
+If you try to create a table with multiple PRIMARY KEY constraints, the database will throw an error.
+
+
+Syntax :
+
+# Single PRIMARY KEY with single column
+
+CREATE TABLE employees (
+    employee_id INT,
+    email VARCHAR(100),
+    employee_name VARCHAR(100),
+    PRIMARY KEY (employee_id)
+);
+
+# Primary Key with composite primary key 
+
+CREATE TABLE employees (
+    employee_id INT,
+    email VARCHAR(100),
+    employee_name VARCHAR(100),
+    PRIMARY KEY (employee_id, email)
+);
