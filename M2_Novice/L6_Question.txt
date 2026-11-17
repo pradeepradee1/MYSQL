@@ -6,6 +6,8 @@ Primary Key :
 
                 The Combination of not null and unique constraints						
 				It will not allow the Null and duplicate values 
+
+				A table should single primary key
 				
                 A table which contains primary key is considered as parent/Master/Base table.
 
@@ -15,6 +17,8 @@ Foreign Key :
 				nd we can have foriegn key in other table.
 
 				Foriegn key contains duplicates and null values also.
+
+				A table should have multiple foreign key
 
 				A table which contains foriegn key is known as child/Detailed/Derived table.
 
