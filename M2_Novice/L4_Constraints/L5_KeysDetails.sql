@@ -12,16 +12,21 @@ Keys				:
 
 PK				: 	
 					Primary key is used to identify the unique record of a table
+
 					The Combination of not null and unique constraints		
+
 					It will not allow the Null and duplicate values 
+
 					We can have only one primary key in table
 							
 					Example :
 						ID
 						
 FK				:	Create the relationship between the two tables by using primary key of one table
-					and we can have foriegn key in other table.				
+					and we can have foriegn key in other table.
+
 					Foriegn key contains duplicates and null values also.
+
 					We can have multiple Foreign key in table
 					
 					Example :
