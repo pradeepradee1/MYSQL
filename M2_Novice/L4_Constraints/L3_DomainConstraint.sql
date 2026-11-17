@@ -1,6 +1,6 @@
 /*
 DOMAIN constraints:
-					Checking the range (or) list of values in a column
+					Checking the list of values in a column
 					
 					CHECK Has two operators
 					
