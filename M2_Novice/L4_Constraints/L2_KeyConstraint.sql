@@ -22,8 +22,9 @@ KEY CONSTRAINT :
 
 
 *) Note :
-			*) We can have multiple primary columns     PRIMARY KEY (Employee_ID, Project_ID)
 			*) one Primay key should create in table
+			*) We can have multiple primary columns     PRIMARY KEY (Employee_ID, Project_ID) 
+			
 
 
 			PRIMARY KEY has two types :
