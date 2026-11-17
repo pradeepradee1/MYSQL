@@ -13,9 +13,7 @@ Keys				:
 PK				: 	
 					Primary key is used to identify the unique record of a table
 
-					The Combination of not null and unique constraints		
-
-					It will not allow the Null and duplicate values 
+					The Combination of not null and unique constraints . It will not allow the Null and duplicate values 
 
 					We can have only one primary key in table
 							
