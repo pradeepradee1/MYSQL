@@ -17,8 +17,15 @@ KEY CONSTRAINT :
 					Primary key is used to identify the unique record of a table
 					The Combination of not null and unique constraints		
 					It will not allow the Null and duplicate values 
-					We can have one primary key
-			
+					We can have one primary key in table
+
+
+
+*) Note :
+			*) We can have multiple primary columns     PRIMARY KEY (Employee_ID, Project_ID)
+			*) one Primay key should create in table
+
+
 			PRIMARY KEY has two types :
 			
 				1)Simple :
