@@ -11,7 +11,7 @@ Note :
 	*) I look for 
 	        Avoid SELECT *
 	        Filter early (predicate pushdown)
-			Inefficient sorts
+			Inefficient sorts ( prefer hash aggregation instead of sort aggregation )
             Join on indexed columns 
             partition pruning the large table
 	*) I also look for transaction block and dead lock and live lock  
@@ -35,7 +35,7 @@ Note :
 	*) I look for 
 	        Avoid SELECT *
 	        Filter early (predicate pushdown)
-			Inefficient sorts
+			Inefficient sorts ( prefer hash aggregation instead of sort aggregation )
             Join on indexed columns 
             partition pruning the large table
 	*) I also look for transaction block and dead lock and live lock  
@@ -48,7 +48,7 @@ Note :
 
 	        Avoid SELECT *
 	        Filter early (predicate pushdown)
-			Inefficient sorts
+			Inefficient sorts ( prefer hash aggregation instead of sort aggregation )
             Join on indexed columns 
             partition pruning the large table
 
