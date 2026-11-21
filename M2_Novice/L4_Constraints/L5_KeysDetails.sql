@@ -8,6 +8,7 @@ Keys				:
 					5)Composite Key
 					6)Super Keys
 					7)Surrogate key
+					8)Natural Key
 
 
 PK				: 	
@@ -74,7 +75,10 @@ Surrogate key (synthentic key) 	:
 								Example :
 										ID : ( 1 ,2	,3)
 							
-				
+Natural Key :
+				A natural key is a business key
+				Which comes from the source system 
+				It is identifies the unique a record of table
 
 */
 
