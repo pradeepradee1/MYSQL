@@ -2,8 +2,8 @@
 
 
 *) First find Group Logic  
-          Ex : group team , group by sal etc
-          Ex : same salary with same department
+          Ex : group team , group by sal , group by month etc
+          Ex : same salary with same department , same calendar month
 
 
 1) Think Where we can apply the Conditions (Important) 
